@@ -51,8 +51,8 @@ interface MuiVirtualizedTableProps extends WithStyles<typeof styles> {
 
 class MuiVirtualizedTable extends React.PureComponent<MuiVirtualizedTableProps> {
   static defaultProps = {
-    headerHeight: 48,
-    rowHeight: 48,
+    headerHeight: 64,
+    rowHeight: 64,
   };
 
   getRowClassName = ({ index }: Row) => {
@@ -139,32 +139,34 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 // ---
 
 interface Data {
-  calories: number;
-  carbs: number;
-  dessert: string;
-  fat: number;
   id: number;
-  protein: number;
+  junior: string;
+  monday: number;
+  tuesday: number;
+  wednesday: number;
+  thursday: number;
+  friday: number;
 }
-type Sample = [string, number, number, number, number];
+type Sample = [string, number, number, number, number, number];
 
 const sample: Sample[] = [
-  ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-  ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-  ['Eclair', 262, 16.0, 24, 6.0],
-  ['Cupcake', 305, 3.7, 67, 4.3],
-  ['Gingerbread', 356, 16.0, 49, 3.9],
+  ['髙橋 佑太', 10, 16.0, 24, 6.0, 5.0],
+  ['戸澤 涼', 159, 6.0, 24, 4.0, 5.0],
+  ['若林 勇汰', 237, 9.0, 37, 4.3, 5.0],
+  ['岡田 将太朗', 262, 16.0, 24, 6.0, 5.0],
+  ['白幡 祐叶', 305, 3.7, 67, 4.3, 5.0],
 ];
 
 function createData(
   id: number,
-  dessert: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  junior: string,
+  monday: number,
+  tuesday: number,
+  wednesday: number,
+  thursday: number,
+  friday: number,
 ): Data {
-  return { id, dessert, calories, fat, carbs, protein };
+  return { id, junior, monday, tuesday, wednesday, thursday, friday };
 }
 
 const rows: Data[] = [];
@@ -176,38 +178,44 @@ for (let i = 0; i < 200; i += 1) {
 
 function ReactVirtualizedTable() {
   return (
-    <Paper style={{ height: 400, width: '100%' }}>
+    <Paper style={{ height: 650, width: '100%' }}>
       <VirtualizedTable
         rowCount={rows.length}
         rowGetter={({ index }) => rows[index]}
         columns={[
           {
-            width: 200,
-            label: 'Dessert',
-            dataKey: 'dessert',
+            width: 300,
+            label: 'Junior',
+            dataKey: 'junior',
           },
           {
-            width: 120,
-            label: 'Calories\u00A0(g)',
-            dataKey: 'calories',
+            width: 180,
+            label: '6/01',
+            dataKey: 'monday',
             numeric: true,
           },
           {
-            width: 120,
-            label: 'Fat\u00A0(g)',
-            dataKey: 'fat',
+            width: 180,
+            label: '6/02',
+            dataKey: 'tuesday',
             numeric: true,
           },
           {
-            width: 120,
-            label: 'Carbs\u00A0(g)',
-            dataKey: 'carbs',
+            width: 180,
+            label: '6/03',
+            dataKey: 'wednesday',
             numeric: true,
           },
           {
-            width: 120,
-            label: 'Protein\u00A0(g)',
-            dataKey: 'protein',
+            width: 180,
+            label: '6/04',
+            dataKey: 'thursday',
+            numeric: true,
+          },
+          {
+            width: 180,
+            label: '6/05',
+            dataKey: 'friday',
             numeric: true,
           },
         ]}
