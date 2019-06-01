@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import { mainDrawerItems } from './DrawerItems';
+import FeelingTable from 'src/components/FeelingTable/FeelingTable'
 
 const drawerWidth = 240;
 
@@ -177,12 +178,12 @@ const styles = (theme: Theme) =>
             >
               <List>{mainDrawerItems}</List>
             </Drawer>
-            {/* <main
+            <main
               className={classNames(classes.content, this.state.isOpenDrawer && classes.contentShift)}
             >
               <div className={classes.appBarSpacer} />
-              <VideList />
-            </main> */}
+              <FeelingTable />
+            </main>
           </div>
         </MuiThemeProvider>
       );
