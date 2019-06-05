@@ -162,7 +162,7 @@ const styles = (theme: Theme) =>
                   <MenuIcon />
                 </IconButton>
                 <Typography className={classes.title} variant='h6' color='inherit' noWrap>
-                  気分一覧
+                  Cocoa Web Client
                 </Typography>
               </Toolbar>
             </AppBar>
