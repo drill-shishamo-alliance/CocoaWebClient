@@ -7,7 +7,6 @@ import JuniorFeelingsIcon from 'src/assets/DrawerItems/JuniorFeelingsIcon.svg';
 import MyFeelingIcon from 'src/assets/DrawerItems/MyFeelingIcon.svg';
 import DepartmentalAnalysisIcon from 'src/assets/DrawerItems/DepartmentalAnalysisIcon.svg';
 import MapIcon from '@material-ui/icons/Map';
-import { switchFeelingTable } from 'src/actions/Screen/ScreenActionCreator';
 
 export const mainDrawerItems = (
     <div>
@@ -19,7 +18,7 @@ export const mainDrawerItems = (
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <img src={JuniorFeelingsIcon} style={{height: '24px', width: '24px'}} onClick={switchFeelingTable}/>
+                <img src={JuniorFeelingsIcon} style={{height: '24px', width: '24px'}} />
             </ListItemIcon>
             <ListItemText primary='部下の気分' />
         </ListItem>
