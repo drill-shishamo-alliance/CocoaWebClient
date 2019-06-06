@@ -40,7 +40,7 @@ interface Row {
   index: number;
 }
 
-interface MuiVirtualizedTableProps extends WithStyles<typeof styles> {
+interface JuniorFeelingsTableProps extends WithStyles<typeof styles> {
   columns: ColumnData[];
   headerHeight: number;
   onRowClick?: () => void;
@@ -49,7 +49,7 @@ interface MuiVirtualizedTableProps extends WithStyles<typeof styles> {
   rowHeight: number;
 }
 
-class MuiVirtualizedTable extends React.PureComponent<MuiVirtualizedTableProps> {
+class JuniorFeelings extends React.PureComponent<JuniorFeelingsTableProps> {
   static defaultProps = {
     headerHeight: 64,
     rowHeight: 64,
@@ -126,7 +126,7 @@ class MuiVirtualizedTable extends React.PureComponent<MuiVirtualizedTableProps> 
   }
 }
 
-(MuiVirtualizedTable as any).propTypes = {
+(JuniorFeelings as any).propTypes = {
   classes: PropTypes.object.isRequired,
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   headerHeight: PropTypes.number,
@@ -134,7 +134,7 @@ class MuiVirtualizedTable extends React.PureComponent<MuiVirtualizedTableProps> 
   rowHeight: PropTypes.number,
 };
 
-const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
+const VirtualizedTable = withStyles(styles)(JuniorFeelings);
 
 // ---
 

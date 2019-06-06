@@ -7,21 +7,27 @@ import JuniorFeelingsIcon from 'src/assets/DrawerItems/JuniorFeelingsIcon.svg';
 import MyFeelingIcon from 'src/assets/DrawerItems/MyFeelingIcon.svg';
 import DepartmentalAnalysisIcon from 'src/assets/DrawerItems/DepartmentalAnalysisIcon.svg';
 import MapIcon from '@material-ui/icons/Map';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 export const mainDrawerItems = (
+    <BrowserRouter>
     <div>
+        <Link to ='/'>
         <ListItem button>
             <ListItemIcon>
                 <HomeIcon />
             </ListItemIcon>
             <ListItemText primary='ホーム' />
         </ListItem>
-        <ListItem button>
+        </Link>
+        <Link to ='/juniorfeelings'>
+        <ListItem button >
             <ListItemIcon>
                 <img src={JuniorFeelingsIcon} style={{height: '24px', width: '24px'}} />
             </ListItemIcon>
             <ListItemText primary='部下の気分' />
         </ListItem>
+        </Link>
         <ListItem button>
             <ListItemIcon>
                 <img src={MyFeelingIcon} style={{height: '24px', width: '24px'}}/>
@@ -41,4 +47,5 @@ export const mainDrawerItems = (
             <ListItemText primary='気分マップ' />
         </ListItem>
     </div>
+    </BrowserRouter>
 );

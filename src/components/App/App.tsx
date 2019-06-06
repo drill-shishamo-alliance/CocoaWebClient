@@ -11,7 +11,12 @@ import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import { mainDrawerItems } from './DrawerItems';
-import FeelingTable from 'src/components/FeelingTable/FeelingTable'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import JuniorFeelings from 'src/components/JuniorFeelings/JuniorFeelings';
+import Home from 'src/components/Home/Home';
+import MyFeelings from 'src/components/MyFeelings/MyFeelings';
+import DepartmentalAnalysis from 'src/components/DepartmentalAnalysis/DepartmentalAnalysis';
+import FeelingsMap from 'src/components/FeelingsMap/FeelingsMap';
 
 const drawerWidth = 240;
 
@@ -116,6 +121,11 @@ const styles = (theme: Theme) =>
     },
   });
 
+  type ScreenProps = {
+    handleToJuniorFeelingsPage: () => {
+    }
+  }
+
   export interface Props extends WithStyles<typeof styles> {}
 
   interface State {
@@ -128,7 +138,7 @@ const styles = (theme: Theme) =>
       anchorEl: null,
       isOpenDrawer: false,
     };
-  
+    
     private handleDrawerOpen = () => {
       this.setState({ isOpenDrawer: !this.state.isOpenDrawer });
     };
@@ -140,7 +150,7 @@ const styles = (theme: Theme) =>
     handleMenuClose = () => {
       this.setState({ anchorEl: null });
     };
-  
+
     render() {
       const { classes } = this.props;
   
@@ -182,7 +192,15 @@ const styles = (theme: Theme) =>
               className={classNames(classes.content, this.state.isOpenDrawer && classes.contentShift)}
             >
               <div className={classes.appBarSpacer} />
-              <FeelingTable />
+              <BrowserRouter>
+                <div>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/juniorfeelings' component={JuniorFeelings} /> 
+                    <Route path='/myfeelings' component={MyFeelings} /> 
+                    <Route path='/departmentalanalysis' component={DepartmentalAnalysis} /> 
+                    <Route path='/feelingsmap' component={FeelingsMap} />
+                </div>
+              </BrowserRouter>
             </main>
           </div>
         </MuiThemeProvider>
