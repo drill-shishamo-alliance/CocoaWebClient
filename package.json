@@ -52,6 +52,11 @@
     "redux": "^4.0.1",
     "typesafe-actions": "^4.4.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
