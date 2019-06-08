@@ -19,8 +19,8 @@ const styles = (theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
     },
-    dateMaginTop: {
-      marginTop: -15,
+    datePosition: {
+      marginTop: -10,
     },
     iconSize: {
       fontSize: 40,
@@ -39,6 +39,12 @@ const styles = (theme: Theme) =>
     },
     verySatisfiedColor: {
       color: '#EF7079', // flat watermelon
+    },
+    sunnyColor: {
+      color: '#ffa500', // orange
+    },
+    moonColor: {
+      color: '#708090', // slategray
     },
   });
 

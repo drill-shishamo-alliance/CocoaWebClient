@@ -60,31 +60,46 @@ function SimpleTable(props: JuniorFeelingsProps) {
             <TableCell align='center'>
               <div className={classes.headerDate}>
                 <h2>6/3</h2>
-                <h2 className={classes.dateMaginTop}>朝 夕</h2>
+                <div className={classes.datePosition}>
+                  <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
+                  <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
+                </div>
               </div>
             </TableCell>
             <TableCell align='center'>
               <div className={classes.headerDate}>
                 <h2>6/4</h2>
-                <h2 className={classes.dateMaginTop}>朝 夕</h2>
+                <div className={classes.datePosition}>
+                  <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
+                  <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
+                </div>
               </div>
             </TableCell>
             <TableCell align='center'>
               <div className={classes.headerDate}>
                 <h2>6/5</h2>
-                <h2 className={classes.dateMaginTop}>朝 夕</h2>
+                <div className={classes.datePosition}>
+                  <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
+                  <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
+                </div>
               </div>
             </TableCell>
             <TableCell align='center'>
               <div className={classes.headerDate}>
                 <h2>6/6</h2>
-                <h2 className={classes.dateMaginTop}>朝 夕</h2>
+                <div className={classes.datePosition}>
+                  <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
+                  <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
+                </div>
               </div>
             </TableCell>
             <TableCell align='center'>
               <div className={classes.headerDate}>
                 <h2>6/7</h2>
-                <h2 className={classes.dateMaginTop}>朝 夕</h2>
+                <div className={classes.datePosition}>
+                  <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
+                  <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
+                </div>
               </div>
             </TableCell>
           </TableRow>
