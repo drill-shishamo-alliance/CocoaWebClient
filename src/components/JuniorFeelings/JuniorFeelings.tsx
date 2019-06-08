@@ -9,42 +9,9 @@ import classNames from 'classnames';
 import JuniorFeelingsProps from './JuniorFeelingsProps';
 import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsStyles';
+import { JuniorFeelingsState } from 'src/states/JuniorFeelingsState';
 
-type RowData = {
-  junior: string;
-  weekFeelings?: {
-    morning?: JSX.Element;
-    evening?: JSX.Element;
-  }[];
-};
-
-const rows: RowData[] = [
-  {
-    junior: '髙橋 佑太',
-    weekFeelings: [
-      {
-        morning: <i className={classNames('material-icons')}>sentiment_satisfied_alt</i>,
-        evening: <i className='material-icons'>sentiment_satisfied_alt</i>,
-      },
-      {
-        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-      },
-      {
-        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-      },
-      {
-        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-      },
-      {
-        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
-      },
-    ],
-  },
-];
+const rows: JuniorFeelingsState = [];
 
 function SimpleTable(props: JuniorFeelingsProps) {
   const { classes } = props;

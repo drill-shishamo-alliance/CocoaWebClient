@@ -40,16 +40,21 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.8",
+    "@types/react-redux": "^7.0.9",
     "@types/react-router-dom": "^4.3.3",
     "@types/react-virtualized": "^9.21.2",
     "@types/redux": "^3.6.0",
+    "@types/redux-logger": "^3.0.7",
     "classnames": "^2.2.6",
     "husky": "^2.4.0",
     "lint-staged": "^8.2.0",
     "prettier": "^1.18.2",
+    "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.1",
     "react-virtualized": "^9.21.1",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
     "typesafe-actions": "^4.4.0"
   },
   "husky": {
