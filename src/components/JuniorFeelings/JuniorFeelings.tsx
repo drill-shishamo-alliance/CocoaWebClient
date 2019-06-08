@@ -21,15 +21,16 @@ const useStyles = makeStyles((theme: Theme) =>
     row: {
       display: 'flex',
       flexDirection: 'row',
+      justifyContent: 'center',
     },
     headerDate: {
       display: 'flex',
-      flexDirection: 'column', 
-    }, 
+      flexDirection: 'column',
+    },
     dateMaginTop: {
-      marginTop: -15
-    }
-  }),
+      marginTop: -15,
+    },
+  })
 );
 
 type RowData = {
@@ -45,27 +46,29 @@ const rows: RowData[] = [
     junior: '髙橋 佑太',
     weekFeelings: [
       {
-        morning: <Avatar src='https://mentalcaredevstorage.blob.core.windows.net/cocoa-web-resource/round_sentiment_dissatisfied_black_18dp.png' />,
-        evening: <Avatar src='https://mentalcaredevstorage.blob.core.windows.net/cocoa-web-resource/round_sentiment_dissatisfied_black_18dp.png' />
+        morning: <i className='material-icons'>sentiment_satisfied_alt</i>,
+        evening: (
+          <Avatar src='https://mentalcaredevstorage.blob.core.windows.net/cocoa-web-resource/round_sentiment_dissatisfied_black_18dp.png' />
+        ),
       },
       {
         morning: <Avatar src='' />,
-        evening: <Avatar src='' />
+        evening: <Avatar src='' />,
       },
       {
         morning: <Avatar src='' />,
-        evening: <Avatar src='' />
+        evening: <Avatar src='' />,
       },
       {
         morning: <Avatar src='' />,
-        evening: <Avatar src='' />
+        evening: <Avatar src='' />,
       },
       {
         morning: <Avatar src='' />,
-        evening: <Avatar src='' />
-      }
+        evening: <Avatar src='' />,
+      },
     ],
-  }
+  },
 ];
 
 function SimpleTable() {
@@ -76,33 +79,35 @@ function SimpleTable() {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell align='center'><h2>社員</h2></TableCell>
-            <TableCell align="center">
+            <TableCell align='center'>
+              <h2>社員</h2>
+            </TableCell>
+            <TableCell align='center'>
               <div className={classes.headerDate}>
                 <h2>6/3</h2>
                 <h2 className={classes.dateMaginTop}>朝 夕</h2>
               </div>
-              </TableCell>
-            <TableCell align="center">
-            <div className={classes.headerDate}>
+            </TableCell>
+            <TableCell align='center'>
+              <div className={classes.headerDate}>
                 <h2>6/4</h2>
                 <h2 className={classes.dateMaginTop}>朝 夕</h2>
               </div>
             </TableCell>
-            <TableCell align="center">
-            <div className={classes.headerDate}>
+            <TableCell align='center'>
+              <div className={classes.headerDate}>
                 <h2>6/5</h2>
                 <h2 className={classes.dateMaginTop}>朝 夕</h2>
               </div>
             </TableCell>
-            <TableCell align="center">
-            <div className={classes.headerDate}>
+            <TableCell align='center'>
+              <div className={classes.headerDate}>
                 <h2>6/6</h2>
                 <h2 className={classes.dateMaginTop}>朝 夕</h2>
               </div>
             </TableCell>
-            <TableCell align="center">
-            <div className={classes.headerDate}>
+            <TableCell align='center'>
+              <div className={classes.headerDate}>
                 <h2>6/7</h2>
                 <h2 className={classes.dateMaginTop}>朝 夕</h2>
               </div>
@@ -112,18 +117,18 @@ function SimpleTable() {
         <TableBody>
           {rows.map(row => (
             <TableRow key={row.junior}>
-              <TableCell component="th" scope="row" align='center'>
+              <TableCell component='th' scope='row' align='center'>
                 {row.junior}
               </TableCell>
-              {row.weekFeelings && row.weekFeelings.map(icons => (
-                <TableCell align='center'>
-                  <div className={classes.row}>
-                  {icons.morning && icons.morning}
-                  {icons.evening && icons.evening}
-                  </div>
-                </TableCell>
-                ))
-              }
+              {row.weekFeelings &&
+                row.weekFeelings.map(icons => (
+                  <TableCell align='center'>
+                    <div className={classes.row}>
+                      {icons.morning && icons.morning}
+                      {icons.evening && icons.evening}
+                    </div>
+                  </TableCell>
+                ))}
             </TableRow>
           ))}
         </TableBody>
