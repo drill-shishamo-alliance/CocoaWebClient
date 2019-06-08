@@ -1,37 +1,14 @@
 import * as React from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Avatar from '@material-ui/core/Avatar';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      marginTop: theme.spacing(3),
-      overflowX: 'auto',
-    },
-    table: {
-      minWidth: 650,
-    },
-    row: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
-    headerDate: {
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    dateMaginTop: {
-      marginTop: -15,
-    },
-  })
-);
+import classNames from 'classnames';
+import JuniorFeelingsProps from './JuniorFeelingsProps';
+import { withStyles } from '@material-ui/styles';
+import styles from './JuniorFeelingsStyles';
 
 type RowData = {
   junior: string;
@@ -46,33 +23,31 @@ const rows: RowData[] = [
     junior: '髙橋 佑太',
     weekFeelings: [
       {
-        morning: <i className='material-icons'>sentiment_satisfied_alt</i>,
-        evening: (
-          <Avatar src='https://mentalcaredevstorage.blob.core.windows.net/cocoa-web-resource/round_sentiment_dissatisfied_black_18dp.png' />
-        ),
+        morning: <i className={classNames('material-icons')}>sentiment_satisfied_alt</i>,
+        evening: <i className='material-icons'>sentiment_satisfied_alt</i>,
       },
       {
-        morning: <Avatar src='' />,
-        evening: <Avatar src='' />,
+        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
+        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
       },
       {
-        morning: <Avatar src='' />,
-        evening: <Avatar src='' />,
+        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
+        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
       },
       {
-        morning: <Avatar src='' />,
-        evening: <Avatar src='' />,
+        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
+        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
       },
       {
-        morning: <Avatar src='' />,
-        evening: <Avatar src='' />,
+        morning: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
+        evening: <i className='material-icons md-36'>sentiment_satisfied_alt</i>,
       },
     ],
   },
 ];
 
-function SimpleTable() {
-  const classes = useStyles();
+function SimpleTable(props: JuniorFeelingsProps) {
+  const { classes } = props;
 
   return (
     <Paper className={classes.root}>
@@ -124,8 +99,24 @@ function SimpleTable() {
                 row.weekFeelings.map(icons => (
                   <TableCell align='center'>
                     <div className={classes.row}>
-                      {icons.morning && icons.morning}
-                      {icons.evening && icons.evening}
+                      <i
+                        className={classNames(
+                          'material-icons',
+                          classes.satisfiedColor,
+                          classes.iconSize
+                        )}
+                      >
+                        sentiment_satisfied_alt
+                      </i>
+                      <i
+                        className={classNames(
+                          'material-icons',
+                          classes.verySatisfiedColor,
+                          classes.iconSize
+                        )}
+                      >
+                        sentiment_very_satisfied
+                      </i>
                     </div>
                   </TableCell>
                 ))}
@@ -137,4 +128,4 @@ function SimpleTable() {
   );
 }
 
-export default SimpleTable;
+export default withStyles(styles)(SimpleTable);
