@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 import RouteableDrawerList from './RouteableDrawerList';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import JuniorFeelings from 'src/components/JuniorFeelings/JuniorFeelings';
+import JuniorFeelings from 'src/containers/JuniorFeelings/JuniorFeelings';
 import Home from 'src/components/Home/Home';
 import MyFeelings from 'src/components/MyFeelings/MyFeelings';
 import DepartmentalAnalysis from 'src/components/DepartmentalAnalysis/DepartmentalAnalysis';

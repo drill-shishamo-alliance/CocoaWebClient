@@ -1,9 +1,9 @@
 import { WithStyles } from '@material-ui/core';
 import styles from './JuniorFeelingsStyles';
-import { JuniorFeelingsState } from 'src/states/JuniorFeelingsState';
+import { JuniorFeeling } from 'src/states/JuniorFeelingsState';
 
 export type JuniorFeelingsConnectedProps = {
-  juniorFeelingsState: JuniorFeelingsState;
+  juniorFeelingsState: JuniorFeeling[];
 };
 
 type JuniorFeelingsProps = WithStyles<typeof styles> & JuniorFeelingsConnectedProps;

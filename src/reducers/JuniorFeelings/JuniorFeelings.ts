@@ -1,39 +1,13 @@
-import { JuniorFeelingsState } from 'src/states/JuniorFeelingsState';
+import { JuniorFeeling } from 'src/states/JuniorFeelingsState';
 import JuniorFeelingsAction from 'src/actions/JuniorFeelings/JuniorFeelingsAction';
 import JuniorFeelingsActionType from 'src/actions/JuniorFeelings/JuniorFeelingsActionType';
 
-const initialState: JuniorFeelingsState = [
-  {
-    junior: '髙橋 佑太',
-    weekFeelings: [
-      {
-        morning: 'sentiment_satisfied_alt',
-        evening: 'sentiment_satisfied_alt',
-      },
-      {
-        morning: 'sentiment_satisfied_alt',
-        evening: 'sentiment_satisfied_alt',
-      },
-      {
-        morning: 'sentiment_satisfied_alt',
-        evening: 'sentiment_satisfied_alt',
-      },
-      {
-        morning: 'sentiment_satisfied_alt',
-        evening: 'sentiment_satisfied_alt',
-      },
-      {
-        morning: 'sentiment_satisfied_alt',
-        evening: 'sentiment_satisfied_alt',
-      },
-    ],
-  },
-];
+const initialState: JuniorFeeling[] = [];
 
 const juniorFeelings = (
-  state: JuniorFeelingsState = initialState,
+  state: JuniorFeeling[] = initialState,
   action: JuniorFeelingsAction
-): JuniorFeelingsState => {
+): JuniorFeeling[] => {
   switch (action.type) {
     case JuniorFeelingsActionType.GET_JUNIOR_FEELINGS_SUCCEEDED:
       return {

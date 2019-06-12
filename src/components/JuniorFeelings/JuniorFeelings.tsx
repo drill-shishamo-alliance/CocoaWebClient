@@ -9,12 +9,9 @@ import classNames from 'classnames';
 import JuniorFeelingsProps from './JuniorFeelingsProps';
 import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsStyles';
-import { JuniorFeelingsState } from 'src/states/JuniorFeelingsState';
-
-const rows: JuniorFeelingsState = [];
 
 function SimpleTable(props: JuniorFeelingsProps) {
-  const { classes } = props;
+  const { classes, juniorFeelingsState } = props;
 
   return (
     <Paper className={classes.root}>
@@ -72,7 +69,7 @@ function SimpleTable(props: JuniorFeelingsProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {juniorFeelingsState.map(row => (
             <TableRow key={row.junior}>
               <TableCell component='th' scope='row' align='center'>
                 {row.junior}
