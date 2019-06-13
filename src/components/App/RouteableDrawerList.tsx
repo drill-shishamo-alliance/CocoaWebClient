@@ -36,21 +36,25 @@ class RouteableDrawerList extends React.Component<Props> {
 
         <ListItem button onClick={handleClick('/juniorfeelings')}>
           <ListItemIcon>
-            <img src={JuniorFeelingsIcon} className={classes.iconImg} />
+            <img src={JuniorFeelingsIcon} className={classes.iconImg} alt='juniorfeelings' />
           </ListItemIcon>
           <ListItemText primary='部下の気分' />
         </ListItem>
 
         <ListItem button onClick={handleClick('/myfeelings')}>
           <ListItemIcon>
-            <img src={MyFeelingIcon} className={classes.iconImg} />
+            <img src={MyFeelingIcon} className={classes.iconImg} alt='myfeelings' />
           </ListItemIcon>
           <ListItemText primary='自分の気分' />
         </ListItem>
 
         <ListItem button onClick={handleClick('/departmentalanalysis')}>
           <ListItemIcon>
-            <img src={DepartmentalAnalysisIcon} className={classes.iconImg} />
+            <img
+              src={DepartmentalAnalysisIcon}
+              className={classes.iconImg}
+              alt='departmentalanalysis'
+            />
           </ListItemIcon>
           <ListItemText primary='部署の分析' />
         </ListItem>
