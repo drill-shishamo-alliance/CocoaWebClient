@@ -2,28 +2,23 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { JuniorFeeling, JuniorFeelingsModel } from 'src/states/JuniorFeelingsState';
 
 export default class JuniorFeelingsApi {
-  private axios: AxiosInstance;
-
-  constructor() {
-    this.axios = axios.create({
-      baseURL: '13.78.9.42:8080',
-    });
-  }
-
   public async getJuniorFeelings(id?: number, access_token?: string) {
     try {
-      const response: AxiosResponse<JuniorFeelingsModel> = await this.axios.get(
-        '/juniors/feelings',
+      const response: AxiosResponse<JuniorFeelingsModel> = await axios.get(
+        'http://13.78.9.42:8080/juniors/feelings',
         {
           headers: {
             id,
             access_token,
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
           },
+          responseType: 'json',
+          data: {},
         }
       );
       return response;
-    } catch {
-      throw new Error('Catch error at GET:/juniors/feelings');
+    } catch (error) {
+      throw new Error(error);
     }
   }
 
