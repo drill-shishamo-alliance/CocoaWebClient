@@ -1,12 +1,9 @@
 import * as React from 'react';
 
 class DepartmentalAnalysis extends React.Component {
-    render() {
-        return(
-        <div>
-            ここはHomeページです
-        </div>
-        )}
+  render() {
+    return <div>ここはDepartmentalAnalysisページです</div>;
+  }
 }
 
 export default DepartmentalAnalysis;

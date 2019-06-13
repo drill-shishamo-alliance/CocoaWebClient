@@ -1,4 +1,4 @@
-export interface JuniorFeelingsModel {
+export type JuniorFeelingsModel = {
   juniors: {
     id: number;
     name: string;
@@ -11,12 +11,12 @@ export interface JuniorFeelingsModel {
     }[];
   }[];
   error_message: string;
-}
+};
 
-export interface JuniorFeeling {
+export type JuniorFeeling = {
   junior: string;
   weekFeelings?: {
     morning?: string;
     evening?: string;
   }[];
-}
+};

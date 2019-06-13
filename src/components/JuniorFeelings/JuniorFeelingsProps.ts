@@ -6,6 +6,11 @@ export type JuniorFeelingsConnectedProps = {
   juniorFeelingsState: JuniorFeeling[];
 };
 
-type JuniorFeelingsProps = WithStyles<typeof styles> & JuniorFeelingsConnectedProps;
+export type JuniorFeelingsDispatchProps = {
+  getJuniorFeelingsRequest: (id?: number, accessToken?: string) => void;
+};
+type JuniorFeelingsProps = WithStyles<typeof styles> &
+  JuniorFeelingsConnectedProps &
+  JuniorFeelingsDispatchProps;
 
 export default JuniorFeelingsProps;

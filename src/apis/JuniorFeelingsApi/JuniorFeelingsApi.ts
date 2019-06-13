@@ -10,7 +10,7 @@ export default class JuniorFeelingsApi {
     });
   }
 
-  public async getJuniorFeelings(id: number, access_token: string) {
+  public async getJuniorFeelings(id?: number, access_token?: string) {
     try {
       const response: AxiosResponse<JuniorFeelingsModel> = await this.axios.get(
         '/juniors/feelings',
