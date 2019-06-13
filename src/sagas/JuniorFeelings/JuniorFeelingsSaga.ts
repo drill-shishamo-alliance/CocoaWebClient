@@ -12,13 +12,13 @@ export function* getJuniorFeelingsSaga(action: ReturnType<typeof getJuniorFeelin
     action.payload.id,
     action.payload.access_token
   );
-
-  if (response.status == 200 && response.data) {
+  yield console.log(JSON.stringify(response));
+  if (response.status === 200 && response.data) {
     const juniorFeelings: ReturnType<
       typeof api.mapGetJuniorFeelingsResponseToJuniorFeelings
     > = yield api.mapGetJuniorFeelingsResponseToJuniorFeelings(response.data);
     yield put(getJuniorFeelings.success(juniorFeelings));
-  } else if (response.status == 400) {
+  } else if (response.status === 400) {
     yield put(getJuniorFeelings.failure(new Error(response.data.error_message)));
   } else {
     yield put(getJuniorFeelings.failure(new Error('unknown error')));
