@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import JuniorFeelingsProps from './JuniorFeelingsProps';
 import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsStyles';
+import JuniorFeelingsIconTableCell from 'src/components/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
@@ -74,36 +75,14 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
             </TableRow>
           </TableHead>
           <TableBody>
-            {juniorFeelingsState.map(row => (
-              <TableRow key={row.junior}>
+            {juniorFeelingsState.map(junior => (
+              <TableRow key={junior.name}>
                 <TableCell component='th' scope='row' align='center'>
-                  {row.junior}
+                  {junior.name}
                 </TableCell>
-                {row.weekFeelings &&
-                  row.weekFeelings.map(icons => (
-                    <TableCell align='center'>
-                      <div className={classes.row}>
-                        <i
-                          className={classNames(
-                            'material-icons',
-                            classes.satisfiedColor,
-                            classes.iconSize
-                          )}
-                        >
-                          sentiment_satisfied_alt
-                        </i>
-                        <i
-                          className={classNames(
-                            'material-icons',
-                            classes.verySatisfiedColor,
-                            classes.iconSize
-                          )}
-                        >
-                          sentiment_very_satisfied
-                        </i>
-                      </div>
-                    </TableCell>
-                  ))}
+                <TableCell align='center'>
+                  <JuniorFeelingsIconTableCell />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

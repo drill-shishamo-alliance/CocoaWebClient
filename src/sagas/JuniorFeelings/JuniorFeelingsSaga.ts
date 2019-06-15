@@ -6,27 +6,35 @@ import JuniorFeelingsActionType from 'src/actions/JuniorFeelings/JuniorFeelingsA
 
 const api = new JuniorFeelingsApi();
 
-export function* getJuniorFeelingsSaga(action: ReturnType<typeof getJuniorFeelings.request>) {
-  const response: PromiseGenericType<ReturnType<typeof api.getJuniorFeelings>> = yield call(
-    api.getJuniorFeelings,
-    action.payload.id,
-    action.payload.access_token
+// export function* getJuniorFeelingsSaga(action: ReturnType<typeof getJuniorFeelings.request>) {
+//   const response: PromiseGenericType<ReturnType<typeof api.getJuniorFeelings>> = yield call(
+//     api.getJuniorFeelings,
+//     action.payload.id,
+//     action.payload.access_token
+//   );
+//   yield console.log(JSON.stringify(response));
+//   if (response.status === 200 && response.data) {
+//     const juniorFeelings: ReturnType<
+//       typeof api.mapGetJuniorFeelingsResponseToJuniorFeelings
+//     > = yield api.mapGetJuniorFeelingsResponseToJuniorFeelings(response.data);
+//     yield put(getJuniorFeelings.success(juniorFeelings));
+//   } else if (response.status === 400) {
+//     yield put(getJuniorFeelings.failure(new Error(response.data.error_message)));
+//   } else {
+//     yield put(getJuniorFeelings.failure(new Error('unknown error')));
+//   }
+// }
+
+export function* getJuniorFeelingsDummySaga(action: ReturnType<typeof getJuniorFeelings.request>) {
+  const response: PromiseGenericType<ReturnType<typeof api.getJuniorFeelingsMock>> = yield call(
+    api.getJuniorFeelingsMock
   );
-  yield console.log(JSON.stringify(response));
-  if (response.status === 200 && response.data) {
-    const juniorFeelings: ReturnType<
-      typeof api.mapGetJuniorFeelingsResponseToJuniorFeelings
-    > = yield api.mapGetJuniorFeelingsResponseToJuniorFeelings(response.data);
-    yield put(getJuniorFeelings.success(juniorFeelings));
-  } else if (response.status === 400) {
-    yield put(getJuniorFeelings.failure(new Error(response.data.error_message)));
-  } else {
-    yield put(getJuniorFeelings.failure(new Error('unknown error')));
-  }
+
+  yield put(getJuniorFeelings.success(response));
 }
 
 const juniorFeelingsSaga = [
-  takeLatest(JuniorFeelingsActionType.GET_JUNIOR_FEELINGS_REQUEST, getJuniorFeelingsSaga),
+  takeLatest(JuniorFeelingsActionType.GET_JUNIOR_FEELINGS_REQUEST, getJuniorFeelingsDummySaga),
 ];
 
 export default juniorFeelingsSaga;
