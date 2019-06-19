@@ -58,6 +58,6 @@ type JuniorFeelingsResponse = {
       };
     };
   };
-}[];
+};
 
 export default JuniorFeelingsResponse;

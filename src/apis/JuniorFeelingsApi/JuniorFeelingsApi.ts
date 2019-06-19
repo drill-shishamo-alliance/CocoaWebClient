@@ -5,7 +5,7 @@ import { JuniorFeelingsDummy } from 'src/dummy/JuniorFeelingsDummy';
 export default class JuniorFeelingsApi {
   public async getJuniorFeelings(id?: number, access_token?: string) {
     try {
-      const response: AxiosResponse<JuniorFeelingsResponse> = await axios.get(
+      const response: AxiosResponse<JuniorFeelingsResponse[]> = await axios.get(
         'http://13.78.9.42:8080/juniors/feelings',
         {
           headers: {
@@ -24,7 +24,7 @@ export default class JuniorFeelingsApi {
   }
 
   public getJuniorFeelingsMock() {
-    return new Promise<JuniorFeelingsResponse>((resolve, reject) => {
+    return new Promise<JuniorFeelingsResponse[]>((resolve, reject) => {
       setTimeout(() => {
         resolve(JuniorFeelingsDummy);
       }, 0.1);

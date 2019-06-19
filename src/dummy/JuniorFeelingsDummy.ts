@@ -1,6 +1,6 @@
 import JuniorFeelingsResponse from 'src/apis/JuniorFeelingsApi/JuniorFeelingsResponse';
 
-export const JuniorFeelingsDummy: JuniorFeelingsResponse = [
+export const JuniorFeelingsDummy: JuniorFeelingsResponse[] = [
   {
     uuid: 'id_1',
     name: 'tozastation',

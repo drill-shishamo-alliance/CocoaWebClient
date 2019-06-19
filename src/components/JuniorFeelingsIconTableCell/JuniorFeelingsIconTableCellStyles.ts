@@ -10,21 +10,6 @@ const styles = (theme: Theme) =>
     iconSize: {
       fontSize: 40,
     },
-    veryDissatisfiedColor: {
-      color: '#7E8B8C', // flat gray dark
-    },
-    dissatisfiedColor: {
-      color: '#2880BA', // flat skyblue dark
-    },
-    normalColor: {
-      color: '#E57D22', // flat orange
-    },
-    satisfiedColor: {
-      color: '#1ABC9C', // flat mint
-    },
-    verySatisfiedColor: {
-      color: '#EF7079', // flat watermelon
-    },
   });
 
 export default styles;
