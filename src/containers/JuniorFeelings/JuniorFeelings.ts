@@ -8,16 +8,21 @@ import JuniorFeelings from 'src/components/JuniorFeelings/JuniorFeelings';
 import { Dispatch } from 'redux';
 import JuniorFeelingsAction from 'src/actions/JuniorFeelings/JuniorFeelingsAction';
 import { getJuniorFeelings } from 'src/actions/JuniorFeelings/JuniorFeelingsActionCreator';
+import FeelingsAction from 'src/actions/Feelings/FeelingsAction';
+import { getFeelings } from 'src/actions/Feelings/FeelingsActionCreator';
 
 const mapStateToProps = (state: RootState): JuniorFeelingsConnectedProps => ({
   juniorFeelingsState: state.juniorFeelingsState,
+  feelingState: state.FeelingsState,
 });
 
 const mapDispatchToProps = (
-  dispatch: Dispatch<JuniorFeelingsAction>
+  dispatch: Dispatch<JuniorFeelingsAction | FeelingsAction>
 ): JuniorFeelingsDispatchProps => ({
   getJuniorFeelingsRequest: (id?: number, accessToken?: string) =>
     dispatch(getJuniorFeelings.request({ id, access_token: accessToken })),
+  getFeelingsRequest: (accessToken?: string) =>
+    dispatch(getFeelings.request({ access_token: accessToken })),
 });
 
 export default connect(

@@ -14,6 +14,7 @@ import JuniorFeelingsIconTableCell from 'src/components/JuniorFeelingsIconTableC
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
     this.props.getJuniorFeelingsRequest();
+    this.props.getFeelingsRequest();
   }
 
   render() {
@@ -81,7 +82,10 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
                   {junior.name}
                 </TableCell>
                 <TableCell align='center'>
-                  <JuniorFeelingsIconTableCell />
+                  <JuniorFeelingsIconTableCell
+                    attendanceFeelingId={junior.week_feelings.monday.attendance.feeling_id}
+                    leavingFeelingId={junior.week_feelings.monday.leaving.feeling_id}
+                  />
                 </TableCell>
               </TableRow>
             ))}
