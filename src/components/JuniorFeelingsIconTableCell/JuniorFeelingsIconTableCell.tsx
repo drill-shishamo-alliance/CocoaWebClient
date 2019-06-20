@@ -24,12 +24,18 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
     return (
       <div className={classes.row}>
         {attendanceFeelingIconName && attendanceFeelingIconColor && (
-          <i className={classNames('material-icons', attendanceFeelingIconColor, classes.iconSize)}>
+          <i
+            className={classNames('material-icons', classes.iconSize)}
+            style={{ color: attendanceFeelingIconColor }}
+          >
             {attendanceFeelingIconName}
           </i>
         )}
         {leavingFeelingIconName && leavingFeelingIconColor && (
-          <i className={classNames('material-icons', leavingFeelingIconColor, classes.iconSize)}>
+          <i
+            className={classNames('material-icons', leavingFeelingIconColor, classes.iconSize)}
+            style={{ color: leavingFeelingIconColor }}
+          >
             {leavingFeelingIconName}
           </i>
         )}
