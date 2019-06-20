@@ -1,12 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 import JuniorFeelingsResponse from './JuniorFeelingsResponse';
-import { JuniorFeelingsDummy } from 'src/dummy/JuniorFeelingsDummy';
 
 export default class JuniorFeelingsApi {
   public async getJuniorFeelings(id?: number, access_token?: string) {
     try {
       const response: AxiosResponse<JuniorFeelingsResponse[]> = await axios.get(
-        'http://13.78.9.42:8080/juniors/feelings',
+        'http://virtserver.swaggerhub.com/jbsHakodate/Cocoa-Core-API/1.0.2/juniors/feelings',
         {
           headers: {
             id,
@@ -17,19 +16,20 @@ export default class JuniorFeelingsApi {
           data: {},
         }
       );
+      console.log(JSON.stringify(response.data));
       return response;
     } catch (error) {
       throw new Error(error);
     }
   }
 
-  public getJuniorFeelingsMock() {
-    return new Promise<JuniorFeelingsResponse[]>((resolve, reject) => {
-      setTimeout(() => {
-        resolve(JuniorFeelingsDummy);
-      }, 0.1);
-    });
-  }
+  // public getJuniorFeelingsMock() {
+  //   return new Promise<JuniorFeelingsResponse[]>((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve(JuniorFeelingsDummy);
+  //     }, 0.1);
+  //   });
+  // }
 
   // public mapGetJuniorFeelingsResponseToJuniorFeelings(
   //   response: JuniorFeelingsResponse
