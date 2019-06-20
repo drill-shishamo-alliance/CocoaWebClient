@@ -4,52 +4,38 @@ import styles from './JuniorFeelingsIconTableCellStyles';
 import JuniorFeelingsIconTableCellProps from './JuniorFeelingsIconTableCellProps';
 import classNames from 'classnames';
 
-function JuniorFeelingsIconTableCell(props: JuniorFeelingsIconTableCellProps) {
-  const { classes, attendanceFeelingId, leavingFeelingId, feelings } = props;
+class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTableCellProps> {
+  render() {
+    const { classes, attendanceFeelingId, leavingFeelingId, feelings } = this.props;
+    const attendanceFeelingIndex = feelings.findIndex(
+      feeling => feeling.id === attendanceFeelingId
+    );
+    console.log(attendanceFeelingIndex);
+    const attendanceFeelingIconName =
+      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].icon_name : undefined;
+    const attendanceFeelingIconColor =
+      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].color : undefined;
 
-  const getIconStateProps = (weight: number) => {
-    switch (weight) {
-      case 1:
-        return {
-          iconName: feelings[0].icon_name,
-          iconColor: feelings[0].color,
-        };
-      case 2:
-        return {
-          iconName: feelings[1].icon_name,
-          iconColor: feelings[1].color,
-        };
-      case 3:
-        return {
-          iconName: feelings[2].icon_name,
-          iconColor: feelings[2].color,
-        };
-      case 4:
-        return {
-          iconName: feelings[3].icon_name,
-          iconColor: feelings[3].color,
-        };
-      case 5:
-        return {
-          iconName: feelings[4].icon_name,
-          iconColor: feelings[4].color,
-        };
-    }
-  };
-
-  const attendanceIconProps = getIconStateProps(Number(attendanceFeelingId));
-  const leavingIconProps = getIconStateProps(Number(leavingFeelingId));
-
-  return (
-    <div className={classes.row}>
-      <i className={classNames('material-icons', attendanceIconProps.iconColor, classes.iconSize)}>
-        {attendanceIconProps.iconName}
-      </i>
-      <i className={classNames('material-icons', leavingIconProps.iconColor, classes.iconSize)}>
-        {leavingIconProps.iconName}
-      </i>
-    </div>
-  );
+    const leavingFeelingIndex = feelings.findIndex(feeling => feeling.id === leavingFeelingId);
+    const leavingFeelingIconName =
+      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].icon_name : undefined;
+    const leavingFeelingIconColor =
+      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : undefined;
+    return (
+      <div className={classes.row}>
+        {attendanceFeelingIconName && attendanceFeelingIconColor && (
+          <i className={classNames('material-icons', attendanceFeelingIconColor, classes.iconSize)}>
+            {attendanceFeelingIconName}
+          </i>
+        )}
+        {leavingFeelingIconName && leavingFeelingIconColor && (
+          <i className={classNames('material-icons', leavingFeelingIconColor, classes.iconSize)}>
+            {leavingFeelingIconName}
+          </i>
+        )}
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles)(JuniorFeelingsIconTableCell);

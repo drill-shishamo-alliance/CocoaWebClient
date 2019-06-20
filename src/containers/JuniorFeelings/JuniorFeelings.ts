@@ -13,7 +13,6 @@ import { getFeelings } from 'src/actions/Feelings/FeelingsActionCreator';
 
 const mapStateToProps = (state: RootState): JuniorFeelingsConnectedProps => ({
   juniorFeelingsState: state.juniorFeelingsState,
-  feelingState: state.FeelingsState,
 });
 
 const mapDispatchToProps = (

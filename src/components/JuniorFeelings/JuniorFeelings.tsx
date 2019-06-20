@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import JuniorFeelingsProps from './JuniorFeelingsProps';
 import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsStyles';
-import JuniorFeelingsIconTableCell from 'src/components/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
+import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
@@ -85,6 +85,30 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
                   <JuniorFeelingsIconTableCell
                     attendanceFeelingId={junior.week_feelings.monday.attendance.feeling_id}
                     leavingFeelingId={junior.week_feelings.monday.leaving.feeling_id}
+                  />
+                </TableCell>
+                <TableCell align='center'>
+                  <JuniorFeelingsIconTableCell
+                    attendanceFeelingId={junior.week_feelings.tuesday.attendance.feeling_id}
+                    leavingFeelingId={junior.week_feelings.tuesday.leaving.feeling_id}
+                  />
+                </TableCell>
+                <TableCell align='center'>
+                  <JuniorFeelingsIconTableCell
+                    attendanceFeelingId={junior.week_feelings.wednesday.attendance.feeling_id}
+                    leavingFeelingId={junior.week_feelings.wednesday.leaving.feeling_id}
+                  />
+                </TableCell>
+                <TableCell align='center'>
+                  <JuniorFeelingsIconTableCell
+                    attendanceFeelingId={junior.week_feelings.thursday.attendance.feeling_id}
+                    leavingFeelingId={junior.week_feelings.thursday.leaving.feeling_id}
+                  />
+                </TableCell>
+                <TableCell align='center'>
+                  <JuniorFeelingsIconTableCell
+                    attendanceFeelingId={junior.week_feelings.friday.attendance.feeling_id}
+                    leavingFeelingId={junior.week_feelings.friday.leaving.feeling_id}
                   />
                 </TableCell>
               </TableRow>
