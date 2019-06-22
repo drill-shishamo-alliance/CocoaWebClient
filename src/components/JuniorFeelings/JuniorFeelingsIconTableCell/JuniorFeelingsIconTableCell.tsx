@@ -37,7 +37,9 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
               {attendanceFeelingIconName}
             </i>
           )}
-          <Typography variant='caption'>{attendanceFeelingName}</Typography>
+          <Typography variant='caption' style={{ color: attendanceFeelingIconColor }}>
+            {attendanceFeelingName}
+          </Typography>
         </div>
         <div className={classes.iconContainer}>
           {leavingFeelingIconName && leavingFeelingIconColor && (
@@ -48,7 +50,9 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
               {leavingFeelingIconName}
             </i>
           )}
-          <Typography variant='caption'>{leavingFeelingName}</Typography>
+          <Typography variant='caption' style={{ color: leavingFeelingIconColor }}>
+            {leavingFeelingName}
+          </Typography>
         </div>
       </div>
     );
