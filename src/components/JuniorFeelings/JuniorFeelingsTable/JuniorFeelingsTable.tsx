@@ -12,6 +12,7 @@ import styles from './JuniorFeelingsTableStyles';
 import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
+import { Typography } from '@material-ui/core';
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
@@ -35,17 +36,29 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
                 .map(junior =>
                   Object.values(junior.week_feelings).map(day => (
                     <TableCell align='center'>
-                      <div className={classes.headerDate}>
+                      <div className={classes.columnContainer}>
                         <h2>
                           {dayjs(day.date)
                             .locale('ja')
-                            .format('MM/DD(dddd)')}
+                            .format('MM/DD(dd)')}
                         </h2>
                         <div className={classes.datePosition}>
-                          <i className={classNames('material-icons', classes.sunnyColor)}>
+                          <i
+                            className={classNames(
+                              'material-icons',
+                              classes.sunnyColor,
+                              classes.iconMargin
+                            )}
+                          >
                             wb_sunny
                           </i>
-                          <i className={classNames('material-icons', classes.moonColor)}>
+                          <i
+                            className={classNames(
+                              'material-icons',
+                              classes.moonColor,
+                              classes.iconMargin
+                            )}
+                          >
                             brightness_2
                           </i>
                         </div>
@@ -59,7 +72,7 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
             {juniorFeelingsState.map(junior => (
               <TableRow key={junior.name}>
                 <TableCell component='th' scope='row' align='center'>
-                  {junior.name}
+                  <Typography variant='subtitle2'>{junior.name}</Typography>
                 </TableCell>
                 <TableCell align='center'>
                   <JuniorFeelingsIconTableCell
