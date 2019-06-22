@@ -1,9 +1,7 @@
+import Feelings from './Feelings';
+
 type FeelingsResponse = {
-  id: string;
-  name: string;
-  weight: number;
-  icon_name: string;
-  color: string;
+  feelings: Feelings[];
 };
 
 export default FeelingsResponse;

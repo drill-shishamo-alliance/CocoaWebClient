@@ -6,9 +6,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import classNames from 'classnames';
-import JuniorFeelingsProps from './JuniorFeelingsProps';
+import JuniorFeelingsProps from './JuniorFeelingsTableProps';
 import { withStyles } from '@material-ui/styles';
-import styles from './JuniorFeelingsStyles';
+import styles from './JuniorFeelingsTableStyles';
 import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {

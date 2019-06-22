@@ -1,4 +1,4 @@
-type JuniorFeelingsResponse = {
+type JuniorFeelings = {
   id: string;
   name: string;
   week_feelings: {
@@ -60,4 +60,4 @@ type JuniorFeelingsResponse = {
   };
 };
 
-export default JuniorFeelingsResponse;
+export default JuniorFeelings;

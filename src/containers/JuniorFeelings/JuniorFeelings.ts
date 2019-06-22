@@ -1,10 +1,10 @@
 import {
   JuniorFeelingsConnectedProps,
   JuniorFeelingsDispatchProps,
-} from 'src/components/JuniorFeelings/JuniorFeelingsProps';
+} from 'src/components/JuniorFeelings/JuniorFeelingsTable/JuniorFeelingsTableProps';
 import RootState from 'src/states';
 import { connect } from 'react-redux';
-import JuniorFeelings from 'src/components/JuniorFeelings/JuniorFeelings';
+import JuniorFeelingsTable from 'src/components/JuniorFeelings/JuniorFeelingsTable/JuniorFeelingsTable';
 import { Dispatch } from 'redux';
 import JuniorFeelingsAction from 'src/actions/JuniorFeelings/JuniorFeelingsAction';
 import { getJuniorFeelings } from 'src/actions/JuniorFeelings/JuniorFeelingsActionCreator';
@@ -27,4 +27,4 @@ const mapDispatchToProps = (
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(JuniorFeelings);
+)(JuniorFeelingsTable);

@@ -1,7 +1,7 @@
-import JuniorFeelingsResponse from 'src/apis/JuniorFeelingsApi/JuniorFeelingsResponse';
+import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelings';
 
 type JuniorResponse = {
-  juniors: JuniorFeelingsResponse[];
+  juniors: JuniorFeelings[];
 };
 
 export default JuniorResponse;

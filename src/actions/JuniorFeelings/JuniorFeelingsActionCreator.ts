@@ -1,6 +1,6 @@
 import { createAsyncAction } from 'typesafe-actions';
 import JuniorFeelingsActionType from './JuniorFeelingsActionType';
-import JuniorFeelingsState from 'src/apis/JuniorFeelingsApi/JuniorFeelingsResponse';
+import JuniorFeelingsState from 'src/apis/JuniorFeelingsApi/JuniorFeelings';
 
 export const getJuniorFeelings = createAsyncAction(
   JuniorFeelingsActionType.GET_JUNIOR_FEELINGS_REQUEST,

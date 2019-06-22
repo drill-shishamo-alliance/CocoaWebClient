@@ -1,7 +1,7 @@
 import RootState from 'src/states';
-import { IconTableCellConnectedProps } from 'src/components/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCellProps';
+import { IconTableCellConnectedProps } from 'src/components/JuniorFeelings/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCellProps';
 import { connect } from 'react-redux';
-import JuniorFeelingsIconTableCell from 'src/components/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
+import JuniorFeelingsIconTableCell from 'src/components/JuniorFeelings/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 
 const mapStateToProps = (state: RootState): IconTableCellConnectedProps => ({
   feelings: state.FeelingsState,

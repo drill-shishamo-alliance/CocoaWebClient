@@ -1,6 +1,6 @@
 import { createAsyncAction } from 'typesafe-actions';
 import FeelingsActionType from './FeelingsActionType';
-import FeelingsState from 'src/apis/FeelingsApi/FeelingsResponse';
+import FeelingsState from 'src/apis/FeelingsApi/Feelings';
 
 export const getFeelings = createAsyncAction(
   FeelingsActionType.GET_FEELINGS_REQUEST,
