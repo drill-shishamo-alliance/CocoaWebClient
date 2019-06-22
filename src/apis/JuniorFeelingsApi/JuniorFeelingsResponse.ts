@@ -1,5 +1,5 @@
 type JuniorFeelingsResponse = {
-  uuid: string;
+  id: string;
   name: string;
   week_feelings: {
     monday: {

@@ -13,7 +13,7 @@ export function* getFeelingsSaga(action: ReturnType<typeof getFeelings.request>)
   );
   yield console.log(JSON.stringify(response));
   if (response.status === 200 && response.data) {
-    yield put(getFeelings.success(response.data));
+    yield put(getFeelings.success(response.data.feelings));
   } else {
     yield put(getFeelings.failure(new Error('unknown error')));
   }

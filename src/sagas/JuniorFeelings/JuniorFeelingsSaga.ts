@@ -14,7 +14,7 @@ export function* getJuniorFeelingsSaga(action: ReturnType<typeof getJuniorFeelin
   );
   yield console.log(JSON.stringify(response));
   if (response.status === 200 && response.data) {
-    yield put(getJuniorFeelings.success(response.data));
+    yield put(getJuniorFeelings.success(response.data.juniors));
   } else {
     yield put(getJuniorFeelings.failure(new Error('unknown error')));
   }

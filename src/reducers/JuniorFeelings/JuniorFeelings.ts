@@ -1,16 +1,21 @@
-import JuniorFeelingsState from 'src/apis/JuniorFeelingsApi/JuniorFeelingsResponse';
+import JuniorsState from 'src/apis/JuniorFeelingsApi/JuniorsResponse';
 import JuniorFeelingsAction from 'src/actions/JuniorFeelings/JuniorFeelingsAction';
 import JuniorFeelingsActionType from 'src/actions/JuniorFeelings/JuniorFeelingsActionType';
 
-const initialState: JuniorFeelingsState[] = [];
+const initialState: JuniorsState = {
+  juniors: [],
+};
 
 const juniorFeelings = (
-  state: JuniorFeelingsState[] = initialState,
+  state: JuniorsState = initialState,
   action: JuniorFeelingsAction
-): JuniorFeelingsState[] => {
+): JuniorsState => {
   switch (action.type) {
     case JuniorFeelingsActionType.GET_JUNIOR_FEELINGS_SUCCEEDED:
-      return [...action.payload];
+      return {
+        ...state,
+        juniors: [...action.payload],
+      };
     default:
       return state;
   }
