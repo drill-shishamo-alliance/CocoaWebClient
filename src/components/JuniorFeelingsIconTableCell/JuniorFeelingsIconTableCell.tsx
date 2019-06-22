@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './JuniorFeelingsIconTableCellStyles';
 import JuniorFeelingsIconTableCellProps from './JuniorFeelingsIconTableCellProps';
 import classNames from 'classnames';
+import Typography from '@material-ui/core/Typography';
 
 class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTableCellProps> {
   render() {
@@ -12,33 +13,43 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
     );
     console.log(attendanceFeelingIndex);
     const attendanceFeelingIconName =
-      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].icon_name : undefined;
+      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].icon_name : 'clear';
+    const attendanceFeelingName =
+      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].name : '未入力';
     const attendanceFeelingIconColor =
-      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].color : undefined;
+      attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].color : '#ff0000';
 
     const leavingFeelingIndex = feelings.findIndex(feeling => feeling.id === leavingFeelingId);
     const leavingFeelingIconName =
-      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].icon_name : undefined;
+      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].icon_name : 'clear';
+    const leavingFeelingName =
+      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].name : '未入力';
     const leavingFeelingIconColor =
-      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : undefined;
+      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : '#ff0000';
     return (
       <div className={classes.row}>
-        {attendanceFeelingIconName && attendanceFeelingIconColor && (
-          <i
-            className={classNames('material-icons', classes.iconSize)}
-            style={{ color: attendanceFeelingIconColor }}
-          >
-            {attendanceFeelingIconName}
-          </i>
-        )}
-        {leavingFeelingIconName && leavingFeelingIconColor && (
-          <i
-            className={classNames('material-icons', leavingFeelingIconColor, classes.iconSize)}
-            style={{ color: leavingFeelingIconColor }}
-          >
-            {leavingFeelingIconName}
-          </i>
-        )}
+        <div className={classes.iconContainer}>
+          {attendanceFeelingIconName && attendanceFeelingIconColor && (
+            <i
+              className={classNames('material-icons', classes.iconSize)}
+              style={{ color: attendanceFeelingIconColor }}
+            >
+              {attendanceFeelingIconName}
+            </i>
+          )}
+          <Typography variant='caption'>{attendanceFeelingName}</Typography>
+        </div>
+        <div className={classes.iconContainer}>
+          {leavingFeelingIconName && leavingFeelingIconColor && (
+            <i
+              className={classNames('material-icons', leavingFeelingIconColor, classes.iconSize)}
+              style={{ color: leavingFeelingIconColor }}
+            >
+              {leavingFeelingIconName}
+            </i>
+          )}
+          <Typography variant='caption'>{leavingFeelingName}</Typography>
+        </div>
       </div>
     );
   }

@@ -7,6 +7,10 @@ const styles = (theme: Theme) =>
       flexDirection: 'row',
       justifyContent: 'center',
     },
+    iconContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
     iconSize: {
       fontSize: 40,
     },
