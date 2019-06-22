@@ -1,6 +1,6 @@
 import { WithStyles } from '@material-ui/core';
 import styles from './JuniorFeelingsTableStyles';
-import JuniorFeelingsState from 'src/apis/JuniorFeelingsApi/JuniorFeelings';
+import JuniorFeelingsState from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
 
 export type JuniorFeelingsConnectedProps = {
   juniorFeelingsState: JuniorFeelingsState[];

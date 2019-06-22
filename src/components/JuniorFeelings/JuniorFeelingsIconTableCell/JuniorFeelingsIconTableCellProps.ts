@@ -1,6 +1,6 @@
 import { WithStyles } from '@material-ui/core';
 import styles from './JuniorFeelingsIconTableCellStyles';
-import FeelingsState from 'src/apis/FeelingsApi/Feelings';
+import FeelingsState from 'src/apis/JuniorFeelingsApi/FeelingsResponse/Feelings';
 
 type IconTableCellProps = {
   attendanceFeelingId: string;

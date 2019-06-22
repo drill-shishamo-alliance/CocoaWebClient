@@ -1,4 +1,4 @@
-import FeelingsState from 'src/apis/FeelingsApi/Feelings';
+import FeelingsState from 'src/apis/JuniorFeelingsApi/FeelingsResponse/Feelings';
 import FeelingsAction from 'src/actions/Feelings/FeelingsAction';
 import FeelingsActionType from 'src/actions/Feelings/FeelingsActionType';
 

@@ -1,4 +1,4 @@
-import JuniorsState from 'src/apis/JuniorFeelingsApi/JuniorsResponse';
+import JuniorsState from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorsResponse';
 import JuniorFeelingsAction from 'src/actions/JuniorFeelings/JuniorFeelingsAction';
 import JuniorFeelingsActionType from 'src/actions/JuniorFeelings/JuniorFeelingsActionType';
 

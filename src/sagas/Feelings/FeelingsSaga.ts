@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import FeelingsApi from 'src/apis/FeelingsApi/FeelingsApi';
+import FeelingsApi from 'src/apis/JuniorFeelingsApi/JuniorFeelingsApi';
 import { PromiseGenericType } from 'src/utils/types/TypeUtils';
 import { getFeelings } from 'src/actions/Feelings/FeelingsActionCreator';
 import FeelingsActionType from 'src/actions/Feelings/FeelingsActionType';
