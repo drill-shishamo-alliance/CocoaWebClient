@@ -28,51 +28,25 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
               <TableCell align='center'>
                 <h2>社員</h2>
               </TableCell>
-              <TableCell align='center'>
-                <div className={classes.headerDate}>
-                  <h2>6/3</h2>
-                  <div className={classes.datePosition}>
-                    <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
-                    <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
-                  </div>
-                </div>
-              </TableCell>
-              <TableCell align='center'>
-                <div className={classes.headerDate}>
-                  <h2>6/4</h2>
-                  <div className={classes.datePosition}>
-                    <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
-                    <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
-                  </div>
-                </div>
-              </TableCell>
-              <TableCell align='center'>
-                <div className={classes.headerDate}>
-                  <h2>6/5</h2>
-                  <div className={classes.datePosition}>
-                    <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
-                    <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
-                  </div>
-                </div>
-              </TableCell>
-              <TableCell align='center'>
-                <div className={classes.headerDate}>
-                  <h2>6/6</h2>
-                  <div className={classes.datePosition}>
-                    <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
-                    <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
-                  </div>
-                </div>
-              </TableCell>
-              <TableCell align='center'>
-                <div className={classes.headerDate}>
-                  <h2>6/7</h2>
-                  <div className={classes.datePosition}>
-                    <i className={classNames('material-icons', classes.sunnyColor)}>wb_sunny</i>
-                    <i className={classNames('material-icons', classes.moonColor)}>brightness_2</i>
-                  </div>
-                </div>
-              </TableCell>
+              {juniorFeelingsState
+                .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
+                .map(junior =>
+                  Object.values(junior.week_feelings).map(day => (
+                    <TableCell align='center'>
+                      <div className={classes.headerDate}>
+                        <h2>{day.date}</h2>
+                        <div className={classes.datePosition}>
+                          <i className={classNames('material-icons', classes.sunnyColor)}>
+                            wb_sunny
+                          </i>
+                          <i className={classNames('material-icons', classes.moonColor)}>
+                            brightness_2
+                          </i>
+                        </div>
+                      </div>
+                    </TableCell>
+                  ))
+                )}
             </TableRow>
           </TableHead>
           <TableBody>
