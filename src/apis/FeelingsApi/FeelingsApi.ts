@@ -20,12 +20,4 @@ export default class FeelingsApi {
       throw new Error(error);
     }
   }
-
-  // public getFeelingsMock() {
-  //   return new Promise<FeelingsResponse[]>((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(FeelingsDummy);
-  //     }, 0.1);
-  //   });
-  // }
 }

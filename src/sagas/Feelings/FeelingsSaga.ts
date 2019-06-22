@@ -19,14 +19,6 @@ export function* getFeelingsSaga(action: ReturnType<typeof getFeelings.request>)
   }
 }
 
-// export function* getFeelingsDummySaga(action: ReturnType<typeof getFeelings.request>) {
-//   const response: PromiseGenericType<ReturnType<typeof api.getFeelingsMock>> = yield call(
-//     api.getFeelingsMock
-//   );
-
-//   yield put(getFeelings.success(response));
-// }
-
 const FeelingsSaga = [takeLatest(FeelingsActionType.GET_FEELINGS_REQUEST, getFeelingsSaga)];
 
 export default FeelingsSaga;

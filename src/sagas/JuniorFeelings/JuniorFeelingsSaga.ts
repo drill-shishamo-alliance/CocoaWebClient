@@ -20,14 +20,6 @@ export function* getJuniorFeelingsSaga(action: ReturnType<typeof getJuniorFeelin
   }
 }
 
-// export function* getJuniorFeelingsDummySaga(action: ReturnType<typeof getJuniorFeelings.request>) {
-//   const response: PromiseGenericType<ReturnType<typeof api.getJuniorFeelingsMock>> = yield call(
-//     api.getJuniorFeelingsMock
-//   );
-
-//   yield put(getJuniorFeelings.success(response));
-// }
-
 const juniorFeelingsSaga = [
   takeLatest(JuniorFeelingsActionType.GET_JUNIOR_FEELINGS_REQUEST, getJuniorFeelingsSaga),
 ];
