@@ -10,6 +10,8 @@ import JuniorFeelingsProps from './JuniorFeelingsTableProps';
 import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsTableStyles';
 import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
@@ -34,7 +36,11 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
                   Object.values(junior.week_feelings).map(day => (
                     <TableCell align='center'>
                       <div className={classes.headerDate}>
-                        <h2>{day.date}</h2>
+                        <h2>
+                          {dayjs(day.date)
+                            .locale('ja')
+                            .format('MM/DD(dddd)')}
+                        </h2>
                         <div className={classes.datePosition}>
                           <i className={classNames('material-icons', classes.sunnyColor)}>
                             wb_sunny

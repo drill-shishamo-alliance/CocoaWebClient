@@ -49,6 +49,7 @@
     "@types/redux-saga": "^0.10.5",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "dayjs": "^1.8.14",
     "husky": "^2.4.0",
     "lint-staged": "^8.2.0",
     "prettier": "^1.18.2",
