@@ -26,6 +26,7 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
       leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].name : '未入力';
     const leavingFeelingIconColor =
       leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : '#ff0000';
+
     return (
       <div className={classes.row}>
         <div className={classes.iconContainer}>

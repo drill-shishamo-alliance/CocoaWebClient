@@ -19,6 +19,10 @@ const styles = (theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
     },
+    cellContainer: {
+      display: 'flex',
+      justifyContent: 'space-around',
+    },
     datePosition: {
       marginTop: -8,
     },

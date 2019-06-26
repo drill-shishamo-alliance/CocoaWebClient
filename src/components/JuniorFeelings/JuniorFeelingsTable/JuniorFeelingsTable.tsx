@@ -9,10 +9,9 @@ import classNames from 'classnames';
 import JuniorFeelingsProps from './JuniorFeelingsTableProps';
 import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsTableStyles';
-import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
-import { Typography } from '@material-ui/core';
+import JuniorFeelingsTableRow from '../JuniorFeelingsTableRow/JuniorFeelingsTableRow';
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
@@ -31,11 +30,11 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
               <TableCell align='center'>
                 <h2>社員</h2>
               </TableCell>
-              {juniorFeelingsState
-                .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
-                .map(junior =>
-                  Object.values(junior.week_feelings).map(day => (
-                    <TableCell align='center'>
+              <TableCell align='center' className={classes.cellContainer}>
+                {juniorFeelingsState
+                  .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
+                  .map(junior =>
+                    Object.values(junior.week_feelings).map(day => (
                       <div className={classes.columnContainer}>
                         <h2>
                           {dayjs(day.date)
@@ -63,48 +62,14 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
                           </i>
                         </div>
                       </div>
-                    </TableCell>
-                  ))
-                )}
+                    ))
+                  )}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {juniorFeelingsState.map(junior => (
-              <TableRow key={junior.name}>
-                <TableCell component='th' scope='row' align='center'>
-                  <Typography variant='subtitle2'>{junior.name}</Typography>
-                </TableCell>
-                <TableCell align='center'>
-                  <JuniorFeelingsIconTableCell
-                    attendanceFeelingId={junior.week_feelings.monday.attendance.feeling_id}
-                    leavingFeelingId={junior.week_feelings.monday.leaving.feeling_id}
-                  />
-                </TableCell>
-                <TableCell align='center'>
-                  <JuniorFeelingsIconTableCell
-                    attendanceFeelingId={junior.week_feelings.tuesday.attendance.feeling_id}
-                    leavingFeelingId={junior.week_feelings.tuesday.leaving.feeling_id}
-                  />
-                </TableCell>
-                <TableCell align='center'>
-                  <JuniorFeelingsIconTableCell
-                    attendanceFeelingId={junior.week_feelings.wednesday.attendance.feeling_id}
-                    leavingFeelingId={junior.week_feelings.wednesday.leaving.feeling_id}
-                  />
-                </TableCell>
-                <TableCell align='center'>
-                  <JuniorFeelingsIconTableCell
-                    attendanceFeelingId={junior.week_feelings.thursday.attendance.feeling_id}
-                    leavingFeelingId={junior.week_feelings.thursday.leaving.feeling_id}
-                  />
-                </TableCell>
-                <TableCell align='center'>
-                  <JuniorFeelingsIconTableCell
-                    attendanceFeelingId={junior.week_feelings.friday.attendance.feeling_id}
-                    leavingFeelingId={junior.week_feelings.friday.leaving.feeling_id}
-                  />
-                </TableCell>
-              </TableRow>
+              <JuniorFeelingsTableRow juniorData={junior} />
             ))}
           </TableBody>
         </Table>
