@@ -13,7 +13,7 @@ class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps
 
     return (
       <TableRow key={juniorData.name}>
-        <TableCell component='th' scope='row' align='center'>
+        <TableCell align='center'>
           <Typography variant='subtitle2'>{juniorData.name}</Typography>
         </TableCell>
         <TableCell align='center' className={classes.cellContainer}>

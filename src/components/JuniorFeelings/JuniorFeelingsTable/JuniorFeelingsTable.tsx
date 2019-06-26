@@ -34,13 +34,21 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
                 {juniorFeelingsState
                   .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
                   .map(junior =>
-                    Object.values(junior.week_feelings).map(day => (
+                    Object.values(junior.week_feelings).map((day, index) => (
                       <div className={classes.columnContainer}>
-                        <h2>
-                          {dayjs(day.date)
-                            .locale('ja')
-                            .format('MM/DD(dd)')}
-                        </h2>
+                        {index === 0 ? (
+                          <h2>
+                            {dayjs(day.date)
+                              .locale('ja')
+                              .format('YYYY/MM/DD(dd)')}
+                          </h2>
+                        ) : (
+                          <h2>
+                            {dayjs(day.date)
+                              .locale('ja')
+                              .format('MM/DD(dd)')}
+                          </h2>
+                        )}
                         <div className={classes.datePosition}>
                           <i
                             className={classNames(
