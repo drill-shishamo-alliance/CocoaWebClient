@@ -12,8 +12,9 @@ import styles from './JuniorFeelingsTableStyles';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
 import JuniorFeelingsTableRow from '../JuniorFeelingsTableRow/JuniorFeelingsTableRow';
+import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
 
-class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
+class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
   public componentWillMount() {
     this.props.getJuniorFeelingsRequest();
     this.props.getFeelingsRequest();
@@ -22,15 +23,21 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   render() {
     const { classes, juniorFeelingsState } = this.props;
 
+    const rows: JuniorFeelings[] = [];
+
+    for (let i = 0; i < 10; i += 1) {
+      rows.push(...juniorFeelingsState);
+    }
+
     return (
       <Paper className={classes.root}>
-        <Table className={classes.table}>
+        <Table className={classNames(classes.table)}>
           <TableHead>
             <TableRow>
-              <TableCell align='center'>
+              <TableCell align='center' className={classes.head}>
                 <h2>社員</h2>
               </TableCell>
-              <TableCell align='center' className={classes.cellContainer}>
+              <TableCell align='center' className={classNames(classes.cellContainer, classes.head)}>
                 {juniorFeelingsState
                   .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
                   .map(junior =>
@@ -76,7 +83,7 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
             </TableRow>
           </TableHead>
           <TableBody>
-            {juniorFeelingsState.map(junior => (
+            {rows.map(junior => (
               <JuniorFeelingsTableRow juniorData={junior} />
             ))}
           </TableBody>
@@ -86,4 +93,4 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps> {
   }
 }
 
-export default withStyles(styles)(JuniorFeelings);
+export default withStyles(styles)(JuniorFeelingsTable);

@@ -4,7 +4,7 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
-      marginTop: theme.spacing(3),
+      marginTop: 100,
       overflowX: 'auto',
     },
     table: {
@@ -14,6 +14,17 @@ const styles = (theme: Theme) =>
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'center',
+    },
+    cellHeight: {
+      height: 100,
+    },
+    head: {
+      backgroundColor: 'white',
+      position: 'fixed',
+      top: 100,
+      zIndex: 10,
+      width: '100%',
+      height: 100,
     },
     columnContainer: {
       display: 'flex',
