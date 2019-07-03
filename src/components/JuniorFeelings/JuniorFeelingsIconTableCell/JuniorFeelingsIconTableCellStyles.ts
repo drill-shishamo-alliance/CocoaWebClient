@@ -14,6 +14,10 @@ const styles = (theme: Theme) =>
     iconSize: {
       fontSize: 40,
     },
+    dataPosition: {
+      flexBasis: '16%',
+      alignSelf: 'center',
+    },
   });
 
 export default styles;

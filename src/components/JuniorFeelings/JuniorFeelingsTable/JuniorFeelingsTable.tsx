@@ -31,18 +31,16 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
 
     return (
       <Paper className={classes.root}>
-        <Table className={classNames(classes.table)}>
-          <TableHead>
+        <Table>
+          <TableHead className={classes.head}>
             <TableRow>
-              <TableCell align='center' className={classes.head}>
-                <h2>社員</h2>
-              </TableCell>
-              <TableCell align='center' className={classNames(classes.cellContainer, classes.head)}>
+              <TableCell align='center' className={classNames(classes.cellContainer)}>
+                <h2 className={classes.juniorPosition}>社員</h2>
                 {juniorFeelingsState
                   .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
                   .map(junior =>
                     Object.values(junior.week_feelings).map((day, index) => (
-                      <div className={classes.columnContainer}>
+                      <div className={classNames(classes.columnContainer, classes.dataPosition)}>
                         {index === 0 ? (
                           <h2>
                             {dayjs(day.date)
@@ -82,12 +80,16 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {rows.map(junior => (
-              <JuniorFeelingsTableRow juniorData={junior} />
-            ))}
-          </TableBody>
         </Table>
+        <div className={classes.tableBody}>
+          <Table className={classes.tableLayout}>
+            <TableBody>
+              {rows.map(junior => (
+                <JuniorFeelingsTableRow juniorData={junior} />
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </Paper>
     );
   }

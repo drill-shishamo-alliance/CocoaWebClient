@@ -28,7 +28,7 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
       leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : '#ff0000';
 
     return (
-      <div className={classes.row}>
+      <div className={classNames(classes.row, classes.dataPosition)}>
         <div className={classes.iconContainer}>
           {attendanceFeelingIconName && attendanceFeelingIconColor && (
             <i

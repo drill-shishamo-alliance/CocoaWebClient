@@ -13,10 +13,10 @@ class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps
 
     return (
       <TableRow key={juniorData.name}>
-        <TableCell align='center'>
-          <Typography variant='subtitle2'>{juniorData.name}</Typography>
-        </TableCell>
         <TableCell align='center' className={classes.cellContainer}>
+          <Typography variant='subtitle2' className={classes.juniorPosition}>
+            {juniorData.name}
+          </Typography>
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.monday.attendance.feeling_id}
             leavingFeelingId={juniorData.week_feelings.monday.leaving.feeling_id}

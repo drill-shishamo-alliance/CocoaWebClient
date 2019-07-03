@@ -6,6 +6,10 @@ const styles = (theme: Theme) =>
       display: 'flex',
       justifyContent: 'space-around',
     },
+    juniorPosition: {
+      flexBasis: '20%',
+      alignSelf: 'center',
+    },
   });
 
 export default styles;
