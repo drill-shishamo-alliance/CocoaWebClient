@@ -6,6 +6,7 @@ import JuniorFeelingsIconTableCell from 'src/components/JuniorFeelings/JuniorFee
 const mapStateToProps = (state: RootState): IconTableCellConnectedProps => ({
   feelings: state.FeelingsState,
 });
+
 export default connect(
   mapStateToProps,
   null
