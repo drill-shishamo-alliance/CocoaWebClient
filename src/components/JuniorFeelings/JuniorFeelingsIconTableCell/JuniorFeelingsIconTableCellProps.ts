@@ -2,7 +2,7 @@ import { WithStyles } from '@material-ui/core';
 import styles from './JuniorFeelingsIconTableCellStyles';
 import FeelingsState from 'src/apis/JuniorFeelingsApi/FeelingsResponse/Feelings';
 
-type IconTableCellProps = {
+type JuniorFeelingsIconTableCellOwnProps = {
   attendanceFeelingId: string;
   leavingFeelingId: string;
 };
@@ -12,7 +12,7 @@ export type IconTableCellConnectedProps = {
 };
 
 type JuniorFeelingsIconTableCellProps = WithStyles<typeof styles> &
-  IconTableCellProps &
+  JuniorFeelingsIconTableCellOwnProps &
   IconTableCellConnectedProps;
 
 export default JuniorFeelingsIconTableCellProps;
