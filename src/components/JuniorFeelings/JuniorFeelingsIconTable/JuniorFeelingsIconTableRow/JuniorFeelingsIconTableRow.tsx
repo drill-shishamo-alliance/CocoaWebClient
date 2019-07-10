@@ -1,13 +1,13 @@
 import * as React from 'react';
-import JuniorFeelingsTableRowProps from './JuniorFeelingsTableRowProps';
-import styles from './JuniorFeelingsTableRowStyles';
+import JuniorFeelingsIconTableRowProps from './JuniorFeelingsIconTableRowProps';
+import styles from './JuniorFeelingsIconTableRowStyles';
 import { withStyles } from '@material-ui/styles';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 
-class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps> {
+class JuniorFeelingsIconTableRow extends React.Component<JuniorFeelingsIconTableRowProps> {
   render() {
     const { classes, juniorData } = this.props;
 
@@ -43,4 +43,4 @@ class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps
   }
 }
 
-export default withStyles(styles)(JuniorFeelingsTableRow);
+export default withStyles(styles)(JuniorFeelingsIconTableRow);

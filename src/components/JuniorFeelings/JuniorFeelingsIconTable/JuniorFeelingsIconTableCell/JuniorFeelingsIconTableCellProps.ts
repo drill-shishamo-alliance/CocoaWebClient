@@ -7,12 +7,12 @@ type JuniorFeelingsIconTableCellOwnProps = {
   leavingFeelingId: string;
 };
 
-export type IconTableCellConnectedProps = {
+export type JuniorFeelingsIconTableCellConnectedProps = {
   feelings: FeelingsState[];
 };
 
 type JuniorFeelingsIconTableCellProps = WithStyles<typeof styles> &
   JuniorFeelingsIconTableCellOwnProps &
-  IconTableCellConnectedProps;
+  JuniorFeelingsIconTableCellConnectedProps;
 
 export default JuniorFeelingsIconTableCellProps;

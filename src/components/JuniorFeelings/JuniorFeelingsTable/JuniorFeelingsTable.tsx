@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsTableStyles';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
-import JuniorFeelingsTableRow from '../JuniorFeelingsTableRow/JuniorFeelingsTableRow';
+import JuniorFeelingsIconTableRow from 'src/components/JuniorFeelings/JuniorFeelingsIconTable/JuniorFeelingsIconTableRow/JuniorFeelingsIconTableRow';
 import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
 
 class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
@@ -85,7 +85,7 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
           <Table className={classes.tableLayout}>
             <TableBody>
               {rows.map(junior => (
-                <JuniorFeelingsTableRow juniorData={junior} />
+                <JuniorFeelingsIconTableRow juniorData={junior} />
               ))}
             </TableBody>
           </Table>
