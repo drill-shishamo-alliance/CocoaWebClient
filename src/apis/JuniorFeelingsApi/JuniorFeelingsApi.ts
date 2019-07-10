@@ -2,7 +2,7 @@ import axios from 'axios';
 import JuniorsResponse from './JuniorFeelingsTableResponse/JuniorsResponse';
 import FeelingsResponse from './FeelingsResponse/FeelingsResponse';
 
-export default class JuniorFeelingsApi {
+class JuniorFeelingsApi {
   public async getJuniorFeelings(id?: number, access_token?: string) {
     try {
       const response = await axios.get<JuniorsResponse>(
@@ -42,3 +42,5 @@ export default class JuniorFeelingsApi {
     }
   }
 }
+
+export default new JuniorFeelingsApi();

@@ -1,10 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import JuniorFeelingsApi from 'src/apis/JuniorFeelingsApi/JuniorFeelingsApi';
+import api from 'src/apis/JuniorFeelingsApi/JuniorFeelingsApi';
 import { PromiseGenericType } from 'src/utils/types/TypeUtils';
 import { getJuniorFeelings } from 'src/actions/JuniorFeelings/JuniorFeelingsActionCreator';
 import JuniorFeelingsActionType from 'src/actions/JuniorFeelings/JuniorFeelingsActionType';
-
-const api = new JuniorFeelingsApi();
 
 export function* getJuniorFeelingsSaga(action: ReturnType<typeof getJuniorFeelings.request>) {
   const response: PromiseGenericType<ReturnType<typeof api.getJuniorFeelings>> = yield call(
