@@ -113,7 +113,7 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
                   value === 0 ? (
                     <JuniorFeelingsIconTableRow juniorData={junior} />
                   ) : (
-                    <JuniorFeelingsChartTableRow />
+                    <JuniorFeelingsChartTableRow juniorData={junior} />
                   )
                 )}
               </TableBody>
