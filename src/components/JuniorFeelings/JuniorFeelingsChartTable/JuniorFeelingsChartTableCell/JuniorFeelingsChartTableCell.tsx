@@ -74,88 +74,73 @@ class JuniorFeelingsChartTableCell extends React.Component<JuniorFeelingsChartTa
     const attendanceFridayFeelingIconWeight =
       attendanceFridayFeelingIndex >= 0 ? feelings[attendanceFridayFeelingIndex].weight : 0;
 
-    const leavingMondayFeelingIndex = feelings.findIndex(
-      feeling => feeling.id === weekFeelings.monday.leaving.feeling_id
-    );
-    const leavingMondayFeelingIconName =
-      leavingMondayFeelingIndex >= 0 ? feelings[leavingMondayFeelingIndex].icon_name : 'clear';
-    const leavingMondayFeelingIconColor =
-      leavingMondayFeelingIndex >= 0 ? feelings[leavingMondayFeelingIndex].color : '#ff0000';
-    const leavingMondayFeelingIconWeight =
-      leavingMondayFeelingIndex >= 0 ? feelings[leavingMondayFeelingIndex].weight : 0;
+    // const leavingMondayFeelingIndex = feelings.findIndex(
+    //   feeling => feeling.id === weekFeelings.monday.leaving.feeling_id
+    // );
+    // const leavingMondayFeelingIconName =
+    //   leavingMondayFeelingIndex >= 0 ? feelings[leavingMondayFeelingIndex].icon_name : 'clear';
+    // const leavingMondayFeelingIconColor =
+    //   leavingMondayFeelingIndex >= 0 ? feelings[leavingMondayFeelingIndex].color : '#ff0000';
+    // const leavingMondayFeelingIconWeight =
+    //   leavingMondayFeelingIndex >= 0 ? feelings[leavingMondayFeelingIndex].weight : 0;
 
-    const leavingTuesdayFeelingIndex = feelings.findIndex(
-      feeling => feeling.id === weekFeelings.tuesday.leaving.feeling_id
-    );
-    const leavingTuesdayFeelingIconName =
-      leavingTuesdayFeelingIndex >= 0 ? feelings[leavingTuesdayFeelingIndex].icon_name : 'clear';
-    const leavingTuesdayFeelingIconColor =
-      leavingTuesdayFeelingIndex >= 0 ? feelings[leavingTuesdayFeelingIndex].color : '#ff0000';
-    const leavingTuesdayFeelingIconWeight =
-      leavingTuesdayFeelingIndex >= 0 ? feelings[leavingTuesdayFeelingIndex].weight : 0;
+    // const leavingTuesdayFeelingIndex = feelings.findIndex(
+    //   feeling => feeling.id === weekFeelings.tuesday.leaving.feeling_id
+    // );
+    // const leavingTuesdayFeelingIconName =
+    //   leavingTuesdayFeelingIndex >= 0 ? feelings[leavingTuesdayFeelingIndex].icon_name : 'clear';
+    // const leavingTuesdayFeelingIconColor =
+    //   leavingTuesdayFeelingIndex >= 0 ? feelings[leavingTuesdayFeelingIndex].color : '#ff0000';
+    // const leavingTuesdayFeelingIconWeight =
+    //   leavingTuesdayFeelingIndex >= 0 ? feelings[leavingTuesdayFeelingIndex].weight : 0;
 
-    const leavingWednesdayFeelingIndex = feelings.findIndex(
-      feeling => feeling.id === weekFeelings.wednesday.leaving.feeling_id
-    );
-    const leavingWednesdayFeelingIconName =
-      leavingWednesdayFeelingIndex >= 0
-        ? feelings[leavingWednesdayFeelingIndex].icon_name
-        : 'clear';
-    const leavingWednesdayFeelingIconColor =
-      leavingWednesdayFeelingIndex >= 0 ? feelings[leavingWednesdayFeelingIndex].color : '#ff0000';
-    const leavingWednesdayFeelingIconWeight =
-      leavingWednesdayFeelingIndex >= 0 ? feelings[leavingWednesdayFeelingIndex].weight : 0;
+    // const leavingWednesdayFeelingIndex = feelings.findIndex(
+    //   feeling => feeling.id === weekFeelings.wednesday.leaving.feeling_id
+    // );
+    // const leavingWednesdayFeelingIconName =
+    //   leavingWednesdayFeelingIndex >= 0
+    //     ? feelings[leavingWednesdayFeelingIndex].icon_name
+    //     : 'clear';
+    // const leavingWednesdayFeelingIconColor =
+    //   leavingWednesdayFeelingIndex >= 0 ? feelings[leavingWednesdayFeelingIndex].color : '#ff0000';
+    // const leavingWednesdayFeelingIconWeight =
+    //   leavingWednesdayFeelingIndex >= 0 ? feelings[leavingWednesdayFeelingIndex].weight : 0;
 
-    const leavingThursdayFeelingIndex = feelings.findIndex(
-      feeling => feeling.id === weekFeelings.thursday.leaving.feeling_id
-    );
-    const leavingThursdayFeelingIconName =
-      leavingThursdayFeelingIndex >= 0 ? feelings[leavingThursdayFeelingIndex].icon_name : 'clear';
-    const leavingTursdayFeelingIconColor =
-      leavingThursdayFeelingIndex >= 0 ? feelings[leavingThursdayFeelingIndex].color : '#ff0000';
-    const leavingThursdayFeelingIconWeight =
-      leavingThursdayFeelingIndex >= 0 ? feelings[leavingThursdayFeelingIndex].weight : 0;
+    // const leavingThursdayFeelingIndex = feelings.findIndex(
+    //   feeling => feeling.id === weekFeelings.thursday.leaving.feeling_id
+    // );
+    // const leavingThursdayFeelingIconName =
+    //   leavingThursdayFeelingIndex >= 0 ? feelings[leavingThursdayFeelingIndex].icon_name : 'clear';
+    // const leavingTursdayFeelingIconColor =
+    //   leavingThursdayFeelingIndex >= 0 ? feelings[leavingThursdayFeelingIndex].color : '#ff0000';
+    // const leavingThursdayFeelingIconWeight =
+    //   leavingThursdayFeelingIndex >= 0 ? feelings[leavingThursdayFeelingIndex].weight : 0;
 
-    const leavingFridayFeelingIndex = feelings.findIndex(
-      feeling => feeling.id === weekFeelings.friday.leaving.feeling_id
-    );
-    const leavingFridayFeelingIconName =
-      leavingFridayFeelingIndex >= 0 ? feelings[leavingFridayFeelingIndex].icon_name : 'clear';
-    const leavingFridayFeelingIconColor =
-      leavingFridayFeelingIndex >= 0 ? feelings[leavingFridayFeelingIndex].color : '#ff0000';
-    const leavingFridayFeelingIconWeight =
-      leavingFridayFeelingIndex >= 0 ? feelings[leavingFridayFeelingIndex].weight : 0;
+    // const leavingFridayFeelingIndex = feelings.findIndex(
+    //   feeling => feeling.id === weekFeelings.friday.leaving.feeling_id
+    // );
+    // const leavingFridayFeelingIconName =
+    //   leavingFridayFeelingIndex >= 0 ? feelings[leavingFridayFeelingIndex].icon_name : 'clear';
+    // const leavingFridayFeelingIconColor =
+    //   leavingFridayFeelingIndex >= 0 ? feelings[leavingFridayFeelingIndex].color : '#ff0000';
+    // const leavingFridayFeelingIconWeight =
+    //   leavingFridayFeelingIndex >= 0 ? feelings[leavingFridayFeelingIndex].weight : 0;
 
     const data = [
       {
-        uv: attendanceMondayFeelingIconWeight,
+        気分: attendanceMondayFeelingIconWeight,
       },
       {
-        uv: leavingMondayFeelingIconWeight,
+        気分: attendanceTuesdayFeelingIconWeight,
       },
       {
-        uv: attendanceTuesdayFeelingIconWeight,
+        気分: attendanceWednesdayFeelingIconWeight,
       },
       {
-        uv: leavingTuesdayFeelingIconWeight,
+        気分: attendanceThursdayFeelingIconWeight,
       },
       {
-        uv: attendanceWednesdayFeelingIconWeight,
-      },
-      {
-        uv: leavingWednesdayFeelingIconWeight,
-      },
-      {
-        uv: attendanceThursdayFeelingIconWeight,
-      },
-      {
-        uv: leavingThursdayFeelingIconWeight,
-      },
-      {
-        uv: attendanceMondayFeelingIconWeight,
-      },
-      {
-        uv: leavingMondayFeelingIconWeight,
+        気分: attendanceMondayFeelingIconWeight,
       },
     ];
 
@@ -178,24 +163,23 @@ class JuniorFeelingsChartTableCell extends React.Component<JuniorFeelingsChartTa
     // };
 
     return (
-      <div>
+      <div className={classes.chartPosition}>
         <LineChart
-          width={1000}
+          width={950}
           height={200}
           data={data}
           margin={{
             top: 5,
-            right: 30,
-            left: -40,
+            right: 10,
+            left: 35,
             bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray='3 3' />
           <XAxis dataKey='name' />
-          <YAxis />
+          <YAxis domain={['dataMin', 'dataMax']} ticks={[0, 1, 2, 3, 4, 5]} />
           <Tooltip />
-          <Legend />
-          <Line type='monotone' dataKey='uv' stroke='#8884d8' />
+          <Line type='monotone' dataKey='気分' stroke='#8884d8' />
         </LineChart>
       </div>
     );

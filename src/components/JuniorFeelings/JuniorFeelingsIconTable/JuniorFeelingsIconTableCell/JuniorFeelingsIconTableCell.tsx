@@ -19,13 +19,13 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
     const attendanceFeelingIconColor =
       attendanceFeelingIndex >= 0 ? feelings[attendanceFeelingIndex].color : '#ff0000';
 
-    const leavingFeelingIndex = feelings.findIndex(feeling => feeling.id === leavingFeelingId);
-    const leavingFeelingIconName =
-      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].icon_name : 'clear';
-    const leavingFeelingName =
-      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].name : '未入力';
-    const leavingFeelingIconColor =
-      leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : '#ff0000';
+    // const leavingFeelingIndex = feelings.findIndex(feeling => feeling.id === leavingFeelingId);
+    // const leavingFeelingIconName =
+    //   leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].icon_name : 'clear';
+    // const leavingFeelingName =
+    //   leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].name : '未入力';
+    // const leavingFeelingIconColor =
+    //   leavingFeelingIndex >= 0 ? feelings[leavingFeelingIndex].color : '#ff0000';
 
     return (
       <div className={classNames(classes.row, classes.dataPosition)}>
@@ -42,7 +42,7 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
             {attendanceFeelingName}
           </Typography>
         </div>
-        <div className={classes.iconContainer}>
+        {/* <div className={classes.iconContainer}>
           {leavingFeelingIconName && leavingFeelingIconColor && (
             <i
               className={classNames('material-icons', leavingFeelingIconColor, classes.iconSize)}
@@ -54,7 +54,7 @@ class JuniorFeelingsIconTableCell extends React.Component<JuniorFeelingsIconTabl
           <Typography variant='caption' style={{ color: leavingFeelingIconColor }}>
             {leavingFeelingName}
           </Typography>
-        </div>
+        </div> */}
       </div>
     );
   }
