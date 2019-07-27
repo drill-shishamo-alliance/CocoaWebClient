@@ -19,23 +19,18 @@ class JuniorFeelingsIconTableRow extends React.Component<JuniorFeelingsIconTable
           </Typography>
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.monday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.monday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.tuesday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.tuesday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.wednesday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.wednesday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.thursday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.thursday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.friday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.friday.leaving.feeling_id}
           />
         </TableCell>
       </TableRow>

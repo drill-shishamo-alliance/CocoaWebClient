@@ -4,7 +4,6 @@ import FeelingsState from 'src/apis/JuniorFeelingsApi/FeelingsResponse/Feelings'
 
 type JuniorFeelingsIconTableCellOwnProps = {
   attendanceFeelingId: string;
-  leavingFeelingId: string;
 };
 
 export type JuniorFeelingsIconTableCellConnectedProps = {
