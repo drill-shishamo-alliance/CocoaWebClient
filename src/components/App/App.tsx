@@ -10,7 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 import RouteableDrawerList from './RouteableDrawerList';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import JuniorFeelings from 'src/containers/JuniorFeelings/JuniorFeelings';
 import Home from 'src/components/Home/Home';
 import MyFeelings from 'src/components/MyFeelings/MyFeelings';
@@ -74,6 +74,7 @@ class Dashboard extends React.Component<Props, State> {
           >
             <div className={classes.appBarSpacer} />
             <Switch>
+              <Redirect from='/minio/cocoa-web' to='/minio/cocoa-web' />
               <Route exact path='/' component={Home} />
               <Route path='/juniorfeelings' component={JuniorFeelings} />
               <Route path='/myfeelings' component={MyFeelings} />

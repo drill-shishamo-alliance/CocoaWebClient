@@ -6,7 +6,7 @@ class JuniorFeelingsApi {
   public async getJuniorFeelings(id?: number, access_token?: string) {
     try {
       const response = await axios.get<JuniorsResponse>(
-        'http://virtserver.swaggerhub.com/jbsHakodate/Cocoa-Core-API/1.0.2/juniors/feelings',
+        'https://virtserver.swaggerhub.com/jbsHakodate/Cocoa-Core-API/1.0.2/juniors/feelings',
         {
           headers: {
             id,
@@ -26,7 +26,7 @@ class JuniorFeelingsApi {
   public async getFeelings(access_token?: string) {
     try {
       const response = await axios.get<FeelingsResponse>(
-        'http://virtserver.swaggerhub.com/jbsHakodate/Cocoa-Core-API/1.0.2/feelings',
+        'https://virtserver.swaggerhub.com/jbsHakodate/Cocoa-Core-API/1.0.2/feelings',
         {
           headers: {
             access_token,
