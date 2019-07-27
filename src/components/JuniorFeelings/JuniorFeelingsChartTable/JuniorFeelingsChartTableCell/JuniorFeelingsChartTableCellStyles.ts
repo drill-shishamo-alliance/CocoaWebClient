@@ -5,6 +5,9 @@ const styles = (theme: Theme) =>
     chartPosition: {
       flexBasis: '80%',
     },
+    iconSize: {
+      fontSize: 20,
+    },
   });
 
 export default styles;
