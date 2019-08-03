@@ -11,17 +11,30 @@ import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsTableStyles';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
-import JuniorFeelingsTableRow from '../JuniorFeelingsTableRow/JuniorFeelingsTableRow';
+import JuniorFeelingsIconTableRow from 'src/components/JuniorFeelings/JuniorFeelingsIconTable/JuniorFeelingsIconTableRow/JuniorFeelingsIconTableRow';
 import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import JuniorFeelingsTableState from './JuniorFeelingsTableState';
+import JuniorFeelingsChartTableRow from '../JuniorFeelingsChartTable/JuniorFeelingsChartTableRow/JuniorFeelingsChartTableRow';
 
-class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
+class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFeelingsTableState> {
   public componentWillMount() {
     this.props.getJuniorFeelingsRequest();
     this.props.getFeelingsRequest();
   }
 
+  readonly state = {
+    value: 0,
+  };
+
+  public handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    this.setState({ value: newValue });
+  };
+
   render() {
     const { classes, juniorFeelingsState } = this.props;
+    const { value } = this.state;
 
     const rows: JuniorFeelings[] = [];
 
@@ -30,67 +43,84 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps> {
     }
 
     return (
-      <Paper className={classes.root}>
-        <Table>
-          <TableHead className={classes.head}>
-            <TableRow>
-              <TableCell align='center' className={classNames(classes.cellContainer)}>
-                <h2 className={classes.juniorPosition}>社員</h2>
-                {juniorFeelingsState
-                  .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
-                  .map(junior =>
-                    Object.values(junior.week_feelings).map((day, index) => (
-                      <div className={classNames(classes.columnContainer, classes.dataPosition)}>
-                        {index === 0 ? (
-                          <h2>
-                            {dayjs(day.date)
-                              .locale('ja')
-                              .format('YYYY/MM/DD(dd)')}
-                          </h2>
-                        ) : (
-                          <h2>
-                            {dayjs(day.date)
-                              .locale('ja')
-                              .format('MM/DD(dd)')}
-                          </h2>
-                        )}
-                        <div className={classes.datePosition}>
-                          <i
-                            className={classNames(
-                              'material-icons',
-                              classes.sunnyColor,
-                              classes.iconMargin
-                            )}
-                          >
-                            wb_sunny
-                          </i>
-                          <i
-                            className={classNames(
-                              'material-icons',
-                              classes.moonColor,
-                              classes.iconMargin
-                            )}
-                          >
-                            brightness_2
-                          </i>
+      <div>
+        <Paper square className={classes.tabSize}>
+          <Tabs
+            value={value}
+            indicatorColor='primary'
+            textColor='primary'
+            onChange={this.handleChange}
+          >
+            <Tab label='通常版' />
+            <Tab label='Chart版' />
+          </Tabs>
+        </Paper>
+        <Paper className={classes.root}>
+          <Table>
+            <TableHead className={classes.head}>
+              <TableRow>
+                <TableCell align='center' className={classNames(classes.cellContainer)}>
+                  <h2 className={classes.juniorPosition}>社員</h2>
+                  {juniorFeelingsState
+                    .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
+                    .map(junior =>
+                      Object.values(junior.week_feelings).map((day, index) => (
+                        <div className={classNames(classes.columnContainer, classes.dataPosition)}>
+                          {index === 0 ? (
+                            <h2>
+                              {dayjs(day.date)
+                                .locale('ja')
+                                .format('YYYY/MM/DD(dd)')}
+                            </h2>
+                          ) : (
+                            <h2>
+                              {dayjs(day.date)
+                                .locale('ja')
+                                .format('MM/DD(dd)')}
+                            </h2>
+                          )}
+                          {/* <div className={classes.datePosition}>
+                            <i
+                              className={classNames(
+                                'material-icons',
+                                classes.sunnyColor,
+                                classes.iconMargin
+                              )}
+                            >
+                              wb_sunny
+                            </i>
+                            <i
+                              className={classNames(
+                                'material-icons',
+                                classes.moonColor,
+                                classes.iconMargin
+                              )}
+                            >
+                              brightness_2
+                            </i>
+                          </div> */}
                         </div>
-                      </div>
-                    ))
-                  )}
-              </TableCell>
-            </TableRow>
-          </TableHead>
-        </Table>
-        <div className={classes.tableBody}>
-          <Table className={classes.tableLayout}>
-            <TableBody>
-              {rows.map(junior => (
-                <JuniorFeelingsTableRow juniorData={junior} />
-              ))}
-            </TableBody>
+                      ))
+                    )}
+                </TableCell>
+              </TableRow>
+            </TableHead>
           </Table>
-        </div>
-      </Paper>
+          <div className={classes.tableBody}>
+            <Table className={classes.tableLayout}>
+              <TableBody>
+                {rows.map(junior =>
+                  value === 0 ? (
+                    <JuniorFeelingsIconTableRow juniorData={junior} />
+                  ) : (
+                    <JuniorFeelingsChartTableRow juniorData={junior} />
+                  )
+                )}
+              </TableBody>
+            </Table>
+          </div>
+        </Paper>
+      </div>
     );
   }
 }

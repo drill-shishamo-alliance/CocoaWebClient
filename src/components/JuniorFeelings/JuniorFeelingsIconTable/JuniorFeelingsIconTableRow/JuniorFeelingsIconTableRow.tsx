@@ -1,13 +1,13 @@
 import * as React from 'react';
-import JuniorFeelingsTableRowProps from './JuniorFeelingsTableRowProps';
-import styles from './JuniorFeelingsTableRowStyles';
+import JuniorFeelingsIconTableRowProps from './JuniorFeelingsIconTableRowProps';
+import styles from './JuniorFeelingsIconTableRowStyles';
 import { withStyles } from '@material-ui/styles';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
 
-class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps> {
+class JuniorFeelingsIconTableRow extends React.Component<JuniorFeelingsIconTableRowProps> {
   render() {
     const { classes, juniorData } = this.props;
 
@@ -19,23 +19,18 @@ class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps
           </Typography>
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.monday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.monday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.tuesday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.tuesday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.wednesday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.wednesday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.thursday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.thursday.leaving.feeling_id}
           />
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.friday.attendance.feeling_id}
-            leavingFeelingId={juniorData.week_feelings.friday.leaving.feeling_id}
           />
         </TableCell>
       </TableRow>
@@ -43,4 +38,4 @@ class JuniorFeelingsTableRow extends React.Component<JuniorFeelingsTableRowProps
   }
 }
 
-export default withStyles(styles)(JuniorFeelingsTableRow);
+export default withStyles(styles)(JuniorFeelingsIconTableRow);

@@ -44,6 +44,7 @@
     "@types/react-redux": "^7.0.9",
     "@types/react-router-dom": "^4.3.3",
     "@types/react-virtualized": "^9.21.2",
+    "@types/recharts": "^1.1.19",
     "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.7",
     "@types/redux-saga": "^0.10.5",
@@ -56,6 +57,7 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.1",
     "react-virtualized": "^9.21.1",
+    "recharts": "^1.6.2",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
@@ -81,5 +83,5 @@
     "trailingComma": "es5",
     "printWidth": 100
   },
-  "homepage": "http://52.246.189.150:9000/cocoa-client"
+  "homepage": "./"
 }

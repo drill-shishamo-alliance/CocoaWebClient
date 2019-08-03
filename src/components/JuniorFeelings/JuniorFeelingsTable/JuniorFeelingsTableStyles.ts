@@ -2,9 +2,12 @@ import { Theme, createStyles } from '@material-ui/core/styles';
 
 const styles = (theme: Theme) =>
   createStyles({
+    tabSize: {
+      width: '24%',
+    },
     root: {
       width: '100%',
-      marginTop: 20,
+      marginTop: 5,
       overflowX: 'auto',
     },
     tableLayout: {
@@ -12,7 +15,7 @@ const styles = (theme: Theme) =>
     },
     tableBody: {
       overflow: 'auto',
-      height: 550,
+      height: 500,
     },
     row: {
       display: 'flex',
@@ -21,10 +24,6 @@ const styles = (theme: Theme) =>
     },
     head: {
       backgroundColor: 'white',
-      height: 100,
-    },
-    cellHeight: {
-      height: 100,
     },
     columnContainer: {
       display: 'flex',
