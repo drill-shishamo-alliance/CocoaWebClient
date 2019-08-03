@@ -88,26 +88,6 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
                                 .format('MM/DD(dd)')}
                             </h2>
                           )}
-                          {/* <div className={classes.datePosition}>
-                            <i
-                              className={classNames(
-                                'material-icons',
-                                classes.sunnyColor,
-                                classes.iconMargin
-                              )}
-                            >
-                              wb_sunny
-                            </i>
-                            <i
-                              className={classNames(
-                                'material-icons',
-                                classes.moonColor,
-                                classes.iconMargin
-                              )}
-                            >
-                              brightness_2
-                            </i>
-                          </div> */}
                         </div>
                       ))
                     )}
