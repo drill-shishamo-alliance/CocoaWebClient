@@ -2,8 +2,8 @@ import * as React from 'react';
 import JuniorFeelingsChartTableCellProps from './JuniorFeelingsChartTableCellProps';
 import styles from './JuniorFeelingsChartTableCellStyles';
 import { withStyles } from '@material-ui/styles';
-import { LineChart, Line, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import JuniorFeelingsChartTableCellSvg from '../JuniorFeelingsChartTableCellSvg/JuniorFeelingsChartTableCellSvg';
+import { LineChart, Line, YAxis, CartesianGrid, Tooltip, XAxis } from 'recharts';
+import JuniorFeelingsChartTableCellTickSvg from '../JuniorFeelingsChartTableCellTickSvg/JuniorFeelingsChartTableCellTickSvg';
 
 class JuniorFeelingsChartTableCell extends React.Component<JuniorFeelingsChartTableCellProps> {
   render() {
@@ -62,10 +62,10 @@ class JuniorFeelingsChartTableCell extends React.Component<JuniorFeelingsChartTa
       },
     ];
 
-    const CustomizedDot = (props: any) => {
-      const { cx, cy, value } = props;
+    const CustomizedTicks = (props: any) => {
+      const { x, y, payload } = props;
 
-      return <JuniorFeelingsChartTableCellSvg cx={cx} cy={cy} value={value} />;
+      return <JuniorFeelingsChartTableCellTickSvg x={x} y={y} tick={payload.value} />;
     };
 
     return (
@@ -75,16 +75,21 @@ class JuniorFeelingsChartTableCell extends React.Component<JuniorFeelingsChartTa
           height={200}
           data={data}
           margin={{
-            top: 5,
-            right: 10,
+            top: 10,
+            right: 15,
             left: 35,
             bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray='3 3' />
-          <YAxis domain={['dataMin', 'dataMax']} ticks={[0, 1, 2, 3, 4, 5, 6]} />
+          <XAxis dataKey='name' tickLine={false} />
+          <YAxis
+            domain={['dataMin', 'dataMax']}
+            ticks={[0, 1, 2, 3, 4, 5]}
+            tick={<CustomizedTicks />}
+          />
           <Tooltip />
-          <Line type='monotone' dataKey='気分' stroke='#8884d8' dot={<CustomizedDot />} />
+          <Line type='monotone' dataKey='気分' stroke='#2196f3' />
         </LineChart>
       </div>
     );

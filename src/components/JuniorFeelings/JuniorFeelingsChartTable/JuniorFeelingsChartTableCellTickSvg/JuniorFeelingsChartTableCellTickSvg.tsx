@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Props from './JuniorFeelingsChartTableCellSvgProps';
+import Props from './JuniorFeelingsChartTableCellTickSvgProps';
 
-const JuniorFeelingsChartTableCellSvg: React.FC<Props> = props => {
-  const { cx, cy, value } = props;
+const JuniorFeelingsChartTableCellTickSvg: React.FC<Props> = props => {
+  const { x, y, tick } = props;
 
   const getSvgProps = () => {
-    switch (value) {
+    switch (tick) {
       case 0:
         return {
           fill: '#ff0000',
@@ -56,19 +56,19 @@ const JuniorFeelingsChartTableCellSvg: React.FC<Props> = props => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      x={cx - 10}
-      y={cy - 10}
+      x={x - 30}
+      y={y - 10}
       width='24'
       height='24'
       fill={svgProps.fill}
       viewBox='0 0 24 24'
     >
       <path fill='none' d='M0 0h24v24H0V0z' />
-      <circle cx='15.5' cy='9.5' r='1.5' />
-      <circle cx='8.5' cy='9.5' r='1.5' />
+      {svgProps.fill === '#ff0000' ? '' : <circle cx='15.5' cy='9.5' r='1.5' />}
+      {svgProps.fill === '#ff0000' ? '' : <circle cx='8.5' cy='9.5' r='1.5' />}
       <path d={svgProps.path} />
     </svg>
   );
 };
 
-export default JuniorFeelingsChartTableCellSvg;
+export default JuniorFeelingsChartTableCellTickSvg;
