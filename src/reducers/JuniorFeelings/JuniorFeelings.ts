@@ -1,9 +1,12 @@
-import JuniorsState from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorsResponse';
+import JuniorsState from 'src/states/JuniorFeelings/JuniorFeelingsState';
 import JuniorFeelingsAction from 'src/actions/JuniorFeelings/JuniorFeelingsAction';
 import JuniorFeelingsActionType from 'src/actions/JuniorFeelings/JuniorFeelingsActionType';
 
 const initialState: JuniorsState = {
   juniors: [],
+  details: {
+    selectJunior: undefined,
+  },
 };
 
 const juniorFeelings = (
@@ -15,6 +18,14 @@ const juniorFeelings = (
       return {
         ...state,
         juniors: [...action.payload],
+      };
+    case JuniorFeelingsActionType.SELECT_JUNIOR:
+      return {
+        ...state,
+        details: {
+          ...state.details,
+          selectJunior: action.payload,
+        },
       };
     default:
       return state;

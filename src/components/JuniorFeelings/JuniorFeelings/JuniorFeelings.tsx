@@ -1,13 +1,14 @@
 import React from 'react';
 import { ScreenType } from './ScreenType';
 import JuniorFeelingsTable from 'src/containers/JuniorFeelingsTable/JuniorFeelingsTable';
-import JuniorFeelingsDetails from '../Details/JuniorFeelingsDetails/JuniorFeelingsDetails';
+import JuniorFeelingsDetails from 'src/containers/JuniorFeelingsDetails/JuniorFeelingsDetails';
 
+type JuniorFeelingsProps = {};
 type JuniorFeelingsState = {
   screenType: ScreenType;
 };
 
-class JuniorFeelings extends React.Component<JuniorFeelingsState> {
+class JuniorFeelings extends React.Component<JuniorFeelingsProps, JuniorFeelingsState> {
   readonly state = {
     screenType: ScreenType.JUNIOR_TABLE,
   };
