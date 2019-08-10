@@ -5,6 +5,7 @@ import { JuniorFeelingsDetailsConnectedProps } from 'src/components/JuniorFeelin
 
 const mapStateToProps = (state: RootState): JuniorFeelingsDetailsConnectedProps => ({
   juniorFeelingsState: state.juniorFeelingsState,
+  feelings: state.FeelingsState,
 });
 
 export default connect(
