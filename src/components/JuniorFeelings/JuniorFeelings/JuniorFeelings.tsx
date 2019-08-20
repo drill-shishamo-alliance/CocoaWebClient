@@ -25,7 +25,9 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps, JuniorFeelings
         {this.state.screenType === ScreenType.JUNIOR_TABLE && (
           <JuniorFeelingsTable switchScreen={this.switchScreen} />
         )}
-        {this.state.screenType === ScreenType.JUNIOR_DETAILS && <JuniorFeelingsDetails />}
+        {this.state.screenType === ScreenType.JUNIOR_DETAILS && (
+          <JuniorFeelingsDetails switchScreen={this.switchScreen} />
+        )}
       </div>
     );
   }
