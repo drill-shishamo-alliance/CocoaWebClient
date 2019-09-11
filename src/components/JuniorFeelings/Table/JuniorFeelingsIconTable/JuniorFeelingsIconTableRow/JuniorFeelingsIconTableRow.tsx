@@ -4,19 +4,23 @@ import styles from './JuniorFeelingsIconTableRowStyles';
 import { withStyles } from '@material-ui/styles';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import Typography from '@material-ui/core/Typography';
 import JuniorFeelingsIconTableCell from 'src/containers/JuniorFeelingsIconTableCell/JuniorFeelingsIconTableCell';
+import Button from '@material-ui/core/Button';
 
 class JuniorFeelingsIconTableRow extends React.Component<JuniorFeelingsIconTableRowProps> {
   render() {
-    const { classes, juniorData } = this.props;
+    const { classes, juniorData, handleClick } = this.props;
 
     return (
       <TableRow key={juniorData.name}>
         <TableCell align='center' className={classes.cellContainer}>
-          <Typography variant='subtitle2' className={classes.juniorPosition}>
+          <Button
+            size='medium'
+            className={classes.juniorPosition}
+            onClick={handleClick(juniorData)}
+          >
             {juniorData.name}
-          </Typography>
+          </Button>
           <JuniorFeelingsIconTableCell
             attendanceFeelingId={juniorData.week_feelings.monday.attendance.feeling_id}
           />

@@ -3,7 +3,8 @@ import { Theme, createStyles } from '@material-ui/core/styles';
 const styles = (theme: Theme) =>
   createStyles({
     tabSize: {
-      width: '24%',
+      flexGrow: 1,
+      maxWidth: 320,
     },
     root: {
       width: '100%',

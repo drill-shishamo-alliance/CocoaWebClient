@@ -4,6 +4,9 @@ import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableRespon
 
 type JuniorFeelingsIconTableRowOwnProps = {
   juniorData: JuniorFeelings;
+  handleClick: (
+    juniorFeelings: JuniorFeelings
+  ) => (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 };
 
 type JuniorFeelingsIconTableRowProps = WithStyles<typeof styles> &

@@ -11,12 +11,13 @@ import { withStyles } from '@material-ui/styles';
 import styles from './JuniorFeelingsTableStyles';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
-import JuniorFeelingsIconTableRow from 'src/components/JuniorFeelings/JuniorFeelingsIconTable/JuniorFeelingsIconTableRow/JuniorFeelingsIconTableRow';
+import JuniorFeelingsIconTableRow from 'src/components/JuniorFeelings/Table/JuniorFeelingsIconTable/JuniorFeelingsIconTableRow/JuniorFeelingsIconTableRow';
 import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import JuniorFeelingsTableState from './JuniorFeelingsTableState';
 import JuniorFeelingsChartTableRow from '../JuniorFeelingsChartTable/JuniorFeelingsChartTableRow/JuniorFeelingsChartTableRow';
+import { ScreenType } from '../../JuniorFeelings/ScreenType';
 
 class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFeelingsTableState> {
   public componentWillMount() {
@@ -30,6 +31,14 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
 
   public handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     this.setState({ value: newValue });
+  };
+
+  public handleJuniorDetailsClick = (juniorFeelings: JuniorFeelings) => (
+    e: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    const { selectJunior, switchScreen } = this.props;
+    selectJunior(juniorFeelings);
+    switchScreen(ScreenType.JUNIOR_DETAILS);
   };
 
   render() {
@@ -79,26 +88,6 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
                                 .format('MM/DD(dd)')}
                             </h2>
                           )}
-                          {/* <div className={classes.datePosition}>
-                            <i
-                              className={classNames(
-                                'material-icons',
-                                classes.sunnyColor,
-                                classes.iconMargin
-                              )}
-                            >
-                              wb_sunny
-                            </i>
-                            <i
-                              className={classNames(
-                                'material-icons',
-                                classes.moonColor,
-                                classes.iconMargin
-                              )}
-                            >
-                              brightness_2
-                            </i>
-                          </div> */}
                         </div>
                       ))
                     )}
@@ -111,9 +100,15 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
               <TableBody>
                 {rows.map(junior =>
                   value === 0 ? (
-                    <JuniorFeelingsIconTableRow juniorData={junior} />
+                    <JuniorFeelingsIconTableRow
+                      juniorData={junior}
+                      handleClick={this.handleJuniorDetailsClick}
+                    />
                   ) : (
-                    <JuniorFeelingsChartTableRow juniorData={junior} />
+                    <JuniorFeelingsChartTableRow
+                      juniorData={junior}
+                      handleClick={this.handleJuniorDetailsClick}
+                    />
                   )
                 )}
               </TableBody>
