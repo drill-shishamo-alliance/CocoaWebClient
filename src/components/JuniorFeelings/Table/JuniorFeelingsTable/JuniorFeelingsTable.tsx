@@ -18,6 +18,9 @@ import Tab from '@material-ui/core/Tab';
 import JuniorFeelingsTableState from './JuniorFeelingsTableState';
 import JuniorFeelingsChartTableRow from '../JuniorFeelingsChartTable/JuniorFeelingsChartTableRow/JuniorFeelingsChartTableRow';
 import { ScreenType } from '../../JuniorFeelings/ScreenType';
+import { Button } from '@material-ui/core';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 
 class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFeelingsTableState> {
   public componentWillMount() {
@@ -27,10 +30,19 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
 
   readonly state = {
     value: 0,
+    week_index: 0,
   };
 
   public handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     this.setState({ value: newValue });
+  };
+
+  public handlePreviousButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    this.setState({ week_index: this.state.week_index - 1 });
+  };
+
+  public handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    this.setState({ week_index: this.state.week_index + 1 });
   };
 
   public handleJuniorDetailsClick = (juniorFeelings: JuniorFeelings) => (
@@ -65,6 +77,16 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
           </Tabs>
         </Paper>
         <Paper className={classes.root}>
+          <Button
+            size='small'
+            className={classes.previousButton}
+            onClick={this.handlePreviousButtonClick}
+          >
+            {<KeyboardArrowLeft />}前の週
+          </Button>
+          <Button size='small' className={classes.nextButton} onClick={this.handleNextButtonClick}>
+            次の週{<KeyboardArrowRight />}
+          </Button>
           <Table>
             <TableHead className={classes.head}>
               <TableRow>
@@ -73,23 +95,27 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
                   {juniorFeelingsState
                     .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
                     .map(junior =>
-                      Object.values(junior.week_feelings).map((day, index) => (
-                        <div className={classNames(classes.columnContainer, classes.dataPosition)}>
-                          {index === 0 ? (
-                            <h2>
-                              {dayjs(day.date)
-                                .locale('ja')
-                                .format('YYYY/MM/DD(dd)')}
-                            </h2>
-                          ) : (
-                            <h2>
-                              {dayjs(day.date)
-                                .locale('ja')
-                                .format('MM/DD(dd)')}
-                            </h2>
-                          )}
-                        </div>
-                      ))
+                      Object.values(junior.week_feelings[this.state.week_index]).map(
+                        (day, index) => (
+                          <div
+                            className={classNames(classes.columnContainer, classes.dataPosition)}
+                          >
+                            {index === 0 ? (
+                              <h2>
+                                {dayjs(day.date)
+                                  .locale('ja')
+                                  .format('YYYY/MM/DD(dd)')}
+                              </h2>
+                            ) : (
+                              <h2>
+                                {dayjs(day.date)
+                                  .locale('ja')
+                                  .format('MM/DD(dd)')}
+                              </h2>
+                            )}
+                          </div>
+                        )
+                      )
                     )}
                 </TableCell>
               </TableRow>
@@ -101,11 +127,13 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
                 {rows.map(junior =>
                   value === 0 ? (
                     <JuniorFeelingsIconTableRow
+                      weekIndex={this.state.week_index}
                       juniorData={junior}
                       handleClick={this.handleJuniorDetailsClick}
                     />
                   ) : (
                     <JuniorFeelingsChartTableRow
+                      weekIndex={this.state.week_index}
                       juniorData={junior}
                       handleClick={this.handleJuniorDetailsClick}
                     />

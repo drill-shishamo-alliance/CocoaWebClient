@@ -5,18 +5,10 @@ type WeekFeelings = {
       feeling_id: string;
       is_input: boolean;
     };
-    leaving: {
-      feeling_id: string;
-      is_input: boolean;
-    };
   };
   tuesday: {
     date: string;
     attendance: {
-      feeling_id: string;
-      is_input: boolean;
-    };
-    leaving: {
       feeling_id: string;
       is_input: boolean;
     };
@@ -27,10 +19,6 @@ type WeekFeelings = {
       feeling_id: string;
       is_input: boolean;
     };
-    leaving: {
-      feeling_id: string;
-      is_input: boolean;
-    };
   };
   thursday: {
     date: string;
@@ -38,18 +26,10 @@ type WeekFeelings = {
       feeling_id: string;
       is_input: boolean;
     };
-    leaving: {
-      feeling_id: string;
-      is_input: boolean;
-    };
   };
   friday: {
     date: string;
     attendance: {
-      feeling_id: string;
-      is_input: boolean;
-    };
-    leaving: {
       feeling_id: string;
       is_input: boolean;
     };

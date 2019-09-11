@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 
 class JuniorFeelingsIconTableRow extends React.Component<JuniorFeelingsIconTableRowProps> {
   render() {
-    const { classes, juniorData, handleClick } = this.props;
+    const { classes, juniorData, handleClick, weekIndex } = this.props;
 
     return (
       <TableRow key={juniorData.name}>
@@ -22,19 +22,21 @@ class JuniorFeelingsIconTableRow extends React.Component<JuniorFeelingsIconTable
             {juniorData.name}
           </Button>
           <JuniorFeelingsIconTableCell
-            attendanceFeelingId={juniorData.week_feelings.monday.attendance.feeling_id}
+            attendanceFeelingId={juniorData.week_feelings[weekIndex].monday.attendance.feeling_id}
           />
           <JuniorFeelingsIconTableCell
-            attendanceFeelingId={juniorData.week_feelings.tuesday.attendance.feeling_id}
+            attendanceFeelingId={juniorData.week_feelings[weekIndex].tuesday.attendance.feeling_id}
           />
           <JuniorFeelingsIconTableCell
-            attendanceFeelingId={juniorData.week_feelings.wednesday.attendance.feeling_id}
+            attendanceFeelingId={
+              juniorData.week_feelings[weekIndex].wednesday.attendance.feeling_id
+            }
           />
           <JuniorFeelingsIconTableCell
-            attendanceFeelingId={juniorData.week_feelings.thursday.attendance.feeling_id}
+            attendanceFeelingId={juniorData.week_feelings[weekIndex].thursday.attendance.feeling_id}
           />
           <JuniorFeelingsIconTableCell
-            attendanceFeelingId={juniorData.week_feelings.friday.attendance.feeling_id}
+            attendanceFeelingId={juniorData.week_feelings[weekIndex].friday.attendance.feeling_id}
           />
         </TableCell>
       </TableRow>

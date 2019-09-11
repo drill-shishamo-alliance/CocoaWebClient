@@ -26,7 +26,7 @@ class JuniorFeelingsDetails extends React.Component<Props> {
     let badCount = 0;
 
     selectJunior &&
-      Object.values(selectJunior.week_feelings).map(day =>
+      Object.values(selectJunior.week_feelings[0]).map(day =>
         index.push(feelings.findIndex(f => f.id === day.attendance.feeling_id))
       );
 
