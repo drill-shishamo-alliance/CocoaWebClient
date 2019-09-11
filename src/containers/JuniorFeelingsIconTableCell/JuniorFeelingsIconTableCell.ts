@@ -7,7 +7,9 @@ const mapStateToProps = (state: RootState): JuniorFeelingsIconTableCellConnected
   feelings: state.FeelingsState,
 });
 
+const mapDispatchToProps = {};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(JuniorFeelingsIconTableCell);
