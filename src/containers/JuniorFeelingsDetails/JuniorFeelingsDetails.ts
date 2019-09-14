@@ -8,7 +8,9 @@ const mapStateToProps = (state: RootState): JuniorFeelingsDetailsConnectedProps 
   feelings: state.FeelingsState,
 });
 
+const mapDispatchToProps = {};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(JuniorFeelingsDetails);

@@ -3,21 +3,49 @@ import { withStyles } from '@material-ui/core/styles';
 import Props from './JuniorFeelingsDetailsProps';
 import styles from './JuniorFeelingsDetatilsStyles';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import { Typography, IconButton } from '@material-ui/core';
+import { Typography, IconButton, Button } from '@material-ui/core';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
 import { ScreenType } from '../../JuniorFeelings/ScreenType';
+import State from './JuniorFeelingsDetailsState';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
 
-class JuniorFeelingsDetails extends React.Component<Props> {
+class JuniorFeelingsDetails extends React.Component<Props, State> {
+  readonly state = {
+    week_index: this.props.weekIndex,
+  };
+
   public handleBackButtonClick = () => {
     const { switchScreen } = this.props;
     switchScreen(ScreenType.JUNIOR_TABLE);
   };
+
+  public handlePreviousButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    this.setState({ week_index: this.state.week_index - 1 });
+  };
+
+  public handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    this.setState({ week_index: this.state.week_index + 1 });
+  };
+
+  public setPeriod = (first: string, last: string): string => {
+    return `${dayjs(first)
+      .locale('ja')
+      .format('MM/DD(dd)')}〜${dayjs(last)
+      .locale('ja')
+      .format('MM/DD(dd)')}`;
+  }; // 期間を返してくれる関数
 
   render() {
     const { classes, juniorFeelingsState, feelings } = this.props;
     const { selectJunior } = juniorFeelingsState.details;
 
     const index: number[] = [];
+    const dates: string[] = [];
+    let period: string = '';
+
     let veryDissatisfiedCount = 0;
     let dissatisfiedCount = 0;
     let faceCount = 0;
@@ -26,9 +54,13 @@ class JuniorFeelingsDetails extends React.Component<Props> {
     let badCount = 0;
 
     selectJunior &&
-      Object.values(selectJunior.week_feelings[0]).map(day =>
-        index.push(feelings.findIndex(f => f.id === day.attendance.feeling_id))
+      Object.values(selectJunior.week_feelings[this.state.week_index]).map(
+        day =>
+          index.push(feelings.findIndex(f => f.id === day.attendance.feeling_id)) &&
+          dates.push(day.date)
       );
+
+    period = this.setPeriod(dates[0], dates[dates.length - 1]); // 表示しているデータの期間
 
     index.map(i =>
       i === 0
@@ -106,7 +138,17 @@ class JuniorFeelingsDetails extends React.Component<Props> {
           {selectJunior && `${selectJunior.name}さんの詳細`}
         </Typography>
         <div className={classes.feelingContainer}>
-          <Typography variant='h5'>{'１週間分の気分'}</Typography>
+          <Button
+            size='small'
+            className={classes.previousButton}
+            onClick={this.handlePreviousButtonClick}
+          >
+            {<KeyboardArrowLeft />}前の週
+          </Button>
+          <Button size='small' className={classes.nextButton} onClick={this.handleNextButtonClick}>
+            次の週{<KeyboardArrowRight />}
+          </Button>
+          <Typography variant='h5'>{`${period}の気分`}</Typography>
           <PieChart width={600} height={600}>
             <Pie
               data={data}

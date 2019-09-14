@@ -6,6 +6,7 @@ import { ScreenType } from '../../JuniorFeelings/ScreenType';
 
 type JuniorFeelingsTableOwnProps = {
   switchScreen: (screenType: ScreenType) => void;
+  setWeekIndex: (weekIndex: number) => void;
 };
 
 export type JuniorFeelingsConnectedProps = {

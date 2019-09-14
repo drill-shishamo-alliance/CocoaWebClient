@@ -48,8 +48,9 @@ class JuniorFeelingsTable extends React.Component<JuniorFeelingsProps, JuniorFee
   public handleJuniorDetailsClick = (juniorFeelings: JuniorFeelings) => (
     e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
-    const { selectJunior, switchScreen } = this.props;
+    const { selectJunior, switchScreen, setWeekIndex } = this.props;
     selectJunior(juniorFeelings);
+    setWeekIndex(this.state.week_index);
     switchScreen(ScreenType.JUNIOR_DETAILS);
   };
 
