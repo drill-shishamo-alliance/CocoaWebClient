@@ -30,6 +30,16 @@ const styles = (theme: Theme) =>
     title: {
       marginLeft: 60,
     },
+    nextButton: {
+      position: 'absolute',
+      top: '13%',
+      right: '5%',
+    },
+    previousButton: {
+      position: 'absolute',
+      top: '13%',
+      right: '12%',
+    },
   });
 
 export default styles;
