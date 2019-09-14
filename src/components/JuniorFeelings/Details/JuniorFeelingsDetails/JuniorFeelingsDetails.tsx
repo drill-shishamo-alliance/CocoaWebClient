@@ -14,7 +14,7 @@ class JuniorFeelingsDetails extends React.Component<Props> {
   };
 
   render() {
-    const { classes, juniorFeelingsState, feelings } = this.props;
+    const { classes, juniorFeelingsState, feelings, weekIndex } = this.props;
     const { selectJunior } = juniorFeelingsState.details;
 
     const index: number[] = [];
@@ -26,7 +26,7 @@ class JuniorFeelingsDetails extends React.Component<Props> {
     let badCount = 0;
 
     selectJunior &&
-      Object.values(selectJunior.week_feelings[0]).map(day =>
+      Object.values(selectJunior.week_feelings[weekIndex]).map(day =>
         index.push(feelings.findIndex(f => f.id === day.attendance.feeling_id))
       );
 

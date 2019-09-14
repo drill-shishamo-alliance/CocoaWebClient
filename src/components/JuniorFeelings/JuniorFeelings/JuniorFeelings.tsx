@@ -6,11 +6,13 @@ import JuniorFeelingsDetails from 'src/containers/JuniorFeelingsDetails/JuniorFe
 type JuniorFeelingsProps = {};
 type JuniorFeelingsState = {
   screenType: ScreenType;
+  weekIndex: number;
 };
 
 class JuniorFeelings extends React.Component<JuniorFeelingsProps, JuniorFeelingsState> {
   readonly state = {
     screenType: ScreenType.JUNIOR_TABLE,
+    weekIndex: 0,
   };
 
   public switchScreen = (screenType: ScreenType) => {
@@ -19,14 +21,23 @@ class JuniorFeelings extends React.Component<JuniorFeelingsProps, JuniorFeelings
     });
   };
 
+  public setWeekIndex = (weekIndex: number) => {
+    this.setState({
+      weekIndex,
+    });
+  };
+
   public render() {
     return (
       <div>
         {this.state.screenType === ScreenType.JUNIOR_TABLE && (
-          <JuniorFeelingsTable switchScreen={this.switchScreen} />
+          <JuniorFeelingsTable setWeekIndex={this.setWeekIndex} switchScreen={this.switchScreen} />
         )}
         {this.state.screenType === ScreenType.JUNIOR_DETAILS && (
-          <JuniorFeelingsDetails switchScreen={this.switchScreen} />
+          <JuniorFeelingsDetails
+            switchScreen={this.switchScreen}
+            weekIndex={this.state.weekIndex}
+          />
         )}
       </div>
     );
