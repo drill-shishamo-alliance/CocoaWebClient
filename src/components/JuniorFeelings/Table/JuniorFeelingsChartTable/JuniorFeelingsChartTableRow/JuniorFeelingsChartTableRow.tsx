@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 
 class JuniorFeelingsChartTableRow extends React.Component<JuniorFeelingsChartTableRowProps> {
   render() {
-    const { classes, juniorData, handleClick } = this.props;
+    const { classes, juniorData, handleClick, weekIndex } = this.props;
 
     return (
       <TableRow key={juniorData.name}>
@@ -21,7 +21,7 @@ class JuniorFeelingsChartTableRow extends React.Component<JuniorFeelingsChartTab
           >
             {juniorData.name}
           </Button>
-          <JuniorFeelingsChartTableCell weekFeelings={juniorData.week_feelings} />
+          <JuniorFeelingsChartTableCell weekFeelings={juniorData.week_feelings[weekIndex]} />
         </TableCell>
       </TableRow>
     );

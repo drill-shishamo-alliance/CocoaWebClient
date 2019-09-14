@@ -3,6 +3,7 @@ import styles from './JuniorFeelingsIconTableRowStyles';
 import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
 
 type JuniorFeelingsIconTableRowOwnProps = {
+  weekIndex: number;
   juniorData: JuniorFeelings;
   handleClick: (
     juniorFeelings: JuniorFeelings

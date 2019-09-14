@@ -3,6 +3,7 @@ import styles from './JuniorFeelingsChartTableRowStyles';
 import JuniorFeelings from 'src/apis/JuniorFeelingsApi/JuniorFeelingsTableResponse/JuniorFeelings';
 
 type JuniorFeelingsChartTableRowOwnProps = {
+  weekIndex: number;
   juniorData: JuniorFeelings;
   handleClick: (
     juniorFeelings: JuniorFeelings
