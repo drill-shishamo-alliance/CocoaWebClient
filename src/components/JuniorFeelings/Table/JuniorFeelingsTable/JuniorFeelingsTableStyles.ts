@@ -65,7 +65,7 @@ const styles = (theme: Theme) =>
     previousButton: {
       position: 'absolute',
       top: '13%',
-      right: '12%',
+      right: '11%',
     },
   });
 

@@ -15,6 +15,8 @@ import 'dayjs/locale/ja';
 class JuniorFeelingsDetails extends React.Component<Props, State> {
   readonly state = {
     week_index: this.props.weekIndex,
+    isWeekButtonClicked: true,
+    isMonthButtonClicked: false,
   };
 
   public handleBackButtonClick = () => {
@@ -28,6 +30,14 @@ class JuniorFeelingsDetails extends React.Component<Props, State> {
 
   public handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     this.setState({ week_index: this.state.week_index + 1 });
+  };
+
+  public handleWeekButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    this.setState({ isWeekButtonClicked: true, isMonthButtonClicked: false });
+  };
+
+  public handleMonthButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    this.setState({ isWeekButtonClicked: false, isMonthButtonClicked: true });
   };
 
   public setPeriod = (first: string, last: string): string => {
@@ -139,15 +149,56 @@ class JuniorFeelingsDetails extends React.Component<Props, State> {
         </Typography>
         <div className={classes.feelingContainer}>
           <Button
-            size='small'
-            className={classes.previousButton}
-            onClick={this.handlePreviousButtonClick}
+            variant='contained'
+            className={classes.weekButton}
+            onClick={this.handleWeekButtonClick}
           >
-            {<KeyboardArrowLeft />}前の週
+            1週間ごと
           </Button>
-          <Button size='small' className={classes.nextButton} onClick={this.handleNextButtonClick}>
-            次の週{<KeyboardArrowRight />}
+          <Button
+            variant='contained'
+            className={classes.monthButton}
+            onClick={this.handleMonthButtonClick}
+          >
+            1ヶ月ごと
           </Button>
+          {this.state.isWeekButtonClicked === true ? (
+            <div>
+              <Button
+                size='small'
+                className={classes.previousButton}
+                onClick={this.handlePreviousButtonClick}
+              >
+                {<KeyboardArrowLeft />}前の週
+              </Button>
+              <Button
+                size='small'
+                className={classes.nextButton}
+                onClick={this.handleNextButtonClick}
+              >
+                次の週
+                {<KeyboardArrowRight />}
+              </Button>
+            </div>
+          ) : (
+            <div>
+              <Button
+                size='small'
+                className={classes.previousButton}
+                onClick={this.handlePreviousButtonClick}
+              >
+                {<KeyboardArrowLeft />}前の月
+              </Button>
+              <Button
+                size='small'
+                className={classes.nextButton}
+                onClick={this.handleNextButtonClick}
+              >
+                次の月
+                {<KeyboardArrowRight />}
+              </Button>
+            </div>
+          )}
           <Typography variant='h5'>{`${period}の気分`}</Typography>
           <PieChart width={600} height={600}>
             <Pie

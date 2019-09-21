@@ -38,7 +38,17 @@ const styles = (theme: Theme) =>
     previousButton: {
       position: 'absolute',
       top: '13%',
-      right: '12%',
+      right: '11%',
+    },
+    weekButton: {
+      position: 'absolute',
+      top: '13%',
+      right: '24%',
+    },
+    monthButton: {
+      position: 'absolute',
+      top: '13%',
+      right: '17%',
     },
   });
 
