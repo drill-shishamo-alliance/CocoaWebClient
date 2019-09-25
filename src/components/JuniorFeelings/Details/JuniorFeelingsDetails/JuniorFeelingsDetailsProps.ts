@@ -14,8 +14,13 @@ export type JuniorFeelingsDetailsConnectedProps = {
   feelings: Feelings[];
 };
 
+export type JuniorFeelingsDetailsDispatchProps = {
+  getJuniorMonthFeelingsRequest: () => void;
+};
+
 type JuniorFeelingsDetailsProps = WithStyles<typeof styles> &
   JuniorFeelingsDetailsOwnProps &
-  JuniorFeelingsDetailsConnectedProps;
+  JuniorFeelingsDetailsConnectedProps &
+  JuniorFeelingsDetailsDispatchProps;
 
 export default JuniorFeelingsDetailsProps;

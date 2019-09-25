@@ -1,6 +1,7 @@
 import axios from 'axios';
 import FeelingsResponse from './FeelingsResponse/FeelingsResponse';
 import JuniorFeelings from './JuniorFeelingsTableResponse/JuniorFeelings';
+import WeekFeelings from './JuniorFeelingsTableResponse/WeekFeelings';
 // import JuniorResponse from './JuniorFeelingsTableResponse/JuniorsResponse';
 
 class JuniorFeelingsApi {
@@ -50,6 +51,28 @@ class JuniorFeelingsApi {
       throw new Error(error);
     }
   }
+
+  public async getJuniorMonthFeelings() {
+    try {
+      return await axios.get<WeekFeelings[]>('http://localhost:3001/month', {});
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  // 年と月を受け取ってqueryにのっけてリクエストを送る
+  // public async getJuniorMonthFeelings(year: number, month: number) {
+  //   try {
+  //     return await axios.get<WeekFeelings[]>('url', {
+  //       params: {
+  //         year: year,
+  //         month: month,
+  //       },
+  //     });
+  //   } catch (error) {
+  //     throw new Error(error);
+  //   }
+  // }
 }
 
 export default new JuniorFeelingsApi();

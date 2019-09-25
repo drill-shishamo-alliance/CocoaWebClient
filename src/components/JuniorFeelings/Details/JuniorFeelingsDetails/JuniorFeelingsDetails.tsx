@@ -38,6 +38,7 @@ class JuniorFeelingsDetails extends React.Component<Props, State> {
 
   public handleMonthButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     this.setState({ isWeekButtonClicked: false, isMonthButtonClicked: true });
+    this.props.getJuniorMonthFeelingsRequest();
   };
 
   public setPeriod = (first: string, last: string): string => {
@@ -199,7 +200,13 @@ class JuniorFeelingsDetails extends React.Component<Props, State> {
               </Button>
             </div>
           )}
-          <Typography variant='h5'>{`${period}の気分`}</Typography>
+          {this.state.isWeekButtonClicked === true ? (
+            <Typography variant='h5'>{`${period}の気分`}</Typography>
+          ) : (
+            selectJunior && (
+              <Typography variant='h5'>{`${dayjs(dates[0]).month() + 1}月の気分`}</Typography>
+            )
+          )}
           <PieChart width={600} height={600}>
             <Pie
               data={data}
