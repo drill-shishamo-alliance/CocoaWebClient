@@ -1,7 +1,7 @@
 import { all } from 'redux-saga/effects';
-import juniorFeelingsSaga from './JuniorFeelings/JuniorFeelingsSaga';
-import FeelingsSaga from './Feelings/FeelingsSaga';
+import employeeMoodsSaga from './EmployeeMoods/EmployeeMoodsSaga';
+import MoodsSaga from './Moods/MoodsSaga';
 
 export default function* rootSaga() {
-  yield all([...juniorFeelingsSaga, ...FeelingsSaga]);
+  yield all([...employeeMoodsSaga, ...MoodsSaga]);
 }

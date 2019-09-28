@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import juniorFeelingsState from './JuniorFeelings/JuniorFeelings';
-import FeelingsState from './Feelings/Feelings';
+import employeeMoodsState from './EmployeeMoods/EmployeeMoods';
+import MoodsState from './Moods/Moods';
 
 const rootReducer = combineReducers({
-  juniorFeelingsState,
-  FeelingsState,
+  employeeMoodsState,
+  MoodsState,
 });
 
 export default rootReducer;

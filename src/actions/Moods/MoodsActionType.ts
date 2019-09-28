@@ -1,0 +1,7 @@
+enum MoodsActionType {
+  GET_MOODS_REQUEST = 'GET_MOODS_REQUEST',
+  GET_MOODS_SUCCEEDED = 'GET_MOODS_SUCCEEDED',
+  GET_MOODS_FAILED = 'GET_MOODS_FAILED',
+}
+
+export default MoodsActionType;
