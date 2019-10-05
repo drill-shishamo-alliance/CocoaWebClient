@@ -1,0 +1,39 @@
+{
+  "moods": [
+    {
+      "id": "id_1",
+      "name": "もうダメ、助けて...",
+      "weight": 1,
+      "icon_name": "sentiment_very_dissatisfied",
+      "color": "#7E8B8C"
+    },
+    {
+      "id": "id_2",
+      "name": "つらい...",
+      "weight": 2,
+      "icon_name": "sentiment_dissatisfied",
+      "color": "#2880BA"
+    },
+    {
+      "id": "id_3",
+      "name": "平常運転",
+      "weight": 3,
+      "icon_name": "tag_faces",
+      "color": "#E57D22"
+    },
+    {
+      "id": "id_4",
+      "name": "いい感じ",
+      "weight": 4,
+      "icon_name": "sentiment_satisfied",
+      "color": "#1ABC9C"
+    },
+    {
+      "id": "id_5",
+      "name": "絶好調！",
+      "weight": 5,
+      "icon_name": "sentiment_very_satisfied",
+      "color": "#EF7079"
+    }
+  ]
+}
