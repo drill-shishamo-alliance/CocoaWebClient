@@ -1,5 +1,7 @@
 // expressモジュールを読み込む
 const express = require('express');
+const september_mood = require("./september_mood.json");
+const octorber_mood = require("./october_mood.json");
 
 // expressアプリを作成する
 const app = express();
@@ -21,26 +23,18 @@ app.get('/moods', (req, res) => {
   });
 });
 
+app.get('/', (req, res) => res.json(september_mood));
+
 app.get('/employees', (req, res) => {
   const year = req.query.year;
   const month = req.query.month;
-
-  if (year === 2019 && month === 9) {
-    res.sendFile(__dirname + '/september_mood.json', err => {
-      if (err) {
-        res.sendStatus(400);
-      } else {
-        console.log('9month sending completed');
-      }
-    });
-  } else if (year === 2019 && month === 10) {
-    res.sendFile(__dirname + '/octorber_mood.json', err => {
-      if (err) {
-        res.sendStatus(400);
-      } else {
-        console.log('10month sending completed');
-      }
-    });
+  console.log('employees')
+  console.log(year)
+  console.log(month)
+  if (year == 2019 && month == 9) {
+    res.json(september_mood);
+  } else if (year == 2019 && month == 10) {
+    res.json(octorber_mood);
   }
 });
 
