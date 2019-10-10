@@ -36,9 +36,9 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
     this.setState({ isWeekButtonClicked: true, isMonthButtonClicked: false });
   };
 
-  public handleMonthButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  public handleMonthButtonClick = (date: string) => () => {
     this.setState({ isWeekButtonClicked: false, isMonthButtonClicked: true });
-    this.props.getEmployeeMonthMoodsRequest();
+    this.props.getEmployeeMonthMoodsRequest(dayjs(date).year(), dayjs(date).month() + 1);
   };
 
   public setPeriod = (first: string, last: string): string => {
@@ -158,7 +158,7 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
           <Button
             variant='contained'
             className={classes.monthButton}
-            onClick={this.handleMonthButtonClick}
+            onClick={this.handleMonthButtonClick(dates[0])}
           >
             1ヶ月ごと
           </Button>

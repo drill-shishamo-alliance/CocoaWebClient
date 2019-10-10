@@ -15,7 +15,7 @@ export type EmployeeMoodsDetailsConnectedProps = {
 };
 
 export type EmployeeMoodsDetailsDispatchProps = {
-  getEmployeeMonthMoodsRequest: () => void;
+  getEmployeeMonthMoodsRequest: (year: number, month: number) => void;
 };
 
 type EmployeeMoodsDetailsProps = WithStyles<typeof styles> &

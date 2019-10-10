@@ -8,9 +8,10 @@ export function* getEmployeeMonthMoodsSaga(
   action: ReturnType<typeof getEmployeeMonthMoods.request>
 ) {
   const response: PromiseGenericType<ReturnType<typeof api.getEmployeeMonthMoods>> = yield call(
-    api.getEmployeeMonthMoods
+    api.getEmployeeMonthMoods,
+    action.payload.year,
+    action.payload.month
   );
-
   if (response.status === 200 && response.data) {
     yield put(getEmployeeMonthMoods.success(response.data));
   } else if (response.status === 400) {

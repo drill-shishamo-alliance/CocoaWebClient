@@ -17,7 +17,8 @@ const mapStateToProps = (state: RootState): EmployeeMoodsDetailsConnectedProps =
 const mapDispatchToProps = (
   dispatch: Dispatch<EmployeeMoodsDetailsAction>
 ): EmployeeMoodsDetailsDispatchProps => ({
-  getEmployeeMonthMoodsRequest: () => dispatch(getEmployeeMonthMoods.request()),
+  getEmployeeMonthMoodsRequest: (year: number, month: number) =>
+    dispatch(getEmployeeMonthMoods.request({ year, month })),
 });
 
 export default connect(

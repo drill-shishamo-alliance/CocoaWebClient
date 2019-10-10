@@ -59,7 +59,7 @@ class EmployeeMoodsApi {
   // 年と月を受け取ってqueryにのっけてリクエストを送る
   public async getEmployeeMonthMoods(year: number, month: number) {
     try {
-      return await axios.get<EmployeeMoods[]>('http://localhost:8000/employees/moods', {
+      return await axios.get<EmployeeMoods[]>('http://localhost:8000/employees', {
         params: {
           year: year,
           month: month,

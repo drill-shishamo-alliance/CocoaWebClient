@@ -21,7 +21,7 @@ app.get('/moods', (req, res) => {
   });
 });
 
-app.get('/employees/moods', (req, res) => {
+app.get('/employees', (req, res) => {
   const year = req.query.year;
   const month = req.query.month;
 
@@ -30,7 +30,7 @@ app.get('/employees/moods', (req, res) => {
       if (err) {
         res.sendStatus(400);
       } else {
-        console.log('sending completed');
+        console.log('9month sending completed');
       }
     });
   } else if (year === 2019 && month === 10) {
@@ -38,7 +38,7 @@ app.get('/employees/moods', (req, res) => {
       if (err) {
         res.sendStatus(400);
       } else {
-        console.log('sending completed');
+        console.log('10month sending completed');
       }
     });
   }

@@ -1,13 +1,13 @@
-import WeekMoods from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/WeekMoods';
 import EmployeeMoodsDetailsAction from 'src/actions/EmployeeMoods/EmployeeMoodsDetails/EmployeeMoodsDetailsAction';
 import EmployeeMoodsDetailsActionType from 'src/actions/EmployeeMoods/EmployeeMoodsDetails/EmployeeMoodsDetailsActionType';
+import EmployeeMoods from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/EmployeeMoods';
 
-const initialState: WeekMoods[] = [];
+const initialState: EmployeeMoods[] = [];
 
 const employeeMoodsDetails = (
-  state: WeekMoods[] = initialState,
+  state: EmployeeMoods[] = initialState,
   action: EmployeeMoodsDetailsAction
-): WeekMoods[] => {
+): EmployeeMoods[] => {
   switch (action.type) {
     case EmployeeMoodsDetailsActionType.GET_EMPLOYEE_MONTH_MOODS_SUCCESSED:
       return {
