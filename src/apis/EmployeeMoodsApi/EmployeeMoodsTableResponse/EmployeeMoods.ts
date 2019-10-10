@@ -1,8 +1,8 @@
 import WeekMoods from './WeekMoods';
 
 type EmployeeMoods = {
-  id: string;
-  name: string;
+  user_id: string;
+  user_name: string;
   week_moods: WeekMoods[];
 };
 

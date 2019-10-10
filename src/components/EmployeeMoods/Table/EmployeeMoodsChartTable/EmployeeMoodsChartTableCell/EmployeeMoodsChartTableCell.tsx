@@ -10,35 +10,35 @@ class EmployeeMoodsChartTableCell extends React.Component<EmployeeMoodsChartTabl
     const { classes, weekMoods, moods } = this.props;
 
     const attendanceMondayMoodIndex = moods.findIndex(
-      mood => mood.id === weekMoods.monday.attendance.mood_id
+      mood => mood.id === weekMoods.monday.mood_ids.attendance
     );
 
     const attendanceMondayMoodIconWeight =
       attendanceMondayMoodIndex >= 0 ? moods[attendanceMondayMoodIndex].weight : 0;
 
     const attendanceTuesdayMoodIndex = moods.findIndex(
-      mood => mood.id === weekMoods.tuesday.attendance.mood_id
+      mood => mood.id === weekMoods.tuesday.mood_ids.attendance
     );
 
     const attendanceTuesdayMoodIconWeight =
       attendanceTuesdayMoodIndex >= 0 ? moods[attendanceTuesdayMoodIndex].weight : 0;
 
     const attendanceWednesdayMoodIndex = moods.findIndex(
-      mood => mood.id === weekMoods.wednesday.attendance.mood_id
+      mood => mood.id === weekMoods.wednesday.mood_ids.attendance
     );
 
     const attendanceWednesdayMoodIconWeight =
       attendanceWednesdayMoodIndex >= 0 ? moods[attendanceWednesdayMoodIndex].weight : 0;
 
     const attendanceThursdayMoodIndex = moods.findIndex(
-      mood => mood.id === weekMoods.thursday.attendance.mood_id
+      mood => mood.id === weekMoods.thursday.mood_ids.attendance
     );
 
     const attendanceThursdayMoodIconWeight =
       attendanceThursdayMoodIndex >= 0 ? moods[attendanceThursdayMoodIndex].weight : 0;
 
     const attendanceFridayMoodIndex = moods.findIndex(
-      mood => mood.id === weekMoods.friday.attendance.mood_id
+      mood => mood.id === weekMoods.friday.mood_ids.attendance
     );
 
     const attendanceFridayMoodIconWeight =

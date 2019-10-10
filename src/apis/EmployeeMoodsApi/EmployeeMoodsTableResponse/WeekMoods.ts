@@ -1,37 +1,37 @@
 type WeekMoods = {
   monday: {
     date: string;
-    attendance: {
-      mood_id: string;
-      is_input: boolean;
+    mood_ids: {
+      attendance: string;
+      leaving: string;
     };
   };
   tuesday: {
     date: string;
-    attendance: {
-      mood_id: string;
-      is_input: boolean;
+    mood_ids: {
+      attendance: string;
+      leaving: string;
     };
   };
   wednesday: {
     date: string;
-    attendance: {
-      mood_id: string;
-      is_input: boolean;
+    mood_ids: {
+      attendance: string;
+      leaving: string;
     };
   };
   thursday: {
     date: string;
-    attendance: {
-      mood_id: string;
-      is_input: boolean;
+    mood_ids: {
+      attendance: string;
+      leaving: string;
     };
   };
   friday: {
     date: string;
-    attendance: {
-      mood_id: string;
-      is_input: boolean;
+    mood_ids: {
+      attendance: string;
+      leaving: string;
     };
   };
 };

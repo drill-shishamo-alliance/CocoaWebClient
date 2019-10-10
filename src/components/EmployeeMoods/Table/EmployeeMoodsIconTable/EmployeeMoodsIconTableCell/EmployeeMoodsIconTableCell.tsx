@@ -9,7 +9,7 @@ class EmployeeMoodsIconTableCell extends React.Component<EmployeeMoodsIconTableC
   render() {
     const { classes, attendanceMoodId, moods } = this.props;
     const attendanceMoodIndex = moods.findIndex(mood => mood.id === attendanceMoodId);
-    console.log(attendanceMoodIndex);
+
     const attendanceMoodIconName =
       attendanceMoodIndex >= 0 ? moods[attendanceMoodIndex].icon_name : 'clear';
     const attendanceMoodName =

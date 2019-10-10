@@ -12,29 +12,29 @@ class EmployeeMoodsIconTableRow extends React.Component<EmployeeMoodsIconTableRo
     const { classes, employeeData, handleClick, weekIndex } = this.props;
 
     return (
-      <TableRow key={employeeData.name}>
+      <TableRow key={employeeData.user_name}>
         <TableCell align='center' className={classes.cellContainer}>
           <Button
             size='medium'
             className={classes.employeePosition}
             onClick={handleClick(employeeData)}
           >
-            {employeeData.name}
+            {employeeData.user_name}
           </Button>
           <EmployeeMoodsIconTableCell
-            attendanceMoodId={employeeData.week_moods[weekIndex].monday.attendance.mood_id}
+            attendanceMoodId={employeeData.week_moods[weekIndex].monday.mood_ids.attendance}
           />
           <EmployeeMoodsIconTableCell
-            attendanceMoodId={employeeData.week_moods[weekIndex].tuesday.attendance.mood_id}
+            attendanceMoodId={employeeData.week_moods[weekIndex].tuesday.mood_ids.attendance}
           />
           <EmployeeMoodsIconTableCell
-            attendanceMoodId={employeeData.week_moods[weekIndex].wednesday.attendance.mood_id}
+            attendanceMoodId={employeeData.week_moods[weekIndex].wednesday.mood_ids.attendance}
           />
           <EmployeeMoodsIconTableCell
-            attendanceMoodId={employeeData.week_moods[weekIndex].thursday.attendance.mood_id}
+            attendanceMoodId={employeeData.week_moods[weekIndex].thursday.mood_ids.attendance}
           />
           <EmployeeMoodsIconTableCell
-            attendanceMoodId={employeeData.week_moods[weekIndex].friday.attendance.mood_id}
+            attendanceMoodId={employeeData.week_moods[weekIndex].friday.mood_ids.attendance}
           />
         </TableCell>
       </TableRow>

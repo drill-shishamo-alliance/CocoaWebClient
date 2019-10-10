@@ -67,7 +67,7 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
     selectEmployee &&
       Object.values(selectEmployee.week_moods[this.state.week_index]).map(
         day =>
-          index.push(moods.findIndex(f => f.id === day.attendance.mood_id)) && dates.push(day.date)
+          index.push(moods.findIndex(f => f.id === day.mood_ids.attendance)) && dates.push(day.date)
       );
 
     period = this.setPeriod(dates[0], dates[dates.length - 1]); // 表示しているデータの期間
@@ -145,7 +145,7 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
           </IconButton>
         </div>
         <Typography variant='h5' className={classes.title}>
-          {selectEmployee && `${selectEmployee.name}さんの詳細`}
+          {selectEmployee && `${selectEmployee.user_name}さんの詳細`}
         </Typography>
         <div className={classes.moodContainer}>
           <Button
