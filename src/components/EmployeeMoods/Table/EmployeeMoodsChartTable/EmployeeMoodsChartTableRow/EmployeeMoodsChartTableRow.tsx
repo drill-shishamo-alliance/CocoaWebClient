@@ -12,14 +12,14 @@ class EmployeeMoodsChartTableRow extends React.Component<EmployeeMoodsChartTable
     const { classes, employeeData, handleClick, weekIndex } = this.props;
 
     return (
-      <TableRow key={employeeData.name}>
+      <TableRow key={employeeData.user_name}>
         <TableCell align='center' className={classes.cellContainer}>
           <Button
             size='medium'
             className={classes.employeePosition}
             onClick={handleClick(employeeData)}
           >
-            {employeeData.name}
+            {employeeData.user_name}
           </Button>
           <EmployeeMoodsChartTableCell weekMoods={employeeData.week_moods[weekIndex]} />
         </TableCell>
