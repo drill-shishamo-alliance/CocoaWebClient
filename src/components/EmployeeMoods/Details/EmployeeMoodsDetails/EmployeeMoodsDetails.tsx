@@ -2,7 +2,6 @@ import * as React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Props from './EmployeeMoodsDetailsProps';
 import styles from './EmployeeMoodsDetatilsStyles';
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { Typography, IconButton, Button } from '@material-ui/core';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
 import { ScreenType } from '../../EmployeeMoods/ScreenType';
@@ -11,6 +10,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
+import PieGraph from '../PieGraph/PieGraph';
 
 class EmployeeMoodsDetails extends React.Component<Props, State> {
   readonly state = {
@@ -122,46 +122,6 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
       { name: '最高', value: verySatisfiedCount, unit: '日' },
     ];
 
-    const COLORS = ['#ff0000', '#7E8B8C', '#2880BA', '#E57D22', '#1ABC9C', '#EF7079'];
-
-    const RADIAN = Math.PI / 180;
-    const renderCustomizedLabel = (props: any) => {
-      const { cx, cy, midAngle, innerRadius, outerRadius, percent } = props;
-      const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-      const x = cx + radius * Math.cos(-midAngle * RADIAN);
-      const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-      return (
-        <text
-          x={x}
-          y={y}
-          fill='white'
-          textAnchor={x > cx ? 'start' : 'end'}
-          dominantBaseline='central'
-          fontSize='20'
-        >
-          {percent > 0 ? `${(percent * 100).toFixed(0)}%` : ''}
-        </text>
-      );
-    };
-
-    const CustomTooltip = (props: any) => {
-      const { active, payload } = props;
-
-      if (active) {
-        return (
-          <div className={classes.customTooltip}>
-            <Typography
-              className={classes.label}
-              variant='h6'
-            >{`${payload[0].name}: ${payload[0].value}日`}</Typography>
-          </div>
-        );
-      }
-
-      return null;
-    };
-
     return (
       <div>
         <div aria-label='back-button'>
@@ -231,23 +191,7 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
               <Typography variant='h5'>{`${this.props.currentDisplayedDate.month}月の気分`}</Typography>
             )
           )}
-          <PieChart width={600} height={600}>
-            <Pie
-              data={data}
-              cx={300}
-              cy={200}
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={200}
-              fill='#8884d8'
-              dataKey='value'
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip content={<CustomTooltip />} />
-          </PieChart>
+          <PieGraph data={data} />
         </div>
       </div>
     );
