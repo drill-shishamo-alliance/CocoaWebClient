@@ -14,7 +14,6 @@ import 'dayjs/locale/ja';
 
 class EmployeeMoodsDetails extends React.Component<Props, State> {
   readonly state = {
-    week_index: this.props.weekIndex,
     isWeekButtonClicked: true,
     isMonthButtonClicked: false,
   };
@@ -25,11 +24,11 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
   };
 
   public handlePreviousButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    this.setState({ week_index: this.state.week_index - 1 });
+    this.props.previousWeek();
   };
 
   public handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    this.setState({ week_index: this.state.week_index + 1 });
+    this.props.nextWeek();
   };
 
   public handleWeekButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -65,7 +64,7 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
     let badCount = 0;
 
     selectEmployee &&
-      Object.values(selectEmployee.week_moods[this.state.week_index]).map(
+      Object.values(selectEmployee.week_moods[this.props.currentDisplayedDate.weekIndex]).map(
         day =>
           index.push(moods.findIndex(f => f.id === day.mood_ids.attendance)) && dates.push(day.date)
       );

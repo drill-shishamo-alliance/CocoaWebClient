@@ -30,27 +30,25 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
 
   readonly state = {
     value: 0,
-    week_index: 0,
   };
 
   public handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     this.setState({ value: newValue });
   };
 
-  public handlePreviousButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    this.setState({ week_index: this.state.week_index - 1 });
+  public handlePreviousButtonClick = () => {
+    this.props.previousWeek();
   };
 
-  public handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    this.setState({ week_index: this.state.week_index + 1 });
+  public handleNextButtonClick = () => {
+    this.props.nextWeek();
   };
 
   public handleEmployeeDetailsClick = (employeeMoods: EmployeeMoods) => (
     e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
-    const { selectEmployee, switchScreen, setWeekIndex } = this.props;
+    const { selectEmployee, switchScreen } = this.props;
     selectEmployee(employeeMoods);
-    setWeekIndex(this.state.week_index);
     switchScreen(ScreenType.EMPLOYEE_DETAILS);
   };
 
@@ -96,27 +94,25 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
                   {employeeMoodsState
                     .filter((_, index) => index === 0) // １週間分の日付データが欲しいのでindexをユーザ1人に絞る
                     .map(employee =>
-                      Object.values(employee.week_moods[this.state.week_index]).map(
-                        (day, index) => (
-                          <div
-                            className={classNames(classes.columnContainer, classes.dataPosition)}
-                          >
-                            {index === 0 ? (
-                              <h2>
-                                {dayjs(day.date)
-                                  .locale('ja')
-                                  .format('YYYY/MM/DD(dd)')}
-                              </h2>
-                            ) : (
-                              <h2>
-                                {dayjs(day.date)
-                                  .locale('ja')
-                                  .format('MM/DD(dd)')}
-                              </h2>
-                            )}
-                          </div>
-                        )
-                      )
+                      Object.values(
+                        employee.week_moods[this.props.currentDisplayedDate.weekIndex]
+                      ).map((day, index) => (
+                        <div className={classNames(classes.columnContainer, classes.dataPosition)}>
+                          {index === 0 ? (
+                            <h2>
+                              {dayjs(day.date)
+                                .locale('ja')
+                                .format('YYYY/MM/DD(dd)')}
+                            </h2>
+                          ) : (
+                            <h2>
+                              {dayjs(day.date)
+                                .locale('ja')
+                                .format('MM/DD(dd)')}
+                            </h2>
+                          )}
+                        </div>
+                      ))
                     )}
                 </TableCell>
               </TableRow>
@@ -128,13 +124,13 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
                 {rows.map(employee =>
                   value === 0 ? (
                     <EmployeeMoodsIconTableRow
-                      weekIndex={this.state.week_index}
+                      weekIndex={this.props.currentDisplayedDate.weekIndex}
                       employeeData={employee}
                       handleClick={this.handleEmployeeDetailsClick}
                     />
                   ) : (
                     <EmployeeMoodsChartTableRow
-                      weekIndex={this.state.week_index}
+                      weekIndex={this.props.currentDisplayedDate.weekIndex}
                       employeeData={employee}
                       handleClick={this.handleEmployeeDetailsClick}
                     />
