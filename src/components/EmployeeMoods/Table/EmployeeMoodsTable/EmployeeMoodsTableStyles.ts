@@ -4,7 +4,7 @@ const styles = (theme: Theme) =>
   createStyles({
     tabSize: {
       flexGrow: 1,
-      maxWidth: 320,
+      maxWidth: 480,
     },
     root: {
       width: '100%',
