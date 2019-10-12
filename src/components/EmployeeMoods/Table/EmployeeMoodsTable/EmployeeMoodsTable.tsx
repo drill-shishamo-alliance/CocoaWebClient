@@ -72,20 +72,38 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
             onChange={this.handleChange}
           >
             <Tab label='通常版' />
-            <Tab label='Chart版' />
+            <Tab label='週詳細' />
+            <Tab label='月詳細' />
           </Tabs>
         </Paper>
         <Paper className={classes.root}>
-          <Button
-            size='small'
-            className={classes.previousButton}
-            onClick={this.handlePreviousButtonClick}
-          >
-            {<KeyboardArrowLeft />}前の週
-          </Button>
-          <Button size='small' className={classes.nextButton} onClick={this.handleNextButtonClick}>
-            次の週{<KeyboardArrowRight />}
-          </Button>
+          {value === 2 ? (
+            <div>
+              <Button size='small' className={classes.previousButton}>
+                {<KeyboardArrowLeft />}前の月
+              </Button>
+              <Button size='small' className={classes.nextButton}>
+                次の月{<KeyboardArrowRight />}
+              </Button>
+            </div>
+          ) : (
+            <div>
+              <Button
+                size='small'
+                className={classes.previousButton}
+                onClick={this.handlePreviousButtonClick}
+              >
+                {<KeyboardArrowLeft />}前の週
+              </Button>
+              <Button
+                size='small'
+                className={classes.nextButton}
+                onClick={this.handleNextButtonClick}
+              >
+                次の週{<KeyboardArrowRight />}
+              </Button>
+            </div>
+          )}
           <Table>
             <TableHead className={classes.head}>
               <TableRow>
@@ -128,12 +146,14 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
                       employeeData={employee}
                       handleClick={this.handleEmployeeDetailsClick}
                     />
-                  ) : (
+                  ) : value === 1 ? (
                     <EmployeeMoodsChartTableRow
                       weekIndex={this.props.currentDisplayedDate.weekIndex}
                       employeeData={employee}
                       handleClick={this.handleEmployeeDetailsClick}
                     />
+                  ) : (
+                    <div></div>
                   )
                 )}
               </TableBody>
