@@ -18,26 +18,52 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
     isMonthButtonClicked: false,
   };
 
+  public componentDidMount() {
+    this.props.getEmployeeMonthMoodsRequest(
+      new Date().getFullYear(),
+      this.props.currentDisplayedDate.month
+    );
+  }
+
   public handleBackButtonClick = () => {
     const { switchScreen } = this.props;
     switchScreen(ScreenType.EMPLOYEE_TABLE);
   };
 
-  public handlePreviousButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  public handlePreviousWeekButtonClick = () => {
     this.props.previousWeek();
   };
 
-  public handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  public handleNextWeekButtonClick = () => {
     this.props.nextWeek();
   };
 
-  public handleWeekButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  public handlePreviousMonthButtonClick = () => {
+    this.props.previousMonth();
+    this.props.getEmployeeMonthMoodsRequest(
+      new Date().getFullYear(),
+      this.props.currentDisplayedDate.month - 1
+    );
+  };
+
+  public handleNextMonthButtonClick = () => {
+    this.props.nextMonth();
+    this.props.getEmployeeMonthMoodsRequest(
+      new Date().getFullYear(),
+      this.props.currentDisplayedDate.month + 1
+    );
+  };
+
+  public handleWeekButtonClick = () => {
     this.setState({ isWeekButtonClicked: true, isMonthButtonClicked: false });
   };
 
   public handleMonthButtonClick = (date: string) => () => {
     this.setState({ isWeekButtonClicked: false, isMonthButtonClicked: true });
-    this.props.getEmployeeMonthMoodsRequest(dayjs(date).year(), dayjs(date).month() + 1);
+    this.props.getEmployeeMonthMoodsRequest(
+      dayjs(date).year(),
+      this.props.currentDisplayedDate.month
+    );
   };
 
   public setPeriod = (first: string, last: string): string => {
@@ -166,14 +192,14 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
               <Button
                 size='small'
                 className={classes.previousButton}
-                onClick={this.handlePreviousButtonClick}
+                onClick={this.handlePreviousWeekButtonClick}
               >
                 {<KeyboardArrowLeft />}前の週
               </Button>
               <Button
                 size='small'
                 className={classes.nextButton}
-                onClick={this.handleNextButtonClick}
+                onClick={this.handleNextWeekButtonClick}
               >
                 次の週
                 {<KeyboardArrowRight />}
@@ -184,14 +210,14 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
               <Button
                 size='small'
                 className={classes.previousButton}
-                onClick={this.handlePreviousButtonClick}
+                onClick={this.handlePreviousMonthButtonClick}
               >
                 {<KeyboardArrowLeft />}前の月
               </Button>
               <Button
                 size='small'
                 className={classes.nextButton}
-                onClick={this.handleNextButtonClick}
+                onClick={this.handleNextMonthButtonClick}
               >
                 次の月
                 {<KeyboardArrowRight />}
@@ -202,7 +228,7 @@ class EmployeeMoodsDetails extends React.Component<Props, State> {
             <Typography variant='h5'>{`${period}の気分`}</Typography>
           ) : (
             selectEmployee && (
-              <Typography variant='h5'>{`${dayjs(dates[0]).month() + 1}月の気分`}</Typography>
+              <Typography variant='h5'>{`${this.props.currentDisplayedDate.month}月の気分`}</Typography>
             )
           )}
           <PieChart width={600} height={600}>
