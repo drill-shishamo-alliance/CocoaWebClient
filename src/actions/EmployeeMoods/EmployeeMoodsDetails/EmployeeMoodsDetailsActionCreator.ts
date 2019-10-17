@@ -7,4 +7,4 @@ export const getEmployeeMonthMoods = createAsyncAction(
   EmployeeMoodsDetailsActionType.GET_EMPLOYEE_MONTH_MOODS_REQUEST,
   EmployeeMoodsDetailsActionType.GET_EMPLOYEE_MONTH_MOODS_SUCCESSED,
   EmployeeMoodsDetailsActionType.GET_EMPLOYEE_MONTH_MOODS_FAILED
-)<{ year: number; month: number }, EmployeeMoods[], undefined>();
+)<{ year: number; month: number }, { EmployeeMoodsData: EmployeeMoods[] }, undefined>();

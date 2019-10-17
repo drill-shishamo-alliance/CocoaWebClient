@@ -13,7 +13,7 @@ export function* getEmployeeMonthMoodsSaga(
     action.payload.month
   );
   if (response.status === 200 && response.data) {
-    yield put(getEmployeeMonthMoods.success(response.data));
+    yield put(getEmployeeMonthMoods.success({ EmployeeMoodsData: response.data }));
   } else if (response.status === 400) {
     yield put(getEmployeeMonthMoods.failure());
   } else {

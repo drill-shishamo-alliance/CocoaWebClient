@@ -68,7 +68,7 @@ const PieGraph = (props: PieGraphDataProps) => {
         fill='#8884d8'
         dataKey='value'
       >
-        {data.map((entry: any, index: number) => (
+        {data.map((entry, index: number) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>

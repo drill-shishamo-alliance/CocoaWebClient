@@ -12,7 +12,7 @@ const employeeMoodsDetails = (
     case EmployeeMoodsDetailsActionType.GET_EMPLOYEE_MONTH_MOODS_SUCCESSED:
       return {
         ...state,
-        ...action.payload,
+        ...action.payload.EmployeeMoodsData,
       };
 
     default:
