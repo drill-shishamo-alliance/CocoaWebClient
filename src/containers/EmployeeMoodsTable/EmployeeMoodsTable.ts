@@ -11,8 +11,8 @@ import {
   getEmployeeMoods,
   selectEmployee,
 } from 'src/actions/EmployeeMoods/EmployeeMoodsActionCreator';
-import MoodsAction from 'src/actions/Moods/MoodsAction';
-import { getMoods } from 'src/actions/Moods/MoodsActionCreator';
+import MoodsAction from 'src/actions/Moods/Action';
+import { getMoods } from 'src/actions/Moods/ActionCreator';
 import EmployeeMoods from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/EmployeeMoods';
 import {
   nextWeek,
