@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "format": "prettier --write src/**/*.ts",
-    "lint": "eslint -h tsconfig.json --fix"
+    "lint": "eslint -h tsconfig.json --fix",
+    "mock-server": "node src/apis/EmployeeMoodsApi/mock/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"

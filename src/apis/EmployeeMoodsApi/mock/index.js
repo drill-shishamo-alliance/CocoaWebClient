@@ -1,7 +1,8 @@
 // expressモジュールを読み込む
 const express = require('express');
-const september_mood = require("./september_mood.json");
-const octorber_mood = require("./october_mood.json");
+const moods = require('./moods.json');
+const september_mood = require("./september_mood_input_logs.json");
+const octorber_mood = require("./october_mood_input_logs.json");
 
 // expressアプリを作成する
 const app = express();
@@ -14,27 +15,19 @@ app.use((req, res, next) => {
 
 // /moods にアクセスしてきたときmood.jsonを返す
 app.get('/moods', (req, res) => {
-  res.sendFile(__dirname + '/mood.json', err => {
-    if (err) {
-      res.sendStatus(400);
-    } else {
-      console.log('sending completed');
-    }
-  });
+  res.status(500).json(moods);
 });
 
-app.get('/', (req, res) => res.json(september_mood));
+app.get('/', (req, res) => res.send('Cocoa mock server'));
 
-app.get('/employees', (req, res) => {
+// 社員の気分入力情報を、飛んできた年と月のクエリを元に値を返す
+app.get('/moodInputLog', (req, res) => {
   const year = req.query.year;
   const month = req.query.month;
-  console.log('employees')
-  console.log(year)
-  console.log(month)
   if (year == 2019 && month == 9) {
-    res.json(september_mood);
+    res.status(500).json(september_mood);
   } else if (year == 2019 && month == 10) {
-    res.json(octorber_mood);
+    res.status(500).json(octorber_mood);
   }
 });
 

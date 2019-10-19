@@ -1,0 +1,18 @@
+{
+    "20191017":{
+        "userId1": {
+            "inputedMood" : "dissatisfied"
+        },
+        "userId2": {
+            "inputedMood": "face"
+        }
+    },
+    "20191018":{
+        "userId1": {
+           "inputedMood" : "satisfied"
+        },
+        "userId2": {
+           "inputedMood" : "veryDissatisfied"
+        }
+    }
+}

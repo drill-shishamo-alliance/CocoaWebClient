@@ -1,41 +1,37 @@
 {
-  "moods": [
-    {
-      "id": "id_1",
+  "veryDissatisfied":{
+      "id": "veryDissatisfied",
       "name": "もうダメ、助けて...",
       "weight": 1,
       "icon_name": "sentiment_very_dissatisfied",
       "color": "#7E8B8C"
     },
-    {
-      "id": "id_2",
+    "dissatisfied":{
+      "id": "dissatisfied",
       "name": "つらい...",
       "weight": 2,
       "icon_name": "sentiment_dissatisfied",
       "color": "#2880BA"
     },
-    {
-      "id": "id_3",
+    "face":{
+      "id": "face",
       "name": "平常運転",
       "weight": 3,
       "icon_name": "tag_faces",
       "color": "#E57D22"
     },
-    {
-      "id": "id_4",
+    "satisfied":{
+      "id": "satisfied",
       "name": "いい感じ",
       "weight": 4,
       "icon_name": "sentiment_satisfied",
       "color": "#1ABC9C"
     },
-    {
-      "id": "id_5",
+    "verySatisfied":{
+      "id": "verySatisfied",
       "name": "絶好調！",
       "weight": 5,
       "icon_name": "sentiment_very_satisfied",
       "color": "#EF7079"
-    }
-  ]
+    }        
 }
-
-
