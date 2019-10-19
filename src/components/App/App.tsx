@@ -11,11 +11,11 @@ import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 import RouteableDrawerList from './RouteableDrawerList';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
-import JuniorFeelings from 'src/components/JuniorFeelings/JuniorFeelings/JuniorFeelings';
+import EmployeeMoods from 'src/components/EmployeeMoods/EmployeeMoods/EmployeeMoods';
 import Home from 'src/components/Home/Home';
-import MyFeelings from 'src/components/MyFeelings/MyFeelings';
+import MyMoods from 'src/components/MyMoods/MyMoods';
 import DepartmentalAnalysis from 'src/components/DepartmentalAnalysis/DepartmentalAnalysis';
-import FeelingsMap from 'src/components/FeelingsMap/FeelingsMap';
+import MoodsMap from 'src/components/MoodsMap/MoodsMap';
 import styles from './AppStyles';
 import State from './AppState';
 import Props from './AppProps';
@@ -76,10 +76,10 @@ class Dashboard extends React.Component<Props, State> {
             <Switch>
               <Redirect from='/minio/cocoa-web' to='/minio/cocoa-web' />
               <Route exact path='/' component={Home} />
-              <Route path='/juniorfeelings' component={JuniorFeelings} />
-              <Route path='/myfeelings' component={MyFeelings} />
+              <Route path='/employeemoods' component={EmployeeMoods} />
+              <Route path='/mymoods' component={MyMoods} />
               <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
-              <Route path='/feelingsmap' component={FeelingsMap} />
+              <Route path='/moodsmap' component={MoodsMap} />
             </Switch>
           </main>
         </div>

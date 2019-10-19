@@ -3,8 +3,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import JuniorFeelingsIcon from 'src/assets/DrawerItems/JuniorFeelingsIcon.svg';
-import MyFeelingIcon from 'src/assets/DrawerItems/MyFeelingIcon.svg';
+import EmployeeMoodsIcon from 'src/assets/DrawerItems/EmployeeMoodsIcon.svg';
+import MyMoodIcon from 'src/assets/DrawerItems/MyMoodIcon.svg';
 import DepartmentalAnalysisIcon from 'src/assets/DrawerItems/DepartmentalAnalysisIcon.svg';
 import MapIcon from '@material-ui/icons/Map';
 import List from '@material-ui/core/List';
@@ -34,16 +34,16 @@ class RouteableDrawerList extends React.Component<Props> {
           <ListItemText primary='ホーム' />
         </ListItem>
 
-        <ListItem button onClick={handleClick('/juniorfeelings')}>
+        <ListItem button onClick={handleClick('/employeemoods')}>
           <ListItemIcon>
-            <img src={JuniorFeelingsIcon} className={classes.iconImg} alt='juniorfeelings' />
+            <img src={EmployeeMoodsIcon} className={classes.iconImg} alt='employeemoods' />
           </ListItemIcon>
           <ListItemText primary='部下の気分' />
         </ListItem>
 
-        <ListItem button onClick={handleClick('/myfeelings')}>
+        <ListItem button onClick={handleClick('/mymoods')}>
           <ListItemIcon>
-            <img src={MyFeelingIcon} className={classes.iconImg} alt='myfeelings' />
+            <img src={MyMoodIcon} className={classes.iconImg} alt='mymoods' />
           </ListItemIcon>
           <ListItemText primary='自分の気分' />
         </ListItem>
@@ -59,7 +59,7 @@ class RouteableDrawerList extends React.Component<Props> {
           <ListItemText primary='部署の分析' />
         </ListItem>
 
-        <ListItem button onClick={handleClick('/feelingsmap')}>
+        <ListItem button onClick={handleClick('/moodsmap')}>
           <ListItemIcon>
             <MapIcon />
           </ListItemIcon>

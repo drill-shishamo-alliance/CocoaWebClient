@@ -1,7 +1,14 @@
 import { all } from 'redux-saga/effects';
-import juniorFeelingsSaga from './JuniorFeelings/JuniorFeelingsSaga';
-import FeelingsSaga from './Feelings/FeelingsSaga';
+import employeeMoodsSaga from './EmployeeMoods/EmployeeMoodsSaga';
+import MoodsSaga from './Moods/MoodsSaga';
+import getEmployeeMonthMoodsSaga from './EmployeeMoodsDetails/EmployeeMonthMoodsSaga';
+import weeklyMoodsByMonthSaga from './WeeklyMoodsByMonth/WeeklyMoodsByMonthSaga';
 
 export default function* rootSaga() {
-  yield all([...juniorFeelingsSaga, ...FeelingsSaga]);
+  yield all([
+    ...employeeMoodsSaga,
+    ...MoodsSaga,
+    ...getEmployeeMonthMoodsSaga,
+    ...weeklyMoodsByMonthSaga,
+  ]);
 }
