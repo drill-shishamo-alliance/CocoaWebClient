@@ -1,14 +1,8 @@
 import { all } from 'redux-saga/effects';
-import employeeMoodsSaga from './EmployeeMoods/EmployeeMoodsSaga';
-import MoodsSaga from './Moods/MoodsSaga';
-import getEmployeeMonthMoodsSaga from './EmployeeMoodsDetails/EmployeeMonthMoodsSaga';
-import weeklyMoodsByMonthSaga from './WeeklyMoodsByMonth/WeeklyMoodsByMonthSaga';
+import { moodsSaga } from './Moods';
+import { employeesSaga } from './Employees';
+import { listMoodOfEmployeeSaga } from './ListMoodOfEmployee';
 
 export default function* rootSaga() {
-  yield all([
-    ...employeeMoodsSaga,
-    ...MoodsSaga,
-    ...getEmployeeMonthMoodsSaga,
-    ...weeklyMoodsByMonthSaga,
-  ]);
+  yield all([...moodsSaga, ...employeesSaga, ...listMoodOfEmployeeSaga]);
 }
