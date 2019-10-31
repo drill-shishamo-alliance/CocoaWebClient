@@ -11,19 +11,16 @@ import { withStyles } from '@material-ui/styles';
 import styles from './EmployeeMoodsTableStyles';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
-import EmployeeMoodsIconTableRow from 'src/components/EmployeeMoods/Table/EmployeeMoodsIconTable/EmployeeMoodsIconTableRow/EmployeeMoodsIconTableRow';
-import EmployeeMoods from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/EmployeeMoods';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import EmployeeMoodsTableState from './EmployeeMoodsTableState';
 import EmployeeMoodsChartTableRow from '../EmployeeMoodsChartTable/EmployeeMoodsChartTableRow/EmployeeMoodsChartTableRow';
-import { ScreenType } from '../../EmployeeMoods/ScreenType';
 import { Button } from '@material-ui/core';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 
 class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoodsTableState> {
-  public componentWillMount() {
+  public componentDidMount() {
     this.props.getEmployeeMoodsRequest();
     this.props.getMoodsRequest();
   }
@@ -42,14 +39,6 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
 
   public handleNextButtonClick = () => {
     this.props.nextWeek();
-  };
-
-  public handleEmployeeDetailsClick = (employeeMoods: EmployeeMoods) => (
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
-    const { selectEmployee, switchScreen } = this.props;
-    selectEmployee(employeeMoods);
-    switchScreen(ScreenType.EMPLOYEE_DETAILS);
   };
 
   render() {
@@ -71,7 +60,6 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
             textColor='primary'
             onChange={this.handleChange}
           >
-            <Tab label='通常版' />
             <Tab label='週詳細' />
             <Tab label='月詳細' />
           </Tabs>
@@ -141,17 +129,9 @@ class EmployeeMoodsTable extends React.Component<EmployeeMoodsProps, EmployeeMoo
               <TableBody>
                 {rows.map(employee =>
                   value === 0 ? (
-                    <EmployeeMoodsIconTableRow
-                      weekIndex={this.props.currentDisplayedDate.weekIndex}
-                      employeeData={employee}
-                      handleClick={this.handleEmployeeDetailsClick}
-                    />
+                    <EmployeeMoodsChartTableRow employeeData={employee} />
                   ) : value === 1 ? (
-                    <EmployeeMoodsChartTableRow
-                      weekIndex={this.props.currentDisplayedDate.weekIndex}
-                      employeeData={employee}
-                      handleClick={this.handleEmployeeDetailsClick}
-                    />
+                    <EmployeeMoodsChartTableRow employeeData={employee} />
                   ) : (
                     <div></div>
                   )

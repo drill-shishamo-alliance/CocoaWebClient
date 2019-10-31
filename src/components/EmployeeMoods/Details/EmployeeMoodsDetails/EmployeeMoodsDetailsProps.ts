@@ -2,7 +2,7 @@ import { WithStyles } from '@material-ui/core';
 import styles from './EmployeeMoodsDetatilsStyles';
 import EmployeeMoodsState from 'src/states/EmployeeMoods/EmployeeMoodsState';
 import Moods from 'src/apis/EmployeeMoodsApi/MoodsResponse/Moods';
-import { ScreenType } from '../../EmployeeMoods/ScreenType';
+import { ScreenType } from '../../EmployeeMoodsScreen/ScreenType';
 import { CurrentDisplayedDateState } from 'src/states/CurrentDisplayedDate/CurrentDisplayedDate';
 
 type EmployeeMoodsDetailsOwnProps = {

@@ -2,12 +2,7 @@ import { WithStyles } from '@material-ui/core';
 import styles from './EmployeeMoodsTableStyles';
 import EmployeeMoodsState from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/EmployeeMoods';
 import EmployeeMoods from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/EmployeeMoods';
-import { ScreenType } from '../../EmployeeMoods/ScreenType';
 import { CurrentDisplayedDateState } from 'src/states/CurrentDisplayedDate/CurrentDisplayedDate';
-
-type EmployeeMoodsTableOwnProps = {
-  switchScreen: (screenType: ScreenType) => void;
-};
 
 export type EmployeeMoodsConnectedProps = {
   employeeMoodsState: EmployeeMoodsState[];
@@ -24,7 +19,6 @@ export type EmployeeMoodsDispatchProps = {
   previousMonth: () => void;
 };
 type EmployeeMoodsProps = WithStyles<typeof styles> &
-  EmployeeMoodsTableOwnProps &
   EmployeeMoodsConnectedProps &
   EmployeeMoodsDispatchProps;
 

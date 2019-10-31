@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
 import RouteableDrawerList from './RouteableDrawerList';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
-import EmployeeMoods from 'src/components/EmployeeMoods/EmployeeMoods/EmployeeMoods';
+import EmployeeMoodsScreen from 'src/components/EmployeeMoods/EmployeeMoodsScreen/EmployeeMoodsScreen';
 import Home from 'src/components/Home/Home';
 import MyMoods from 'src/components/MyMoods/MyMoods';
 import DepartmentalAnalysis from 'src/components/DepartmentalAnalysis/DepartmentalAnalysis';
@@ -76,7 +76,7 @@ class Dashboard extends React.Component<Props, State> {
             <Switch>
               <Redirect from='/minio/cocoa-web' to='/minio/cocoa-web' />
               <Route exact path='/' component={Home} />
-              <Route path='/employeemoods' component={EmployeeMoods} />
+              <Route path='/employeemoods' component={EmployeeMoodsScreen} />
               <Route path='/mymoods' component={MyMoods} />
               <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
               <Route path='/moodsmap' component={MoodsMap} />
