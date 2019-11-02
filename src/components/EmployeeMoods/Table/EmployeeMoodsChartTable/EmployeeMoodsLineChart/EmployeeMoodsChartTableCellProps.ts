@@ -1,7 +1,7 @@
 import { WithStyles } from '@material-ui/core';
 import styles from './EmployeeMoodsChartTableCellStyles';
-import MoodsState from 'src/apis/EmployeeMoodsApi/MoodsResponse/Moods';
-import WeekMoods from 'src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/WeekMoods';
+import MoodsState from './node_modules/src/apis/EmployeeMoodsApi/MoodsResponse/Moods';
+import WeekMoods from './node_modules/src/apis/EmployeeMoodsApi/EmployeeMoodsTableResponse/WeekMoods';
 
 type EmployeeMoodsChartTableCellOwnProps = {
   weekMoods: WeekMoods;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './EmployeeMoodsChartTableCellStyles';
 import { LineChart, Line, YAxis, CartesianGrid, Tooltip, XAxis } from 'recharts';
-import EmployeeMoodsChartTableCellTickSvg from '../EmployeeMoodsChartTableCellTickSvg/EmployeeMoodsChartTableCellTickSvg';
+import LineChartTickSvg from '../LineChartTickSvg/LineChartTickSvg';
 import { useSelector } from 'react-redux';
-import RootState from 'src/states';
+import RootState from './node_modules/src/states';
 
 export type props = {
   moodIds: string[];
@@ -19,7 +19,7 @@ const EmployeeMoodsLineChart = (props: props) => {
   const CustomizedTicks = (props: any) => {
     const { x, y, payload } = props;
 
-    return <EmployeeMoodsChartTableCellTickSvg x={x} y={y} tick={payload.value} />;
+    return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
   };
 
   return (

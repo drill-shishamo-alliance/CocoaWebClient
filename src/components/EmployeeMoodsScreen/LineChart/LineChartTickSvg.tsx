@@ -1,7 +1,12 @@
 import * as React from 'react';
-import Props from './EmployeeMoodsChartTableCellTickSvgProps';
 
-const EmployeeMoodsChartTableCellTickSvg: React.FC<Props> = props => {
+type Props = {
+  x: number;
+  y: number;
+  tick: number;
+};
+
+const LineChartTickSvg: React.FC<Props> = props => {
   const { x, y, tick } = props;
 
   const getSvgProps = () => {
@@ -71,4 +76,4 @@ const EmployeeMoodsChartTableCellTickSvg: React.FC<Props> = props => {
   );
 };
 
-export default EmployeeMoodsChartTableCellTickSvg;
+export default LineChartTickSvg;

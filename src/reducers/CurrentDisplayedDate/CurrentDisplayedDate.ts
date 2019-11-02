@@ -2,9 +2,21 @@ import { CurrentDisplayedDateState } from 'src/states/CurrentDisplayedDate/Curre
 import CurrentDisplayedDateAction from 'src/actions/CurrentDisplayedDate/CurrentDisplayedDateAction';
 import CurrentDisplayedDateActionType from 'src/actions/CurrentDisplayedDate/CurrentDisplayedDateActionType';
 
+// 日付を与えるとその日が含まれている月~金までの日付を返す
+const setDisplayedDates = (date: string): string[] => {
+  return [''];
+};
+
+// 月を与えるとその月の全ての日付を返す
+const setDisplayedMonths = (month: string): string[] => {
+  return [''];
+};
+
 const initialState: CurrentDisplayedDateState = {
-  weekIndex: 0,
+  displayedDates: setDisplayedDates(),
+  displayedMonths: setDisplayedMonths(),
   month: new Date().getMonth(),
+  year: new Date().getFullYear(),
 };
 
 const currentDisplayedDate = (
