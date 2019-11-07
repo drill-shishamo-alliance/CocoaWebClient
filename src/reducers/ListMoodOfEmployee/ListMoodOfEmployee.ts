@@ -2,7 +2,7 @@ import ListMoodOfEmployeeState from 'src/states/ListMoodOfEmployee/ListMoodOfEmp
 import ListMoodOfEmployeeAction from 'src/actions/ListMoodOfEmployee/Action';
 import ListMoodOfEmployeeActionType from 'src/actions/ListMoodOfEmployee/ActionType';
 
-const initialState: ListMoodOfEmployeeState = {};
+const initialState: ListMoodOfEmployeeState = [];
 
 const ListMoodOfEmployee = (
   state: ListMoodOfEmployeeState = initialState,
@@ -10,9 +10,7 @@ const ListMoodOfEmployee = (
 ): ListMoodOfEmployeeState => {
   switch (action.type) {
     case ListMoodOfEmployeeActionType.GET_LIST_MOOD_OF_EMPLOYEE_SECCEEDED:
-      return {
-        ...action.payload,
-      };
+      return [...action.payload];
     default:
       return state;
   }

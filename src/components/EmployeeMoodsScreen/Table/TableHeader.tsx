@@ -3,6 +3,8 @@ import { Table, TableHead, TableRow, TableCell } from '@material-ui/core';
 import TableStyles from './TableStyles';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+import rootState from 'src/states/index';
+import { useSelector } from 'react-redux';
 
 const TableHeader: React.FC = () => {
   const classes = TableStyles();

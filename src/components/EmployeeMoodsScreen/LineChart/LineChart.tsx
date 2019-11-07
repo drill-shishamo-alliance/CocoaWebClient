@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MoodsLineChartStyles';
+import styles from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -8,9 +8,10 @@ import {
   Tooltip,
   XAxis,
 } from 'recharts';
-import LineChartTickSvg from './MoodsLineChartTickSvg';
+import LineChartTickSvg from './LineChartTickSvg';
 import { useSelector } from 'react-redux';
 import RootState from 'src/states';
+import MoodsState from 'src/states/Moods/Moods';
 
 export type Props = {
   moodIds: string[];
@@ -18,6 +19,7 @@ export type Props = {
 
 const LineChart: React.FC<Props> = props => {
   const classes = styles();
+  // const moods = useSelector<RootState, MoodsState>(state => state.MoodsState)
   const moods = useSelector((state: RootState) => state.MoodsState);
   const data = props.moodIds.map(moodId => {
     return { 気分: moods[moodId].name };

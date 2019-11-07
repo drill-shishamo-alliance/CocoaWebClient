@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const TableBody: React.FC = () => {
   const classes = styles();
-  const value = 0; // storeから現在表示されているタブを取得してくる
+  const currentTab = useSelector((state: rootState) => state.currentDisplayedDateState.currentTab); // storeから現在表示されているタブを取得してくる
   const employees = useSelector((state: rootState) => state.Employees);
 
   return (
@@ -15,9 +15,9 @@ const TableBody: React.FC = () => {
       <Table className={classes().tableLayout}>
         <TableBodyMaterial>
           {Object.values(employees).map(employee =>
-            value === 0 ? (
+            currentTab === 0 ? (
               <TableItem employee={employee} />
-            ) : value === 1 ? (
+            ) : currentTab === 1 ? (
               <TableItem employee={employee} />
             ) : (
               <div></div>
