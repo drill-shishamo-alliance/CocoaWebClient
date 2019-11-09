@@ -2,7 +2,7 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import { PromiseGenericType } from 'src/utils/types/TypeUtils';
 import { call, put, select } from 'redux-saga/effects';
 import { getListMoodOfEmployeeClient } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployee';
-import { ChangeDateSpanButtonClicked } from 'src/actions/CurrentDisplayedDate/CurrentDisplayedDateActionCreator';
+import { ChangeDateSpanButtonClicked } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 import RootState from 'src/states';
 
 export function* calculateSpanSaga(action: ReturnType<typeof ChangeDateSpanButtonClicked>) {

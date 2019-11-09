@@ -1,10 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-const TableStyles = () =>
-  makeStyles({
+const TableStyles = makeStyles((theme: Theme) =>
+  createStyles({
     tabSize: {
       flexGrow: 1,
-      maxWidth: 480,
+      maxWidth: 320,
     },
     root: {
       width: '100%',
@@ -67,6 +67,7 @@ const TableStyles = () =>
       top: '13%',
       right: '11%',
     },
-  });
+  })
+);
 
 export default TableStyles;

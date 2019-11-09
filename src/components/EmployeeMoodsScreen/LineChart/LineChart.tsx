@@ -11,7 +11,6 @@ import {
 import LineChartTickSvg from './LineChartTickSvg';
 import { useSelector } from 'react-redux';
 import RootState from 'src/states';
-import MoodsState from 'src/states/Moods/Moods';
 
 export type Props = {
   moodIds: string[];

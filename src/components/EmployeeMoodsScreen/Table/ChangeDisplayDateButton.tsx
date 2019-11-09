@@ -12,7 +12,7 @@ import {
   previousMonth,
   nextWeek,
   nextMonth,
-} from 'src/actions/DisplayDate/displayDateActionCreator';
+} from 'src/actions/DisplayDate/DisplayDateActionCreator';
 
 const ChangeDisplayDateButton: React.FC = () => {
   const classes = TableStyles();
@@ -40,14 +40,10 @@ const ChangeDisplayDateButton: React.FC = () => {
   if (displayTab === tabName.month) {
     return (
       <div>
-        <Button
-          size='small'
-          className={classes().previousButton}
-          onClick={handlePreviousButtonClick}
-        >
+        <Button size='small' className={classes.previousButton} onClick={handlePreviousButtonClick}>
           {<KeyboardArrowLeft />}前の月
         </Button>
-        <Button size='small' className={classes().nextButton} onClick={handleNextButtonClick}>
+        <Button size='small' className={classes.nextButton} onClick={handleNextButtonClick}>
           次の月{<KeyboardArrowRight />}
         </Button>
       </div>
@@ -55,14 +51,10 @@ const ChangeDisplayDateButton: React.FC = () => {
   } else if (displayTab === tabName.week) {
     return (
       <div>
-        <Button
-          size='small'
-          className={classes().previousButton}
-          onClick={handlePreviousButtonClick}
-        >
+        <Button size='small' className={classes.previousButton} onClick={handlePreviousButtonClick}>
           {<KeyboardArrowLeft />}前の週
         </Button>
-        <Button size='small' className={classes().nextButton} onClick={handleNextButtonClick}>
+        <Button size='small' className={classes.nextButton} onClick={handleNextButtonClick}>
           次の週{<KeyboardArrowRight />}
         </Button>
       </div>

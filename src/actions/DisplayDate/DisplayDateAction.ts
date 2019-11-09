@@ -1,4 +1,4 @@
-import * as ActionCreators from './displayDateActionCreator';
+import * as ActionCreators from './DisplayDateActionCreator';
 import { ActionType } from 'typesafe-actions';
 
 type DisplayDateAction = ActionType<typeof ActionCreators>;

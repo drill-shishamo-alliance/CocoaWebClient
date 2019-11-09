@@ -1,7 +1,7 @@
 import React from 'react';
 import TableTab from './Table/TableTab';
 import TableHeader from './Table/TableHeader';
-import TableBody from './Table/TableBody';
+import TableBody from './Table/TableList';
 import Paper from '@material-ui/core/Paper';
 
 // 社員さんの気分を表示させる画面のcomponent
