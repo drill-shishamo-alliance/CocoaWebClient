@@ -22,7 +22,7 @@ const TableTab: React.FC = () => {
     let newTab = '';
     if (newValue === TabsValue.week) {
       newTab = tabName.week;
-    } else if (value === TabsValue.month) {
+    } else if (newValue === TabsValue.month) {
       newTab = tabName.month;
     }
     dispatch(tabClicked({ tabName: newTab }));

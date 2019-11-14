@@ -8,10 +8,11 @@ import { tabName } from 'src/states/DisplayDate/DisplayDate';
 import RootState from 'src/states';
 import {
   previousWeek,
-  ChangeDateSpanButtonClicked,
+  changeWeekSpanButtonClicked,
   previousMonth,
   nextWeek,
   nextMonth,
+  changeMonthButtonClicked,
 } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 
 const ChangeDisplayDateButton: React.FC = () => {
@@ -23,17 +24,17 @@ const ChangeDisplayDateButton: React.FC = () => {
 
   const handlePreviousButtonClick = () => {
     if (displayTab === tabName.week) {
-      dispatch(ChangeDateSpanButtonClicked(previousWeek));
+      dispatch(changeWeekSpanButtonClicked(previousWeek));
     } else if (displayTab === tabName.month) {
-      dispatch(ChangeDateSpanButtonClicked(previousMonth));
+      dispatch(changeMonthButtonClicked(previousMonth));
     }
   };
 
   const handleNextButtonClick = () => {
     if (displayTab === tabName.week) {
-      dispatch(ChangeDateSpanButtonClicked(nextWeek));
+      dispatch(changeWeekSpanButtonClicked(nextWeek));
     } else if (displayTab === tabName.month) {
-      dispatch(ChangeDateSpanButtonClicked(nextMonth));
+      dispatch(changeMonthButtonClicked(nextMonth));
     }
   };
 

@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
 
 export enum DateFormatType {
   YY_MM_DD_dd = 'YYYY/MM/DD(dd)',
   MM_DD_dd = 'MM/DD(dd)',
+  MM = 'MM',
 }
 
 export const formatDate = (date: Date, type: DateFormatType): string => {

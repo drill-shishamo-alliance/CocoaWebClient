@@ -1,14 +1,14 @@
 {
-    "employeeId1":{
+    "employeeId1": {
         "id": "employeeId1",
         "name": "髙橋佑太"
     },
-    "employeeId2":{
+    "employeeId2": {
         "id": "employeeId2",
         "name": "若林勇汰"
     },
-    "employeeId3":{
-        "id": "employeeId2",
+    "employeeId3": {
+        "id": "employeeId3",
         "name": "戸澤涼"
     }
 }

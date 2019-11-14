@@ -21,15 +21,14 @@ const TableItem: React.FC<Props> = props => {
     state => state.displayDateState.displaySpan
   );
   const moods = listMoodOfEmployee[employee.id].moods; // 今回描画する社員さんの気分情報
-  const moodIds = moods.flatMap(panchedMood => {
+  let moodIds: string[] = [];
+  moods.forEach(panchedMood => {
     // 気分のidのみを配列として抜き取る
-    return displaySpan.map(date => {
+    displaySpan.forEach(date => {
       if (date === panchedMood.punched_at) {
-        return panchedMood.id;
-      } else {
-        return undefined;
+        moodIds.push(panchedMood.id);
       }
-    }) as string[];
+    });
   });
 
   return (

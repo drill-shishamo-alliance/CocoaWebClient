@@ -1,7 +1,11 @@
 import { formatDate, DateFormatType } from 'src/utilsUI/Date/FormatDate';
 import { tabName } from 'src/states/DisplayDate/DisplayDate';
 
-export const returnHeaderText = (displaySpan: Date[], displayTab: string): string[] => {
+export const returnHeaderText = (
+  displaySpan: Date[],
+  displayTab: string,
+  displayDate: Date
+): string[] => {
   const first = 0;
   let headerText: string[] = [];
   switch (displayTab) {
@@ -15,16 +19,8 @@ export const returnHeaderText = (displaySpan: Date[], displayTab: string): strin
       });
       break;
     case tabName.month:
-      const firstDate = displaySpan[0];
-      const lastDate = displaySpan[displaySpan.length];
-      const monday = 1;
-      headerText.push(formatDate(firstDate, DateFormatType.YY_MM_DD_dd));
-      displaySpan.forEach(date => {
-        if (date.getDay() === monday && date !== firstDate && date !== lastDate) {
-          headerText.push(formatDate(date, DateFormatType.MM_DD_dd));
-        }
-      });
-      headerText.push(formatDate(lastDate, DateFormatType.MM_DD_dd));
+      const displayMonth = displayDate.getMonth() + 1;
+      headerText = [`${displayMonth}月1週目`, '2週目', '3週目', '4週目', ''];
       break;
   }
   return headerText;

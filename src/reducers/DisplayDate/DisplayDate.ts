@@ -5,6 +5,7 @@ import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 
 const initialDate = new Date();
+console.log(`Date:${initialDate}`);
 const initialWeekIndex = getWeekIndex(initialDate);
 const initialDisplaySpan = getWeekOfMonth(initialDate, initialWeekIndex);
 
@@ -19,37 +20,46 @@ const displayDate = (
   state: displayDateState = initialState,
   action: displayDateAction
 ): displayDateState => {
-  let newDate = new Date();
+  let newDisplayDate = new Date();
+  let newWeekIndex = 1;
   switch (action.type) {
     case displayDateActionType.NEXT_WEEK:
+      newDisplayDate = new Date(state.displayDate.setDate(state.displayDate.getDate() + 7));
+      newWeekIndex = getWeekIndex(newDisplayDate);
       return {
         ...state,
-        weekIndex: state.weekIndex + 1,
+        displayDate: newDisplayDate,
+        weekIndex: newWeekIndex,
       };
-
     case displayDateActionType.PREVIOUS_WEEK:
+      newDisplayDate = new Date(state.displayDate.setDate(state.displayDate.getDate() - 7));
+      newWeekIndex = getWeekIndex(newDisplayDate);
       return {
         ...state,
-        weekIndex: state.weekIndex - 1,
+        displayDate: newDisplayDate,
+        weekIndex: newWeekIndex,
       };
     case displayDateActionType.NEXT_MONTH:
-      newDate = new Date();
-      newDate.setMonth(state.displayDate.getMonth() + 1);
+      newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() + 1));
       return {
         ...state,
-        displayDate: newDate,
+        displayDate: newDisplayDate,
       };
     case displayDateActionType.PREVIOUS_MONTH:
-      newDate = new Date();
-      newDate.setMonth(state.displayDate.getMonth() - 1);
+      newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() - 1));
       return {
         ...state,
-        displayDate: newDate,
+        displayDate: newDisplayDate,
       };
     case displayDateActionType.TAB_CLICKED:
       return {
         ...state,
         displayTab: action.payload.tabName,
+      };
+    case displayDateActionType.UPDATE_DISPLAY_SPAN:
+      return {
+        ...state,
+        displaySpan: action.payload.displaySpan,
       };
     default:
       return state;

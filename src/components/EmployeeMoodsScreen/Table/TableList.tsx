@@ -14,7 +14,7 @@ const TableList: React.FC = () => {
       <Table className={classes.tableLayout}>
         <TableBody>
           {Object.values(employees).map(employee => (
-            <TableItem employee={employee} />
+            <TableItem employee={employee} key={employee.id} />
           ))}
         </TableBody>
       </Table>

@@ -17,10 +17,10 @@ export type Props = {
 };
 
 const LineChart: React.FC<Props> = props => {
+  const { moodIds } = props;
   const classes = styles();
-  // const moods = useSelector<RootState, MoodsState>(state => state.MoodsState)
-  const moods = useSelector((state: RootState) => state.MoodsState);
-  const data = props.moodIds.map(moodId => {
+  const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
+  const data = moodIds.map(moodId => {
     return { 気分: moods[moodId].name };
   });
 

@@ -2,7 +2,7 @@
 export default function getWeekOfMonth(date: Date, weekIndex: number): Date[] {
   const year = date.getFullYear();
   const month = date.getMonth();
-  const beginDate = new Date(year, month - 1, (weekIndex - 1) * 7 + 1); // その月の最初の日付
+  const beginDate = new Date(year, month, (weekIndex - 1) * 7 + 1); // その月の最初の日付
   const day_num = beginDate.getDay(); // その月の週初めの曜日番号
   let beginDayParam = 0; // その週の月曜を取得するためのパラメーター
   let targetDates: Date[] = [];
@@ -28,9 +28,10 @@ export default function getWeekOfMonth(date: Date, weekIndex: number): Date[] {
 
   // 欲しい期間の日付のDate配列を生成
   while (1) {
-    targetDates.push(beginDate);
-    if (beginDate === endDate) break;
-    beginDate.setDate(beginDate.getDay() + 1);
+    const pushDate = new Date(beginDate);
+    targetDates.push(pushDate);
+    if (beginDate.getDate() === endDate.getDate()) break;
+    beginDate.setDate(beginDate.getDate() + 1);
   }
 
   return targetDates;

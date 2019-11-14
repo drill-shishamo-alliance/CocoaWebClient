@@ -13,6 +13,9 @@ const TableHeader: React.FC = () => {
   const displaySpan = useSelector<rootState, rootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
+  const displayDate = useSelector<rootState, rootState['displayDateState']['displayDate']>(
+    state => state.displayDateState.displayDate
+  );
   const classes = TableStyles();
 
   return (
@@ -21,8 +24,8 @@ const TableHeader: React.FC = () => {
         <TableRow>
           <TableCell align='center' className={classNames(classes.cellContainer)}>
             <h2 className={classes.employeePosition}>社員</h2>
-            {returnHeaderText(displaySpan, displayTab).map(headerText => {
-              return <h2>{headerText}</h2>;
+            {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
+              return <h2 key={headerText}>{headerText}</h2>;
             })}
           </TableCell>
         </TableRow>
