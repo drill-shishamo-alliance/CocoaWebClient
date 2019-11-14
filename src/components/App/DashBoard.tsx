@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { theme } from 'src/utils/theme';
+import { theme } from 'src/utilsUI/theme';
 import AppStyles from './AppStyles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@material-ui/core';

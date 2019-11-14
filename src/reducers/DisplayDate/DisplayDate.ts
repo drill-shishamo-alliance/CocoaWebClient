@@ -1,11 +1,17 @@
 import { displayDateState, tabName } from 'src/states/DisplayDate/DisplayDate';
 import displayDateAction from 'src/actions/DisplayDate/DisplayDateAction';
 import displayDateActionType from 'src/actions/DisplayDate/DisplayDateActionType';
+import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
+import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
+
+const initialDate = new Date();
+const initialWeekIndex = getWeekIndex(initialDate);
+const initialDisplaySpan = getWeekOfMonth(initialDate, initialWeekIndex);
 
 const initialState: displayDateState = {
-  displaySpan: [], // 現在表示されている気分の期間
-  displayDate: new Date(), // 現在表示されている年と月
-  weekIndex: 0,
+  displayDate: initialDate, // 現在表示されている年と月
+  weekIndex: initialWeekIndex,
+  displaySpan: initialDisplaySpan, // 現在表示されている気分の期間
   displayTab: tabName.week,
 };
 

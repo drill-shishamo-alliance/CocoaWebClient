@@ -1,4 +1,4 @@
-import { formatDate, DateFormatType } from 'src/utils/date/DateUtils';
+import { formatDate, DateFormatType } from 'src/utilsUI/Date/FormatDate';
 import { tabName } from 'src/states/DisplayDate/DisplayDate';
 
 export const returnHeaderText = (displaySpan: Date[], displayTab: string): string[] => {

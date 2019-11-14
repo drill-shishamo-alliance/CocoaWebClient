@@ -35,7 +35,7 @@ const TableItem: React.FC<Props> = props => {
   return (
     <TableRow>
       <TableCell align='center' className={classes.cellContainer}>
-        <div className={classes.employeePosition}>{employee}</div>
+        <div className={classes.employeePosition}>{employee.name}</div>
         <LineChart moodIds={moodIds} />
       </TableCell>
     </TableRow>
