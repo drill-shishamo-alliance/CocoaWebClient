@@ -1,16 +1,14 @@
 import { combineReducers } from 'redux';
-import employeeMoodsState from './EmployeeMoods/EmployeeMoods';
 import MoodsState from './Moods/Moods';
-import employeeMoodsDetailsState from './EmployeeMoodsDetails/EmployeeMoodsDetails';
-import currentDisplayedDateState from './CurrentDisplayedDate/CurrentDisplayedDate';
-import weeklyMoodsByMonthState from './WeeklyMoodsByMonth/WeeklyMoodsByMonth';
+import displayDateState from './DisplayDate/DisplayDate';
+import ListMoodOfEmployee from './ListMoodOfEmployee/ListMoodOfEmployee';
+import Employees from './Employees/Employees';
 
 const rootReducer = combineReducers({
-  employeeMoodsState,
   MoodsState,
-  employeeMoodsDetailsState,
-  currentDisplayedDateState,
-  weeklyMoodsByMonthState,
+  displayDateState,
+  ListMoodOfEmployee,
+  Employees,
 });
 
 export default rootReducer;

@@ -1,0 +1,77 @@
+{
+  "employeeId1": {
+    "sabordinate_id": "employeeId1",
+    "moods": [
+      {
+        "id": "moodId1",
+        "punched_at": 18
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 19
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 20
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 21
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 22
+      }
+    ]
+  },
+  "employeeId2": {
+    "sabordinate_id": "employeeId2",
+    "moods": [
+      {
+        "id": "moodId1",
+        "punched_at": 18
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 19
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 20
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 21
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 22
+      }
+    ]
+  },
+  "employeeId3": {
+    "sabordinate_id": "employeeId3",
+    "moods": [
+      {
+        "id": "moodId1",
+        "punched_at": 18
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 19
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 20
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 21
+      },
+      {
+        "id": "moodId1",
+        "punched_at": 22
+      }
+    ]
+  }
+}
