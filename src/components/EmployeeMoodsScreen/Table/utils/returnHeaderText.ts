@@ -19,8 +19,9 @@ export const returnHeaderText = (
       });
       break;
     case tabName.month:
+      const displayYear = displayDate.getFullYear();
       const displayMonth = displayDate.getMonth() + 1;
-      headerText = [`${displayMonth}月1週目`, '2週目', '3週目', '4週目', ''];
+      headerText = [`${displayYear}年${displayMonth}月1週目`, '2週目', '3週目', '4週目', '5週目'];
       break;
   }
   return headerText;
