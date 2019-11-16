@@ -1,73 +1,38 @@
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { Button, TableCell, TableHead, Paper } from '@material-ui/core';
 
-const TableStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    tabSize: {
-      flexGrow: 1,
-      maxWidth: 320,
-    },
-    root: {
-      width: '100%',
-      marginTop: 5,
-      overflowX: 'auto',
-    },
-    tableLayout: {
-      overflow: 'flexed',
-    },
-    tableBody: {
-      overflow: 'auto',
-      height: 500,
-    },
-    row: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
-    head: {
-      backgroundColor: 'white',
-    },
-    columnContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    employeePosition: {
-      flexBasis: '20%',
-      alignSelf: 'center',
-    },
-    dataPosition: {
-      flexBasis: '16%',
-      alignSelf: 'center',
-    },
-    cellContainer: {
-      display: 'flex',
-      justifyContent: 'space-around',
-    },
-    datePosition: {
-      marginTop: -8,
-    },
-    iconSize: {
-      fontSize: 40,
-    },
-    sunnyColor: {
-      color: '#ffa500', // orange
-    },
-    moonColor: {
-      color: '#708090', // slategray
-    },
-    iconMargin: {
-      margin: 10,
-    },
-    nextButton: {
-      position: 'absolute',
-      top: '13%',
-      right: '5%',
-    },
-    previousButton: {
-      position: 'absolute',
-      top: '13%',
-      right: '11%',
-    },
-  })
-);
+export const TableStyle = styled('div')`
+  overflow: auto;
+  height: 500px;
+`;
 
-export default TableStyles;
+export const Header = styled(TableHead)`
+  background-color: white;
+`;
+
+export const Cell = styled(TableCell)`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const EmployeePosition = styled('h2')`
+  flex-basis: 20%;
+  align-self: center;
+`;
+
+export const PrevButton = styled(Button)`
+  position: absolute;
+  top: 13%;
+  right: 11%;
+`;
+
+export const NextButton = styled(Button)`
+  position: absolute;
+  top: 13%;
+  right: 5%;
+`;
+
+export const PaperTab = styled(Paper)`
+  flex-grow: 1;
+  max-width: 320px;
+`;

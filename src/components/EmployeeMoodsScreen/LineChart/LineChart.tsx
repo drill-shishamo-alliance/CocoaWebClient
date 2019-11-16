@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './LineChartStyles';
+import { ChartPosition } from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -18,7 +18,6 @@ export type Props = {
 
 const LineChart: React.FC<Props> = props => {
   const { moodIds } = props;
-  const classes = styles();
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
   const data = moodIds.map(moodId => {
     return { 気分: moods[moodId].name };
@@ -31,7 +30,7 @@ const LineChart: React.FC<Props> = props => {
   };
 
   return (
-    <div className={classes().chartPosition}>
+    <ChartPosition>
       <LineChartRecharts
         width={950}
         height={200}
@@ -53,7 +52,7 @@ const LineChart: React.FC<Props> = props => {
         <Tooltip />
         <Line type='monotone' dataKey='気分' stroke='#2196f3' />
       </LineChartRecharts>
-    </div>
+    </ChartPosition>
   );
 };
 

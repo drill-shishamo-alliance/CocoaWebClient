@@ -1,13 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
-const styles = () =>
-  makeStyles({
-    chartPosition: {
-      flexBasis: '80%',
-    },
-    iconSize: {
-      fontSize: 20,
-    },
-  });
-
-export default styles;
+export const ChartPosition = styled('div')`
+  flex-basis: 80%;
+`;

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons';
-import TableStyles from './TableStyles';
+import { PrevButton, NextButton } from './TableStyles';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { tabName } from 'src/states/DisplayDate/DisplayDate';
@@ -16,7 +15,6 @@ import {
 } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 
 const ChangeDisplayDateButton: React.FC = () => {
-  const classes = TableStyles();
   const dispatch = useDispatch();
   const displayTab = useSelector<RootState, RootState['displayDateState']['displayTab']>(
     state => state.displayDateState.displayTab
@@ -41,23 +39,23 @@ const ChangeDisplayDateButton: React.FC = () => {
   if (displayTab === tabName.month) {
     return (
       <div>
-        <Button size='small' className={classes.previousButton} onClick={handlePreviousButtonClick}>
+        <PrevButton size='small' onClick={handlePreviousButtonClick}>
           {<KeyboardArrowLeft />}前の月
-        </Button>
-        <Button size='small' className={classes.nextButton} onClick={handleNextButtonClick}>
+        </PrevButton>
+        <NextButton size='small' onClick={handleNextButtonClick}>
           次の月{<KeyboardArrowRight />}
-        </Button>
+        </NextButton>
       </div>
     );
   } else if (displayTab === tabName.week) {
     return (
       <div>
-        <Button size='small' className={classes.previousButton} onClick={handlePreviousButtonClick}>
+        <PrevButton size='small' onClick={handlePreviousButtonClick}>
           {<KeyboardArrowLeft />}前の週
-        </Button>
-        <Button size='small' className={classes.nextButton} onClick={handleNextButtonClick}>
+        </PrevButton>
+        <NextButton size='small' onClick={handleNextButtonClick}>
           次の週{<KeyboardArrowRight />}
-        </Button>
+        </NextButton>
       </div>
     );
   } else {

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Table, TableHead, TableRow, TableCell } from '@material-ui/core';
-import TableStyles from './TableStyles';
-import classNames from 'classnames';
+import { Table, TableRow } from '@material-ui/core';
+import { Header, Cell, EmployeePosition } from './TableStyles';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
 import { returnHeaderText } from './utils/returnHeaderText';
@@ -16,20 +15,19 @@ const TableHeader: React.FC = () => {
   const displayDate = useSelector<rootState, rootState['displayDateState']['displayDate']>(
     state => state.displayDateState.displayDate
   );
-  const classes = TableStyles();
 
   return (
     <Table>
-      <TableHead className={classes.head}>
+      <Header>
         <TableRow>
-          <TableCell align='center' className={classNames(classes.cellContainer)}>
-            <h2 className={classes.employeePosition}>社員</h2>
+          <Cell align='center'>
+            <EmployeePosition>社員</EmployeePosition>
             {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
               return <h2 key={headerText}>{headerText}</h2>;
             })}
-          </TableCell>
+          </Cell>
         </TableRow>
-      </TableHead>
+      </Header>
     </Table>
   );
 };
