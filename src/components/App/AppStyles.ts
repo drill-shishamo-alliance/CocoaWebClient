@@ -1,8 +1,8 @@
-import { createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
-const styles = (theme: Theme) =>
+const AppStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
@@ -101,6 +101,7 @@ const styles = (theme: Theme) =>
       marginLeft: drawerWidth,
       width: `calc(100% - ${drawerWidth}px)`,
     },
-  });
+  })
+);
 
-export default styles;
+export default AppStyles;

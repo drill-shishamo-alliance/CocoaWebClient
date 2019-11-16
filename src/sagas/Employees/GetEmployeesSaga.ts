@@ -1,5 +1,5 @@
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
-import { PromiseGenericType } from 'src/utils/types/TypeUtils';
+import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import { getEmployeesClient } from 'src/apis/Employees/GetEmployeesClient';
 import { call, put } from 'redux-saga/effects';
 

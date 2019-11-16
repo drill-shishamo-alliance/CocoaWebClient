@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { PromiseGenericType } from 'src/utils/types/TypeUtils';
+import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getMoodsClient } from 'src/apis/Moods/GetMoodsClient';
 

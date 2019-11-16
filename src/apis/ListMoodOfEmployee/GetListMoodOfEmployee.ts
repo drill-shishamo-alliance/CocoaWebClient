@@ -3,8 +3,8 @@ import Axios from '../Axios';
 
 export type getListMoodOfEmployeeParams = {
   employeeId: string;
-  beginDate: string;
-  endDate: string;
+  beginDate: Date;
+  endDate: Date;
 };
 
 export type getListMoodOfEmployeeResponse = ListMoodOfEmployee;

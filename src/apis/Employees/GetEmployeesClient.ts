@@ -5,7 +5,7 @@ export type getEmployeesParams = {};
 
 export type getEmployeesResponse = Employees;
 
-export async function getEmployeesClient({  }: getEmployeesParams) {
+export async function getEmployeesClient(_: getEmployeesParams) {
   try {
     return await Axios.get<getEmployeesResponse>('/employees');
   } catch (e) {
