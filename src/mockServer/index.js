@@ -1,6 +1,6 @@
 const express = require('express');
 const moods = require('./moods.json');
-// const september_mood = require("./september_mood_input_logs.json");
+const example_punched_moods = require('./example_punched_moods.json')
 const octorber_mood = require("./october_mood_input_logs.json");
 const employees = require("./employees.json");
 
@@ -27,7 +27,7 @@ app.get('/listMoodOfEmployee', (req, res) => {
   const endDate = req.query.endDate;
   console.log(beginDate);
   console.log(endDate);
-  res.status(200).json(octorber_mood);
+  res.status(200).json(example_punched_moods);
 });
 
 // 社員の情報を返す

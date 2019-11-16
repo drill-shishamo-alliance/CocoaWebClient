@@ -21,7 +21,7 @@ const LineChart: React.FC<Props> = props => {
   const classes = styles();
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
   const data = moodIds.map(moodId => {
-    return { 気分: moods[moodId].name };
+    return { 気分: moods[moodId].weight };
   });
 
   const CustomizedTicks = (props: any) => {

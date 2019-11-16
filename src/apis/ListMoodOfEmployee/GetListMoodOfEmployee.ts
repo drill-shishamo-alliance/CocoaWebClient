@@ -1,4 +1,3 @@
-import ListMoodOfEmployee from './Model';
 import Axios from '../Axios';
 
 export type getListMoodOfEmployeeParams = {
@@ -7,7 +6,17 @@ export type getListMoodOfEmployeeParams = {
   endDate: Date;
 };
 
-export type getListMoodOfEmployeeResponse = ListMoodOfEmployee;
+type mood = {
+  id: string;
+  punched_at: number;
+};
+
+export type getListMoodOfEmployeeResponse = {
+  [employee_id: string]: {
+    sabordinate_id: string;
+    moods: mood[];
+  };
+};
 
 export async function getListMoodOfEmployeeClient(params: getListMoodOfEmployeeParams) {
   try {
