@@ -30,10 +30,8 @@ const LineChart: React.FC<Props> = props => {
   };
 
   return (
-    <ChartPosition>
+    <ChartPosition width='95%' height={200}>
       <LineChartRecharts
-        width={950}
-        height={200}
         data={data}
         margin={{
           top: 10,

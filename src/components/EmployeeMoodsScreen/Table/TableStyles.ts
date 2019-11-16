@@ -3,7 +3,7 @@ import { Button, TableCell, TableHead, Paper } from '@material-ui/core';
 
 export const TableStyle = styled('div')`
   overflow: auto;
-  height: 500px;
+  height: 90%;
 `;
 
 export const Header = styled(TableHead)`
@@ -22,14 +22,15 @@ export const EmployeePosition = styled('h2')`
 
 export const PrevButton = styled(Button)`
   position: absolute;
-  top: 13%;
   right: 11%;
+  margin-right: 40px;
+  padding-top: calc(48px + 5px); // 左に存在するタブ分下げてから必要分足す
 `;
 
 export const NextButton = styled(Button)`
   position: absolute;
-  top: 13%;
   right: 5%;
+  padding-top: calc(48px + 5px);
 `;
 
 export const PaperTab = styled(Paper)`
