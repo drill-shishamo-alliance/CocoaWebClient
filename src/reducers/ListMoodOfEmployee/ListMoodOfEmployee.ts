@@ -1,13 +1,14 @@
-import ListMoodOfEmployeeState from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 import ListMoodOfEmployeeAction from 'src/actions/ListMoodOfEmployee/Action';
 import ListMoodOfEmployeeActionType from 'src/actions/ListMoodOfEmployee/ActionType';
+import { getListMoodOfEmployeeResponse } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployee';
 
-const initialState: ListMoodOfEmployeeState = {};
+// const initialState: ListMoodOfEmployeeState = {};
+const initialState: getListMoodOfEmployeeResponse = {};
 
 const ListMoodOfEmployee = (
-  state: ListMoodOfEmployeeState = initialState,
+  state: getListMoodOfEmployeeResponse = initialState,
   action: ListMoodOfEmployeeAction
-): ListMoodOfEmployeeState => {
+): getListMoodOfEmployeeResponse => {
   switch (action.type) {
     case ListMoodOfEmployeeActionType.GET_LIST_MOOD_OF_EMPLOYEE_SUCCEEDED:
       return { ...action.payload };
