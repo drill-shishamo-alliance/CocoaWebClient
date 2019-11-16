@@ -2,8 +2,8 @@ import Axios from '../Axios';
 
 export type getListMoodOfEmployeeParams = {
   employeeId: string;
-  beginDate: Date;
-  endDate: Date;
+  beginDate: number;
+  endDate: number;
 };
 
 type mood = {

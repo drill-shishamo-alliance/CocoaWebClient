@@ -25,15 +25,14 @@ const TableItem: React.FC<Props> = props => {
       ? []
       : listMoodOfEmployee[employee.id].moods; // 今回描画する社員さんの気分情報
   let moodIds: string[] = [];
-  moods.forEach(panchedMood => {
-    const punchedDate = new Date(panchedMood.punched_at * 1000);
+  moods.forEach(punchedMood => {
     // 気分のidのみを配列として抜き取る
     displaySpan.forEach(displayDate => {
       if (
-        displayDate.getMonth() === punchedDate.getMonth() &&
-        displayDate.getDate() === punchedDate.getDate()
+        displayDate.getMonth() === punchedMood.punched_at.getMonth() &&
+        displayDate.getDate() === punchedMood.punched_at.getDate()
       ) {
-        moodIds.push(panchedMood.id);
+        moodIds.push(punchedMood.id);
       }
     });
   });
