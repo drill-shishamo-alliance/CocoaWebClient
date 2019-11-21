@@ -1,11 +1,16 @@
-type beginAndEndDate = {
-  beginDate: Date;
-  endDate: Date;
+import convertDateToUnix from './ConvertDateToUnix';
+
+type beginAndEndUnix = {
+  beginDate: number;
+  endDate: number;
 };
 
-// 日付とその月の初日と終日を返す
-export default function getBeginAndEndDateFromMonth(date: Date): beginAndEndDate {
-  const beginDate: Date = new Date(date.getFullYear(), date.getMonth(), 1);
-  const endDate: Date = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+// 日付を渡すととその月の初日と終日をUnixとして返す
+export default function getBeginAndEndDateFromMonth(date: Date): beginAndEndUnix {
+  const begin: Date = new Date(date.getFullYear(), date.getMonth(), 1);
+  const end: Date = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+  const beginDate: number = convertDateToUnix(begin);
+  const endDate: number = convertDateToUnix(end);
   return { beginDate, endDate };
 }

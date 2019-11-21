@@ -51,10 +51,10 @@ const displayDate = (
         ...state,
         displayDate: newDisplayDate,
       };
-    case displayDateActionType.TAB_CLICKED:
+    case displayDateActionType.UPDATE_DISPLAY_TAB:
       return {
         ...state,
-        displayTab: action.payload.tabName,
+        displayTab: action.payload.displayTab,
       };
     case displayDateActionType.UPDATE_DISPLAY_SPAN:
       return {

@@ -4,7 +4,6 @@ import { call, put } from 'redux-saga/effects';
 import { getListMoodOfEmployeeClient } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployee';
 import listMoodOfEmployeeState from 'src/apis/ListMoodOfEmployee/Model';
 import { PunchedMood } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
-import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import convertUnixToDate from 'src/utilsLogic/Date/ConvertUnixtoDate';
 
 export function* getListMoodOfEmployeeSaga(
@@ -14,12 +13,12 @@ export function* getListMoodOfEmployeeSaga(
     getListMoodOfEmployeeClient,
     {
       employeeId: 'hoge',
-      beginDate: convertDateToUnix(action.payload.beginDate), // unixに変換
-      endDate: convertDateToUnix(action.payload.endDate),
+      beginDate: action.payload.beginDate,
+      endDate: action.payload.endDate,
     }
   );
   if (response.status === 200 && response.data) {
-    // punched_atがunix timeで送られてくるため、それを1度Date型に変換してからStoreに保存させる
+    // punched_atがunixで送られてくるため、それをDate型に変換してからStoreに保存させる
     let convertDateData: listMoodOfEmployeeState = {};
     Object.entries(response.data).forEach(([key, value]) => {
       let punchedDates: PunchedMood[] = [];

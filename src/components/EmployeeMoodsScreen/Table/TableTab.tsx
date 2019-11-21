@@ -19,7 +19,7 @@ const TableTab: React.FC = () => {
 
   const handleChange = (_: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
-    let newTab = '';
+    let newTab: tabName = tabName.week;
     if (newValue === TabsValue.week) {
       newTab = tabName.week;
     } else if (newValue === TabsValue.month) {

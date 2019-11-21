@@ -15,18 +15,28 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import RootState from 'src/states';
+import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 
 const DashBoard: React.FC = () => {
-  const beginDate = new Date();
-  const endDate = new Date();
+  const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
+    state => state.displayDateState.displaySpan
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const initialRequestBeginDate = convertDateToUnix(displaySpan[0]);
+    const initialRequestEndDate = convertDateToUnix(displaySpan[displaySpan.length - 1]);
     dispatch(getMoods.request({}));
     dispatch(getEmployees.request({}));
-    dispatch(getListMoodOfEmployee.request({ beginDate, endDate }));
-  });
+    dispatch(
+      getListMoodOfEmployee.request({
+        beginDate: initialRequestBeginDate,
+        endDate: initialRequestEndDate,
+      })
+    );
+  }, []);
 
   const classes = AppStyles();
   const history = useHistory();
