@@ -90,7 +90,7 @@ const AppStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(3),
       marginLeft: theme.spacing(7),
       width: `calc(100% - ${theme.spacing(7)}px)`,
-      height: 'auto',
+      height: '100vh',
       overflow: 'auto',
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,

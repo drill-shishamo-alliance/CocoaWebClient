@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import { Button, TableCell, TableHead, Paper } from '@material-ui/core';
 
 export const TableStyle = styled('div')`
-  overflow: auto;
-  height: 90%;
+  overflow: scroll;
+  height: 100%;
+  grid-row: 2;
 `;
 
 export const Header = styled(TableHead)`
   background-color: white;
+  height: 100%;
 `;
 
 export const Cell = styled(TableCell)`
@@ -24,13 +26,13 @@ export const PrevButton = styled(Button)`
   position: absolute;
   right: 11%;
   margin-right: 40px;
-  padding-top: calc(48px + 5px); // 左に存在するタブ分下げてから必要分足す
+  margin-top: 48px; // 左に存在するタブ分下げる
 `;
 
 export const NextButton = styled(Button)`
   position: absolute;
   right: 5%;
-  padding-top: calc(48px + 5px);
+  margin-top: 48px; // 左に存在するタブ分下げる
 `;
 
 export const PaperTab = styled(Paper)`

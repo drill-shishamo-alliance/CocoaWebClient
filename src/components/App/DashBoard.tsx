@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { theme } from 'src/utilsUI/theme';
 import AppStyles from './AppStyles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import classNames from 'classnames';
@@ -41,46 +42,48 @@ const DashBoard: React.FC = () => {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          position='fixed'
-          className={classNames(classes.appBar, isOpenDrawer && classes.appBarShift)}
-        >
-          <Toolbar className={classes.toolbar}>
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              aria-label='Open drawer'
-              onClick={handleDrawerOpen}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography className={classes.title} variant='h6' color='inherit' noWrap>
-              Cocoa Web Client
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant='permanent'
-          classes={{
-            paper: classNames(classes.drawerPaper, !isOpenDrawer && classes.drawerPaperClose),
-          }}
-          open={isOpenDrawer}
-        >
-          <DrawerList handleClick={routeMainContent} />
-        </Drawer>
-        <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
-          <div className={classes.appBarSpacer} />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/employeemoods' component={EmployeeMoodsScreen} />
-            <Route path='/mymoods' component={MyMoods} />
-            <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
-            <Route path='/moodsmap' component={MoodsMap} />
-          </Switch>
-        </main>
-      </div>
+      <StyledThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <AppBar
+            position='fixed'
+            className={classNames(classes.appBar, isOpenDrawer && classes.appBarShift)}
+          >
+            <Toolbar className={classes.toolbar}>
+              <IconButton
+                className={classes.menuButton}
+                color='inherit'
+                aria-label='Open drawer'
+                onClick={handleDrawerOpen}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography className={classes.title} variant='h6' color='inherit' noWrap>
+                Cocoa Web Client
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Drawer
+            variant='permanent'
+            classes={{
+              paper: classNames(classes.drawerPaper, !isOpenDrawer && classes.drawerPaperClose),
+            }}
+            open={isOpenDrawer}
+          >
+            <DrawerList handleClick={routeMainContent} />
+          </Drawer>
+          <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
+            <div className={classes.appBarSpacer} />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/employeemoods' component={EmployeeMoodsScreen} />
+              <Route path='/mymoods' component={MyMoods} />
+              <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
+              <Route path='/moodsmap' component={MoodsMap} />
+            </Switch>
+          </main>
+        </div>
+      </StyledThemeProvider>
     </MuiThemeProvider>
   );
 };
