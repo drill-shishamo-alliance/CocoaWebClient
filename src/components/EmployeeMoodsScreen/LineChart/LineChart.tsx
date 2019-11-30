@@ -26,7 +26,6 @@ const LineChart: React.FC<Props> = props => {
 
   const CustomizedTicks = (props: any) => {
     const { x, y, payload } = props;
-
     return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
   };
 
@@ -51,7 +50,7 @@ const LineChart: React.FC<Props> = props => {
           tick={<CustomizedTicks />}
         />
         <Tooltip />
-        <Line type='monotone' dataKey='気分' stroke='#2196f3' />
+        <Line type='monotone' dataKey='気分' stroke='#2196f3' isAnimationActive={true} />
       </LineChartRecharts>
     </div>
   );
