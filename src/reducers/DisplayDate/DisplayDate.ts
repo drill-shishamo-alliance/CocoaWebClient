@@ -5,7 +5,6 @@ import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 
 const initialDate = new Date();
-console.log(`Date:${initialDate}`);
 const initialWeekIndex = getWeekIndex(initialDate);
 const initialDisplaySpan = getWeekOfMonth(initialDate, initialWeekIndex);
 
@@ -41,15 +40,19 @@ const displayDate = (
       };
     case displayDateActionType.NEXT_MONTH:
       newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() + 1));
+      newWeekIndex = getWeekIndex(newDisplayDate);
       return {
         ...state,
         displayDate: newDisplayDate,
+        weekIndex: newWeekIndex,
       };
     case displayDateActionType.PREVIOUS_MONTH:
       newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() - 1));
+      newWeekIndex = getWeekIndex(newDisplayDate);
       return {
         ...state,
         displayDate: newDisplayDate,
+        weekIndex: newWeekIndex,
       };
     case displayDateActionType.UPDATE_DISPLAY_TAB:
       return {
