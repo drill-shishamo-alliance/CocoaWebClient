@@ -17,7 +17,6 @@ export function* getListMoodOfEmployeeSaga(
       endDate: action.payload.endDate,
     }
   );
-  console.log(response.status);
   if (response.status === 200 && response.data) {
     // punched_atがunixで送られてくるため、それをDate型に変換してからStoreに保存させる
     let convertDateData: listMoodOfEmployeeState = {};
@@ -39,7 +38,6 @@ export function* getListMoodOfEmployeeSaga(
     });
     yield put(getListMoodOfEmployee.success(convertDateData));
   } else {
-    console.log('faile');
     yield put(getListMoodOfEmployee.failure(new Error('getListMoodOfEmployee error')));
   }
 }

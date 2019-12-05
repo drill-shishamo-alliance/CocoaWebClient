@@ -27,8 +27,6 @@ app.get('/', (_, res) => res.send('Cocoa mock server'));
 app.get('/listMoodOfEmployee', (req, res) => {
   const beginDate = req.query.beginDate;
   const endDate = req.query.endDate;
-  console.log(beginDate);
-  console.log(endDate);
   if (beginDate == 1573398000 && endDate == 1573743600) {
     res.status(200).json(nov11_15_moods);
   } else if (beginDate == 1574002800 && endDate == 1574348400) {
