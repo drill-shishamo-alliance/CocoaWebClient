@@ -16,7 +16,7 @@ const TableStyles = makeStyles((theme: Theme) =>
     },
     tableBody: {
       overflow: 'auto',
-      height: 500,
+      height: 'auto',
     },
     row: {
       display: 'flex',
@@ -30,6 +30,9 @@ const TableStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
     },
+    date: {
+      marginRight: '12%',
+    },
     employeePosition: {
       flexBasis: '20%',
       alignSelf: 'center',
@@ -40,7 +43,6 @@ const TableStyles = makeStyles((theme: Theme) =>
     },
     cellContainer: {
       display: 'flex',
-      justifyContent: 'space-around',
     },
     datePosition: {
       marginTop: -8,
@@ -59,12 +61,12 @@ const TableStyles = makeStyles((theme: Theme) =>
     },
     nextButton: {
       position: 'absolute',
-      top: '13%',
+      top: '10%',
       right: '5%',
     },
     previousButton: {
       position: 'absolute',
-      top: '13%',
+      top: '10%',
       right: '11%',
     },
   })

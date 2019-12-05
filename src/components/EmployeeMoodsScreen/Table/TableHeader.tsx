@@ -24,8 +24,15 @@ const TableHeader: React.FC = () => {
         <TableRow>
           <TableCell align='center' className={classNames(classes.cellContainer)}>
             <h2 className={classes.employeePosition}>社員</h2>
-            {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
-              return <h2 key={headerText}>{headerText}</h2>;
+            {returnHeaderText(displaySpan, displayTab, displayDate).map((headerText, index) => {
+              if (index === 4) {
+                return <h2 key={headerText}>{headerText}</h2>;
+              }
+              return (
+                <h2 key={headerText} className={classes.date}>
+                  {headerText}
+                </h2>
+              );
             })}
           </TableCell>
         </TableRow>

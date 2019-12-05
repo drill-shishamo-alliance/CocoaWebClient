@@ -6,6 +6,7 @@ import {
   CartesianGrid,
   Tooltip,
   XAxis,
+  ResponsiveContainer,
 } from 'recharts';
 import LineChartTickSvg from './LineChartTickSvg';
 import LineChartProps from './LineChartProps';
@@ -27,14 +28,12 @@ class LineChart extends React.Component<LineChartProps> {
     };
 
     return (
-      <div className={classes.chartPosition}>
+      <ResponsiveContainer width='100%' height={200} className={classes.chartPosition}>
         <LineChartRecharts
-          width={950}
-          height={200}
           data={data}
           margin={{
             top: 10,
-            right: 15,
+            right: 70,
             left: 35,
             bottom: 5,
           }}
@@ -49,7 +48,7 @@ class LineChart extends React.Component<LineChartProps> {
           <Tooltip />
           <Line type='monotone' dataKey='気分' stroke='#2196f3' isAnimationActive={false} />
         </LineChartRecharts>
-      </div>
+      </ResponsiveContainer>
     );
   }
 }
