@@ -7,19 +7,19 @@
         "punched_at": 1574607600
       },
       {
-        "id": "moodId3",
+        "id": "moodId1",
         "punched_at": 1574694000
       },
       {
-        "id": "moodId4",
+        "id": "moodId2",
         "punched_at": 1574780400
       },
       {
-        "id": "moodId4",
+        "id": "moodId1",
         "punched_at": 1574866800
       },
       {
-        "id": "moodId2",
+        "id": "moodId3",
         "punched_at": 1574953200
       }
     ]
@@ -28,7 +28,7 @@
     "sabordinate_id": "employeeId2",
     "moods": [
       {
-        "id": "moodId1",
+        "id": "moodId4",
         "punched_at": 1574607600
       },
       {
@@ -36,15 +36,15 @@
         "punched_at": 1574694000
       },
       {
-        "id": "moodId4",
+        "id": "moodId5",
         "punched_at": 1574780400
       },
       {
-        "id": "moodId4",
+        "id": "moodId5",
         "punched_at": 1574866800
       },
       {
-        "id": "moodId2",
+        "id": "moodId3",
         "punched_at": 1574953200
       }
     ]
