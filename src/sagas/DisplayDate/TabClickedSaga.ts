@@ -10,6 +10,7 @@ import getBeginAndEndDateFromMonth from 'src/utilsLogic/Date/GetBeginAndEndDateF
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
+import getMonthDates from 'src/utilsLogic/Date/GetMonthDates';
 
 export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
   yield put(updateDisplayTab({ displayTab: action.payload.tabName }));
@@ -27,7 +28,9 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
     yield put(getListMoodOfEmployee.request({ beginDate, endDate }));
   } else if (displayTab === tabName.month) {
     const beginAndEndDate = getBeginAndEndDateFromMonth(displayDate);
+    const newDisplaySpan = getMonthDates(displayDate);
 
+    yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
     yield put(getListMoodOfEmployee.request(beginAndEndDate));
   }
 }
