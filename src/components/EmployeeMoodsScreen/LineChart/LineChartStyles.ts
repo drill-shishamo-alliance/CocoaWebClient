@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { Theme, createStyles } from '@material-ui/core/styles';
 
-const styles = () =>
-  makeStyles({
+const styles = (theme: Theme) =>
+  createStyles({
     chartPosition: {
       flexBasis: '80%',
     },

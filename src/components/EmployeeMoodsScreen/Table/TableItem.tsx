@@ -2,10 +2,10 @@ import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import styles from './TableStyles';
-import LineChart from '../LineChart/LineChart';
 import { employee } from 'src/states/Employees/Employees';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
+import LineChart from 'src/container/LineChart';
 
 export type Props = {
   employee: employee;

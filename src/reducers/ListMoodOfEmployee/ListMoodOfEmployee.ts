@@ -11,6 +11,8 @@ const ListMoodOfEmployee = (
   switch (action.type) {
     case ListMoodOfEmployeeActionType.GET_LIST_MOOD_OF_EMPLOYEE_SUCCEEDED:
       return { ...action.payload };
+    case ListMoodOfEmployeeActionType.GET_LIST_MOOD_OF_EMPLOYEE_FAILED:
+      return {};
     default:
       return state;
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -9,52 +8,49 @@ import {
   XAxis,
 } from 'recharts';
 import LineChartTickSvg from './LineChartTickSvg';
-import { useSelector } from 'react-redux';
-import RootState from 'src/states';
+import LineChartProps from './LineChartProps';
+import { withStyles } from '@material-ui/styles';
+import styles from './LineChartStyles';
 
-export type Props = {
-  moodIds: string[];
-};
+class LineChart extends React.Component<LineChartProps> {
+  render() {
+    const { moodIds, moods, classes } = this.props;
 
-const LineChart: React.FC<Props> = props => {
-  const { moodIds } = props;
-  const classes = styles();
-  const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
-  const data = moodIds.map(moodId => {
-    return { 気分: moods[moodId].weight };
-  });
+    const data = moodIds.map(moodId => {
+      return { 気分: moods[moodId].weight };
+    });
 
-  const CustomizedTicks = (props: any) => {
-    const { x, y, payload } = props;
+    const CustomizedTicks = (props: any) => {
+      const { x, y, payload } = props;
+      return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
+    };
 
-    return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
-  };
+    return (
+      <div className={classes.chartPosition}>
+        <LineChartRecharts
+          width={950}
+          height={200}
+          data={data}
+          margin={{
+            top: 10,
+            right: 15,
+            left: 35,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='name' tickLine={false} />
+          <YAxis
+            domain={['dataMin', 'dataMax']}
+            ticks={[0, 1, 2, 3, 4, 5]}
+            tick={<CustomizedTicks />}
+          />
+          <Tooltip />
+          <Line type='monotone' dataKey='気分' stroke='#2196f3' isAnimationActive={false} />
+        </LineChartRecharts>
+      </div>
+    );
+  }
+}
 
-  return (
-    <div className={classes().chartPosition}>
-      <LineChartRecharts
-        width={950}
-        height={200}
-        data={data}
-        margin={{
-          top: 10,
-          right: 15,
-          left: 35,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='name' tickLine={false} />
-        <YAxis
-          domain={['dataMin', 'dataMax']}
-          ticks={[0, 1, 2, 3, 4, 5]}
-          tick={<CustomizedTicks />}
-        />
-        <Tooltip />
-        <Line type='monotone' dataKey='気分' stroke='#2196f3' />
-      </LineChartRecharts>
-    </div>
-  );
-};
-
-export default LineChart;
+export default withStyles(styles)(LineChart);
