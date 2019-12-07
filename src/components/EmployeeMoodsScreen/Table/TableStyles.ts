@@ -17,6 +17,7 @@ const TableStyles = makeStyles((theme: Theme) =>
     tableBody: {
       overflow: 'auto',
       height: 500,
+      position: 'relative',
     },
     row: {
       display: 'flex',
@@ -66,6 +67,16 @@ const TableStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       top: '13%',
       right: '11%',
+    },
+    notDataTextPosition: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%,-50%)',
+      textAlign: 'center',
     },
   })
 );

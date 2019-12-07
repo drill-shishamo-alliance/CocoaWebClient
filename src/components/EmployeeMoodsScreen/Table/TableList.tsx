@@ -14,19 +14,26 @@ const TableList: React.FC = () => {
 
   return (
     <div className={classes.tableBody}>
-      <Table className={classes.tableLayout}>
-        <TableBody>
-          {/* {Object.keys(listMoodOfEmployee).length ? Object.values(listMoodOfEmployee).map(moodOfEmployee => (
-            <TableItem employee={employees[moodOfEmployee.subordinate_id]} key={moodOfEmployee.subordinate_id} />
-          )) : <div>データがありません</div>} */}
-          {Object.values(listMoodOfEmployee).map(moodOfEmployee => (
+      {Object.keys(listMoodOfEmployee).length > 0 ? (
+        <Table className={classes.tableLayout}>
+          <TableBody>
+            {Object.values(listMoodOfEmployee).map(moodOfEmployee => (
+              <TableItem
+                employee={employees[moodOfEmployee.subordinate_id]}
+                key={moodOfEmployee.subordinate_id}
+              />
+            ))}
+            {/* {Object.values(listMoodOfEmployee).map(moodOfEmployee => (
             <TableItem
               employee={employees[moodOfEmployee.subordinate_id]}
               key={moodOfEmployee.subordinate_id}
             />
-          ))}
-        </TableBody>
-      </Table>
+          ))} */}
+          </TableBody>
+        </Table>
+      ) : (
+        <div className={classes.notDataTextPosition}>データがありません</div>
+      )}
     </div>
   );
 };
