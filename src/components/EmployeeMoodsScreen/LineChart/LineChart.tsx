@@ -24,7 +24,6 @@ class LineChart extends React.Component<LineChartProps> {
       }
     });
 
-    console.log(data);
     const CustomizedTicks = (props: any) => {
       const { x, y, payload } = props;
       return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
