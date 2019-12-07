@@ -40,7 +40,15 @@ const TableItem: React.FC<Props> = props => {
   return (
     <TableRow>
       <TableCell align='center' className={classes.cellContainer}>
-        <div className={classes.employeePosition}>{employee.name}</div>
+        <div
+          className={
+            listMoodOfEmployee[employee.id].danger
+              ? classes.employeeNameDanger
+              : classes.employeeName
+          }
+        >
+          {employee.name}
+        </div>
         <LineChart moodIds={moodIds} />
       </TableCell>
     </TableRow>

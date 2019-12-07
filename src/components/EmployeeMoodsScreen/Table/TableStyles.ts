@@ -30,9 +30,21 @@ const TableStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
     },
-    employeePosition: {
+    headerPosition: {
       flexBasis: '20%',
       alignSelf: 'center',
+    },
+    employeeName: {
+      flexBasis: '20%',
+      alignSelf: 'center',
+      fontSize: 18,
+    },
+    employeeNameDanger: {
+      flexBasis: '20%',
+      alignSelf: 'center',
+      color: 'red',
+      fontSize: 18,
+      fontWeight: 'bold',
     },
     dataPosition: {
       flexBasis: '16%',

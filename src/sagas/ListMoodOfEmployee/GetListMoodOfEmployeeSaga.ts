@@ -2,8 +2,10 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import { call, put, select } from 'redux-saga/effects';
 import { getListMoodOfEmployeeClient } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployee';
-import listMoodOfEmployeeState from 'src/apis/ListMoodOfEmployee/Model';
-import { PunchedMood } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
+
+import listMoodOfEmployeeState, {
+  PunchedMood,
+} from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 import convertUnixToDate from 'src/utilsLogic/Date/ConvertUnixtoDate';
 import RootState from 'src/states';
 
@@ -24,6 +26,7 @@ export function* getListMoodOfEmployeeSaga(
     const moods = state.MoodsState;
     const reorderParams: { employeeId: string; mood_weight_average: number }[] = [];
     let convertDateData: listMoodOfEmployeeState = {};
+    const dangerLine = 2.5;
     Object.entries(response.data).forEach(([key, value]) => {
       // ここで 1.並べ替えのためのパラメータ作成 2.unixからDateに変換 を行う
       let mood_weight_sum = 0;
@@ -45,6 +48,7 @@ export function* getListMoodOfEmployeeSaga(
         [key]: {
           subordinate_id: value.sabordinate_id,
           moods: punchedDates,
+          danger: false,
         },
       };
       reorderParams.push({
@@ -57,14 +61,25 @@ export function* getListMoodOfEmployeeSaga(
       if (prevParam.mood_weight_average > nextParam.mood_weight_average) return 1;
       return 0;
     });
+
     let postDataToStore: listMoodOfEmployeeState = {};
     reorderParams.forEach(param => {
-      postDataToStore = {
-        ...postDataToStore,
-        [param.employeeId]: {
-          ...convertDateData[param.employeeId],
-        },
-      };
+      if (param.mood_weight_average < dangerLine) {
+        postDataToStore = {
+          ...postDataToStore,
+          [param.employeeId]: {
+            ...convertDateData[param.employeeId],
+            danger: true,
+          },
+        };
+      } else {
+        postDataToStore = {
+          ...postDataToStore,
+          [param.employeeId]: {
+            ...convertDateData[param.employeeId],
+          },
+        };
+      }
     });
     yield put(getListMoodOfEmployee.success(postDataToStore));
   } else {

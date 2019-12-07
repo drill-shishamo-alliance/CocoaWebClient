@@ -8,6 +8,7 @@ export type PunchedMood = {
 type MoodOfEmployee = {
   subordinate_id: string;
   moods: PunchedMood[];
+  danger: boolean;
 };
 
 type listMoodOfEmployeeState = {

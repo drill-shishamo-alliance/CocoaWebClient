@@ -23,7 +23,7 @@ const TableHeader: React.FC = () => {
       <TableHead className={classes.head}>
         <TableRow>
           <TableCell align='center' className={classNames(classes.cellContainer)}>
-            <h2 className={classes.employeePosition}>社員</h2>
+            <h2 className={classes.headerPosition}>社員</h2>
             {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
               return <h2 key={headerText}>{headerText}</h2>;
             })}
