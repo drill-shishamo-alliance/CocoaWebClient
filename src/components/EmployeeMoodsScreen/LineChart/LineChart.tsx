@@ -17,7 +17,11 @@ class LineChart extends React.Component<LineChartProps> {
     const { moodIds, moods, classes } = this.props;
 
     const data = moodIds.map(moodId => {
-      return { 気分: moods[moodId].weight };
+      if (moodId === 'moodId0') {
+        return {};
+      } else {
+        return { 気分: moods[moodId].weight };
+      }
     });
 
     const CustomizedTicks = (props: any) => {
@@ -42,7 +46,7 @@ class LineChart extends React.Component<LineChartProps> {
           <XAxis dataKey='name' tickLine={false} />
           <YAxis
             domain={['dataMin', 'dataMax']}
-            ticks={[0, 1, 2, 3, 4, 5]}
+            ticks={[1, 2, 3, 4, 5]}
             tick={<CustomizedTicks />}
           />
           <Tooltip />

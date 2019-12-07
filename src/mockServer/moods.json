@@ -17,7 +17,7 @@
     "id": "moodId3",
     "name": "平常運転",
     "weight": 3,
-    "icon_name": "tag_faces",
+    "icon_name": "sentiment_satisfied",
     "color": "#E57D22"
   },
   "moodId4": {
