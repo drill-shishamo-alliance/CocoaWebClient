@@ -6,7 +6,7 @@ import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@m
 import MenuIcon from '@material-ui/icons/Menu';
 import classNames from 'classnames';
 import DrawerList from './DrawerList';
-import Home from '../HomeScreen/Home';
+import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import MyMoods from '../MyMoodsScreen/MyMoods';
 import DepartmentalAnalysis from '../DepartmentalAnalysisScreen/DepartmentalAnalysis';
