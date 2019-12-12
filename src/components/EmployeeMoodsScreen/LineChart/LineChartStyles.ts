@@ -8,6 +8,10 @@ const styles = (theme: Theme) =>
     iconSize: {
       fontSize: 20,
     },
+    customTooltip: {
+      backgroundColor: 'white',
+      padding: 3,
+    },
   });
 
 export default styles;
