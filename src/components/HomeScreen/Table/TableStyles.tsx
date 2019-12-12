@@ -13,6 +13,19 @@ const TableStyles = makeStyles((theme: Theme) =>
       flexBasis: '20%',
       alignSelf: 'center',
     },
+    tableBody: {
+      overflow: 'auto',
+      height: 500,
+      position: 'relative',
+    },
+    tableLayout: {
+      overflow: 'flexed',
+    },
+    employeeName: {
+      flexBasis: '20%',
+      alignSelf: 'center',
+      fontSize: 18,
+    },
   })
 );
 
