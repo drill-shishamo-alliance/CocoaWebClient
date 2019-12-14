@@ -6,7 +6,7 @@ import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@m
 import MenuIcon from '@material-ui/icons/Menu';
 import classNames from 'classnames';
 import DrawerList from './DrawerList';
-import Home from '../HomeScreen/Home';
+import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import MyMoods from '../MyMoodsScreen/MyMoods';
 import DepartmentalAnalysis from '../DepartmentalAnalysisScreen/DepartmentalAnalysis';
@@ -18,6 +18,7 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
+import { updateDisplaySpan } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 
 const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
@@ -47,7 +48,15 @@ const DashBoard: React.FC = () => {
     setIsOpenDrower(!isOpenDrawer);
   };
 
-  const routeMainContent = (route: string) => () => history.push(route);
+  const routeMainContent = (route: string, dates?: Date[]) => () => {
+    history.push(route);
+    if (dates !== undefined) {
+      dispatch(updateDisplaySpan({ displaySpan: dates }));
+      const beginDate = convertDateToUnix(new Date(dates[0]));
+      const endDate = convertDateToUnix(new Date(dates[dates.length - 1]));
+      dispatch(getListMoodOfEmployee.request({ beginDate, endDate }));
+    }
+  };
 
   return (
     <MuiThemeProvider theme={theme}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, TableHead, TableRow, TableCell } from '@material-ui/core';
-import TableStyles from './TableStyles';
+import styles from './TableStyles';
 import classNames from 'classnames';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ const TableHeader: React.FC = () => {
   const displayDate = useSelector<rootState, rootState['displayDateState']['displayDate']>(
     state => state.displayDateState.displayDate
   );
-  const classes = TableStyles();
+  const classes = styles();
 
   return (
     <Table>

@@ -9,6 +9,9 @@ import DepartmentalAnalysisIcon from 'src/assets/DrawerItems/DepartmentalAnalysi
 import MapIcon from '@material-ui/icons/Map';
 import List from '@material-ui/core/List';
 import { Theme, makeStyles, createStyles } from '@material-ui/core';
+import { GetPastFiveDays } from '../HomeScreen/Table/utils/GetPastFiveDays';
+import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
+import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 
 const styles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,22 +23,30 @@ const styles = makeStyles((theme: Theme) =>
 );
 
 type Props = {
-  handleClick: (route: string) => (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleClick: (
+    route: string,
+    dates?: Date[]
+  ) => (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
 const DrawerList: React.FC<Props> = props => {
   const classes = styles();
   const { handleClick } = props;
+  const pastFiveDays = GetPastFiveDays();
+  const date = new Date();
+  const weekIndex = getWeekIndex(date);
+  const initialEmployeeMoodsDisplaySpan = getWeekOfMonth(date, weekIndex);
+
   return (
     <List>
-      <ListItem button onClick={handleClick('/')}>
+      <ListItem button onClick={handleClick('/', pastFiveDays)}>
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
         <ListItemText primary='ホーム' />
       </ListItem>
 
-      <ListItem button onClick={handleClick('/employeemoods')}>
+      <ListItem button onClick={handleClick('/employeemoods', initialEmployeeMoodsDisplaySpan)}>
         <ListItemIcon>
           <img src={EmployeeMoodsIcon} className={classes.iconImg} alt='employeemoods' />
         </ListItemIcon>

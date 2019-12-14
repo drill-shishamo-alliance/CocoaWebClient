@@ -2,11 +2,11 @@ import { displayDateState, tabName } from 'src/states/DisplayDate/DisplayDate';
 import displayDateAction from 'src/actions/DisplayDate/DisplayDateAction';
 import displayDateActionType from 'src/actions/DisplayDate/DisplayDateActionType';
 import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
-import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
+import { GetPastFiveDays } from 'src/components/HomeScreen/Table/utils/GetPastFiveDays';
 
 const initialDate = new Date();
 const initialWeekIndex = getWeekIndex(initialDate);
-const initialDisplaySpan = getWeekOfMonth(initialDate, initialWeekIndex);
+const initialDisplaySpan = GetPastFiveDays();
 
 const initialState: displayDateState = {
   displayDate: initialDate, // 現在表示されている年と月

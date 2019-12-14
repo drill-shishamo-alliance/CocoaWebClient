@@ -38,7 +38,7 @@
     "id": "moodId0",
     "name": "未入力",
     "weight": 0,
-    "icon_name": "sentiment_minyuuryoku",
+    "icon_name": "clear",
     "color": "red"
   }
 }
