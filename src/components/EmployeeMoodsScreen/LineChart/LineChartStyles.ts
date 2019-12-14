@@ -1,7 +1,7 @@
-import { Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const styles = (theme: Theme) =>
-  createStyles({
+const lineChartStyles = () =>
+  makeStyles({
     chartPosition: {
       flexBasis: '80%',
     },
@@ -14,4 +14,4 @@ const styles = (theme: Theme) =>
     },
   });
 
-export default styles;
+export default lineChartStyles;

@@ -5,7 +5,8 @@ import styles from './TableStyles';
 import { employee } from 'src/states/Employees/Employees';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
-import LineChart from 'src/container/LineChart';
+import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
+import LineChart from '../LineChart/LineChart';
 
 export type Props = {
   employee: employee;
@@ -20,19 +21,18 @@ const TableItem: React.FC<Props> = props => {
   const displaySpan = useSelector<rootState, rootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
-  const moods =
+  const punchLogs =
     typeof listMoodOfEmployee[employee.id] === 'undefined'
       ? []
       : listMoodOfEmployee[employee.id].punch_logs; // 今回描画する社員さんの気分情報
-  let punchLogs: { moodId: string; causeId: string }[] = [];
-  moods.forEach(mood => {
-    // 気分のidのみを配列として抜き取る
+  let displayPunchLogs: PunchLog[] = [];
+  punchLogs.forEach(punchLog => {
     displaySpan.forEach(displayDate => {
       if (
-        displayDate.getMonth() === mood.punched_at.getMonth() &&
-        displayDate.getDate() === mood.punched_at.getDate()
+        displayDate.getMonth() === punchLog.punched_at.getMonth() &&
+        displayDate.getDate() === punchLog.punched_at.getDate()
       ) {
-        punchLogs.push({ moodId: mood.mood_id, causeId: mood.cause_id });
+        displayPunchLogs.push(punchLog);
       }
     });
   });
@@ -49,7 +49,7 @@ const TableItem: React.FC<Props> = props => {
         >
           {employee.name}
         </div>
-        <LineChart punchLogs={punchLogs} />
+        <LineChart punchLogs={displayPunchLogs} />
       </TableCell>
     </TableRow>
   );
