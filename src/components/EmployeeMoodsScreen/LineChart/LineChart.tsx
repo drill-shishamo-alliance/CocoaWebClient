@@ -31,12 +31,11 @@ class LineChart extends React.Component<LineChartProps> {
 
     const CustomTooltip = (props: any) => {
       const { active, payload } = props;
-      console.log(payload);
       if (active) {
         return (
           <div className={classes.customTooltip}>
             {payload[0] && <p className='label'>{moods[`moodId${payload[0].value}`].name}</p>}
-            <p className='desc'>原因：{payload[0].payload['原因']}</p>
+            {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
           </div>
         );
       }
