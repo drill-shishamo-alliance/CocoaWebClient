@@ -23,12 +23,6 @@ const TableList: React.FC = () => {
                 key={moodOfEmployee.subordinate_id}
               />
             ))}
-            {/* {Object.values(listMoodOfEmployee).map(moodOfEmployee => (
-            <TableItem
-              employee={employees[moodOfEmployee.subordinate_id]}
-              key={moodOfEmployee.subordinate_id}
-            />
-          ))} */}
           </TableBody>
         </Table>
       ) : (

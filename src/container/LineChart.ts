@@ -5,6 +5,7 @@ import LineChart from 'src/components/EmployeeMoodsScreen/LineChart/LineChart';
 
 const mapStateToProps = (state: rootState): LineChartConnectedProps => ({
   moods: state.MoodsState,
+  causes: state.CausesState,
 });
 
 const mapDispatchToProps = {};

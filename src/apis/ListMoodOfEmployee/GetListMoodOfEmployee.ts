@@ -6,15 +6,16 @@ export type getListMoodOfEmployeeParams = {
   endDate: number;
 };
 
-type mood = {
-  id: string;
+type PunchLog = {
+  mood_id: string;
+  cause_id: string;
   punched_at: number;
 };
 
 export type getListMoodOfEmployeeResponse = {
   [employee_id: string]: {
     sabordinate_id: string;
-    moods: mood[];
+    punch_logs: PunchLog[];
   };
 };
 

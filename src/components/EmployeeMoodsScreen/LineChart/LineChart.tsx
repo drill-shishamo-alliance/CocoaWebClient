@@ -14,13 +14,13 @@ import styles from './LineChartStyles';
 
 class LineChart extends React.Component<LineChartProps> {
   render() {
-    const { moodIds, moods, classes } = this.props;
+    const { punchLogs, moods, causes, classes } = this.props;
 
-    const data = moodIds.map(moodId => {
-      if (moodId === 'moodId0') {
+    const data = punchLogs.map(punchLog => {
+      if (punchLog.moodId === 'moodId0') {
         return {};
       } else {
-        return { 気分: moods[moodId].weight, 原因: 'hoge' };
+        return { 気分: moods[punchLog.moodId].weight, 原因: causes[punchLog.causeId].name };
       }
     });
 

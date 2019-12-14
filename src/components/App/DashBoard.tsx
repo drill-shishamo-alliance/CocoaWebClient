@@ -18,6 +18,7 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
+import { getCauses } from 'src/actions/Causes/ActionCreator';
 
 const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
@@ -29,6 +30,7 @@ const DashBoard: React.FC = () => {
     const initialRequestBeginDate = convertDateToUnix(displaySpan[0]);
     const initialRequestEndDate = convertDateToUnix(displaySpan[displaySpan.length - 1]);
     dispatch(getMoods.request({}));
+    dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
     dispatch(
       getListMoodOfEmployee.request({
