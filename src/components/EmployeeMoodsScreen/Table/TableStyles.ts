@@ -26,7 +26,7 @@ export const Header = styled(TableHead)`
 export const Cell = styled(TableCell)`
   display: grid;
   justify-content: space-around;
-  grid-template-columns: 1fr 70%;
+  grid-template-columns: 1fr 80%;
 `;
 
 export const EmployeeHeaderWrapper = styled('div')`
