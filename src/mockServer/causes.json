@@ -1,0 +1,22 @@
+{
+  "causeId1": {
+    "id": "causeId1",
+    "name": "仕事量"
+  },
+  "causeId2": {
+    "id": "causeId2",
+    "name": "仕事内容"
+  },
+  "causeId3": {
+    "id": "causeId3",
+    "name": "人間関係"
+  },
+  "causeId4": {
+    "id": "causeId4",
+    "name": "評価"
+  },
+  "causeId5": {
+    "id": "causeId5",
+    "name": "未選択"
+  }
+}

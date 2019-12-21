@@ -1,5 +1,6 @@
 const express = require('express');
 const moods = require('./moods.json');
+const causes = require('./causes.json')
 const employees = require("./employees.json");
 const nov11_15_moods = require('./mockPanchedMoods/nov11_15_moods.json');
 const nov18_22_moods = require('./mockPanchedMoods/nov18_22_moods.json');
@@ -21,6 +22,10 @@ app.use((_, res, next) => {
 app.get('/moods', (_, res) => {
   res.status(200).json(moods);
 });
+
+app.get('/causes', (_, res) => {
+  res.status(200).json(causes);
+})
 
 app.get('/', (_, res) => res.send('Cocoa mock server'));
 

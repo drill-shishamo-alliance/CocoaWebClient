@@ -1,315 +1,390 @@
 {
   "employeeId1": {
     "sabordinate_id": "employeeId1",
-    "moods": [
+    "punch_logs": [
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1572534000
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1572620400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1572706800
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1572793200
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1572879600
       },
       {
-        "id": "moodId0",
+        "mood_id": "moodId0",
+        "cause_id": "causeId2",
         "punched_at": 1572966000
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1573052400
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573138800
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573225200
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573311600
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573398000
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573484400
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1573570800
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573657200
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573743600
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1573830000
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573916400
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1574002800
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1574089200
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574175600
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1574262000
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1574348400
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1574434800
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574521200
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574607600
       }
     ]
   },
   "employeeId2": {
     "sabordinate_id": "employeeId2",
-    "moods": [
+    "punch_logs": [
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1572534000
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1572620400
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1572706800
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1572793200
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1572879600
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1572966000
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1573052400
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573138800
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573225200
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573311600
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573398000
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573484400
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573570800
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573657200
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573743600
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573830000
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573916400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574002800
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1574089200
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1574175600
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1574262000
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1574348400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574434800
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1574521200
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1574607600
       }
     ]
   },
   "employeeId3": {
     "sabordinate_id": "employeeId3",
-    "moods": [
+    "punch_logs": [
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1572534000
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1572620400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1572706800
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1572793200
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1572879600
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1572966000
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573052400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573138800
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573225200
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1573311600
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1573398000
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573484400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1573570800
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1573657200
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1573743600
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1573830000
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1573916400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574002800
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1574089200
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1574175600
       },
       {
-        "id": "moodId1",
+        "mood_id": "moodId1",
+        "cause_id": "causeId2",
         "punched_at": 1574262000
       },
       {
-        "id": "moodId2",
+        "mood_id": "moodId2",
+        "cause_id": "causeId2",
         "punched_at": 1574348400
       },
       {
-        "id": "moodId3",
+        "mood_id": "moodId3",
+        "cause_id": "causeId2",
         "punched_at": 1574434800
       },
       {
-        "id": "moodId4",
+        "mood_id": "moodId4",
+        "cause_id": "causeId2",
         "punched_at": 1574521200
       },
       {
-        "id": "moodId5",
+        "mood_id": "moodId5",
+        "cause_id": "causeId2",
         "punched_at": 1574607600
       }
     ]

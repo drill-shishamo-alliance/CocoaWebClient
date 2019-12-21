@@ -22,16 +22,16 @@ const TableItem: React.FC<Props> = props => {
   const moods =
     typeof listMoodOfEmployee[employee.id] === 'undefined'
       ? []
-      : listMoodOfEmployee[employee.id].moods; // 今回描画する社員さんの気分情報
+      : listMoodOfEmployee[employee.id].punch_logs; // 今回描画する社員さんの気分情報
   let moodIds: string[] = [];
-  moods.forEach(punchedMood => {
+  moods.forEach(mood => {
     // 気分のidのみを配列として抜き取る
     displaySpan.forEach(displayDate => {
       if (
-        displayDate.getMonth() === punchedMood.punched_at.getMonth() &&
-        displayDate.getDate() === punchedMood.punched_at.getDate()
+        displayDate.getMonth() === mood.punched_at.getMonth() &&
+        displayDate.getDate() === mood.punched_at.getDate()
       ) {
-        moodIds.push(punchedMood.id);
+        moodIds.push(mood.mood_id);
       }
     });
   });
