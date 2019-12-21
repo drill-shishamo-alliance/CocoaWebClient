@@ -364,6 +364,7 @@
       },
       {
         "mood_id": "moodId1",
+        "cause_id": "causeId3",
         "punched_at": 1571583600
       },
       {
