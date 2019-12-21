@@ -10,7 +10,7 @@ import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import MyMoods from '../MyMoodsScreen/MyMoods';
-import DepartmentalAnalysis from '../DepartmentalAnalysisScreen/DepartmentalAnalysis';
+import Ranking from '../RankingScreen/RankingScreen';
 import MoodsMap from '../MoodsMapScreen/MoodsMap';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
@@ -99,7 +99,7 @@ const DashBoard: React.FC = () => {
               <Route exact path='/' component={Home} />
               <Route path='/employeemoods' component={EmployeeMoodsScreen} />
               <Route path='/mymoods' component={MyMoods} />
-              <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
+              <Route path='/ranking' component={Ranking} />
               <Route path='/moodsmap' component={MoodsMap} />
             </Switch>
           </main>
