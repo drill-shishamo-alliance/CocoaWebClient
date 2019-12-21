@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { theme } from 'src/utilsUI/theme';
-import AppStyles from './AppStyles';
+import {
+  MenuButton,
+  Root,
+  ToolBar,
+  Title,
+  AppBarSpacer,
+  RootAppBar,
+  DrawerPaper,
+  Main,
+} from './AppStyles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import classNames from 'classnames';
 import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
@@ -42,7 +50,6 @@ const DashBoard: React.FC = () => {
     );
   }, []);
 
-  const classes = AppStyles();
   const history = useHistory();
 
   const [isOpenDrawer, setIsOpenDrower] = useState(false);
@@ -64,37 +71,27 @@ const DashBoard: React.FC = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <StyledThemeProvider theme={theme}>
-        <div className={classes.root}>
+        <Root>
           <CssBaseline />
-          <AppBar
-            position='fixed'
-            className={classNames(classes.appBar, isOpenDrawer && classes.appBarShift)}
-          >
-            <Toolbar className={classes.toolbar}>
-              <IconButton
-                className={classes.menuButton}
-                color='inherit'
-                aria-label='Open drawer'
-                onClick={handleDrawerOpen}
-              >
+          <RootAppBar position='fixed' is_open_drawer={isOpenDrawer ? 1 : 0}>
+            <ToolBar>
+              <MenuButton color='inherit' aria-label='Open drawer' onClick={handleDrawerOpen}>
                 <MenuIcon />
-              </IconButton>
-              <Typography className={classes.title} variant='h6' color='inherit' noWrap>
+              </MenuButton>
+              <Title variant='h6' color='inherit' noWrap>
                 Cocoa Web Client
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <Drawer
+              </Title>
+            </ToolBar>
+          </RootAppBar>
+          <DrawerPaper
             variant='permanent'
-            classes={{
-              paper: classNames(classes.drawerPaper, !isOpenDrawer && classes.drawerPaperClose),
-            }}
+            is_open_drawer={!isOpenDrawer ? 1 : 0}
             open={isOpenDrawer}
           >
             <DrawerList handleClick={routeMainContent} />
-          </Drawer>
-          <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
-            <div className={classes.appBarSpacer} />
+          </DrawerPaper>
+          <Main is_open_drawer={isOpenDrawer ? 1 : 0}>
+            <AppBarSpacer />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/employeemoods' component={EmployeeMoodsScreen} />
@@ -102,8 +99,8 @@ const DashBoard: React.FC = () => {
               <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
               <Route path='/moodsmap' component={MoodsMap} />
             </Switch>
-          </main>
-        </div>
+          </Main>
+        </Root>
       </StyledThemeProvider>
     </MuiThemeProvider>
   );
