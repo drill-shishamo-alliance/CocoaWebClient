@@ -2,36 +2,12 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import { call, put, select } from 'redux-saga/effects';
 import { getListMoodOfEmployeeClient } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployee';
-import {
-  changeWeekSpanButtonClicked,
-  updateDisplaySpan,
-  changeMonthButtonClicked,
-} from 'src/actions/DisplayDate/DisplayDateActionCreator';
+
+import listMoodOfEmployeeState, {
+  PunchLog,
+} from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
+import convertUnixToDate from 'src/utilsLogic/Date/ConvertUnixtoDate';
 import RootState from 'src/states';
-import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
-import getBeginAndEndDateFromMonth from 'src/utilsLogic/Date/GetBeginAndEndDateFromMonth';
-
-export function* calculateWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButtonClicked>) {
-  yield put(action.payload()); // 表示するさせる週を更新するためのアクション発火
-  const state: RootState = yield select(); // アクション発火後のStateを取得
-  const displayDate = new Date(state.displayDateState.displayDate);
-  const weekIndex = state.displayDateState.weekIndex;
-
-  const newDisplaySpan = getWeekOfMonth(displayDate, weekIndex);
-  const beginDate: Date = new Date(newDisplaySpan[0]);
-  const endDate: Date = new Date(newDisplaySpan[newDisplaySpan.length - 1]);
-
-  yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-  yield put(getListMoodOfEmployee.request({ beginDate, endDate }));
-}
-
-export function* calculateMonthSpanSaga(action: ReturnType<typeof changeMonthButtonClicked>) {
-  yield put(action.payload()); // 表示させる週を更新するためのアクション発火
-  const state: RootState = yield select(); // アクション発火後のStateを取得
-  const displayDate = new Date(state.displayDateState.displayDate);
-  const beginAndEndDate = getBeginAndEndDateFromMonth(displayDate);
-  yield put(getListMoodOfEmployee.request(beginAndEndDate));
-}
 
 export function* getListMoodOfEmployeeSaga(
   action: ReturnType<typeof getListMoodOfEmployee.request>
@@ -44,9 +20,69 @@ export function* getListMoodOfEmployeeSaga(
       endDate: action.payload.endDate,
     }
   );
-
   if (response.status === 200 && response.data) {
-    yield put(getListMoodOfEmployee.success(response.data));
+    // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
+    const state: RootState = yield select();
+    const moods = state.MoodsState;
+    const reorderParams: { employeeId: string; mood_weight_average: number }[] = [];
+    let convertDateData: listMoodOfEmployeeState = {};
+    const dangerLine = 2.5;
+    Object.entries(response.data).forEach(([key, value]) => {
+      // ここで 1.並べ替えのためのパラメータ作成 2.unixからDateに変換 を行う
+      let mood_weight_sum = 0;
+      let denominator = 0;
+      let punchedDates: PunchLog[] = [];
+      value.punch_logs.forEach(punch_log => {
+        punchedDates.push({
+          mood_id: punch_log.mood_id,
+          cause_id: punch_log.cause_id,
+          punched_at: convertUnixToDate(punch_log.punched_at),
+        });
+        if (punch_log.mood_id !== 'moodId0') {
+          // 未入力の場合は除外する
+          denominator += 1;
+          mood_weight_sum += moods[punch_log.mood_id].weight;
+        }
+      });
+      convertDateData = {
+        ...convertDateData,
+        [key]: {
+          subordinate_id: value.sabordinate_id,
+          punch_logs: punchedDates,
+          danger: false,
+        },
+      };
+      reorderParams.push({
+        employeeId: value.sabordinate_id,
+        mood_weight_average: mood_weight_sum / denominator,
+      });
+    });
+    reorderParams.sort(function(prevParam, nextParam) {
+      if (prevParam.mood_weight_average < nextParam.mood_weight_average) return -1;
+      if (prevParam.mood_weight_average > nextParam.mood_weight_average) return 1;
+      return 0;
+    });
+
+    let postDataToStore: listMoodOfEmployeeState = {};
+    reorderParams.forEach(param => {
+      if (param.mood_weight_average < dangerLine) {
+        postDataToStore = {
+          ...postDataToStore,
+          [param.employeeId]: {
+            ...convertDateData[param.employeeId],
+            danger: true,
+          },
+        };
+      } else {
+        postDataToStore = {
+          ...postDataToStore,
+          [param.employeeId]: {
+            ...convertDateData[param.employeeId],
+          },
+        };
+      }
+    });
+    yield put(getListMoodOfEmployee.success(postDataToStore));
   } else {
     yield put(getListMoodOfEmployee.failure(new Error('getListMoodOfEmployee error')));
   }

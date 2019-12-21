@@ -2,12 +2,11 @@ import { displayDateState, tabName } from 'src/states/DisplayDate/DisplayDate';
 import displayDateAction from 'src/actions/DisplayDate/DisplayDateAction';
 import displayDateActionType from 'src/actions/DisplayDate/DisplayDateActionType';
 import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
-import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
+import { GetPastFiveDays } from 'src/components/HomeScreen/Table/utils/GetPastFiveDays';
 
 const initialDate = new Date();
-console.log(`Date:${initialDate}`);
 const initialWeekIndex = getWeekIndex(initialDate);
-const initialDisplaySpan = getWeekOfMonth(initialDate, initialWeekIndex);
+const initialDisplaySpan = GetPastFiveDays();
 
 const initialState: displayDateState = {
   displayDate: initialDate, // 現在表示されている年と月
@@ -41,20 +40,24 @@ const displayDate = (
       };
     case displayDateActionType.NEXT_MONTH:
       newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() + 1));
+      newWeekIndex = getWeekIndex(newDisplayDate);
       return {
         ...state,
         displayDate: newDisplayDate,
+        weekIndex: newWeekIndex,
       };
     case displayDateActionType.PREVIOUS_MONTH:
       newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() - 1));
+      newWeekIndex = getWeekIndex(newDisplayDate);
       return {
         ...state,
         displayDate: newDisplayDate,
+        weekIndex: newWeekIndex,
       };
-    case displayDateActionType.TAB_CLICKED:
+    case displayDateActionType.UPDATE_DISPLAY_TAB:
       return {
         ...state,
-        displayTab: action.payload.tabName,
+        displayTab: action.payload.displayTab,
       };
     case displayDateActionType.UPDATE_DISPLAY_SPAN:
       return {

@@ -7,6 +7,17 @@ export const TableStyle = styled('div')`
   grid-row: 2;
 `;
 
+export const NotDataTextPosition = styled('div')`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+`;
+
 export const Header = styled(TableHead)`
   background-color: white;
   height: 100%;

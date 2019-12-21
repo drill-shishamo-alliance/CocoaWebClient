@@ -5,6 +5,7 @@ import LineChart from '../LineChart/LineChart';
 import { employee } from 'src/states/Employees/Employees';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
+import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 
 export type Props = {
   employee: employee;
@@ -18,13 +19,18 @@ const TableItem: React.FC<Props> = props => {
   const displaySpan = useSelector<rootState, rootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
-  const moods = listMoodOfEmployee[employee.id].moods; // 今回描画する社員さんの気分情報
-  let moodIds: string[] = [];
-  moods.forEach(panchedMood => {
-    // 気分のidのみを配列として抜き取る
-    displaySpan.forEach(date => {
-      if (date === panchedMood.punched_at) {
-        moodIds.push(panchedMood.id);
+  const punchLogs =
+    typeof listMoodOfEmployee[employee.id] === 'undefined'
+      ? []
+      : listMoodOfEmployee[employee.id].punch_logs; // 今回描画する社員さんの気分情報
+  let displayPunchLogs: PunchLog[] = [];
+  punchLogs.forEach(punchLog => {
+    displaySpan.forEach(displayDate => {
+      if (
+        displayDate.getMonth() === punchLog.punched_at.getMonth() &&
+        displayDate.getDate() === punchLog.punched_at.getDate()
+      ) {
+        displayPunchLogs.push(punchLog);
       }
     });
   });
@@ -33,7 +39,7 @@ const TableItem: React.FC<Props> = props => {
     <TableRow>
       <Cell align='center'>
         <EmployeePosition>{employee.name}</EmployeePosition>
-        <LineChart moodIds={moodIds} />
+        <LineChart punchLogs={displayPunchLogs} />
       </Cell>
     </TableRow>
   );

@@ -7,7 +7,7 @@ import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@m
 import MenuIcon from '@material-ui/icons/Menu';
 import classNames from 'classnames';
 import DrawerList from './DrawerList';
-import Home from '../HomeScreen/Home';
+import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import MyMoods from '../MyMoodsScreen/MyMoods';
 import DepartmentalAnalysis from '../DepartmentalAnalysisScreen/DepartmentalAnalysis';
@@ -16,18 +16,31 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import RootState from 'src/states';
+import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
+import { getCauses } from 'src/actions/Causes/ActionCreator';
+import { updateDisplaySpan } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 
 const DashBoard: React.FC = () => {
-  const beginDate = new Date();
-  const endDate = new Date();
+  const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
+    state => state.displayDateState.displaySpan
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const initialRequestBeginDate = convertDateToUnix(displaySpan[0]);
+    const initialRequestEndDate = convertDateToUnix(displaySpan[displaySpan.length - 1]);
     dispatch(getMoods.request({}));
+    dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
-    dispatch(getListMoodOfEmployee.request({ beginDate, endDate }));
-  });
+    dispatch(
+      getListMoodOfEmployee.request({
+        beginDate: initialRequestBeginDate,
+        endDate: initialRequestEndDate,
+      })
+    );
+  }, []);
 
   const classes = AppStyles();
   const history = useHistory();
@@ -38,7 +51,15 @@ const DashBoard: React.FC = () => {
     setIsOpenDrower(!isOpenDrawer);
   };
 
-  const routeMainContent = (route: string) => () => history.push(route);
+  const routeMainContent = (route: string, dates?: Date[]) => () => {
+    history.push(route);
+    if (dates !== undefined) {
+      dispatch(updateDisplaySpan({ displaySpan: dates }));
+      const beginDate = convertDateToUnix(new Date(dates[0]));
+      const endDate = convertDateToUnix(new Date(dates[dates.length - 1]));
+      dispatch(getListMoodOfEmployee.request({ beginDate, endDate }));
+    }
+  };
 
   return (
     <MuiThemeProvider theme={theme}>
