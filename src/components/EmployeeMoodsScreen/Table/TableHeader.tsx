@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, TableRow } from '@material-ui/core';
-import { Header, Cell, EmployeePosition } from './TableStyles';
+import { Header, Cell, EmployeePosition, EmployeeHeaderWrapper } from './TableStyles';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
 import { returnHeaderText } from './utils/returnHeaderText';
@@ -22,9 +22,11 @@ const TableHeader: React.FC = () => {
         <TableRow>
           <Cell align='center'>
             <EmployeePosition>社員</EmployeePosition>
-            {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
-              return <h2 key={headerText}>{headerText}</h2>;
-            })}
+            <EmployeeHeaderWrapper>
+              {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
+                return <h2 key={headerText}>{headerText}</h2>;
+              })}
+            </EmployeeHeaderWrapper>
           </Cell>
         </TableRow>
       </Header>

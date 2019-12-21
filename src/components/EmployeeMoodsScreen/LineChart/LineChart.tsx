@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   XAxis,
+  ResponsiveContainer,
 } from 'recharts';
 import LineChartTickSvg from './LineChartTickSvg';
 import { useSelector } from 'react-redux';
@@ -30,27 +31,29 @@ const LineChart: React.FC<Props> = props => {
   };
 
   return (
-    <ChartPosition width='95%' height={200}>
-      <LineChartRecharts
-        data={data}
-        margin={{
-          top: 10,
-          right: 15,
-          left: 35,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='name' tickLine={false} />
-        <YAxis
-          domain={['dataMin', 'dataMax']}
-          ticks={[0, 1, 2, 3, 4, 5]}
-          tick={<CustomizedTicks />}
-        />
-        <Tooltip />
-        <Line type='monotone' dataKey='気分' stroke='#2196f3' />
-      </LineChartRecharts>
-    </ChartPosition>
+    <ResponsiveContainer width='95%' height={200}>
+      <ChartPosition>
+        <LineChartRecharts
+          data={data}
+          margin={{
+            top: 10,
+            right: 15,
+            left: 35,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='name' tickLine={false} />
+          <YAxis
+            domain={['dataMin', 'dataMax']}
+            ticks={[0, 1, 2, 3, 4, 5]}
+            tick={<CustomizedTicks />}
+          />
+          <Tooltip />
+          <Line type='monotone' dataKey='気分' stroke='#2196f3' />
+        </LineChartRecharts>
+      </ChartPosition>
+    </ResponsiveContainer>
   );
 };
 

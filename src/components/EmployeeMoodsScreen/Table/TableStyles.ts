@@ -13,13 +13,21 @@ export const Header = styled(TableHead)`
 `;
 
 export const Cell = styled(TableCell)`
-  display: flex;
+  display: grid;
   justify-content: space-around;
+  grid-template-columns: 1fr 70%;
+`;
+
+export const EmployeeHeaderWrapper = styled('div')`
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
 
 export const EmployeePosition = styled('h2')`
   flex-basis: 20%;
   align-self: center;
+  grid-row: 1;
 `;
 
 export const PrevButton = styled(Button)`
