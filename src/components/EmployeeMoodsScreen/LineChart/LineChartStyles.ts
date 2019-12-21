@@ -1,17 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { ResponsiveContainer } from 'recharts';
 
-const lineChartStyles = () =>
-  makeStyles({
-    chartPosition: {
-      flexBasis: '80%',
-    },
-    iconSize: {
-      fontSize: 20,
-    },
-    customTooltip: {
-      backgroundColor: 'white',
-      padding: 3,
-    },
-  });
+export const ChartPosition = styled(ResponsiveContainer)`
+  flex-basis: 80%;
+`;
 
-export default lineChartStyles;
+export const CustomToolTip = styled('div')`
+  background-color: white;
+  padding: 3px;
+`;
