@@ -1,6 +1,6 @@
 import { createAsyncAction } from 'typesafe-actions';
 import CausesActionType from './ActionType';
-import { getCausesParams, getCausesResponse } from 'src/apis/Causes/GetCausesClient';
+import { getCausesParams, getCausesResponse } from 'src/apis/Causes/GetCausesOnAjax';
 
 export const getCauses = createAsyncAction(
   CausesActionType.GET_CAUSES_REQUEST,
