@@ -7,7 +7,7 @@ export type getCausesParams = {
 
 export type getCausesResponse = Causes;
 
-export async function getCausesOnHTTP({ department_id }: getCausesParams) {
+export async function getCausesOnAjax({ department_id }: getCausesParams) {
   try {
     return await Axios.get<getCausesResponse>('/causes', {
       params: {

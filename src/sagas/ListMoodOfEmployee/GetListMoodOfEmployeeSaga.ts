@@ -65,6 +65,7 @@ export function* getListMoodOfEmployeeSaga(
 
     let postDataToStore: listMoodOfEmployeeState = {};
     reorderParams.forEach(param => {
+      // 3. 気分状態が危険かどうかのフラグを設定
       if (param.mood_weight_average < dangerLine) {
         postDataToStore = {
           ...postDataToStore,
