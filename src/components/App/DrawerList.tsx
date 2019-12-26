@@ -60,7 +60,7 @@ const DrawerList: React.FC<Props> = props => {
         <ListItemText primary='自分の気分' />
       </ListItem>
 
-      <ListItem button onClick={handleClick('/ranking')}>
+      <ListItem button onClick={handleClick('/ranking', initialEmployeeMoodsDisplaySpan)}>
         <ListItemIcon>
           <img src={RankingIcon} className={classes.iconImg} alt='ranking' />
         </ListItemIcon>

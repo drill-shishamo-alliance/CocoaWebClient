@@ -7,6 +7,7 @@ import RootState from 'src/states';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
 export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButtonClicked>) {
   yield put(action.payload()); // 表示するさせる週を更新するためのアクション発火
@@ -20,4 +21,5 @@ export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButt
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
   yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+  yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
 }

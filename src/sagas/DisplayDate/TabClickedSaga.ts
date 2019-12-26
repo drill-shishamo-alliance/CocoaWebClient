@@ -11,6 +11,7 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import getMonthDates from 'src/utilsLogic/Date/GetMonthDates';
+import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
 export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
   yield put(updateDisplayTab({ displayTab: action.payload.tabName }));
@@ -26,6 +27,7 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
     yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+    yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
   } else if (displayTab === tabName.month) {
     const beginAndEndDate = getBeginAndEndDateFromMonth(displayDate);
     const begin_date = beginAndEndDate.beginDate;
@@ -34,5 +36,6 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
     yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+    yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
   }
 }

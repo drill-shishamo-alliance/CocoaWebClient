@@ -21,6 +21,8 @@ import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import { getCauses } from 'src/actions/Causes/ActionCreator';
 import { updateDisplaySpan } from 'src/actions/DisplayDate/DisplayDateActionCreator';
+import { getDepartments } from 'src/actions/Departments/ActionCreator';
+import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
 const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
@@ -34,6 +36,7 @@ const DashBoard: React.FC = () => {
     dispatch(getMoods.request({}));
     dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
+    dispatch(getDepartments.request({}));
     dispatch(
       getListMoodOfEmployee.request({
         employee_id: 'hoge',
@@ -59,6 +62,7 @@ const DashBoard: React.FC = () => {
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
       dispatch(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+      dispatch(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
     }
   };
 

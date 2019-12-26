@@ -7,6 +7,8 @@ const nov18_22_moods = require('./mockPanchedMoods/nov18_22_moods.json');
 const nov25_29_moods = require('./mockPanchedMoods/nov25_29_moods.json');
 const oct_moods = require('./mockPanchedMoods/oct_moods.json');
 const nov_moods = require('./mockPanchedMoods/nov_moods.json');
+const sample_department_moods = require('./mockDepartmentMoods/sample.json');
+const departments = require('./departments.json');
 
 const app = express();
 const port_number = 8000;
@@ -18,6 +20,8 @@ app.use((_, res, next) => {
   next();
 });
 
+app.get('/', (_, res) => res.send('Cocoa mock server'));
+
 // このアプリにて使用する気分の情報を返す
 app.get('/moods', (_, res) => {
   res.status(200).json(moods);
@@ -27,7 +31,10 @@ app.get('/causes', (_, res) => {
   res.status(200).json(causes);
 });
 
-app.get('/', (_, res) => res.send('Cocoa mock server'));
+// 社員の情報を返す
+app.get('/employees', (_, res) => {
+  res.status(200).json(employees);
+});
 
 // 社員の気分入力情報を、飛んできた年と月のクエリを元に値を返す
 app.get('/listMoodOfEmployee', (req, res) => {
@@ -50,9 +57,13 @@ app.get('/listMoodOfEmployee', (req, res) => {
   }
 });
 
-// 社員の情報を返す
-app.get('/employees', (_, res) => {
-  res.status(200).json(employees);
+app.get('/departments', (_, res) => {
+  res.status(200).json(departments);
+});
+
+app.get('/listMoodOfDepartment', (_, res) => {
+  console.log('list mood of department');
+  res.status(200).json(sample_department_moods);
 });
 
 app.listen(port_number, () => console.log('Listening on Port' + port_number));
