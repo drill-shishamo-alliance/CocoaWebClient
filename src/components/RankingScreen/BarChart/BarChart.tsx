@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartPosition } from './BarChartStyles';
+import { ChartPosition, CustomToolTip } from './BarChartStyles';
 import {
   BarChart as BarChartRecharts,
   Bar,
@@ -27,7 +27,7 @@ const BarChart: React.FC<Props> = props => {
     if (moodRatio.id === 'mood_id0') {
       return {};
     } else {
-      return { weight: index + 1, 気分: moodRatio.ratio };
+      return { weight: index + 1, 気分: moodRatio.ratio, 原因: moodRatio.causes_ratio };
     }
   });
 
@@ -36,19 +36,19 @@ const BarChart: React.FC<Props> = props => {
     return <BarChartTickSvg x={x} y={y} tick={payload.value} />;
   };
 
-  //   const CustomTooltip = (props: any) => {
-  //     const { active, payload } = props;
-  //     if (active) {
-  //       return (
-  //         <CustomTooltip>
-  //           {payload[0] && <p className='label'>{moods[`mood_id${payload[0].value}`].name}</p>}
-  //           {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
-  //         </CustomTooltip>
-  //       );
-  //     }
+  const CustomTooltip = (props: any) => {
+    const { active, payload } = props;
+    if (active) {
+      console.log(payload[0].payload['原因']);
+      return (
+        <div>{payload[0].payload['原因']['cause_id1'].ratio}</div>
+        /* {payload[0] && <p className='label'>{moods[`mood_id${payload[0].value}`].name}</p>}
+            {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>} */
+      );
+    }
 
-  //     return null;
-  //   };
+    return null;
+  };
 
   return (
     <ResponsiveContainer width='100%' height={200}>
@@ -70,7 +70,7 @@ const BarChart: React.FC<Props> = props => {
             tick={<CustomizedTicks />}
           />
           <YAxis domain={[0, 100]} />
-          {/* <Tooltip content={<CustomTooltip />} /> */}
+          <Tooltip content={<CustomTooltip />} />
           <Bar barSize={40} dataKey='気分' fill='#2196f3' isAnimationActive={false} />
         </BarChartRecharts>
       </ChartPosition>
