@@ -1,7 +1,7 @@
 import React from 'react';
 import TableTab from './Table/TableTab';
 import TableHeader from './Table/TableHeader';
-// import TableBody from './Table/TableList';
+import TableBody from './Table/TableList';
 import { Div, Paper } from './RankingScreenStyles';
 import ChangeDisplayDateButton from '../EmployeeMoodsScreen/Table/ChangeDisplayDateButton';
 
@@ -13,6 +13,7 @@ const RankingScreen = () => {
       <TableTab />
       <Paper>
         <TableHeader />
+        <TableBody />
       </Paper>
     </Div>
   );

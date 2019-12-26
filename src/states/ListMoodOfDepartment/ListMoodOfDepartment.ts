@@ -5,7 +5,7 @@ type CauseRatio = {
   };
 };
 
-type MoodsRatio = {
+export type MoodsRatio = {
   [mood_id: string]: {
     id: string;
     ratio: number;
