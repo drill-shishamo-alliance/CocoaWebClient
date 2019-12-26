@@ -24,7 +24,7 @@ const LineChart: React.FC<Props> = props => {
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = punchLogs.map(punchLog => {
-    if (punchLog.mood_id === 'moodId0') {
+    if (punchLog.mood_id === 'mood_id0') {
       return {};
     } else {
       return { 気分: moods[punchLog.mood_id].weight, 原因: causes[punchLog.cause_id].name };
@@ -41,7 +41,7 @@ const LineChart: React.FC<Props> = props => {
     if (active) {
       return (
         <CustomTooltip>
-          {payload[0] && <p className='label'>{moods[`moodId${payload[0].value}`].name}</p>}
+          {payload[0] && <p className='label'>{moods[`mood_id${payload[0].value}`].name}</p>}
           {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
         </CustomTooltip>
       );

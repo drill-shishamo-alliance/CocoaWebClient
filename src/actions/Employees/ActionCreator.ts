@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions';
-import { getEmployeesParams, getEmployeesResponse } from 'src/apis/Employees/GetEmployeesClient';
+import { getEmployeesParams, getEmployeesResponse } from 'src/apis/Employees/GetEmployeesOnAjax';
 import EmployeesActionType from './ActionType';
 
 export const getEmployees = createAsyncAction(

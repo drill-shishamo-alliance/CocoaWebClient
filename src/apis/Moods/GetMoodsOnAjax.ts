@@ -7,7 +7,7 @@ export type getMoodsParams = {
 
 export type getMoodsResponse = Moods;
 
-export async function getMoodsClient({ access_token }: getMoodsParams) {
+export async function getMoodsOnAjax({ access_token }: getMoodsParams) {
   try {
     return await Axios.get<getMoodsResponse>('/moods', {
       params: {

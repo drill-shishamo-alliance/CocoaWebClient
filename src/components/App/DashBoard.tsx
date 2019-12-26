@@ -36,8 +36,9 @@ const DashBoard: React.FC = () => {
     dispatch(getEmployees.request({}));
     dispatch(
       getListMoodOfEmployee.request({
-        beginDate: initialRequestBeginDate,
-        endDate: initialRequestEndDate,
+        employee_id: 'hoge',
+        begin_date: initialRequestBeginDate,
+        end_date: initialRequestEndDate,
       })
     );
   }, []);
@@ -55,9 +56,9 @@ const DashBoard: React.FC = () => {
     history.push(route);
     if (dates !== undefined) {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
-      const beginDate = convertDateToUnix(new Date(dates[0]));
-      const endDate = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ beginDate, endDate }));
+      const begin_date = convertDateToUnix(new Date(dates[0]));
+      const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
+      dispatch(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
     }
   };
 

@@ -10,8 +10,8 @@ type MoodOfEmployee = {
   moods: PunchedMood[];
 };
 
-type listMoodOfEmployeeState = {
+type listMoodOfEmployee = {
   [employee_id: string]: MoodOfEmployee;
 };
 
-export default listMoodOfEmployeeState;
+export default listMoodOfEmployee;

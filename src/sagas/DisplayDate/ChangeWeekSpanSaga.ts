@@ -15,9 +15,9 @@ export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButt
   const weekIndex = state.displayDateState.weekIndex;
 
   const newDisplaySpan = getWeekOfMonth(displayDate, weekIndex);
-  const beginDate = convertDateToUnix(newDisplaySpan[0]);
-  const endDate = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
+  const begin_date = convertDateToUnix(newDisplaySpan[0]);
+  const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-  yield put(getListMoodOfEmployee.request({ beginDate, endDate }));
+  yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
 }

@@ -1,6 +1,6 @@
 import { createAsyncAction } from 'typesafe-actions';
 
-import { getMoodsParams, getMoodsResponse } from 'src/apis/Moods/GetMoodsClient';
+import { getMoodsParams, getMoodsResponse } from 'src/apis/Moods/GetMoodsOnAjax';
 import MoodsActionType from './ActionType';
 
 export const getMoods = createAsyncAction(

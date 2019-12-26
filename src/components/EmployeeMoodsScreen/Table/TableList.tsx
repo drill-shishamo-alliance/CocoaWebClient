@@ -11,6 +11,8 @@ const TableList: React.FC = () => {
     state => state.ListMoodOfEmployee
   );
 
+  console.log(listMoodOfEmployee);
+
   return (
     <TableStyle>
       {Object.keys(listMoodOfEmployee).length > 0 ? (

@@ -1,5 +1,5 @@
 type CausesState = {
-  [causeId: string]: {
+  [cause_id: string]: {
     id: string;
     name: string;
   };
