@@ -1,5 +1,5 @@
 import React from 'react';
-// import TableTab from './Table/TableTab';
+import TableTab from './Table/TableTab';
 import TableHeader from './Table/TableHeader';
 // import TableBody from './Table/TableList';
 import { Div, Paper } from './RankingScreenStyles';
@@ -8,7 +8,7 @@ import { Div, Paper } from './RankingScreenStyles';
 const RankingScreen = () => {
   return (
     <Div>
-      {/* <TableTab /> */}
+      <TableTab />
       <Paper>
         <TableHeader />
       </Paper>
