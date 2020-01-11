@@ -4,7 +4,6 @@ import { Cell, RankPosition, DepartmentPosition } from './TableStyles';
 
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
-import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 import { Department } from 'src/states/Departments/Departments';
 import BarChart from '../BarChart/BarChart';
 
