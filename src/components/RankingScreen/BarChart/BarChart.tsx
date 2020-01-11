@@ -39,7 +39,7 @@ const BarChart: React.FC<Props> = props => {
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
     if (active) {
-      console.log(payload[0].payload['原因']);
+      // console.log(payload[0].payload['原因']);
       return (
         <div>{payload[0].payload['原因']['cause_id1'].ratio}</div>
         /* {payload[0] && <p className='label'>{moods[`mood_id${payload[0].value}`].name}</p>}
@@ -53,15 +53,7 @@ const BarChart: React.FC<Props> = props => {
   return (
     <ResponsiveContainer width='100%' height={200}>
       <ChartPosition>
-        <BarChartRecharts
-          data={data}
-          //   margin={{
-          //     top: 10,
-          //     right: 15,
-          //     left: 35,
-          //     bottom: 5,
-          //   }}
-        >
+        <BarChartRecharts data={data}>
           <CartesianGrid strokeDasharray='3 3' />
           <XAxis
             dataKey='weight'
@@ -69,7 +61,7 @@ const BarChart: React.FC<Props> = props => {
             ticks={[1, 2, 3, 4, 5]}
             tick={<CustomizedTicks />}
           />
-          <YAxis domain={[0, 100]} />
+          <YAxis domain={[0, 100]} unit='%' />
           <Tooltip content={<CustomTooltip />} />
           <Bar barSize={40} dataKey='気分' fill='#2196f3' isAnimationActive={false} />
         </BarChartRecharts>

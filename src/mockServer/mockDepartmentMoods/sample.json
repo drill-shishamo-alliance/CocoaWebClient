@@ -4,7 +4,7 @@
     "moods_ratio": {
       "mood_id1": {
         "id": "mood_id1",
-        "ratio": 10,
+        "ratio": 40,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
@@ -40,7 +40,7 @@
       },
       "mood_id3": {
         "id": "mood_id3",
-        "ratio": 30,
+        "ratio": 10,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
@@ -76,7 +76,7 @@
       },
       "mood_id5": {
         "id": "mood_id5",
-        "ratio": 30,
+        "ratio": 20,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
@@ -212,7 +212,7 @@
       },
       "mood_id2": {
         "id": "mood_id2",
-        "ratio": 20,
+        "ratio": 10,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
@@ -230,7 +230,7 @@
       },
       "mood_id3": {
         "id": "mood_id3",
-        "ratio": 30,
+        "ratio": 10,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
@@ -248,7 +248,7 @@
       },
       "mood_id4": {
         "id": "mood_id4",
-        "ratio": 10,
+        "ratio": 30,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
@@ -266,7 +266,7 @@
       },
       "mood_id5": {
         "id": "mood_id5",
-        "ratio": 30,
+        "ratio": 40,
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
