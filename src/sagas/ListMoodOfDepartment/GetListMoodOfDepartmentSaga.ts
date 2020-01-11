@@ -1,8 +1,9 @@
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 import { getListMoodOfDepartmentOnAjax } from 'src/apis/ListMoodOfDepartment/GetListMoodOfDepartment';
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
-import { call, put } from 'redux-saga/effects';
-import { returnRatioSum } from './utils/returnRatioSum';
+import { call, put, select } from 'redux-saga/effects';
+import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
+import RootState from 'src/states';
 
 export function* getListMoodOfDepartmentSaga(
   action: ReturnType<typeof getListMoodOfDepartment.request>
@@ -17,7 +18,18 @@ export function* getListMoodOfDepartmentSaga(
   );
 
   if (response.status === 200 && response.data) {
-    let res = response.data; // letにしないとreduceするときにエラー吐かれるためletに
+    const state: RootState = yield select();
+    const moods = state.MoodsState;
+    let res = { ...response.data }; // letにしないとreduceするときにエラー吐かれるためletに
+
+    // 各割合に気分の重みをかける処理
+    const returnRatioSum = (moods_ratio: MoodsRatio): number => {
+      let ratio_sum = 0;
+      Object.entries(moods_ratio).map(([key, value]) => {
+        ratio_sum += moods_ratio[value.id].ratio * moods[value.id].weight;
+      });
+      return ratio_sum;
+    };
 
     // Object -> 配列に変更して，keyでソート
     const responseList = Object.entries(res)
