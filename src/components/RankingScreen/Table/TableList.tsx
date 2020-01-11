@@ -16,8 +16,12 @@ const TableList: React.FC = () => {
       {Object.keys(listMoodOfDepartment).length > 0 ? (
         <Table>
           <TableBody>
-            {Object.values(listMoodOfDepartment).map(moodOfDepartment => (
-              <TableItem department={departments[moodOfDepartment.id]} key={moodOfDepartment.id} />
+            {Object.values(listMoodOfDepartment).map((moodOfDepartment, index) => (
+              <TableItem
+                department={departments[moodOfDepartment.id]}
+                rank={index + 1}
+                key={moodOfDepartment.id}
+              />
             ))}
           </TableBody>
         </Table>
