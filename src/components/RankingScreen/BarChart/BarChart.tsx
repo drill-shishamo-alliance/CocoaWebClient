@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartPosition, CustomToolTip } from './BarChartStyles';
+import { ChartPosition, CustomContentOfToolTip } from './BarChartStyles';
 import {
   BarChart as BarChartRecharts,
   Bar,
@@ -18,9 +18,14 @@ type Props = {
   moodsRatio: MoodsRatio;
 };
 
+type CausesRatio = {
+  id: string;
+  ratio: number;
+};
+
 const BarChart: React.FC<Props> = props => {
   const { moodsRatio } = props;
-  const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
+  // const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
@@ -39,11 +44,17 @@ const BarChart: React.FC<Props> = props => {
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
     if (active) {
-      // console.log(payload[0].payload['原因']);
       return (
-        <div>{payload[0].payload['原因']['cause_id1'].ratio}</div>
-        /* {payload[0] && <p className='label'>{moods[`mood_id${payload[0].value}`].name}</p>}
-            {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>} */
+        <CustomContentOfToolTip>
+          {payload[0].payload['原因'] &&
+            Object.values(payload[0].payload['原因']).map((value, index) => {
+              return (
+                <p key={index}>{`${causes[(value as CausesRatio).id].name}：${
+                  payload[0].payload['原因'][(value as CausesRatio).id].ratio
+                }%`}</p>
+              );
+            })}
+        </CustomContentOfToolTip>
       );
     }
 

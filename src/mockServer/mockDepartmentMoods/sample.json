@@ -121,11 +121,15 @@
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
-            "ratio": 20
+            "ratio": 10
           },
           "cause_id2": {
             "id": "cause_id2",
             "ratio": 30
+          },
+          "cause_id3": {
+            "id": "cause_id3",
+            "ratio": 10
           },
           "cause_id4": {
             "id": "cause_id4",
@@ -137,13 +141,13 @@
         "id": "mood_id3",
         "ratio": 30,
         "causes_ratio": {
-          "cause_id1": {
-            "id": "cause_id1",
-            "ratio": 20
-          },
           "cause_id2": {
             "id": "cause_id2",
             "ratio": 30
+          },
+          "cause_id3": {
+            "id": "cause_id3",
+            "ratio": 20
           },
           "cause_id4": {
             "id": "cause_id4",
@@ -157,15 +161,19 @@
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
-            "ratio": 20
+            "ratio": 10
           },
           "cause_id2": {
             "id": "cause_id2",
             "ratio": 30
           },
+          "cause_id3": {
+            "id": "cause_id3",
+            "ratio": 20
+          },
           "cause_id4": {
             "id": "cause_id4",
-            "ratio": 50
+            "ratio": 40
           }
         }
       },
@@ -175,14 +183,10 @@
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
-            "ratio": 20
+            "ratio": 50
           },
           "cause_id2": {
             "id": "cause_id2",
-            "ratio": 30
-          },
-          "cause_id4": {
-            "id": "cause_id4",
             "ratio": 50
           }
         }
@@ -204,9 +208,13 @@
             "id": "cause_id2",
             "ratio": 30
           },
+          "cause_id3": {
+            "id": "cause_id3",
+            "ratio": 10
+          },
           "cause_id4": {
             "id": "cause_id4",
-            "ratio": 50
+            "ratio": 40
           }
         }
       },
@@ -216,15 +224,11 @@
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
-            "ratio": 20
+            "ratio": 70
           },
-          "cause_id2": {
-            "id": "cause_id2",
+          "cause_id3": {
+            "id": "cause_id3",
             "ratio": 30
-          },
-          "cause_id4": {
-            "id": "cause_id4",
-            "ratio": 50
           }
         }
       },
@@ -234,15 +238,7 @@
         "causes_ratio": {
           "cause_id1": {
             "id": "cause_id1",
-            "ratio": 20
-          },
-          "cause_id2": {
-            "id": "cause_id2",
-            "ratio": 30
-          },
-          "cause_id4": {
-            "id": "cause_id4",
-            "ratio": 50
+            "ratio": 100
           }
         }
       },
@@ -258,8 +254,8 @@
             "id": "cause_id2",
             "ratio": 30
           },
-          "cause_id4": {
-            "id": "cause_id4",
+          "cause_id3": {
+            "id": "cause_id3",
             "ratio": 50
           }
         }
@@ -268,17 +264,13 @@
         "id": "mood_id5",
         "ratio": 40,
         "causes_ratio": {
-          "cause_id1": {
-            "id": "cause_id1",
-            "ratio": 20
-          },
-          "cause_id2": {
-            "id": "cause_id2",
-            "ratio": 30
+          "cause_id3": {
+            "id": "cause_id3",
+            "ratio": 80
           },
           "cause_id4": {
             "id": "cause_id4",
-            "ratio": 50
+            "ratio": 20
           }
         }
       }

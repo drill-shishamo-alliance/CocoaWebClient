@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartPosition } from './LineChartStyles';
+import { ChartPosition, CustomContentOfToolTip } from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -40,10 +40,10 @@ const LineChart: React.FC<Props> = props => {
     const { active, payload } = props;
     if (active) {
       return (
-        <CustomTooltip>
+        <CustomContentOfToolTip>
           {payload[0] && <p className='label'>{moods[`mood_id${payload[0].value}`].name}</p>}
           {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
-        </CustomTooltip>
+        </CustomContentOfToolTip>
       );
     }
 
