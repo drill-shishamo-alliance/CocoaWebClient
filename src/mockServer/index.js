@@ -7,7 +7,11 @@ const nov18_22_moods = require('./mockPanchedMoods/nov18_22_moods.json');
 const nov25_29_moods = require('./mockPanchedMoods/nov25_29_moods.json');
 const oct_moods = require('./mockPanchedMoods/oct_moods.json');
 const nov_moods = require('./mockPanchedMoods/nov_moods.json');
-const sample_department_moods = require('./mockDepartmentMoods/sample.json');
+const jan6_10_department_moods = require('./mockDepartmentMoods/jan6_10_department_moods.json');
+const jan13_17_department_moods = require('./mockDepartmentMoods/jan13_17_department_moods.json');
+const jan20_24_department_moods = require('./mockDepartmentMoods/jan20_24_department_moods.json');
+const jan27_31_department_moods = require('./mockDepartmentMoods/jan27_31_department_moods.json');
+const jan_department_moods = require('./mockDepartmentMoods/jan_department_moods');
 const departments = require('./departments.json');
 
 const app = express();
@@ -61,9 +65,22 @@ app.get('/departments', (_, res) => {
   res.status(200).json(departments);
 });
 
-app.get('/listMoodOfDepartment', (_, res) => {
-  console.log('list mood of department');
-  res.status(200).json(sample_department_moods);
+app.get('/listMoodOfDepartment', (req, res) => {
+  const begin_date = req.query.begin_date;
+  const end_date = req.query.end_date;
+  if (begin_date == 1578236400 && end_date == 1578582000) {
+    res.status(200).json(jan6_10_department_moods);
+  } else if (begin_date == 1578841200 && end_date == 1579186800) {
+    res.status(200).json(jan13_17_department_moods);
+  } else if (begin_date == 1579446000 && end_date == 1579791600) {
+    res.status(200).json(jan20_24_department_moods);
+  } else if (begin_date == 1580050800 && end_date == 1580396400) {
+    res.status(200).json(jan27_31_department_moods);
+  } else if (begin_date == 1577804400 && end_date == 1580396400) {
+    res.status(200).json(jan_department_moods);
+  } else {
+    res.status(200).json({});
+  }
 });
 
 app.listen(port_number, () => console.log('Listening on Port' + port_number));
