@@ -74,7 +74,7 @@ const BarChart: React.FC<Props> = props => {
           />
           <YAxis domain={[0, 100]} unit='%' />
           <Tooltip content={<CustomTooltip />} />
-          <Bar barSize={40} dataKey='気分' fill='#2196f3' isAnimationActive={false} />
+          <Bar barSize={40} dataKey='気分' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>
     </ResponsiveContainer>
