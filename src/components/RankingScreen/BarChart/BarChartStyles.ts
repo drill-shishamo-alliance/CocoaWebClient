@@ -7,4 +7,8 @@ export const ChartPosition = styled(ResponsiveContainer)`
 export const CustomContentOfToolTip = styled('div')`
   background-color: white;
   padding: 3px;
+  border: solid 1px #dcdcdc;
+`;
+export const Border = styled('p')`
+  text-decoration: underline;
 `;

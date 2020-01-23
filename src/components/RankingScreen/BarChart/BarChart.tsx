@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartPosition, CustomContentOfToolTip } from './BarChartStyles';
+import { ChartPosition, CustomContentOfToolTip, Border } from './BarChartStyles';
 import {
   BarChart as BarChartRecharts,
   Bar,
@@ -13,20 +13,16 @@ import { useSelector } from 'react-redux';
 import RootState from 'src/states';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
 import BarChartTickSvg from './BarChartTickSvg';
+import PieChart from './PieChart/PieChart';
 
 type Props = {
   moodsRatio: MoodsRatio;
 };
 
-type CausesRatio = {
-  id: string;
-  ratio: number;
-};
-
 const BarChart: React.FC<Props> = props => {
   const { moodsRatio } = props;
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
-  const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
+  // const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
     if (moodRatio.id === 'mood_id0') {
@@ -48,18 +44,20 @@ const BarChart: React.FC<Props> = props => {
         <CustomContentOfToolTip>
           {Object.values(moods).map((mood, index) => {
             if (payload[0].payload.weight === mood.weight) {
-              return <p key={index}>{mood.name}</p>;
+              return <p key={index}>{`${mood.name}：${payload[0].value}%`}</p>;
             }
             return '';
           })}
-          {payload[0].payload['原因'] &&
-            Object.values(payload[0].payload['原因']).map((value, index) => {
-              return (
-                <p key={index}>{`${causes[(value as CausesRatio).id].name}：${
-                  payload[0].payload['原因'][(value as CausesRatio).id].ratio
-                }%`}</p>
-              );
-            })}
+          <Border>原因の内訳</Border>
+          {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />
+          // Object.values(payload[0].payload['原因']).map((value, index) => {
+          //   return (
+          //     <p key={index}>{`${causes[(value as CausesRatio).id].name}：${
+          //       payload[0].payload['原因'][(value as CausesRatio).id].ratio
+          //     }%`}</p>
+          //   );
+          // })
+          }
         </CustomContentOfToolTip>
       );
     }
