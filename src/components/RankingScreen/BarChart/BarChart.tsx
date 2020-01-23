@@ -25,7 +25,7 @@ type CausesRatio = {
 
 const BarChart: React.FC<Props> = props => {
   const { moodsRatio } = props;
-  // const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
+  const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
@@ -46,6 +46,12 @@ const BarChart: React.FC<Props> = props => {
     if (active) {
       return (
         <CustomContentOfToolTip>
+          {Object.values(moods).map((mood, index) => {
+            if (payload[0].payload.weight === mood.weight) {
+              return <p key={index}>{mood.name}</p>;
+            }
+            return '';
+          })}
           {payload[0].payload['原因'] &&
             Object.values(payload[0].payload['原因']).map((value, index) => {
               return (
