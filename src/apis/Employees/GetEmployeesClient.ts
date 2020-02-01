@@ -1,9 +1,9 @@
 import Axios from '../Axios';
-import Employees from './Model';
+import Employee from './Model';
 
 export type getEmployeesParams = {};
 
-export type getEmployeesResponse = Employees;
+export type getEmployeesResponse = Employee[];
 
 export async function getEmployeesClient(_: getEmployeesParams) {
   try {
