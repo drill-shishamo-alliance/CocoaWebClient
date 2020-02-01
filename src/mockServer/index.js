@@ -1,6 +1,6 @@
 const express = require('express');
 const moods = require('./moods.json');
-const causes = require('./causes.json')
+const causes = require('./causesProd.json')
 const employees = require("./employees.json");
 const nov11_15_moods = require('./mockPanchedMoods/nov11_15_moods.json');
 const nov18_22_moods = require('./mockPanchedMoods/nov18_22_moods.json');

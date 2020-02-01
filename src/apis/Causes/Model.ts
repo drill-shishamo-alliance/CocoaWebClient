@@ -1,8 +1,7 @@
-type Causes = {
-  [causeId: string]: {
-    id: string;
-    name: string;
-  };
+type Cause = {
+  id: string;
+  department_id: number;
+  name: string;
 };
 
-export default Causes;
+export default Cause;
