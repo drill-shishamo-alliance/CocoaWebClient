@@ -7,7 +7,7 @@ export type PunchLog = {
 
 // 社員が入力した気分情報を表す型
 type MoodOfEmployee = {
-  subordinate_id: string;
+  employee_id: string;
   punch_logs: PunchLog[];
   danger: boolean;
 };
