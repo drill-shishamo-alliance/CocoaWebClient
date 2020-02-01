@@ -11,6 +11,7 @@ import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'src/sagas';
 import DashBoard from './components/App/DashBoard';
+import { StylesProvider } from '@material-ui/styles';
 
 const composeEnhancers = composeWithDevTools({
   // Specify name here, actionsBlacklist, actionsCreators and other options if needed
@@ -24,9 +25,11 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <DashBoard />
-    </BrowserRouter>
+    <StylesProvider injectFirst>
+      <BrowserRouter>
+        <DashBoard />
+      </BrowserRouter>
+    </StylesProvider>
   </Provider>,
   document.getElementById('root')
 );

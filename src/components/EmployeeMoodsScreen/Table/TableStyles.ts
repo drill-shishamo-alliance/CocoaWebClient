@@ -1,96 +1,60 @@
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { Button, TableCell, TableHead, Paper } from '@material-ui/core';
 
-const TableStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    tabSize: {
-      flexGrow: 1,
-      maxWidth: 320,
-    },
-    root: {
-      width: '100%',
-      marginTop: 5,
-      overflowX: 'auto',
-    },
-    tableLayout: {
-      overflow: 'flexed',
-    },
-    tableBody: {
-      overflow: 'auto',
-      height: 500,
-      position: 'relative',
-    },
-    row: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
-    head: {
-      backgroundColor: 'white',
-    },
-    columnContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    headerPosition: {
-      flexBasis: '20%',
-      alignSelf: 'center',
-    },
-    employeeName: {
-      flexBasis: '20%',
-      alignSelf: 'center',
-      fontSize: 18,
-    },
-    employeeNameDanger: {
-      flexBasis: '20%',
-      alignSelf: 'center',
-      color: 'red',
-      fontSize: 18,
-      fontWeight: 'bold',
-    },
-    dataPosition: {
-      flexBasis: '16%',
-      alignSelf: 'center',
-    },
-    cellContainer: {
-      display: 'flex',
-      justifyContent: 'space-around',
-    },
-    datePosition: {
-      marginTop: -8,
-    },
-    iconSize: {
-      fontSize: 40,
-    },
-    sunnyColor: {
-      color: '#ffa500', // orange
-    },
-    moonColor: {
-      color: '#708090', // slategray
-    },
-    iconMargin: {
-      margin: 10,
-    },
-    nextButton: {
-      position: 'absolute',
-      top: '13%',
-      right: '5%',
-    },
-    previousButton: {
-      position: 'absolute',
-      top: '13%',
-      right: '11%',
-    },
-    notDataTextPosition: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%,-50%)',
-      textAlign: 'center',
-    },
-  })
-);
+export const TableStyle = styled('div')`
+  overflow: scroll;
+  height: 100%;
+  grid-row: 2;
+`;
 
-export default TableStyles;
+export const NotDataTextPosition = styled('div')`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+`;
+
+export const Header = styled(TableHead)`
+  background-color: white;
+  height: 100%;
+`;
+
+export const Cell = styled(TableCell)`
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 80%;
+`;
+
+export const EmployeeHeaderWrapper = styled('div')`
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+`;
+
+export const EmployeePosition = styled('h2')`
+  flex-basis: 20%;
+  align-self: center;
+  grid-row: 1;
+`;
+
+export const PrevButton = styled(Button)`
+  position: absolute;
+  right: 11%;
+  margin-right: 40px;
+  margin-top: 48px; // 左に存在するタブ分下げる
+`;
+
+export const NextButton = styled(Button)`
+  position: absolute;
+  right: 5%;
+  margin-top: 48px; // 左に存在するタブ分下げる
+`;
+
+export const PaperTab = styled(Paper)`
+  flex-grow: 1;
+  max-width: 320px;
+`;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChartPosition } from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -6,9 +7,9 @@ import {
   CartesianGrid,
   Tooltip,
   XAxis,
+  ResponsiveContainer,
 } from 'recharts';
 import LineChartTickSvg from './LineChartTickSvg';
-import lineChartStyles from './LineChartStyles';
 import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 import { useSelector } from 'react-redux';
 import RootState from 'src/states';
@@ -19,7 +20,6 @@ type Props = {
 
 const LineChart: React.FC<Props> = props => {
   const { punchLogs } = props;
-  const classes = lineChartStyles();
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
@@ -40,7 +40,7 @@ const LineChart: React.FC<Props> = props => {
     const { active, payload } = props;
     if (active) {
       return (
-        <div className={classes().customTooltip}>
+        <div>
           {payload[0] && <p className='label'>{moods[`moodId${payload[0].value}`].name}</p>}
           {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
         </div>
@@ -51,25 +51,29 @@ const LineChart: React.FC<Props> = props => {
   };
 
   return (
-    <div className={classes().chartPosition}>
-      <LineChartRecharts
-        width={950}
-        height={200}
-        data={data}
-        margin={{
-          top: 10,
-          right: 15,
-          left: 35,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='name' tickLine={false} />
-        <YAxis domain={['dataMin', 'dataMax']} ticks={[1, 2, 3, 4, 5]} tick={<CustomizedTicks />} />
-        <Tooltip content={<CustomTooltip />} />
-        <Line type='monotone' dataKey='気分' stroke='#2196f3' isAnimationActive={false} />
-      </LineChartRecharts>
-    </div>
+    <ResponsiveContainer width='92%' height={200}>
+      <ChartPosition>
+        <LineChartRecharts
+          data={data}
+          margin={{
+            top: 10,
+            right: 15,
+            left: 35,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='name' tickLine={false} />
+          <YAxis
+            domain={['dataMin', 'dataMax']}
+            ticks={[1, 2, 3, 4, 5]}
+            tick={<CustomizedTicks />}
+          />
+          <Tooltip content={<CustomTooltip />} />
+          <Line type='monotone' dataKey='気分' stroke='#2196f3' isAnimationActive={false} />
+        </LineChartRecharts>
+      </ChartPosition>
+    </ResponsiveContainer>
   );
 };
 

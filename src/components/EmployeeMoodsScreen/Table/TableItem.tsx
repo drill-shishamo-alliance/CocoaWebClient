@@ -1,19 +1,17 @@
 import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import styles from './TableStyles';
+import { Cell, EmployeePosition } from './TableStyles';
+import LineChart from '../LineChart/LineChart';
 import { employee } from 'src/states/Employees/Employees';
 import rootState from 'src/states/index';
 import { useSelector } from 'react-redux';
 import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
-import LineChart from '../LineChart/LineChart';
 
 export type Props = {
   employee: employee;
 };
 
 const TableItem: React.FC<Props> = props => {
-  const classes = styles();
   const { employee } = props;
   const listMoodOfEmployee = useSelector<rootState, rootState['ListMoodOfEmployee']>(
     state => state.ListMoodOfEmployee
@@ -39,18 +37,10 @@ const TableItem: React.FC<Props> = props => {
 
   return (
     <TableRow>
-      <TableCell align='center' className={classes.cellContainer}>
-        <div
-          className={
-            listMoodOfEmployee[employee.id].danger
-              ? classes.employeeNameDanger
-              : classes.employeeName
-          }
-        >
-          {employee.name}
-        </div>
+      <Cell align='center'>
+        <EmployeePosition>{employee.name}</EmployeePosition>
         <LineChart punchLogs={displayPunchLogs} />
-      </TableCell>
+      </Cell>
     </TableRow>
   );
 };
