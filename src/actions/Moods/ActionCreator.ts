@@ -1,6 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions';
-
-import { getMoodsParams } from 'src/apis/Moods/GetMoodsClient';
+import { getMoodsParams } from 'src/apis/Moods/GetMoodsOnAjax';
 import MoodsActionType from './ActionType';
 import MoodsState from 'src/states/Moods/Moods';
 

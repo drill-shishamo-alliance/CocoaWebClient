@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions';
-import { getEmployeesParams } from 'src/apis/Employees/GetEmployeesClient';
+import { getEmployeesParams } from 'src/apis/Employees/GetEmployeesOnAjax';
 import EmployeesActionType from './ActionType';
 import EmployeesState from 'src/states/Employees/Employees';
 

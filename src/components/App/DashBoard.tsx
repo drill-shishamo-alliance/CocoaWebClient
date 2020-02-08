@@ -10,7 +10,7 @@ import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import MyMoods from '../MyMoodsScreen/MyMoods';
-import DepartmentalAnalysis from '../DepartmentalAnalysisScreen/DepartmentalAnalysis';
+import Ranking from '../RankingScreen/RankingScreen';
 import MoodsMap from '../MoodsMapScreen/MoodsMap';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
@@ -21,6 +21,8 @@ import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import { getCauses } from 'src/actions/Causes/ActionCreator';
 import { updateDisplaySpan } from 'src/actions/DisplayDate/DisplayDateActionCreator';
+import { getDepartments } from 'src/actions/Departments/ActionCreator';
+import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
 const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
@@ -34,10 +36,12 @@ const DashBoard: React.FC = () => {
     dispatch(getMoods.request({}));
     dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
+    dispatch(getDepartments.request({}));
     dispatch(
       getListMoodOfEmployee.request({
-        beginDate: initialRequestBeginDate,
-        endDate: initialRequestEndDate,
+        employee_id: 'hoge',
+        begin_date: initialRequestBeginDate,
+        end_date: initialRequestEndDate,
       })
     );
   }, []);
@@ -55,9 +59,10 @@ const DashBoard: React.FC = () => {
     history.push(route);
     if (dates !== undefined) {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
-      const beginDate = convertDateToUnix(new Date(dates[0]));
-      const endDate = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ beginDate, endDate }));
+      const begin_date = convertDateToUnix(new Date(dates[0]));
+      const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
+      dispatch(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+      dispatch(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
     }
   };
 
@@ -99,7 +104,7 @@ const DashBoard: React.FC = () => {
               <Route exact path='/' component={Home} />
               <Route path='/employeemoods' component={EmployeeMoodsScreen} />
               <Route path='/mymoods' component={MyMoods} />
-              <Route path='/departmentalanalysis' component={DepartmentalAnalysis} />
+              <Route path='/ranking' component={Ranking} />
               <Route path='/moodsmap' component={MoodsMap} />
             </Switch>
           </main>

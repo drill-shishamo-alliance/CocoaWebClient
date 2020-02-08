@@ -1,7 +1,7 @@
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import { call, put, select } from 'redux-saga/effects';
-import { getListMoodOfEmployeeClient } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployee';
+import { getListMoodOfEmployeeOnAjax } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployeeOnAjax';
 
 import listMoodOfEmployeeState, {
   PunchLog,
@@ -12,19 +12,19 @@ import RootState from 'src/states';
 export function* getListMoodOfEmployeeSaga(
   action: ReturnType<typeof getListMoodOfEmployee.request>
 ) {
-  const response: PromiseGenericType<ReturnType<typeof getListMoodOfEmployeeClient>> = yield call(
-    getListMoodOfEmployeeClient,
+  const response: PromiseGenericType<ReturnType<typeof getListMoodOfEmployeeOnAjax>> = yield call(
+    getListMoodOfEmployeeOnAjax,
     {
-      employeeId: 'hoge',
-      beginDate: action.payload.beginDate,
-      endDate: action.payload.endDate,
+      employee_id: 'hoge',
+      begin_date: action.payload.begin_date,
+      end_date: action.payload.end_date,
     }
   );
   if (response.status === 200 && response.data) {
     // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
     const state: RootState = yield select();
     const moods = state.MoodsState;
-    const reorderParams: { employeeId: string; mood_weight_average: number }[] = [];
+    const reorderParams: { employee_id: string; mood_weight_average: number }[] = [];
     let convertDateData: listMoodOfEmployeeState = {};
     const dangerLine = 2.5;
     response.data.forEach(moodOfEmployee => {
@@ -38,7 +38,7 @@ export function* getListMoodOfEmployeeSaga(
           cause_ids: punch_log.cause_ids,
           punched_at: convertUnixToDate(punch_log.punched_at),
         });
-        if (punch_log.mood_id !== 'moodId0') {
+        if (punch_log.mood_id !== 'mood_id0') {
           // 未入力の場合は除外する
           denominator += 1;
           mood_weight_sum += moods[punch_log.mood_id].weight;
@@ -53,7 +53,7 @@ export function* getListMoodOfEmployeeSaga(
         },
       };
       reorderParams.push({
-        employeeId: moodOfEmployee.employee_id,
+        employee_id: moodOfEmployee.employee_id,
         mood_weight_average: mood_weight_sum / denominator,
       });
     });
@@ -65,19 +65,20 @@ export function* getListMoodOfEmployeeSaga(
 
     let postDataToStore: listMoodOfEmployeeState = {};
     reorderParams.forEach(param => {
+      // 3. 気分状態が危険かどうかのフラグを設定
       if (param.mood_weight_average < dangerLine) {
         postDataToStore = {
           ...postDataToStore,
-          [param.employeeId]: {
-            ...convertDateData[param.employeeId],
+          [param.employee_id]: {
+            ...convertDateData[param.employee_id],
             danger: true,
           },
         };
       } else {
         postDataToStore = {
           ...postDataToStore,
-          [param.employeeId]: {
-            ...convertDateData[param.employeeId],
+          [param.employee_id]: {
+            ...convertDateData[param.employee_id],
           },
         };
       }

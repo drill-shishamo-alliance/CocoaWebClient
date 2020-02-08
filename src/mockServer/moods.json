@@ -1,41 +1,41 @@
 {
-  "moodId1": {
-    "id": "moodId1",
+  "mood_id1": {
+    "id": "mood_id1",
     "name": "もうダメ、助けて...",
     "weight": 1,
     "icon_name": "sentiment_very_dissatisfied",
     "color": "#7E8B8C"
   },
-  "moodId2": {
-    "id": "moodId2",
+  "mood_id2": {
+    "id": "mood_id2",
     "name": "つらい...",
     "weight": 2,
     "icon_name": "sentiment_dissatisfied",
     "color": "#2880BA"
   },
-  "moodId3": {
-    "id": "moodId3",
+  "mood_id3": {
+    "id": "mood_id3",
     "name": "平常運転",
     "weight": 3,
     "icon_name": "sentiment_satisfied",
     "color": "#E57D22"
   },
-  "moodId4": {
-    "id": "moodId4",
+  "mood_id4": {
+    "id": "mood_id4",
     "name": "いい感じ",
     "weight": 4,
     "icon_name": "sentiment_satisfied",
     "color": "#1ABC9C"
   },
-  "moodId5": {
-    "id": "moodId5",
+  "mood_id5": {
+    "id": "mood_id5",
     "name": "絶好調！",
     "weight": 5,
     "icon_name": "sentiment_very_satisfied",
     "color": "#EF7079"
   },
-  "moodId0": {
-    "id": "moodId0",
+  "mood_id0": {
+    "id": "mood_id0",
     "name": "未入力",
     "weight": 0,
     "icon_name": "clear",

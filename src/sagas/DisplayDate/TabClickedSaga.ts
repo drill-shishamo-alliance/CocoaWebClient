@@ -11,6 +11,7 @@ import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCrea
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import getMonthDates from 'src/utilsLogic/Date/GetMonthDates';
+import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
 export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
   yield put(updateDisplayTab({ displayTab: action.payload.tabName }));
@@ -21,16 +22,20 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
   if (displayTab === tabName.week) {
     const weekIndex = state.displayDateState.weekIndex;
     const newDisplaySpan = getWeekOfMonth(displayDate, weekIndex);
-    const beginDate = convertDateToUnix(newDisplaySpan[0]);
-    const endDate = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
+    const begin_date = convertDateToUnix(newDisplaySpan[0]);
+    const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-    yield put(getListMoodOfEmployee.request({ beginDate, endDate }));
+    yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+    yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
   } else if (displayTab === tabName.month) {
     const beginAndEndDate = getBeginAndEndDateFromMonth(displayDate);
+    const begin_date = beginAndEndDate.beginDate;
+    const end_date = beginAndEndDate.endDate;
     const newDisplaySpan = getMonthDates(displayDate);
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-    yield put(getListMoodOfEmployee.request(beginAndEndDate));
+    yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+    yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
   }
 }

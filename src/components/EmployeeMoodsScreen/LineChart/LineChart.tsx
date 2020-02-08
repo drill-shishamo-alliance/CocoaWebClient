@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartPosition } from './LineChartStyles';
+import { ChartPosition, CustomContentOfToolTip } from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -24,7 +24,7 @@ const LineChart: React.FC<Props> = props => {
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = punchLogs.map(punchLog => {
-    if (punchLog.mood_id === 'moodId0') {
+    if (punchLog.mood_id === 'mood_id0') {
       return {};
     } else {
       return {
@@ -46,7 +46,7 @@ const LineChart: React.FC<Props> = props => {
       const moodId = payload[0].payload.moodId;
       const causeIds: string[] = payload[0].payload.causeIds;
       return (
-        <div>
+        <CustomContentOfToolTip>
           <p className='label'>{moods[moodId].name}</p>
           {causeIds.length && <p>(原因)</p>}
           {causeIds.map((causeId, index) => {
@@ -56,7 +56,7 @@ const LineChart: React.FC<Props> = props => {
               </p>
             );
           })}
-        </div>
+        </CustomContentOfToolTip>
       );
     }
 

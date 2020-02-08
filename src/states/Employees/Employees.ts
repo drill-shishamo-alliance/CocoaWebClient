@@ -6,7 +6,7 @@ export type employee = {
 
 // 社員の情報を表す型
 type EmployeesState = {
-  [userId: string]: employee;
+  [user_id: string]: employee;
 };
 
 export default EmployeesState;
