@@ -21,7 +21,6 @@ export function* getListMoodOfDepartmentSaga(
     const state: RootState = yield select();
     const moods = state.MoodsState;
     let res = { ...response.data }; // letにしないとreduceするときにエラー吐かれるためletに
-
     // 各割合に気分の重みをかける処理
     const returnRatioSum = (moods_ratio: MoodsRatio): number => {
       let ratio_sum = 0;
@@ -30,7 +29,6 @@ export function* getListMoodOfDepartmentSaga(
       });
       return ratio_sum;
     };
-
     // Object -> 配列に変更して，keyでソート
     const responseList = Object.entries(res)
       .map(([key, value]) => ({ key, value }))
@@ -44,7 +42,6 @@ export function* getListMoodOfDepartmentSaga(
 
     // 配列 -> Objectに変更
     const sortRes = responseList.reduce((res, item) => ({ ...res, [item.key]: item.value }), {});
-
     yield put(getListMoodOfDepartment.success(sortRes));
   } else {
     yield put(getListMoodOfDepartment.failure(new Error('getListMoodOfDepartment error')));

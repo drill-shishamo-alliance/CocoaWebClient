@@ -1,17 +1,12 @@
-// 選択された気分の情報を管理する型
-export type PunchedMood = {
-  id: string; // どの気分かを表すid
-  punched_at: Date; // その気分が打刻された時間
+type PunchLog = {
+  mood_id: string;
+  cause_ids: string[];
+  punched_at: number;
 };
 
-// 社員が入力した気分情報を表す型
 type MoodOfEmployee = {
-  subordinate_id: string;
-  moods: PunchedMood[];
+  employee_id: string;
+  punch_logs: PunchLog[];
 };
 
-type listMoodOfEmployee = {
-  [employee_id: string]: MoodOfEmployee;
-};
-
-export default listMoodOfEmployee;
+export default MoodOfEmployee;

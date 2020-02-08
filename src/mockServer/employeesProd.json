@@ -1,0 +1,17 @@
+[
+  {
+    "id": "employeeId1",
+    "department_id": 1,
+    "name": "髙橋佑太"
+  },
+  {
+    "id": "employeeId2",
+    "department_id": 1,
+    "name": "若林勇汰"
+  },
+  {
+    "id": "employeeId3",
+    "department_id": 1,
+    "name": "戸澤涼"
+  }
+]

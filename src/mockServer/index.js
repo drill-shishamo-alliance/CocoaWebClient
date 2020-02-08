@@ -1,18 +1,18 @@
 const express = require('express');
-const moods = require('./moods.json');
-const causes = require('./causes.json');
-const employees = require('./employees.json');
-const nov11_15_moods = require('./mockPanchedMoods/nov11_15_moods.json');
-const nov18_22_moods = require('./mockPanchedMoods/nov18_22_moods.json');
-const nov25_29_moods = require('./mockPanchedMoods/nov25_29_moods.json');
-const oct_moods = require('./mockPanchedMoods/oct_moods.json');
-const nov_moods = require('./mockPanchedMoods/nov_moods.json');
 const jan6_10_department_moods = require('./mockDepartmentMoods/jan6_10_department_moods.json');
 const jan13_17_department_moods = require('./mockDepartmentMoods/jan13_17_department_moods.json');
 const jan20_24_department_moods = require('./mockDepartmentMoods/jan20_24_department_moods.json');
 const jan27_31_department_moods = require('./mockDepartmentMoods/jan27_31_department_moods.json');
 const jan_department_moods = require('./mockDepartmentMoods/jan_department_moods');
 const departments = require('./departments.json');
+const moods = require('./moodsProd.json');
+const causes = require('./causesProd.json')
+const employees = require("./employeesProd.json");
+const nov11_15_moods = require('./mockPunchedMoodsProd/nov11_15_moods.json');
+const nov18_22_moods = require('./mockPunchedMoodsProd/nov18_22_moods.json');
+const nov25_29_moods = require('./mockPunchedMoodsProd/nov25_29_moods.json');
+const oct_moods = require('./mockPunchedMoodsProd/oct_moods.json');
+const nov_moods = require('./mockPunchedMoodsProd/nov_moods.json');
 
 const app = express();
 const port_number = 8000;
@@ -57,7 +57,7 @@ app.get('/listMoodOfEmployee', (req, res) => {
   } else if (begin_date == 1572534000 && end_date == 1575039600) {
     res.status(200).json(nov_moods);
   } else {
-    res.status(200).json({});
+    res.status(200).json([]);
   }
 });
 

@@ -11,8 +11,6 @@ const TableList: React.FC = () => {
     state => state.ListMoodOfEmployee
   );
 
-  console.log(listMoodOfEmployee);
-
   return (
     <TableStyle>
       {Object.keys(listMoodOfEmployee).length > 0 ? (
@@ -20,8 +18,8 @@ const TableList: React.FC = () => {
           <TableBody>
             {Object.values(listMoodOfEmployee).map(moodOfEmployee => (
               <TableItem
-                employee={employees[moodOfEmployee.subordinate_id]}
-                key={moodOfEmployee.subordinate_id}
+                employee={employees[moodOfEmployee.employee_id]}
+                key={moodOfEmployee.employee_id}
               />
             ))}
           </TableBody>

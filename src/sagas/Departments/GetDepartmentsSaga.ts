@@ -4,12 +4,10 @@ import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getDepartmentsOnAjax } from 'src/apis/Departments/GetDepartmentsOnAjax';
 
 export function* getDepartmentsSaga(action: ReturnType<typeof getDepartments.request>) {
-  console.log('hoge');
   const response: PromiseGenericType<ReturnType<typeof getDepartmentsOnAjax>> = yield call(
     getDepartmentsOnAjax,
     action.payload
   );
-  console.log('fuga');
   if (response.status === 200 && response.data) {
     yield put(getDepartments.success(response.data));
   } else {

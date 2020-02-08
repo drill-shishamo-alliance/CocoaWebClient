@@ -1,6 +1,6 @@
 {
-  "employee_id1": {
-    "subordinate_id": "employee_id1",
+  "employeeId1": {
+    "employee_id": "employeeId1",
     "punch_logs": [
       {
         "mood_id": "mood_id0",
@@ -29,8 +29,8 @@
       }
     ]
   },
-  "employee_id2": {
-    "subordinate_id": "employee_id2",
+  "employeeId2": {
+    "employee_id": "employeeId2",
     "punch_logs": [
       {
         "mood_id": "mood_id1",
@@ -59,8 +59,8 @@
       }
     ]
   },
-  "employee_id3": {
-    "subordinate_id": "employee_id3",
+  "employeeId3": {
+    "employee_id": "employeeId3",
     "punch_logs": [
       {
         "mood_id": "mood_id3",

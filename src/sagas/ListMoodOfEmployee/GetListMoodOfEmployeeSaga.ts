@@ -27,15 +27,15 @@ export function* getListMoodOfEmployeeSaga(
     const reorderParams: { employee_id: string; mood_weight_average: number }[] = [];
     let convertDateData: listMoodOfEmployeeState = {};
     const dangerLine = 2.5;
-    Object.entries(response.data).forEach(([key, value]) => {
+    response.data.forEach(moodOfEmployee => {
       // ここで 1.並べ替えのためのパラメータ作成 2.unixからDateに変換 を行う
       let mood_weight_sum = 0;
       let denominator = 0;
       let punchedDates: PunchLog[] = [];
-      value.punch_logs.forEach(punch_log => {
+      moodOfEmployee.punch_logs.forEach(punch_log => {
         punchedDates.push({
           mood_id: punch_log.mood_id,
-          cause_id: punch_log.cause_id,
+          cause_ids: punch_log.cause_ids,
           punched_at: convertUnixToDate(punch_log.punched_at),
         });
         if (punch_log.mood_id !== 'mood_id0') {
@@ -46,14 +46,14 @@ export function* getListMoodOfEmployeeSaga(
       });
       convertDateData = {
         ...convertDateData,
-        [key]: {
-          subordinate_id: value.subordinate_id,
+        [moodOfEmployee.employee_id]: {
+          employee_id: moodOfEmployee.employee_id,
           punch_logs: punchedDates,
           danger: false,
         },
       };
       reorderParams.push({
-        employee_id: value.subordinate_id,
+        employee_id: moodOfEmployee.employee_id,
         mood_weight_average: mood_weight_sum / denominator,
       });
     });
