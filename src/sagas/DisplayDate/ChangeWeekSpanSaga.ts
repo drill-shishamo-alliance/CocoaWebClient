@@ -12,10 +12,10 @@ import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/Action
 export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButtonClicked>) {
   yield put(action.payload()); // 表示するさせる週を更新するためのアクション発火
   const state: RootState = yield select(); // アクション発火後のStateを取得
-  const displayDate = new Date(state.displayDateState.displayDate);
+  const displayMonday = new Date(state.displayDateState.displayMonday);
   const weekIndex = state.displayDateState.weekIndex;
 
-  const newDisplaySpan = getWeekOfMonth(displayDate, weekIndex);
+  const newDisplaySpan = getWeekOfMonth(displayMonday, weekIndex);
   const begin_date = convertDateToUnix(newDisplaySpan[0]);
   const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
 

@@ -4,7 +4,7 @@ import { tabName } from 'src/states/DisplayDate/DisplayDate';
 export const returnHeaderText = (
   displaySpan: Date[],
   displayTab: string,
-  displayDate: Date
+  displayMonday: Date
 ): string[] => {
   const first = 0;
   let headerText: string[] = [];
@@ -19,8 +19,8 @@ export const returnHeaderText = (
       });
       break;
     case tabName.month:
-      const displayYear = displayDate.getFullYear();
-      const displayMonth = displayDate.getMonth() + 1;
+      const displayYear = displayMonday.getFullYear();
+      const displayMonth = displayMonday.getMonth() + 1;
       headerText = [`${displayYear}年${displayMonth}月1週目`, '2週目', '3週目', '4週目', '5週目'];
       break;
   }

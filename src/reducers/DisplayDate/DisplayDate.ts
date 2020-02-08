@@ -3,13 +3,14 @@ import displayDateAction from 'src/actions/DisplayDate/DisplayDateAction';
 import displayDateActionType from 'src/actions/DisplayDate/DisplayDateActionType';
 import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
 import { GetPastFiveDays } from 'src/components/HomeScreen/Table/utils/GetPastFiveDays';
+import getThisWeekMonday from 'src/utilsLogic/Date/GetThisWeekMonday';
 
-const initialDate = new Date();
-const initialWeekIndex = getWeekIndex(initialDate);
+const initialDisplayMonday = getThisWeekMonday(new Date());
+const initialWeekIndex = getWeekIndex(initialDisplayMonday);
 const initialDisplaySpan = GetPastFiveDays();
 
 const initialState: displayDateState = {
-  displayDate: initialDate, // 現在表示されている年と月
+  displayMonday: initialDisplayMonday, // 現在表示されている年と月
   weekIndex: initialWeekIndex,
   displaySpan: initialDisplaySpan, // 現在表示されている気分の期間
   displayTab: tabName.week,
@@ -19,39 +20,41 @@ const displayDate = (
   state: displayDateState = initialState,
   action: displayDateAction
 ): displayDateState => {
-  let newDisplayDate = new Date();
+  let newDisplayMonday = new Date();
   let newWeekIndex = 1;
   switch (action.type) {
     case displayDateActionType.NEXT_WEEK:
-      newDisplayDate = new Date(state.displayDate.setDate(state.displayDate.getDate() + 7));
-      newWeekIndex = getWeekIndex(newDisplayDate);
+      newDisplayMonday = new Date(state.displayMonday.setDate(state.displayMonday.getDate() + 7));
+      console.log(newDisplayMonday);
+      newWeekIndex = getWeekIndex(newDisplayMonday);
+      console.log(newWeekIndex);
       return {
         ...state,
-        displayDate: newDisplayDate,
+        displayMonday: newDisplayMonday,
         weekIndex: newWeekIndex,
       };
     case displayDateActionType.PREVIOUS_WEEK:
-      newDisplayDate = new Date(state.displayDate.setDate(state.displayDate.getDate() - 7));
-      newWeekIndex = getWeekIndex(newDisplayDate);
+      newDisplayMonday = new Date(state.displayMonday.setDate(state.displayMonday.getDate() - 7));
+      newWeekIndex = getWeekIndex(newDisplayMonday);
       return {
         ...state,
-        displayDate: newDisplayDate,
+        displayMonday: newDisplayMonday,
         weekIndex: newWeekIndex,
       };
     case displayDateActionType.NEXT_MONTH:
-      newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() + 1));
-      newWeekIndex = getWeekIndex(newDisplayDate);
+      newDisplayMonday = new Date(state.displayMonday.setMonth(state.displayMonday.getMonth() + 1));
+      newWeekIndex = getWeekIndex(newDisplayMonday);
       return {
         ...state,
-        displayDate: newDisplayDate,
+        displayMonday: newDisplayMonday,
         weekIndex: newWeekIndex,
       };
     case displayDateActionType.PREVIOUS_MONTH:
-      newDisplayDate = new Date(state.displayDate.setMonth(state.displayDate.getMonth() - 1));
-      newWeekIndex = getWeekIndex(newDisplayDate);
+      newDisplayMonday = new Date(state.displayMonday.setMonth(state.displayMonday.getMonth() - 1));
+      newWeekIndex = getWeekIndex(newDisplayMonday);
       return {
         ...state,
-        displayDate: newDisplayDate,
+        displayMonday: newDisplayMonday,
         weekIndex: newWeekIndex,
       };
     case displayDateActionType.UPDATE_DISPLAY_TAB:
