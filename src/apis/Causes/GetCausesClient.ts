@@ -1,11 +1,11 @@
-import Causes from './Model';
 import Axios from '../Axios';
+import Cause from './Model';
 
 export type getCausesParams = {
   department_id?: string;
 };
 
-export type getCausesResponse = Causes;
+export type getCausesResponse = Cause[];
 
 export async function getCausesOnHTTP({ department_id }: getCausesParams) {
   try {

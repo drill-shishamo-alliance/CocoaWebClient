@@ -40,10 +40,10 @@ const LineChart: React.FC<Props> = props => {
     const { active, payload } = props;
     if (active) {
       return (
-        <CustomTooltip>
+        <div>
           {payload[0] && <p className='label'>{moods[`moodId${payload[0].value}`].name}</p>}
           {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
-        </CustomTooltip>
+        </div>
       );
     }
 

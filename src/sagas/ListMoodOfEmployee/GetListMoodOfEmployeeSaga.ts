@@ -21,18 +21,19 @@ export function* getListMoodOfEmployeeSaga(
     }
   );
   if (response.status === 200 && response.data) {
+    console.log(response.data);
     // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
     const state: RootState = yield select();
     const moods = state.MoodsState;
     const reorderParams: { employeeId: string; mood_weight_average: number }[] = [];
     let convertDateData: listMoodOfEmployeeState = {};
     const dangerLine = 2.5;
-    Object.entries(response.data).forEach(([key, value]) => {
+    response.data.forEach(moodOfEmployee => {
       // ここで 1.並べ替えのためのパラメータ作成 2.unixからDateに変換 を行う
       let mood_weight_sum = 0;
       let denominator = 0;
       let punchedDates: PunchLog[] = [];
-      value.punch_logs.forEach(punch_log => {
+      moodOfEmployee.punch_logs.forEach(punch_log => {
         punchedDates.push({
           mood_id: punch_log.mood_id,
           cause_id: punch_log.cause_id,
@@ -46,14 +47,14 @@ export function* getListMoodOfEmployeeSaga(
       });
       convertDateData = {
         ...convertDateData,
-        [key]: {
-          subordinate_id: value.sabordinate_id,
+        [moodOfEmployee.employee_id]: {
+          employee_id: moodOfEmployee.employee_id,
           punch_logs: punchedDates,
           danger: false,
         },
       };
       reorderParams.push({
-        employeeId: value.sabordinate_id,
+        employeeId: moodOfEmployee.employee_id,
         mood_weight_average: mood_weight_sum / denominator,
       });
     });
