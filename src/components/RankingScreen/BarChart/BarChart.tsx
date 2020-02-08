@@ -25,7 +25,7 @@ const BarChart: React.FC<Props> = props => {
   // const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
-    if (moodRatio.id === 'mood_id0') {
+    if (moods[moodRatio.id].name === '未記入') {
       return {};
     } else {
       return { weight: index + 1, 気分: moodRatio.ratio, 原因: moodRatio.causes_ratio };

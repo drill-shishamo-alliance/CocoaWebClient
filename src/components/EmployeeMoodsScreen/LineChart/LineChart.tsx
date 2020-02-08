@@ -24,7 +24,7 @@ const LineChart: React.FC<Props> = props => {
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = punchLogs.map(punchLog => {
-    if (punchLog.mood_id === 'mood_id0') {
+    if (moods[punchLog.mood_id].name === '未入力') {
       return {};
     } else {
       return {
