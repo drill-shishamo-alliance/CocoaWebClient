@@ -62,7 +62,6 @@ const displayDate = (
     case displayDateActionType.UPDATE_DISPLAY_SPAN:
       return {
         ...state,
-        displayDate: action.payload.displaySpan[0],
         displaySpan: action.payload.displaySpan,
       };
     default:
