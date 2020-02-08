@@ -1,6 +1,6 @@
 type PunchLog = {
   mood_id: string;
-  cause_id: string;
+  cause_ids: string[];
   punched_at: number;
 };
 

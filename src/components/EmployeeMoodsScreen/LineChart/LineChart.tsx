@@ -27,7 +27,11 @@ const LineChart: React.FC<Props> = props => {
     if (punchLog.mood_id === 'moodId0') {
       return {};
     } else {
-      return { 気分: moods[punchLog.mood_id].weight, 原因: causes[punchLog.cause_id].name };
+      return {
+        moodWeight: moods[punchLog.mood_id].weight,
+        moodId: punchLog.mood_id,
+        causeIds: punchLog.cause_ids,
+      };
     }
   });
 
@@ -38,11 +42,20 @@ const LineChart: React.FC<Props> = props => {
 
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
-    if (active) {
+    if (active && payload[0]) {
+      const moodId = payload[0].payload.moodId;
+      const causeIds: string[] = payload[0].payload.causeIds;
       return (
         <div>
-          {payload[0] && <p className='label'>{moods[`moodId${payload[0].value}`].name}</p>}
-          {payload[0] && <p className='desc'>原因：{payload[0].payload['原因']}</p>}
+          <p className='label'>{moods[moodId].name}</p>
+          {causeIds.length && <p>(原因)</p>}
+          {causeIds.map((causeId, index) => {
+            return (
+              <p className='desc' key={index}>
+                {causes[causeId].name}
+              </p>
+            );
+          })}
         </div>
       );
     }
@@ -70,7 +83,7 @@ const LineChart: React.FC<Props> = props => {
             tick={<CustomizedTicks />}
           />
           <Tooltip content={<CustomTooltip />} />
-          <Line type='monotone' dataKey='気分' stroke='#2196f3' isAnimationActive={false} />
+          <Line type='monotone' dataKey='moodWeight' stroke='#2196f3' isAnimationActive={false} />
         </LineChartRecharts>
       </ChartPosition>
     </ResponsiveContainer>

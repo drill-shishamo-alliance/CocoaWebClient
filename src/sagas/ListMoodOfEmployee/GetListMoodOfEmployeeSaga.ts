@@ -21,7 +21,6 @@ export function* getListMoodOfEmployeeSaga(
     }
   );
   if (response.status === 200 && response.data) {
-    console.log(response.data);
     // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
     const state: RootState = yield select();
     const moods = state.MoodsState;
@@ -36,7 +35,7 @@ export function* getListMoodOfEmployeeSaga(
       moodOfEmployee.punch_logs.forEach(punch_log => {
         punchedDates.push({
           mood_id: punch_log.mood_id,
-          cause_id: punch_log.cause_id,
+          cause_ids: punch_log.cause_ids,
           punched_at: convertUnixToDate(punch_log.punched_at),
         });
         if (punch_log.mood_id !== 'moodId0') {
