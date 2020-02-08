@@ -1,6 +1,6 @@
 [
   {
-    "id": "moodId1",
+    "id": "mood_id1",
     "department_id": 1,
     "name": "もうダメ、助けて...",
     "weight": 1,
@@ -8,7 +8,7 @@
     "color": "#7E8B8C"
   },
   {
-    "id": "moodId2",
+    "id": "mood_id2",
     "department_id": 1,
     "name": "つらい...",
     "weight": 2,
@@ -16,7 +16,7 @@
     "color": "#2880BA"
   },
   {
-    "id": "moodId3",
+    "id": "mood_id3",
     "department_id": 1,
     "name": "平常運転",
     "weight": 3,
@@ -24,7 +24,7 @@
     "color": "#E57D22"
   },
   {
-    "id": "moodId4",
+    "id": "mood_id4",
     "department_id": 1,
     "name": "いい感じ",
     "weight": 4,
@@ -32,7 +32,7 @@
     "color": "#1ABC9C"
   },
   {
-    "id": "moodId5",
+    "id": "mood_id5",
     "department_id": 1,
     "name": "絶好調！",
     "weight": 5,
@@ -40,7 +40,7 @@
     "color": "#EF7079"
   },
   {
-    "id": "moodId0",
+    "id": "mood_id0",
     "department_id": 1,
     "name": "未入力",
     "weight": 0,
