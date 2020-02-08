@@ -12,8 +12,8 @@ const TableHeader: React.FC = () => {
   const displaySpan = useSelector<rootState, rootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
-  const displayDate = useSelector<rootState, rootState['displayDateState']['displayDate']>(
-    state => state.displayDateState.displayDate
+  const displayMonday = useSelector<rootState, rootState['displayDateState']['displayMonday']>(
+    state => state.displayDateState.displayMonday
   );
 
   return (
@@ -23,7 +23,7 @@ const TableHeader: React.FC = () => {
           <Cell align='center'>
             <EmployeePosition>社員</EmployeePosition>
             <EmployeeHeaderWrapper>
-              {returnHeaderText(displaySpan, displayTab, displayDate).map(headerText => {
+              {returnHeaderText(displaySpan, displayTab, displayMonday).map(headerText => {
                 return <h2 key={headerText}>{headerText}</h2>;
               })}
             </EmployeeHeaderWrapper>

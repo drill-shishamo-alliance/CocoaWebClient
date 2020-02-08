@@ -12,11 +12,11 @@ const TableHeader: React.FC = () => {
   const displaySpan = useSelector<rootState, rootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
-  const displayDate = useSelector<rootState, rootState['displayDateState']['displayDate']>(
-    state => state.displayDateState.displayDate
+  const displayMonday = useSelector<rootState, rootState['displayDateState']['displayMonday']>(
+    state => state.displayDateState.displayMonday
   );
 
-  const headerText = HeaderText(displaySpan, displayTab, displayDate);
+  const headerText = HeaderText(displaySpan, displayTab, displayMonday);
 
   return (
     <Table>

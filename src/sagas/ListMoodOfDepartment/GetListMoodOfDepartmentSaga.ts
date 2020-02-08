@@ -17,7 +17,6 @@ export function* getListMoodOfDepartmentSaga(
     }
   );
 
-  console.log(response.data);
   if (response.status === 200 && response.data) {
     const state: RootState = yield select();
     const moods = state.MoodsState;
@@ -26,8 +25,6 @@ export function* getListMoodOfDepartmentSaga(
     const returnRatioSum = (moods_ratio: MoodsRatio): number => {
       let ratio_sum = 0;
       Object.entries(moods_ratio).map(([key, value]) => {
-        console.log(key);
-        console.log(moods);
         return (ratio_sum += moods_ratio[value.id].ratio * moods[value.id].weight);
       });
       return ratio_sum;
