@@ -11,6 +11,7 @@
     "@types/react-dom": "16.8.4",
     "@types/react-router": "^5.1.2",
     "@types/styled-components": "^4.4.0",
+    "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.1.2",
