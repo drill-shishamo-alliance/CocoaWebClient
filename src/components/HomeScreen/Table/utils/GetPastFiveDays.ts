@@ -17,5 +17,13 @@ export const GetPastFiveDays = (): Date[] => {
     dates.push(pushDate);
     targetDate.setDate(targetDate.getDate() + 1);
   }
+
+  dates[0].setHours(0);
+  dates[0].setMinutes(0);
+  dates[0].setSeconds(0);
+  dates[dates.length - 1].setHours(23);
+  dates[dates.length - 1].setMinutes(59);
+  dates[dates.length - 1].setSeconds(59);
+
   return dates;
 };

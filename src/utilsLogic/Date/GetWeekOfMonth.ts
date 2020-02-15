@@ -34,5 +34,9 @@ export default function getWeekOfMonth(date: Date, weekIndex: number): Date[] {
     beginDate.setDate(beginDate.getDate() + 1);
   }
 
+  targetDates[targetDates.length - 1].setHours(23);
+  targetDates[targetDates.length - 1].setMinutes(59);
+  targetDates[targetDates.length - 1].setSeconds(59);
+
   return targetDates;
 }
