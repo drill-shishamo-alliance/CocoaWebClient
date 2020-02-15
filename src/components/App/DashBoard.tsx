@@ -9,9 +9,9 @@ import classNames from 'classnames';
 import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
-import MyMoods from '../MyMoodsScreen/MyMoods';
+// import MyMoods from '../MyMoodsScreen/MyMoods';
 import Ranking from '../RankingScreen/RankingScreen';
-import MoodsMap from '../MoodsMapScreen/MoodsMap';
+// import MoodsMap from '../MoodsMapScreen/MoodsMap';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
@@ -104,9 +104,9 @@ const DashBoard: React.FC = () => {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/employeemoods' component={EmployeeMoodsScreen} />
-              <Route path='/mymoods' component={MyMoods} />
+              {/* <Route path='/mymoods' component={MyMoods} /> */}
               <Route path='/ranking' component={Ranking} />
-              <Route path='/moodsmap' component={MoodsMap} />
+              {/* <Route path='/moodsmap' component={MoodsMap} /> */}
             </Switch>
           </main>
         </div>

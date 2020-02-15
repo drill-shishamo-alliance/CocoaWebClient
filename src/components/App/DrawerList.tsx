@@ -4,9 +4,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import EmployeeMoodsIcon from 'src/assets/DrawerItems/EmployeeMoodsIcon.svg';
-import MyMoodIcon from 'src/assets/DrawerItems/MyMoodIcon.svg';
+// import MyMoodIcon from 'src/assets/DrawerItems/MyMoodIcon.svg';
 import RankingIcon from 'src/assets/DrawerItems/Ranking.svg';
-import MapIcon from '@material-ui/icons/Map';
+// import MapIcon from '@material-ui/icons/Map';
 import List from '@material-ui/core/List';
 import { Theme, makeStyles, createStyles } from '@material-ui/core';
 import { GetPastFiveDays } from '../HomeScreen/Table/utils/GetPastFiveDays';
@@ -52,13 +52,13 @@ const DrawerList: React.FC<Props> = props => {
         </ListItemIcon>
         <ListItemText primary='部下の気分' />
       </ListItem>
-
+      {/* 
       <ListItem button onClick={handleClick('/mymoods')}>
         <ListItemIcon>
           <img src={MyMoodIcon} className={classes.iconImg} alt='mymoods' />
         </ListItemIcon>
         <ListItemText primary='自分の気分' />
-      </ListItem>
+      </ListItem> */}
 
       <ListItem button onClick={handleClick('/ranking', initialEmployeeMoodsDisplaySpan)}>
         <ListItemIcon>
@@ -67,12 +67,12 @@ const DrawerList: React.FC<Props> = props => {
         <ListItemText primary='部署ランキング' />
       </ListItem>
 
-      <ListItem button onClick={handleClick('/moodsmap')}>
+      {/* <ListItem button onClick={handleClick('/moodsmap')}>
         <ListItemIcon>
           <MapIcon />
         </ListItemIcon>
         <ListItemText primary='気分マップ' />
-      </ListItem>
+      </ListItem> */}
     </List>
   );
 };
