@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import { getCauses } from 'src/actions/Causes/ActionCreator';
-import { updateDisplaySpan } from 'src/actions/DisplayDate/DisplayDateActionCreator';
+import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
@@ -58,6 +58,7 @@ const DashBoard: React.FC = () => {
   const routeMainContent = (route: string, dates?: Date[]) => () => {
     history.push(route);
     if (dates !== undefined) {
+      dispatch(resetDate());
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
