@@ -10,7 +10,7 @@ const initialWeekIndex = getWeekIndex(initialDisplayMonday);
 const initialDisplaySpan = GetPastFiveDays();
 
 const initialState: displayDateState = {
-  displayMonday: initialDisplayMonday, // 現在表示されている年と月
+  displayMonday: new Date(initialDisplayMonday), // 現在表示されている年と月
   weekIndex: initialWeekIndex,
   displaySpan: initialDisplaySpan, // 現在表示されている気分の期間
   displayTab: tabName.week,
@@ -25,9 +25,7 @@ const displayDate = (
   switch (action.type) {
     case displayDateActionType.NEXT_WEEK:
       newDisplayMonday = new Date(state.displayMonday.setDate(state.displayMonday.getDate() + 7));
-      console.log(newDisplayMonday);
       newWeekIndex = getWeekIndex(newDisplayMonday);
-      console.log(newWeekIndex);
       return {
         ...state,
         displayMonday: newDisplayMonday,
@@ -66,6 +64,12 @@ const displayDate = (
       return {
         ...state,
         displaySpan: action.payload.displaySpan,
+      };
+    case displayDateActionType.RESET_DATE:
+      return {
+        ...state,
+        displayMonday: new Date(initialDisplayMonday),
+        weekIndex: initialWeekIndex,
       };
     default:
       return state;

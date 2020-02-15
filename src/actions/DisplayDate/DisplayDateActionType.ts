@@ -8,6 +8,7 @@ enum displayDateActionType {
   TAB_CLICKED = 'TAB_CLICKED',
   UPDATE_DISPLAY_SPAN = 'UPDATE_DISPLAY_SPAN',
   UPDATE_DISPLAY_TAB = 'UPDATE_DISPLAY_TAB',
+  RESET_DATE = 'RESET_DATE',
 }
 
 export default displayDateActionType;

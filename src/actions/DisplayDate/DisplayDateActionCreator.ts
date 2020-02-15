@@ -23,3 +23,5 @@ export const updateDisplayTab = createStandardAction(displayDateActionType.UPDAT
 export const updateDisplaySpan = createStandardAction(displayDateActionType.UPDATE_DISPLAY_SPAN)<{
   displaySpan: Date[];
 }>();
+
+export const resetDate = createStandardAction(displayDateActionType.RESET_DATE)<void>();
