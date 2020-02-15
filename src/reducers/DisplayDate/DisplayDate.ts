@@ -70,6 +70,7 @@ const displayDate = (
         ...state,
         displayMonday: new Date(initialDisplayMonday),
         weekIndex: initialWeekIndex,
+        displayTab: tabName.week,
       };
     default:
       return state;
