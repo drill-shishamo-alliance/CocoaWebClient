@@ -27,6 +27,7 @@ export function* getListMoodOfEmployeeSaga(
     const reorderParams: { employee_id: string; mood_weight_average: number }[] = [];
     let convertDateData: listMoodOfEmployeeState = {};
     const dangerLine = 2.5;
+
     response.data.forEach(moodOfEmployee => {
       // ここで 1.並べ替えのためのパラメータ作成 2.unixからDateに変換 を行う
       let mood_weight_sum = 0;
@@ -38,7 +39,7 @@ export function* getListMoodOfEmployeeSaga(
           cause_ids: punch_log.cause_ids,
           punched_at: convertUnixToDate(punch_log.punched_at),
         });
-        if (punch_log.mood_id !== 'mood_id0') {
+        if (moods[punch_log.mood_id].name !== '未入力') {
           // 未入力の場合は除外する
           denominator += 1;
           mood_weight_sum += moods[punch_log.mood_id].weight;
