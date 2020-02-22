@@ -21,7 +21,7 @@ const PieChart: React.FC<Props> = props => {
   const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const pieChartWidth = 260;
-  const pieChartHeight = 150;
+  const pieChartHeight = 155;
   const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   const data = Object.values(causesRatio).map(causeRatio => {

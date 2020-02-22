@@ -22,7 +22,6 @@ type Props = {
 const BarChart: React.FC<Props> = props => {
   const { moodsRatio } = props;
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
-  // const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
     if (moods[moodRatio.id].name === '未記入') {
@@ -69,7 +68,7 @@ const BarChart: React.FC<Props> = props => {
             tick={<CustomizedTicks />}
           />
           <YAxis domain={[0, 100]} unit='%' />
-          <Tooltip content={<CustomTooltip />} wrapperStyle={{ bottom: 50 }} />
+          <Tooltip content={<CustomTooltip />} wrapperStyle={{ top: -20 }} />
           <Bar barSize={40} dataKey='気分' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>

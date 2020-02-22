@@ -8,6 +8,7 @@ export const CustomContentOfToolTip = styled('div')`
   padding: 3px;
   background-color: white;
   border: solid 1px #dcdcdc;
+  z-index: 999;
 `;
 export const Border = styled('p')`
   text-decoration: underline;
