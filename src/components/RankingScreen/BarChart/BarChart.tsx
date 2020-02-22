@@ -49,15 +49,7 @@ const BarChart: React.FC<Props> = props => {
             return '';
           })}
           <Border>原因の内訳</Border>
-          {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />
-          // Object.values(payload[0].payload['原因']).map((value, index) => {
-          //   return (
-          //     <p key={index}>{`${causes[(value as CausesRatio).id].name}：${
-          //       payload[0].payload['原因'][(value as CausesRatio).id].ratio
-          //     }%`}</p>
-          //   );
-          // })
-          }
+          {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />}
         </CustomContentOfToolTip>
       );
     }
@@ -77,7 +69,7 @@ const BarChart: React.FC<Props> = props => {
             tick={<CustomizedTicks />}
           />
           <YAxis domain={[0, 100]} unit='%' />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} wrapperStyle={{ bottom: 50 }} />
           <Bar barSize={40} dataKey='気分' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>
