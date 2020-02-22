@@ -50,7 +50,7 @@ export function* getListMoodOfEmployeeSaga(
         [moodOfEmployee.employee_id]: {
           employee_id: moodOfEmployee.employee_id,
           punch_logs: punchedDates,
-          danger: false,
+          is_danger: false,
         },
       };
       reorderParams.push({
@@ -72,7 +72,7 @@ export function* getListMoodOfEmployeeSaga(
           ...postDataToStore,
           [param.employee_id]: {
             ...convertDateData[param.employee_id],
-            danger: true,
+            is_danger: true,
           },
         };
       } else {

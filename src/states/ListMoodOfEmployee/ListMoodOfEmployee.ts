@@ -9,7 +9,7 @@ export type PunchLog = {
 type MoodOfEmployee = {
   employee_id: string;
   punch_logs: PunchLog[];
-  danger: boolean;
+  is_danger: boolean;
 };
 
 type listMoodOfEmployeeState = {
