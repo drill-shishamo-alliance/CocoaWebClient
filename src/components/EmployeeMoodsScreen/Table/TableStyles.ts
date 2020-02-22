@@ -41,6 +41,13 @@ export const EmployeePosition = styled('h2')`
   grid-row: 1;
 `;
 
+export const DangerEmployeePosition = styled('h2')`
+  flex-basis: 20%;
+  align-self: center;
+  grid-row: 1;
+  color: red;
+`;
+
 export const PrevButton = styled(Button)`
   position: absolute;
   right: 11%;

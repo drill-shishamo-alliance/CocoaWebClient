@@ -1,6 +1,6 @@
 import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
-import { Cell, EmployeePosition } from './TableStyles';
+import { Cell, EmployeePosition, DangerEmployeePosition } from './TableStyles';
 import LineChart from '../LineChart/LineChart';
 import { employee } from 'src/states/Employees/Employees';
 import rootState from 'src/states/index';
@@ -38,7 +38,12 @@ const TableItem: React.FC<Props> = props => {
   return (
     <TableRow>
       <Cell align='center'>
-        <EmployeePosition>{employee.name}</EmployeePosition>
+        {!listMoodOfEmployee[employee.id].is_danger && (
+          <EmployeePosition>{employee.name}</EmployeePosition>
+        )}
+        {listMoodOfEmployee[employee.id].is_danger && (
+          <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
+        )}
         <LineChart punchLogs={displayPunchLogs} />
       </Cell>
     </TableRow>
