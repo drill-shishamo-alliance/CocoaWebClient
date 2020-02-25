@@ -22,7 +22,6 @@ type Props = {
 const BarChart: React.FC<Props> = props => {
   const { moodsRatio } = props;
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
-  // const causes = useSelector<RootState, RootState['CausesState']>(state => state.CausesState);
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
     if (moods[moodRatio.id].name === '未記入') {
@@ -49,15 +48,7 @@ const BarChart: React.FC<Props> = props => {
             return '';
           })}
           <Border>原因の内訳</Border>
-          {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />
-          // Object.values(payload[0].payload['原因']).map((value, index) => {
-          //   return (
-          //     <p key={index}>{`${causes[(value as CausesRatio).id].name}：${
-          //       payload[0].payload['原因'][(value as CausesRatio).id].ratio
-          //     }%`}</p>
-          //   );
-          // })
-          }
+          {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />}
         </CustomContentOfToolTip>
       );
     }
@@ -77,7 +68,7 @@ const BarChart: React.FC<Props> = props => {
             tick={<CustomizedTicks />}
           />
           <YAxis domain={[0, 100]} unit='%' />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} wrapperStyle={{ top: -20 }} />
           <Bar barSize={40} dataKey='気分' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>
