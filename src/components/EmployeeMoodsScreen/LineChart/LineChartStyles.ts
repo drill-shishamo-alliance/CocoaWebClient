@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ResponsiveContainer } from 'recharts';
-import { Zap } from 'styled-icons/octicons/Zap';
 
 export const ChartPosition = styled(ResponsiveContainer)`
   flex-basis: 80%;
@@ -16,7 +15,8 @@ export const Border = styled('p')`
   text-decoration: underline;
 `;
 
-export const Material = styled(Zap)`
+export const Material = styled('i')`
+  color: #4b4b4b;
   font-size: 20px;
 `;
 

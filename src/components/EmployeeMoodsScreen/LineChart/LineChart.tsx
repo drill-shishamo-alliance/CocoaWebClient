@@ -48,7 +48,9 @@ const LineChart: React.FC<Props> = props => {
     return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
   };
 
-  const materialIcon = (iconName: string) => <Material>{iconName}</Material>;
+  const materialIcon = (iconName: string) => (
+    <Material className={'material-icons'}>{iconName}</Material>
+  );
 
   const svgIcon = (src: string) => <Svg src={src} />;
 
