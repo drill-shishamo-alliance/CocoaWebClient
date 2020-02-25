@@ -4,202 +4,127 @@
     "punch_logs": [
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id4"],
         "punched_at": 1572534000
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572620400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572706800
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572793200
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572879600
       },
       {
         "mood_id": "mood_id0",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572966000
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573052400
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573138800
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573225200
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573311600
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573398000
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573484400
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573570800
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573657200
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573743600
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573830000
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573916400
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574002800
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574089200
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574175600
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574262000
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574348400
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574434800
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574521200
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574607600
       }
     ]
@@ -209,202 +134,127 @@
     "punch_logs": [
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572534000
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572620400
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572706800
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572793200
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572879600
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572966000
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573052400
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573138800
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573225200
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573311600
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573398000
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573484400
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573570800
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573657200
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573743600
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573830000
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573916400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574002800
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574089200
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574175600
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574262000
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574348400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574434800
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574521200
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574607600
       }
     ]
@@ -414,202 +264,127 @@
     "punch_logs": [
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572534000
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572620400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572706800
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572793200
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572879600
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1572966000
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573052400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573138800
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573225200
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573311600
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573398000
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573484400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573570800
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573657200
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573743600
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573830000
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1573916400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574002800
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574089200
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574175600
       },
       {
         "mood_id": "mood_id1",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574262000
       },
       {
         "mood_id": "mood_id2",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574348400
       },
       {
         "mood_id": "mood_id3",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574434800
       },
       {
         "mood_id": "mood_id4",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574521200
       },
       {
         "mood_id": "mood_id5",
-        "cause_ids": [
-          "cause_id1",
-          "cause_id2"
-        ],
+        "cause_ids": ["cause_id1", "cause_id2"],
         "punched_at": 1574607600
       }
     ]
