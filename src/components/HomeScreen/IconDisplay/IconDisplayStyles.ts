@@ -12,7 +12,7 @@ const IconDisplayStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
     },
     iconSize: {
-      fontSize: 40,
+      fontSize: '35px',
     },
     dataPosition: {
       flexBasis: '16%',
