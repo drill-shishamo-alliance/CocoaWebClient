@@ -20,22 +20,10 @@ const TableItem: React.FC<Props> = props => {
   const displaySpan = useSelector<rootState, rootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
-  const moods =
+  const punchLogs =
     typeof listMoodOfEmployee[employee.id] === 'undefined'
       ? []
       : listMoodOfEmployee[employee.id].punch_logs; // 今回描画する社員さんの気分情報
-  let moodIds: string[] = [];
-  moods.forEach(mood => {
-    // 気分のidのみを配列として抜き取る
-    displaySpan.forEach(displayDate => {
-      if (
-        displayDate.getMonth() === mood.punched_at.getMonth() &&
-        displayDate.getDate() === mood.punched_at.getDate()
-      ) {
-        moodIds.push(mood.mood_id);
-      }
-    });
-  });
 
   return (
     <TableRow>
@@ -47,8 +35,12 @@ const TableItem: React.FC<Props> = props => {
           {listMoodOfEmployee[employee.id].is_danger && (
             <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
           )}
-          {moodIds.map((moodId, index) => (
-            <IconDisplay key={`icon${index}`} moodId={moodId} />
+          {punchLogs.map((punchLog, index) => (
+            <IconDisplay
+              key={`icon${index}`}
+              moodId={punchLog.mood_id}
+              causeIds={punchLog.cause_ids}
+            />
           ))}
         </TableCell>
       ) : (

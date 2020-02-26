@@ -10,6 +10,7 @@ const IconDisplayStyles = makeStyles((theme: Theme) =>
     iconContainer: {
       display: 'flex',
       flexDirection: 'column',
+      position: 'relative',
     },
     iconSize: {
       fontSize: '35px',
