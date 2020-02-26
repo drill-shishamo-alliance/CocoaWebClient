@@ -1,6 +1,6 @@
 import React from 'react';
 import { employee } from 'src/states/Employees/Employees';
-import { TableCell } from './TableStyles';
+import { TableCell, Cell } from './TableStyles';
 import { useSelector } from 'react-redux';
 import rootState from 'src/states/index';
 import { TableRow } from '@material-ui/core';
@@ -13,6 +13,7 @@ export type Props = {
 
 const TableItem: React.FC<Props> = props => {
   const { employee } = props;
+  console.log(employee);
   const listMoodOfEmployee = useSelector<rootState, rootState['ListMoodOfEmployee']>(
     state => state.ListMoodOfEmployee
   );
@@ -38,17 +39,24 @@ const TableItem: React.FC<Props> = props => {
 
   return (
     <TableRow>
-      <TableCell align='center'>
-        {!listMoodOfEmployee[employee.id].is_danger && (
+      {typeof listMoodOfEmployee[employee.id] !== 'undefined' ? (
+        <TableCell align='center'>
+          {!listMoodOfEmployee[employee.id].is_danger && (
+            <EmployeePosition>{employee.name}</EmployeePosition>
+          )}
+          {listMoodOfEmployee[employee.id].is_danger && (
+            <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
+          )}
+          {moodIds.map((moodId, index) => (
+            <IconDisplay key={`icon${index}`} moodId={moodId} />
+          ))}
+        </TableCell>
+      ) : (
+        <Cell align='center'>
           <EmployeePosition>{employee.name}</EmployeePosition>
-        )}
-        {listMoodOfEmployee[employee.id].is_danger && (
-          <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
-        )}
-        {moodIds.map((moodId, index) => (
-          <IconDisplay key={`icon${index}`} moodId={moodId} />
-        ))}
-      </TableCell>
+          <p>データがありません</p>
+        </Cell>
+      )}
     </TableRow>
   );
 };

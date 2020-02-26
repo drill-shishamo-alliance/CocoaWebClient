@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NotDataTextPosition, TableStyle } from './TableStyles';
+import { TableStyle } from './TableStyles';
 import { Table, TableBody } from '@material-ui/core';
 import TableItem from './TableItem';
 import rootState from 'src/states/index';
