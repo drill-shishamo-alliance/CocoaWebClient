@@ -1,6 +1,8 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-const drawerWidth = 240;
+const drawerWidth = 210;
+const headerMinHeightSM = 64;
+const headerMinHeightXS = 48;
 
 const AppStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,18 +34,16 @@ const AppStyles = makeStyles((theme: Theme) =>
       }),
     },
     toolbar: {
-      minHeight: 56,
+      marginLeft: -18,
+      minHeight: headerMinHeightSM,
       [theme.breakpoints.up('xs')]: {
-        minHeight: 48,
+        minHeight: headerMinHeightXS,
       },
       [theme.breakpoints.up('sm')]: {
-        minHeight: 64,
+        minHeight: headerMinHeightSM,
       },
     },
-    menuButton: {
-      marginLeft: -20,
-      marginRight: 20,
-    },
+    menuButton: {},
     title: {
       display: 'none',
       [theme.breakpoints.up('sm')]: {
@@ -61,12 +61,12 @@ const AppStyles = makeStyles((theme: Theme) =>
       whiteSpace: 'nowrap',
       width: drawerWidth,
       // marginLeft: theme.spacing.unit,
-      top: 56,
+      marginTop: headerMinHeightSM,
       [theme.breakpoints.up('xs')]: {
-        top: 48,
+        top: headerMinHeightXS,
       },
       [theme.breakpoints.up('sm')]: {
-        top: 64,
+        top: headerMinHeightSM,
       },
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
