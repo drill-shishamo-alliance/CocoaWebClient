@@ -37,15 +37,22 @@ const TableItem: React.FC<Props> = props => {
 
   return (
     <TableRow>
-      <Cell align='center'>
-        {!listMoodOfEmployee[employee.id].is_danger && (
+      {listMoodOfEmployee[employee.id] ? (
+        <Cell align='center'>
+          {!listMoodOfEmployee[employee.id].is_danger && (
+            <EmployeePosition>{employee.name}</EmployeePosition>
+          )}
+          {listMoodOfEmployee[employee.id].is_danger && (
+            <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
+          )}
+          <LineChart punchLogs={displayPunchLogs} />
+        </Cell>
+      ) : (
+        <Cell align='center'>
           <EmployeePosition>{employee.name}</EmployeePosition>
-        )}
-        {listMoodOfEmployee[employee.id].is_danger && (
-          <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
-        )}
-        <LineChart punchLogs={displayPunchLogs} />
-      </Cell>
+          <p>データがありません</p>
+        </Cell>
+      )}
     </TableRow>
   );
 };

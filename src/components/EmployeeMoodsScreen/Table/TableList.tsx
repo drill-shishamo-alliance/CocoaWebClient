@@ -13,20 +13,20 @@ const TableList: React.FC = () => {
 
   return (
     <TableStyle>
-      {Object.keys(listMoodOfEmployee).length > 0 ? (
-        <Table>
-          <TableBody>
-            {Object.values(listMoodOfEmployee).map(moodOfEmployee => (
-              <TableItem
-                employee={employees[moodOfEmployee.employee_id]}
-                key={moodOfEmployee.employee_id}
-              />
-            ))}
-          </TableBody>
-        </Table>
-      ) : (
-        <NotDataTextPosition>データがありません</NotDataTextPosition>
-      )}
+      <Table>
+        <TableBody>
+          {Object.keys(listMoodOfEmployee).length > 0
+            ? Object.values(listMoodOfEmployee).map(moodOfEmployee => (
+                <TableItem
+                  employee={employees[moodOfEmployee.employee_id]}
+                  key={moodOfEmployee.employee_id}
+                />
+              ))
+            : Object.values(employees).map(employee => (
+                <TableItem employee={employee} key={employee.id} />
+              ))}
+        </TableBody>
+      </Table>
     </TableStyle>
   );
 };
