@@ -10,3 +10,22 @@ export const CustomContentOfToolTip = styled('div')`
   padding: 3px;
   border: solid 1px #dcdcdc;
 `;
+
+export const Border = styled('p')`
+  text-decoration: underline;
+`;
+
+export const Material = styled('i')`
+  color: #4b4b4b;
+  font-size: 20px;
+`;
+
+export const Svg = styled('img')`
+  width: 20px;
+  height: 20px;
+`;
+
+export const Horizontal = styled('p')`
+  display: inline-block;
+  margin: 10px;
+`;

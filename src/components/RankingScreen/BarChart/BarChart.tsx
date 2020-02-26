@@ -47,8 +47,14 @@ const BarChart: React.FC<Props> = props => {
             }
             return '';
           })}
-          <Border>原因の内訳</Border>
-          {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />}
+          {payload[0].value !== 0 ? (
+            <div>
+              <Border>原因の内訳</Border>
+              {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />}
+            </div>
+          ) : (
+            ''
+          )}
         </CustomContentOfToolTip>
       );
     }

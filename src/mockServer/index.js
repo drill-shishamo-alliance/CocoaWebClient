@@ -76,7 +76,7 @@ app.get('/listMoodOfDepartment', (req, res) => {
     res.status(200).json(jan20_24_department_moods);
   } else if (begin_date == 1580050800 && end_date == 1580482799) {
     res.status(200).json(jan27_31_department_moods);
-  } else if (begin_date == 1577804400 && end_date == 15804827999) {
+  } else if (begin_date == 1577804400 && end_date == 1580482799) {
     res.status(200).json(jan_department_moods);
   } else {
     res.status(200).json({});

@@ -100,20 +100,7 @@
       "mood_id1": {
         "id": "mood_id1",
         "ratio": 0,
-        "causes_ratio": {
-          "cause_id1": {
-            "id": "cause_id1",
-            "ratio": 20
-          },
-          "cause_id2": {
-            "id": "cause_id2",
-            "ratio": 30
-          },
-          "cause_id4": {
-            "id": "cause_id4",
-            "ratio": 50
-          }
-        }
+        "causes_ratio": {}
       },
       "mood_id2": {
         "id": "mood_id2",
