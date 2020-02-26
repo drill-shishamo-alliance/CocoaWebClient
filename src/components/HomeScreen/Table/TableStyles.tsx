@@ -12,9 +12,9 @@ const TableStyles = makeStyles((theme: Theme) =>
       alignSelf: 'center',
     },
     tableBody: {
-      overflow: 'auto',
-      height: 500,
-      position: 'relative',
+      overflow: 'scroll',
+      height: '100%',
+      // position: 'relative',
     },
     tableLayout: {
       overflow: 'flexed',
