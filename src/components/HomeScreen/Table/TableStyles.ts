@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { TableHead, Paper } from '@material-ui/core';
-import { TableCell as TableCellMaterial } from '@material-ui/core';
+import { TableHead, Paper, TableCell } from '@material-ui/core';
 
 export const TableStyle = styled('div')`
   overflow: scroll;
@@ -13,7 +12,7 @@ export const Header = styled(TableHead)`
   height: 100%;
 `;
 
-export const Cell = styled(TableCellMaterial)`
+export const Cell = styled(TableCell)`
   display: grid;
   justify-content: space-around;
   grid-template-columns: 1fr 80%;
@@ -43,8 +42,8 @@ export const PaperTab = styled(Paper)`
   max-width: 320px;
 `;
 
-export const TableCell = styled(TableCellMaterial)`
+export const TableIcon = styled('div')`
   grid-column: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
