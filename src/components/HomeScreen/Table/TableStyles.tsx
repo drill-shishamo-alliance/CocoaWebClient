@@ -1,13 +1,11 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { TableCell as TableCellMaterial } from '@material-ui/core';
 
 const TableStyles = makeStyles((theme: Theme) =>
   createStyles({
     head: {
       backgroundColor: 'white',
-    },
-    cellContainer: {
-      display: 'flex',
-      justifyContent: 'space-around',
     },
     employeePosition: {
       flexBasis: '20%',
@@ -28,5 +26,17 @@ const TableStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
+export const HeaderCell = styled(TableCellMaterial)`
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+`;
+
+export const TableCell = styled(TableCellMaterial)`
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+`;
 
 export default TableStyles;
