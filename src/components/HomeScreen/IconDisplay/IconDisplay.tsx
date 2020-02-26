@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
-import styles from './IconDisplayStyles';
+import { IconPosition, IconContainer, RowData } from './IconDisplayStyles';
 import { Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import rootState from 'src/states/index';
@@ -12,7 +11,6 @@ type Props = {
 };
 
 const IconDisplay: React.FC<Props> = props => {
-  const classes = styles();
   const { moodId, causeIds } = props;
   const moods = useSelector<rootState, rootState['MoodsState']>(state => state.MoodsState);
   const causes = useSelector<rootState, rootState['CausesState']>(state => state.CausesState);
@@ -34,23 +32,19 @@ const IconDisplay: React.FC<Props> = props => {
   };
 
   return (
-    <div className={classNames(classes.row, classes.dataPosition)}>
-      <div
-        className={classes.iconContainer}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
+    <RowData>
+      <IconContainer onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         {iconName && iconColor && (
-          <i className='material-icons' style={{ color: iconColor, fontSize: 32 }}>
+          <IconPosition className='material-icons' style={{ color: iconColor }}>
             {iconName}
-          </i>
+          </IconPosition>
         )}
         <Typography variant='caption' style={{ color: iconColor }}>
           {moodName}
         </Typography>
         {isHover && <IconToolTip causeNames={causeNames} />}
-      </div>
-    </div>
+      </IconContainer>
+    </RowData>
   );
 };
 
