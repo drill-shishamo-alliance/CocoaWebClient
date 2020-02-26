@@ -22,10 +22,7 @@ const IconDisplay: React.FC<Props> = props => {
     <div className={classNames(classes.row, classes.dataPosition)}>
       <div className={classes.iconContainer}>
         {iconName && iconColor && (
-          <i
-            className={classNames('material-icons', classes.iconSize)}
-            style={{ color: iconColor }}
-          >
+          <i className='material-icons' style={{ color: iconColor, fontSize: 32 }}>
             {iconName}
           </i>
         )}
