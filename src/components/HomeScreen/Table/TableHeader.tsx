@@ -1,25 +1,26 @@
 import React from 'react';
-import { Table, TableHead, TableRow } from '@material-ui/core';
-import styles, { HeaderCell } from './TableStyles';
+import { Table, TableRow } from '@material-ui/core';
+import { Header, Cell, EmployeePosition, EmployeeHeaderWrapper } from './TableStyles';
 import { HeaderText } from './utils/HeaderText';
 import { GetPastFiveDays } from './utils/GetPastFiveDays';
 
 const TableHeader: React.FC = () => {
-  const classes = styles();
   const pastFiveDays = GetPastFiveDays();
 
   return (
     <Table>
-      <TableHead>
+      <Header>
         <TableRow>
-          <HeaderCell align='center'>
-            <h2 className={classes.employeePosition}>社員</h2>
-            {HeaderText(pastFiveDays).map(header => {
-              return <h2 key={header}>{header}</h2>;
-            })}
-          </HeaderCell>
+          <Cell align='center'>
+            <EmployeePosition>社員</EmployeePosition>
+            <EmployeeHeaderWrapper>
+              {HeaderText(pastFiveDays).map(header => {
+                return <h2 key={header}>{header}</h2>;
+              })}
+            </EmployeeHeaderWrapper>
+          </Cell>
         </TableRow>
-      </TableHead>
+      </Header>
     </Table>
   );
 };
