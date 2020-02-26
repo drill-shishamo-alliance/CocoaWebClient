@@ -19,6 +19,9 @@ const styles = makeStyles((theme: Theme) =>
       height: 24,
       width: 24,
     },
+    iconColor: {
+      color: '#4b4b4b',
+    },
   })
 );
 
@@ -41,7 +44,7 @@ const DrawerList: React.FC<Props> = props => {
     <List>
       <ListItem button onClick={handleClick('/', pastFiveDays)}>
         <ListItemIcon>
-          <HomeIcon />
+          <HomeIcon className={classes.iconColor} />
         </ListItemIcon>
         <ListItemText primary='ホーム' />
       </ListItem>
