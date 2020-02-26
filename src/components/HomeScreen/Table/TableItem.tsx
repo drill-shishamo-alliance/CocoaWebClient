@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import rootState from 'src/states/index';
 import { TableRow, TableCell } from '@material-ui/core';
 import IconDisplay from '../IconDisplay/IconDisplay';
+import styled from 'styled-components';
 
 export type Props = {
   employee: employee;
@@ -39,7 +40,13 @@ const TableItem: React.FC<Props> = props => {
   return (
     <TableRow>
       <TableCell align='center' className={classes.cellContainer}>
-        <div className={classes.employeeName}>{employee.name}</div>
+        {!listMoodOfEmployee[employee.id].is_danger && (
+          <EmployeePosition>{employee.name}</EmployeePosition>
+        )}
+        {listMoodOfEmployee[employee.id].is_danger && (
+          <DangerEmployeePosition>{employee.name}</DangerEmployeePosition>
+        )}
+        {/* <div className={classes.employeeName}>{employee.name}</div> */}
         {moodIds.map((moodId, index) => (
           <IconDisplay key={`icon${index}`} moodId={moodId} />
         ))}
@@ -49,3 +56,16 @@ const TableItem: React.FC<Props> = props => {
 };
 
 export default TableItem;
+
+const EmployeePosition = styled('h2')`
+  flex-basis: 20%;
+  align-self: center;
+  grid-row: 1;
+`;
+
+const DangerEmployeePosition = styled('h2')`
+  flex-basis: 20%;
+  align-self: center;
+  grid-row: 1;
+  color: red;
+`;
