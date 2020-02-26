@@ -37,12 +37,12 @@ const IconDisplay: React.FC<Props> = props => {
         {iconName && iconColor && (
           <IconPosition className='material-icons' style={{ color: iconColor }}>
             {iconName}
+            {isHover && <IconToolTip causeNames={causeNames} />}
           </IconPosition>
         )}
         <Typography variant='caption' style={{ color: iconColor }}>
           {moodName}
         </Typography>
-        {isHover && <IconToolTip causeNames={causeNames} />}
       </IconContainer>
     </RowData>
   );

@@ -11,13 +11,17 @@ const IconToolTip: React.FC<Props> = props => {
   return (
     <StyledIconToolTip>
       {causeNames.map(causeName => {
-        return <div key={causeName}>{causeName}</div>;
+        return <StyledText key={causeName}>{causeName}</StyledText>;
       })}
     </StyledIconToolTip>
   );
 };
 
 export default IconToolTip;
+
+const StyledText = styled.div`
+  margin: 8px;
+`;
 
 const StyledIconToolTip = styled.div`
   position: absolute;
@@ -27,4 +31,6 @@ const StyledIconToolTip = styled.div`
   text-align: center;
   background: cyan;
   border: solid 1px;
+  font-size: 16px;
+  color: black;
 `;
