@@ -1,4 +1,4 @@
 export default function convertDateToUnix(date: Date): number {
-  const unix = Math.round(date.getTime() / 1000);
+  const unix = Date.parse(date.toString());
   return unix;
 }
