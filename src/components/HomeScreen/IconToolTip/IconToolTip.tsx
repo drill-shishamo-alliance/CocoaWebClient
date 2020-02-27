@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledIconToolTip, Material, Svg, Horizontal, Border, Div } from './IconToolTipStyles';
+import { iconMap } from 'src/utilsLogic/Icon/GetCauseIcon';
 
 type Props = {
   causeNames: string[];
@@ -8,32 +9,30 @@ type Props = {
 const IconToolTip: React.FC<Props> = props => {
   const { causeNames } = props;
 
+  const materialIcon = (iconName: string) => (
+    <Material className={'material-icons'}>{iconName}</Material>
+  );
+
+  const svgIcon = (src: string) => <Svg src={src} />;
+
+  const icon = (causeName: string) =>
+    iconMap[causeName].icon_path
+      ? materialIcon(iconMap[causeName].icon_path)
+      : iconMap[causeName].src && svgIcon(iconMap[causeName].src);
+
   return (
     <StyledIconToolTip>
+      <Border>原因</Border>
       {causeNames.map(causeName => {
-        return <StyledText key={causeName}>{causeName}</StyledText>;
+        return (
+          <Div>
+            {icon(causeName)}
+            <Horizontal key={causeName}>{causeName}</Horizontal>
+          </Div>
+        );
       })}
     </StyledIconToolTip>
   );
 };
 
 export default IconToolTip;
-
-const StyledText = styled.div`
-  margin: 8px;
-`;
-
-const StyledIconToolTip = styled.div`
-  position: absolute;
-  z-index: 3;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  width: 100px;
-  text-align: center;
-  background: white;
-  border: solid 1px;
-  font-size: 16px;
-  color: black;
-`;

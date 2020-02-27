@@ -20,7 +20,7 @@ import LineChartTickSvg from './LineChartTickSvg';
 import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 import { useSelector } from 'react-redux';
 import RootState from 'src/states';
-import { iconMap } from './GetCauseIcon';
+import { iconMap } from '../../../utilsLogic/Icon/GetCauseIcon';
 
 type Props = {
   punchLogs: PunchLog[];
