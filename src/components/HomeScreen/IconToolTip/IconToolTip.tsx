@@ -27,6 +27,9 @@ const StyledIconToolTip = styled.div`
   position: absolute;
   z-index: 3;
   top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
   width: 100px;
   text-align: center;
   background: white;
