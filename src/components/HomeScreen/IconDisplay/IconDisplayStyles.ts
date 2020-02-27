@@ -15,4 +15,5 @@ export const IconContainer = styled('div')`
 export const IconPosition = styled('i')`
   align-self: center;
   font-size: 40px;
+  position: relative;
 `;

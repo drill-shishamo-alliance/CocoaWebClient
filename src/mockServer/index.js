@@ -8,7 +8,7 @@ const departments = require('./departments.json');
 const moods = require('./moodsProd.json');
 const causes = require('./causesProd.json');
 const employees = require('./employeesProd.json');
-const reb20_21_and_24_26_moods = require('./mockPunchedMoodsProd/feb20_21_and_24_26.json')
+const feb20_21_and_24_26_moods = require('./mockPunchedMoodsProd/feb20_21_and_24_26.json')
 const nov11_15_moods = require('./mockPunchedMoodsProd/nov11_15_moods.json');
 const nov18_22_moods = require('./mockPunchedMoodsProd/nov18_22_moods.json');
 const nov25_29_moods = require('./mockPunchedMoodsProd/nov25_29_moods.json');
@@ -57,8 +57,8 @@ app.get('/listMoodOfEmployee', (req, res) => {
     res.status(200).json(oct_moods);
   } else if (begin_date == 1572534000000 && end_date == 1575125999000) {
     res.status(200).json(nov_moods);
-  } else if (begin_date == 1582124400000 && end_date == 1582729199000) {
-    res.status(200).json(reb20_21_and_24_26_moods)
+  } else if (begin_date == 1582210800000 && end_date == 1582815599000) {
+    res.status(200).json(feb20_21_and_24_26_moods)
   } else {
     res.status(200).json([]);
   }
