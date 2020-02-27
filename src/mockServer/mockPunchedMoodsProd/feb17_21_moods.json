@@ -1,0 +1,92 @@
+[
+  {
+    "employee_id": "employeeId1",
+    "punch_logs": [
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id3", "cause_id4"],
+        "punched_at": 1581865200
+      },
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id2", "cause_id4"],
+        "punched_at": 1581951600
+      },
+      {
+        "mood_id": "mood_id4",
+        "cause_ids": ["cause_id1", "cause_id3"],
+        "punched_at": 1582038000
+      },
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id1"],
+        "punched_at": 1582124400
+      },
+      {
+        "mood_id": "mood_id5",
+        "cause_ids": ["cause_id2"],
+        "punched_at": 1582297199
+      }
+    ]
+  },
+  {
+    "employee_id": "employeeId2",
+    "punch_logs": [
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id2", "cause_id4"],
+        "punched_at": 1581865200
+      },
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id1", "cause_id3"],
+        "punched_at": 1581951600
+      },
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id3", "cause_id4"],
+        "punched_at": 1582038000
+      },
+      {
+        "mood_id": "mood_id4",
+        "cause_ids": ["cause_id1"],
+        "punched_at": 1582124400
+      },
+      {
+        "mood_id": "mood_id5",
+        "cause_ids": [],
+        "punched_at": 1582297199
+      }
+    ]
+  },
+  {
+    "employee_id": "employeeId3",
+    "punch_logs": [
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id2", "cause_id3"],
+        "punched_at": 1581865200
+      },
+      {
+        "mood_id": "mood_id5",
+        "cause_ids": ["cause_id2"],
+        "punched_at": 1581951600
+      },
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": [],
+        "punched_at": 1582038000
+      },
+      {
+        "mood_id": "mood_id5",
+        "cause_ids": ["cause_id1"],
+        "punched_at": 1582124400
+      },
+      {
+        "mood_id": "mood_id3",
+        "cause_ids": ["cause_id2", "cause_id3"],
+        "punched_at": 1582297199
+      }
+    ]
+  }
+]

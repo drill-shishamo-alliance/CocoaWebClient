@@ -8,12 +8,17 @@ const departments = require('./departments.json');
 const moods = require('./moodsProd.json');
 const causes = require('./causesProd.json');
 const employees = require('./employeesProd.json');
-const feb20_21_and_24_26_moods = require('./mockPunchedMoodsProd/feb20_21_and_24_26.json')
+const feb20_21_and_24_26_moods = require('./mockPunchedMoodsProd/feb20_21_and_24_26.json');
 const nov11_15_moods = require('./mockPunchedMoodsProd/nov11_15_moods.json');
 const nov18_22_moods = require('./mockPunchedMoodsProd/nov18_22_moods.json');
 const nov25_29_moods = require('./mockPunchedMoodsProd/nov25_29_moods.json');
 const oct_moods = require('./mockPunchedMoodsProd/oct_moods.json');
 const nov_moods = require('./mockPunchedMoodsProd/nov_moods.json');
+const feb3_7_moods = require('./mockPunchedMoodsProd/feb3_7_moods.json');
+const feb10_14_moods = require('./mockPunchedMoodsProd/feb10_14_moods.json');
+const feb17_21_moods = require('./mockPunchedMoodsProd/feb17_21_moods.json');
+const feb24_28_moods = require('./mockPunchedMoodsProd/feb24_28_moods.json');
+const feb_moods = require('./mockPunchedMoodsProd/feb_moods.json');
 
 const app = express();
 const port_number = 8000;
@@ -58,7 +63,17 @@ app.get('/listMoodOfEmployee', (req, res) => {
   } else if (begin_date == 1572534000000 && end_date == 1575125999000) {
     res.status(200).json(nov_moods);
   } else if (begin_date == 1582210800000 && end_date == 1582815599000) {
-    res.status(200).json(feb20_21_and_24_26_moods)
+    res.status(200).json(feb20_21_and_24_26_moods);
+  } else if (begin_date == 1580655600000 && end_date == 1581087599000) {
+    res.status(200).json(feb3_7_moods);
+  } else if (begin_date == 1581260400000 && end_date == 1581692399000) {
+    res.status(200).json(feb10_14_moods);
+  } else if (begin_date == 1581865200000 && end_date == 1582297199000) {
+    res.status(200).json(feb17_21_moods);
+  } else if (begin_date == 1582470000000 && end_date == 1582901999000) {
+    res.status(200).json(feb24_28_moods);
+  } else if (begin_date == 1580482800000 && end_date == 1582988399000) {
+    res.status(200).json(feb_moods);
   } else {
     res.status(200).json([]);
   }
