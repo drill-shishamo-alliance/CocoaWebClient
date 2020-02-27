@@ -29,7 +29,7 @@ const StyledIconToolTip = styled.div`
   top: 60px;
   width: 100px;
   text-align: center;
-  background: cyan;
+  background: white;
   border: solid 1px;
   font-size: 16px;
   color: black;
