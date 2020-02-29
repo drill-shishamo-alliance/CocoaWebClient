@@ -1,0 +1,14 @@
+{
+  "department_id1": {
+    "id": "department_id1",
+    "name": "AC本部"
+  },
+  "department_id2": {
+    "id": "department_id2",
+    "name": "BA本部"
+  },
+  "department_id3": {
+    "id": "department_id3",
+    "name": "CS本部"
+  }
+}

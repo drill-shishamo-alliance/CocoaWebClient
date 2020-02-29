@@ -1,0 +1,27 @@
+[
+  {
+    "id": "cause_id1",
+    "department_id": 1,
+    "name": "仕事量"
+  },
+  {
+    "id": "cause_id2",
+    "department_id": 1,
+    "name": "仕事内容"
+  },
+  {
+    "id": "cause_id3",
+    "department_id": 1,
+    "name": "人間関係"
+  },
+  {
+    "id": "cause_id4",
+    "department_id": 1,
+    "name": "評価"
+  },
+  {
+    "id": "cause_id5",
+    "department_id": 1,
+    "name": "未選択"
+  }
+]

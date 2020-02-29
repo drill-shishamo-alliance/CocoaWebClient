@@ -1,0 +1,7 @@
+enum CausesActionType {
+  GET_CAUSES_REQUEST = 'GET_CAUSES_REQUEST',
+  GET_CAUSES_SUCCEEDED = 'GET_CAUSES_SUCCEEDED',
+  GET_CAUSES_FAILED = 'GET_CAUSES_FAILED',
+}
+
+export default CausesActionType;
