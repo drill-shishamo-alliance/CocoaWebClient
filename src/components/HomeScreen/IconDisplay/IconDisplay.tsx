@@ -31,17 +31,11 @@ const IconDisplay: React.FC<Props> = props => {
 
   return (
     <RowData>
-      {console.log(causeNames.length)}
       <IconContainer onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-        {iconName && iconColor && (
-          <IconPosition className='material-icons' style={{ color: iconColor }}>
-            {iconName}
-            {/* {iconName !== 'clear' || causeNames.length > 0
-              ? isHover && <IconToolTip causeNames={causeNames} />
-              : ''} */}
-            {isHover && causeNames.length !== 0 && <IconToolTip causeNames={causeNames} />}
-          </IconPosition>
-        )}
+        <IconPosition className='material-icons' style={{ color: iconColor }}>
+          {iconName}
+          {isHover && iconName !== 'clear' && <IconToolTip causeNames={causeNames} />}
+        </IconPosition>
         <Typography variant='caption' style={{ color: iconColor }}>
           {moodName}
         </Typography>

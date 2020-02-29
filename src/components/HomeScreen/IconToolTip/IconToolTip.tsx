@@ -23,14 +23,18 @@ const IconToolTip: React.FC<Props> = props => {
   return (
     <StyledIconToolTip>
       <Border>原因</Border>
-      {causeNames.map(causeName => {
-        return (
-          <Div>
-            {icon(causeName)}
-            <Horizontal key={causeName}>{causeName}</Horizontal>
-          </Div>
-        );
-      })}
+      {causeNames.length !== 0 ? (
+        causeNames.map(causeName => {
+          return (
+            <Div>
+              {icon(causeName)}
+              <Horizontal key={causeName}>{causeName}</Horizontal>
+            </Div>
+          );
+        })
+      ) : (
+        <Div>未入力</Div>
+      )}
     </StyledIconToolTip>
   );
 };
