@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  ChartPosition,
-  CustomContentOfToolTip,
-  Border,
-  Material,
-  Svg,
-  Horizontal,
-} from './LineChartStyles';
+import { ChartPosition, CustomContentOfToolTip, Border, Margin, Div } from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -20,7 +13,7 @@ import LineChartTickSvg from './LineChartTickSvg';
 import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
 import { useSelector } from 'react-redux';
 import RootState from 'src/states';
-import { iconMap } from '../../../utilsLogic/Icon/GetCauseIcon';
+import GetIcon from 'src/utilsComponent/Icon/GetIcon';
 
 type Props = {
   punchLogs: PunchLog[];
@@ -48,17 +41,6 @@ const LineChart: React.FC<Props> = props => {
     return <LineChartTickSvg x={x} y={y} tick={payload.value} />;
   };
 
-  const materialIcon = (iconName: string) => (
-    <Material className={'material-icons'}>{iconName}</Material>
-  );
-
-  const svgIcon = (src: string) => <Svg src={src} />;
-
-  const icon = (causeId: string) =>
-    iconMap[causes[causeId].name].icon_path
-      ? materialIcon(iconMap[causes[causeId].name].icon_path)
-      : iconMap[causes[causeId].name].src && svgIcon(iconMap[causes[causeId].name].src);
-
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
     if (active && payload.length) {
@@ -70,10 +52,10 @@ const LineChart: React.FC<Props> = props => {
           {causeIds.length !== 0 && <Border>原因</Border>}
           {causeIds.map((causeId, index) => {
             return (
-              <div key={index}>
-                {icon(causeId)}
-                <Horizontal className='desc'>{causes[causeId].name}</Horizontal>
-              </div>
+              <Div key={index}>
+                <GetIcon causeName={causes[causeId].name} />
+                <Margin className='desc'>{causes[causeId].name}</Margin>
+              </Div>
             );
           })}
         </CustomContentOfToolTip>
