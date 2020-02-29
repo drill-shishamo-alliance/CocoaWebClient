@@ -17,11 +17,13 @@ import PieChart, { CausesRatio } from './PieChart/PieChart';
 
 type Props = {
   moodsRatio: MoodsRatio;
+  tableItemIndex: number;
 };
 
 const BarChart: React.FC<Props> = props => {
-  const { moodsRatio } = props;
+  const { moodsRatio, tableItemIndex } = props;
   const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
+  const isFirstTableItem: boolean = tableItemIndex === 0 ? true : false;
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
     if (moods[moodRatio.id].name === '未記入') {
@@ -76,7 +78,10 @@ const BarChart: React.FC<Props> = props => {
             tick={<CustomizedTicks />}
           />
           <YAxis domain={[0, 100]} unit='%' />
-          <Tooltip content={<CustomTooltip />} wrapperStyle={{ top: -20 }} />
+          <Tooltip
+            content={<CustomTooltip />}
+            wrapperStyle={isFirstTableItem ? { top: 200, zIndex: 1 } : { top: -180, zIndex: 1 }}
+          />
           <Bar barSize={40} dataKey='moodRatio' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>

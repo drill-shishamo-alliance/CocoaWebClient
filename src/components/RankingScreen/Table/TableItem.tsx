@@ -10,10 +10,11 @@ import BarChart from '../BarChart/BarChart';
 export type Props = {
   department: Department;
   rank: number;
+  tableItemIndex: number;
 };
 
 const TableItem: React.FC<Props> = props => {
-  const { department, rank } = props;
+  const { department, rank, tableItemIndex } = props;
   const listMoodOfDepartment = useSelector<rootState, rootState['ListMoodOfDepartment']>(
     state => state.ListMoodOfDepartment
   );
@@ -28,7 +29,7 @@ const TableItem: React.FC<Props> = props => {
       <Cell align='center'>
         <RankPosition>{`${rank}位`}</RankPosition>
         <DepartmentPosition>{department.name}</DepartmentPosition>
-        <BarChart moodsRatio={moodsRatio} />
+        <BarChart moodsRatio={moodsRatio} tableItemIndex={tableItemIndex} />
       </Cell>
     </TableRow>
   );
