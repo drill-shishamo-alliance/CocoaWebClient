@@ -36,9 +36,10 @@ const IconDisplay: React.FC<Props> = props => {
         {iconName && iconColor && (
           <IconPosition className='material-icons' style={{ color: iconColor }}>
             {iconName}
-            {iconName !== 'clear' || causeNames.length > 0
+            {/* {iconName !== 'clear' || causeNames.length > 0
               ? isHover && <IconToolTip causeNames={causeNames} />
-              : ''}
+              : ''} */}
+            {isHover && causeNames.length !== 0 && <IconToolTip causeNames={causeNames} />}
           </IconPosition>
         )}
         <Typography variant='caption' style={{ color: iconColor }}>
