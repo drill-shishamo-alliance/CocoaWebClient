@@ -22,8 +22,6 @@ const IconDisplay: React.FC<Props> = props => {
   const causeNames = causeIds.map(causeId => causes[causeId].name);
 
   const onMouseEnter = () => {
-    console.log(iconName);
-    console.log(causeNames);
     setIsHover(true);
   };
 
@@ -34,12 +32,10 @@ const IconDisplay: React.FC<Props> = props => {
   return (
     <RowData>
       <IconContainer onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-        {iconName && iconColor && (
-          <IconPosition className='material-icons' style={{ color: iconColor }}>
-            {iconName}
-            {iconName !== 'clear' ? isHover && <IconToolTip causeNames={causeNames} /> : ''}
-          </IconPosition>
-        )}
+        <IconPosition className='material-icons' style={{ color: iconColor }}>
+          {iconName}
+          {isHover && iconName !== 'clear' && <IconToolTip causeNames={causeNames} />}
+        </IconPosition>
         <Typography variant='caption' style={{ color: iconColor }}>
           {moodName}
         </Typography>
