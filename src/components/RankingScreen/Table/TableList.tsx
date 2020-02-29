@@ -20,6 +20,7 @@ const TableList: React.FC = () => {
               <TableItem
                 department={departments[moodOfDepartment.id]}
                 rank={index + 1}
+                tableItemIndex={index}
                 key={moodOfDepartment.id}
               />
             ))}
