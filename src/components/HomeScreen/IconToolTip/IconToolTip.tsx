@@ -26,9 +26,9 @@ const IconToolTip: React.FC<Props> = props => {
       {causeNames.length !== 0 ? (
         causeNames.map(causeName => {
           return (
-            <Div>
+            <Div key={causeName}>
               {icon(causeName)}
-              <Horizontal key={causeName}>{causeName}</Horizontal>
+              <Horizontal>{causeName}</Horizontal>
             </Div>
           );
         })
