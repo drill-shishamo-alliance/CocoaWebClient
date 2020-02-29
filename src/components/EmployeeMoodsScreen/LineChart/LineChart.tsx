@@ -67,7 +67,7 @@ const LineChart: React.FC<Props> = props => {
       return (
         <CustomContentOfToolTip>
           <p className='label'>{moods[moodId].name}</p>
-          {causeIds.length && <Border>原因</Border>}
+          {causeIds.length !== 0 && <Border>原因</Border>}
           {causeIds.map((causeId, index) => {
             return (
               <div key={index}>

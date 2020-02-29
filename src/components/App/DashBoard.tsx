@@ -33,10 +33,6 @@ const DashBoard: React.FC = () => {
   useEffect(() => {
     const initialRequestBeginDate = convertDateToUnix(displaySpan[0]);
     const initialRequestEndDate = convertDateToUnix(displaySpan[displaySpan.length - 1]);
-    console.log(displaySpan[0]);
-    console.log(displaySpan[displaySpan.length - 1]);
-    console.log(initialRequestBeginDate);
-    console.log(initialRequestEndDate);
     dispatch(getMoods.request({}));
     dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
@@ -66,8 +62,6 @@ const DashBoard: React.FC = () => {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
-      console.log(begin_date);
-      console.log(end_date);
       dispatch(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
       dispatch(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
     }
