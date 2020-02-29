@@ -8,7 +8,7 @@ type CauseRatio = {
   ratio: number;
 };
 
-type CausesRatio = {
+export type CausesRatio = {
   [causeId: string]: CauseRatio;
 };
 

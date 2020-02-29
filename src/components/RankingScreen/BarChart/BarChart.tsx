@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import RootState from 'src/states';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
 import BarChartTickSvg from './BarChartTickSvg';
-import PieChart from './PieChart/PieChart';
+import PieChart, { CausesRatio } from './PieChart/PieChart';
 
 type Props = {
   moodsRatio: MoodsRatio;
@@ -27,7 +27,12 @@ const BarChart: React.FC<Props> = props => {
     if (moods[moodRatio.id].name === '未記入') {
       return {};
     } else {
-      return { weight: index + 1, 気分: moodRatio.ratio, 原因: moodRatio.causes_ratio };
+      return {
+        weight: index + 1,
+        moodName: moods[moodRatio.id].name,
+        moodRatio: moodRatio.ratio,
+        causesRatio: moodRatio.causes_ratio,
+      };
     }
   });
 
@@ -38,22 +43,19 @@ const BarChart: React.FC<Props> = props => {
 
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
+
     if (active) {
+      const moodRatio: number = payload[0].payload['moodRatio'];
+      const moodName: string = payload[0].payload['moodName'];
+      const causesRatio: CausesRatio = payload[0].payload['causesRatio'];
       return (
         <CustomContentOfToolTip>
-          {Object.values(moods).map((mood, index) => {
-            if (payload[0].payload.weight === mood.weight) {
-              return <p key={index}>{`${mood.name}：${payload[0].value}%`}</p>;
-            }
-            return '';
-          })}
-          {payload[0].value !== 0 ? (
+          <p>{`${moodName}：${moodRatio}%`}</p>
+          {moodRatio !== 0 && (
             <div>
               <Border>原因の内訳</Border>
-              {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />}
+              {causesRatio !== {} && <PieChart causesRatio={causesRatio} />}
             </div>
-          ) : (
-            ''
           )}
         </CustomContentOfToolTip>
       );
@@ -75,7 +77,7 @@ const BarChart: React.FC<Props> = props => {
           />
           <YAxis domain={[0, 100]} unit='%' />
           <Tooltip content={<CustomTooltip />} wrapperStyle={{ top: -20 }} />
-          <Bar barSize={40} dataKey='気分' fill='#2196f3' />
+          <Bar barSize={40} dataKey='moodRatio' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>
     </ResponsiveContainer>
