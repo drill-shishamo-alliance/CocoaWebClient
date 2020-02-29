@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import RootState from 'src/states';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
 import BarChartTickSvg from './BarChartTickSvg';
-import PieChart from './PieChart/PieChart';
+import PieChart, { CausesRatio } from './PieChart/PieChart';
 
 type Props = {
   moodsRatio: MoodsRatio;
@@ -38,22 +38,23 @@ const BarChart: React.FC<Props> = props => {
 
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
+
     if (active) {
+      const moodRatio: number = payload[0].value;
+      const causeWeight: number = payload[0].payload.weight;
+      const causesRatio: CausesRatio = payload[0].payload['原因'];
       return (
         <CustomContentOfToolTip>
           {Object.values(moods).map((mood, index) => {
-            if (payload[0].payload.weight === mood.weight) {
-              return <p key={index}>{`${mood.name}：${payload[0].value}%`}</p>;
+            if (causeWeight === mood.weight) {
+              return <p key={index}>{`${mood.name}：${moodRatio}%`}</p>;
             }
-            return '';
           })}
-          {payload[0].value !== 0 ? (
+          {moodRatio !== 0 && (
             <div>
               <Border>原因の内訳</Border>
-              {payload[0].payload['原因'] && <PieChart causesRatio={payload[0].payload['原因']} />}
+              {causesRatio !== {} && <PieChart causesRatio={causesRatio} />}
             </div>
-          ) : (
-            ''
           )}
         </CustomContentOfToolTip>
       );
