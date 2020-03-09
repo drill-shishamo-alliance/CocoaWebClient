@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { ResponsiveContainer } from 'recharts';
 
+export const ChartSize = styled('div')`
+  width: 92%;
+  height: 200px;
+`;
+
 export const ChartPosition = styled(ResponsiveContainer)`
   flex-basis: 80%;
 `;

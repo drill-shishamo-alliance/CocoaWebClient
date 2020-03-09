@@ -1,14 +1,6 @@
 import React from 'react';
-import { ChartPosition, CustomContentOfToolTip, Border } from './BarChartStyles';
-import {
-  BarChart as BarChartRecharts,
-  Bar,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  XAxis,
-  ResponsiveContainer,
-} from 'recharts';
+import { ChartPosition, CustomContentOfToolTip, Border, ChartSize } from './BarChartStyles';
+import { BarChart as BarChartRecharts, Bar, YAxis, CartesianGrid, Tooltip, XAxis } from 'recharts';
 import { useSelector } from 'react-redux';
 import RootState from 'src/states';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
@@ -67,7 +59,7 @@ const BarChart: React.FC<Props> = props => {
   };
 
   return (
-    <ResponsiveContainer width='100%' height={200}>
+    <ChartSize>
       <ChartPosition>
         <BarChartRecharts data={data}>
           <CartesianGrid strokeDasharray='3 3' />
@@ -85,7 +77,7 @@ const BarChart: React.FC<Props> = props => {
           <Bar barSize={40} dataKey='moodRatio' fill='#2196f3' />
         </BarChartRecharts>
       </ChartPosition>
-    </ResponsiveContainer>
+    </ChartSize>
   );
 };
 

@@ -1,5 +1,12 @@
 import React from 'react';
-import { ChartPosition, CustomContentOfToolTip, Border, Margin, Div } from './LineChartStyles';
+import {
+  ChartSize,
+  ChartPosition,
+  CustomContentOfToolTip,
+  Border,
+  Margin,
+  Div,
+} from './LineChartStyles';
 import {
   LineChart as LineChartRecharts,
   Line,
@@ -7,7 +14,6 @@ import {
   CartesianGrid,
   Tooltip,
   XAxis,
-  ResponsiveContainer,
 } from 'recharts';
 import LineChartTickSvg from './LineChartTickSvg';
 import { PunchLog } from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';
@@ -66,7 +72,7 @@ const LineChart: React.FC<Props> = props => {
   };
 
   return (
-    <ResponsiveContainer width='92%' height={200}>
+    <ChartSize>
       <ChartPosition>
         <LineChartRecharts
           data={data}
@@ -88,7 +94,7 @@ const LineChart: React.FC<Props> = props => {
           <Line type='monotone' dataKey='moodWeight' stroke='#2196f3' isAnimationActive={false} />
         </LineChartRecharts>
       </ChartPosition>
-    </ResponsiveContainer>
+    </ChartSize>
   );
 };
 
