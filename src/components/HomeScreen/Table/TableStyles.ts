@@ -37,6 +37,12 @@ export const DangerEmployeePosition = styled('h2')`
   color: red;
 `;
 
+export const NotDataTextPosition = styled('div')`
+  flex-basis: 80%;
+  align-self: center;
+  grid-row: 1;
+`;
+
 export const PaperTab = styled(Paper)`
   flex-grow: 1;
   max-width: 320px;
