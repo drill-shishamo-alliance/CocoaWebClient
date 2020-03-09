@@ -1,6 +1,12 @@
 import React from 'react';
 import { employee } from 'src/states/Employees/Employees';
-import { TableIcon, Cell, EmployeePosition, DangerEmployeePosition } from './TableStyles';
+import {
+  TableIcon,
+  Cell,
+  EmployeePosition,
+  DangerEmployeePosition,
+  NotDataTextPosition,
+} from './TableStyles';
 import { useSelector } from 'react-redux';
 import rootState from 'src/states/index';
 import { TableRow } from '@material-ui/core';
@@ -44,7 +50,7 @@ const TableItem: React.FC<Props> = props => {
       ) : (
         <Cell align='center'>
           <EmployeePosition>{employee.name}</EmployeePosition>
-          <p>データがありません</p>
+          <NotDataTextPosition>データがありません</NotDataTextPosition>
         </Cell>
       )}
     </TableRow>
