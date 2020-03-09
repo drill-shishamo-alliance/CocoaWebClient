@@ -1,6 +1,6 @@
 import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
-import { Cell, EmployeePosition, DangerEmployeePosition } from './TableStyles';
+import { Cell, EmployeePosition, DangerEmployeePosition, NotDataTextPosition } from './TableStyles';
 import LineChart from '../LineChart/LineChart';
 import { employee } from 'src/states/Employees/Employees';
 import rootState from 'src/states/index';
@@ -50,7 +50,7 @@ const TableItem: React.FC<Props> = props => {
       ) : (
         <Cell align='center'>
           <EmployeePosition>{employee.name}</EmployeePosition>
-          <p>データがありません</p>
+          <NotDataTextPosition>データがありません</NotDataTextPosition>
         </Cell>
       )}
     </TableRow>
