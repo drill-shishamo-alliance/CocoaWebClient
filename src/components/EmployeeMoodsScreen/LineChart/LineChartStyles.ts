@@ -20,17 +20,12 @@ export const Border = styled('p')`
   text-decoration: underline;
 `;
 
-export const Material = styled('i')`
-  color: #4b4b4b;
-  font-size: 20px;
-`;
-
-export const Svg = styled('img')`
-  width: 20px;
-  height: 20px;
-`;
-
-export const Horizontal = styled('p')`
-  display: inline-block;
+export const Margin = styled('p')`
   margin: 10px;
+`;
+
+export const Div = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
