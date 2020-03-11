@@ -49,7 +49,7 @@ const LineChart: React.FC<Props> = props => {
 
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
-    if (active && payload.length) {
+    if (active && payload !== null && payload.length) {
       const moodId: string = payload[0].payload.moodId;
       const causeIds: string[] = payload[0].payload.causeIds;
       return (
