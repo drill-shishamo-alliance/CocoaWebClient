@@ -86,7 +86,7 @@ const DashBoard: React.FC = () => {
                 <MenuIcon />
               </IconButton>
               <Typography className={classes.title} variant='h6' color='inherit' noWrap>
-                Cocoa Web Client
+                Cocoa
               </Typography>
             </Toolbar>
           </AppBar>
