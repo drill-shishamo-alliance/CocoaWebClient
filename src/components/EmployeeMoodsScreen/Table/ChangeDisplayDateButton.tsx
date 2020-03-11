@@ -40,10 +40,10 @@ const ChangeDisplayDateButton: React.FC = () => {
     return (
       <div>
         <PrevButton size='small' onClick={handlePreviousButtonClick}>
-          {<KeyboardArrowLeft />}前の月
+          {<KeyboardArrowLeft />}前月
         </PrevButton>
         <NextButton size='small' onClick={handleNextButtonClick}>
-          次の月{<KeyboardArrowRight />}
+          翌月{<KeyboardArrowRight />}
         </NextButton>
       </div>
     );
@@ -51,10 +51,10 @@ const ChangeDisplayDateButton: React.FC = () => {
     return (
       <div>
         <PrevButton size='small' onClick={handlePreviousButtonClick}>
-          {<KeyboardArrowLeft />}前の週
+          {<KeyboardArrowLeft />}前週
         </PrevButton>
         <NextButton size='small' onClick={handleNextButtonClick}>
-          次の週{<KeyboardArrowRight />}
+          翌週{<KeyboardArrowRight />}
         </NextButton>
       </div>
     );

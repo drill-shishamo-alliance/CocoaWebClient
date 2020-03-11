@@ -46,7 +46,7 @@ export const NotDataTextPosition = styled('div')`
 export const PrevButton = styled(Button)`
   position: absolute;
   right: 11%;
-  margin-right: 40px;
+  margin-right: 30px;
   margin-top: 48px; // 左に存在するタブ分下げる
 `;
 

@@ -38,7 +38,7 @@ const BarChart: React.FC<Props> = props => {
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
 
-    if (active) {
+    if (active && payload !== null && payload.length) {
       const moodRatio: number = payload[0].payload['moodRatio'];
       const moodName: string = payload[0].payload['moodName'];
       const causesRatio: CausesRatio = payload[0].payload['causesRatio'];
