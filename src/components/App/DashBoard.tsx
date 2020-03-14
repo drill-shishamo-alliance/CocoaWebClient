@@ -9,9 +9,7 @@ import classNames from 'classnames';
 import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
-// import MyMoods from '../MyMoodsScreen/MyMoods';
 import Ranking from '../RankingScreen/RankingScreen';
-// import MoodsMap from '../MoodsMapScreen/MoodsMap';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
@@ -23,6 +21,8 @@ import { getCauses } from 'src/actions/Causes/ActionCreator';
 import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
+
+let routePath = '/';
 
 const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
@@ -56,6 +56,7 @@ const DashBoard: React.FC = () => {
   };
 
   const routeMainContent = (route: string, dates?: Date[]) => () => {
+    routePath = route;
     history.push(route);
     if (dates !== undefined) {
       dispatch(resetDate());
@@ -97,16 +98,18 @@ const DashBoard: React.FC = () => {
             }}
             open={isOpenDrawer}
           >
-            <DrawerList handleClick={routeMainContent} />
+            <DrawerList
+              handleClick={routeMainContent}
+              isOpenDrawer={isOpenDrawer}
+              routePath={routePath}
+            />
           </Drawer>
           <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
             <div className={classes.appBarSpacer} />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/employeemoods' component={EmployeeMoodsScreen} />
-              {/* <Route path='/mymoods' component={MyMoods} /> */}
               <Route path='/ranking' component={Ranking} />
-              {/* <Route path='/moodsmap' component={MoodsMap} /> */}
             </Switch>
           </main>
         </div>
