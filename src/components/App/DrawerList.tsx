@@ -35,7 +35,6 @@ const styles = makeStyles((theme: Theme) =>
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      padding: '15px 30px',
       textAlign: 'center',
       width: '100%',
     },
@@ -48,6 +47,10 @@ const styles = makeStyles((theme: Theme) =>
     },
     margin: {
       marginTop: -7,
+    },
+    drawerListClosedItemMergin: {
+      marginTop: 30,
+      marginBottom: 30,
     },
   })
 );
@@ -72,24 +75,26 @@ const DrawerList: React.FC<Props> = props => {
   return (
     <List>
       <ListItem button onClick={handleClick('/', pastFiveDays)}>
-        <ListItemIcon>
-          {isOpenDrawer === false ? (
+        {isOpenDrawer === false ? (
+          <ListItemIcon className={classes.drawerListClosedItemMergin}>
             <div className={classes.position}>
               <HomeIcon className={routePath === '/' ? classes.clickColor : classes.iconColor} />
               <Typography className={routePath === '/' ? classes.clickFont : classes.font}>
                 ホーム
               </Typography>
             </div>
-          ) : (
+          </ListItemIcon>
+        ) : (
+          <ListItemIcon>
             <HomeIcon className={routePath === '/' ? classes.clickColor : classes.iconColor} />
-          )}
-        </ListItemIcon>
+          </ListItemIcon>
+        )}
         <ListItemText primary='ホーム' />
       </ListItem>
 
       <ListItem button onClick={handleClick('/employeemoods', initialEmployeeMoodsDisplaySpan)}>
-        <ListItemIcon>
-          {isOpenDrawer === false ? (
+        {isOpenDrawer === false ? (
+          <ListItemIcon className={classes.drawerListClosedItemMergin}>
             <div className={classes.position}>
               <img
                 src={routePath === '/employeemoods' ? EmployeeMoodsClickedIcon : EmployeeMoodsIcon}
@@ -102,20 +107,22 @@ const DrawerList: React.FC<Props> = props => {
                 部下の気分
               </Typography>
             </div>
-          ) : (
+          </ListItemIcon>
+        ) : (
+          <ListItemIcon>
             <img
               src={routePath === '/employeemoods' ? EmployeeMoodsClickedIcon : EmployeeMoodsIcon}
               className={classes.iconImg}
               alt='employeemoods'
             />
-          )}
-        </ListItemIcon>
+          </ListItemIcon>
+        )}
         <ListItemText primary='部下の気分' />
       </ListItem>
 
       <ListItem button onClick={handleClick('/ranking', initialEmployeeMoodsDisplaySpan)}>
-        <ListItemIcon>
-          {isOpenDrawer === false ? (
+        {isOpenDrawer === false ? (
+          <ListItemIcon className={classes.drawerListClosedItemMergin}>
             <div className={classes.position}>
               <img
                 src={routePath === '/ranking' ? RankingClickedIcon : RankingIcon}
@@ -134,14 +141,16 @@ const DrawerList: React.FC<Props> = props => {
                 ランキング
               </Typography>
             </div>
-          ) : (
+          </ListItemIcon>
+        ) : (
+          <ListItemIcon>
             <img
               src={routePath === '/ranking' ? RankingClickedIcon : RankingIcon}
               className={classes.iconImg}
               alt='ranking'
             />
-          )}
-        </ListItemIcon>
+          </ListItemIcon>
+        )}
         <ListItemText primary='部署ランキング' />
       </ListItem>
     </List>
