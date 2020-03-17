@@ -22,7 +22,7 @@ import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDat
 import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
-let routePath = '/';
+let currentPath = '/';
 
 const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
@@ -55,8 +55,8 @@ const DashBoard: React.FC = () => {
     setIsOpenDrower(!isOpenDrawer);
   };
 
-  const routeMainContent = (route: string, dates?: Date[]) => () => {
-    routePath = route;
+  const onClickDrawerItem = (route: string, dates?: Date[]) => () => {
+    currentPath = route;
     history.push(route);
     if (dates !== undefined) {
       dispatch(resetDate());
@@ -99,9 +99,9 @@ const DashBoard: React.FC = () => {
             open={isOpenDrawer}
           >
             <DrawerList
-              handleClick={routeMainContent}
+              onClickDrawerItem={onClickDrawerItem}
               isOpenDrawer={isOpenDrawer}
-              routePath={routePath}
+              currentPath={currentPath}
             />
           </Drawer>
           <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
