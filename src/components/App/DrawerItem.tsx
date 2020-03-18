@@ -9,6 +9,23 @@ import {
 } from '@material-ui/core';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
+type SvgIcons = {
+  NormalIcon: string;
+  ClickedIcon: string;
+};
+
+export type SelectSvgIcon = {
+  SvgIcon: SvgIcons;
+  ComponentIcon?: undefined;
+};
+
+export type SelectComponentIcon = {
+  SvgIcon?: undefined;
+  ComponentIcon: (props: SvgIconProps) => JSX.Element;
+};
+
+type Icon = SelectSvgIcon | SelectComponentIcon;
+
 type Props = {
   onClickDrawerItem: (
     route: string,
@@ -19,9 +36,7 @@ type Props = {
   currentPath: string;
   iconName: string;
   clickedDates?: Date[];
-  IconComponent?: (props: SvgIconProps) => JSX.Element;
-  IconSvg?: string;
-  IconClickedSvg?: string;
+  Icon: Icon;
 };
 
 const DrawerItem: React.FC<Props> = props => {
@@ -33,24 +48,25 @@ const DrawerItem: React.FC<Props> = props => {
     currentPath,
     iconName,
     clickedDates,
-    IconComponent,
-    IconSvg,
-    IconClickedSvg,
+    Icon,
   } = props;
+
+  const SvgIcon = Icon.SvgIcon;
+  const ComponentIcon = Icon.ComponentIcon;
 
   if (!isOpenDrawer) {
     return (
       <ListItem button onClick={onClickDrawerItem(path, clickedDates)}>
         <ListItemIcon className={classes.drawerListClosedItemMergin}>
           <div className={classes.position}>
-            {IconComponent && (
-              <IconComponent
+            {ComponentIcon && (
+              <ComponentIcon
                 className={currentPath === path ? classes.clickColor : classes.iconColor}
               />
             )}
-            {IconSvg && IconClickedSvg && (
+            {SvgIcon && (
               <img
-                src={currentPath === path ? IconClickedSvg : IconSvg}
+                src={currentPath === path ? SvgIcon.ClickedIcon : SvgIcon.NormalIcon}
                 className={classes.iconImg}
                 alt={iconName}
               />
@@ -68,14 +84,14 @@ const DrawerItem: React.FC<Props> = props => {
       <ListItem button onClick={onClickDrawerItem(iconName, clickedDates)} className={classes.hoge}>
         <ListItemIcon>
           <div>
-            {IconComponent && (
-              <IconComponent
+            {ComponentIcon && (
+              <ComponentIcon
                 className={currentPath === path ? classes.clickColor : classes.iconColor}
               />
             )}
-            {IconSvg && IconClickedSvg && (
+            {SvgIcon && (
               <img
-                src={currentPath === path ? IconClickedSvg : IconSvg}
+                src={currentPath === path ? SvgIcon.ClickedIcon : SvgIcon.NormalIcon}
                 className={classes.iconImg}
                 alt={iconName}
               />

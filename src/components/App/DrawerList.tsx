@@ -1,14 +1,14 @@
 import React from 'react';
 import { List } from '@material-ui/core';
-import DrawerItem from './DrawerItem';
-import HomeIcon from '@material-ui/icons/Home';
+import DrawerItem, { SelectComponentIcon, SelectSvgIcon } from './DrawerItem';
+import HomeMaterialIcon from '@material-ui/icons/Home';
 import { GetPastFiveDays } from '../HomeScreen/Table/utils/GetPastFiveDays';
 import getWeekIndex from 'src/utilsLogic/Date/GetWeekNumber';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
-import EmployeeMoodsIcon from 'src/assets/DrawerItems/defalt/EmployeeMoodsIcon.svg';
-import EmployeeMoodsClickedIcon from 'src/assets/DrawerItems/clicked/EmployeeMoodsIcon.svg';
-import RankingClickedIcon from 'src/assets/DrawerItems/clicked/Ranking.svg';
-import RankingIcon from 'src/assets/DrawerItems/defalt/Ranking.svg';
+import EmployeeMoodsSvgIcon from 'src/assets/DrawerItems/defalt/EmployeeMoodsIcon.svg';
+import EmployeeMoodsClickedSvgIcon from 'src/assets/DrawerItems/clicked/EmployeeMoodsIcon.svg';
+import RankingClickedSvgIcon from 'src/assets/DrawerItems/clicked/Ranking.svg';
+import RankingSvgIcon from 'src/assets/DrawerItems/defalt/Ranking.svg';
 
 type Props = {
   onClickDrawerItem: (
@@ -25,12 +25,19 @@ const DrawerList: React.FC<Props> = props => {
   const date = new Date();
   const weekIndex = getWeekIndex(date);
   const initialEmployeeMoodsDisplaySpan = getWeekOfMonth(date, weekIndex);
+  const HomeIcon: SelectComponentIcon = { ComponentIcon: HomeMaterialIcon };
+  const EmployeeMoodsIcon: SelectSvgIcon = {
+    SvgIcon: { NormalIcon: EmployeeMoodsSvgIcon, ClickedIcon: EmployeeMoodsClickedSvgIcon },
+  };
+  const RankingIcon: SelectSvgIcon = {
+    SvgIcon: { NormalIcon: RankingSvgIcon, ClickedIcon: RankingClickedSvgIcon },
+  };
   return (
     <List>
       <DrawerItem
         iconName='ホーム'
         path='/'
-        IconComponent={HomeIcon}
+        Icon={HomeIcon}
         clickedDates={pastFiveDays}
         onClickDrawerItem={onClickDrawerItem}
         isOpenDrawer={isOpenDrawer}
@@ -39,8 +46,7 @@ const DrawerList: React.FC<Props> = props => {
       <DrawerItem
         iconName='部下の気分'
         path='/employeemoods'
-        IconSvg={EmployeeMoodsIcon}
-        IconClickedSvg={EmployeeMoodsClickedIcon}
+        Icon={EmployeeMoodsIcon}
         clickedDates={initialEmployeeMoodsDisplaySpan}
         onClickDrawerItem={onClickDrawerItem}
         isOpenDrawer={isOpenDrawer}
@@ -49,8 +55,7 @@ const DrawerList: React.FC<Props> = props => {
       <DrawerItem
         iconName='ランキング'
         path='/ranking'
-        IconSvg={RankingIcon}
-        IconClickedSvg={RankingClickedIcon}
+        Icon={RankingIcon}
         clickedDates={initialEmployeeMoodsDisplaySpan}
         onClickDrawerItem={onClickDrawerItem}
         isOpenDrawer={isOpenDrawer}
