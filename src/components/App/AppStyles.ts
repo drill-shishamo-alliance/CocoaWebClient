@@ -7,7 +7,6 @@ const headerMinHeightXS = 48;
 const AppStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '100%',
       display: 'flex',
     },
     grow: {
@@ -18,16 +17,14 @@ const AppStyles = makeStyles((theme: Theme) =>
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
-      width: '100%',
-      top: 0,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
     appBarShift: {
-      // marginLeft: drawerWidth,
-      // width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
