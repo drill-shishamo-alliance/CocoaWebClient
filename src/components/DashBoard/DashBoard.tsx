@@ -10,7 +10,7 @@ import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import Ranking from '../RankingScreen/RankingScreen';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, BrowserRouter } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
@@ -22,7 +22,7 @@ import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDat
 import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
-let currentPath = '/';
+let currentPath = '/app';
 
 const DashBoard: React.FC = () => {
   const classes = AppStyles();
@@ -54,8 +54,14 @@ const DashBoard: React.FC = () => {
   };
 
   const onClickDrawerItem = (route: string, dates?: Date[]) => () => {
+    // if (route === '/app') {
+    //   currentPath = route
+    // } else {
+    //   currentPath = `/app${route}`
+    // }
+    console.log(`onClickRoute:${route}`);
     currentPath = route;
-    history.push(route);
+    history.push(currentPath);
     if (dates !== undefined) {
       dispatch(resetDate());
       dispatch(updateDisplaySpan({ displaySpan: dates }));
@@ -104,11 +110,9 @@ const DashBoard: React.FC = () => {
           </Drawer>
           <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
             <div className={classes.appBarSpacer} />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/employeemoods' component={EmployeeMoodsScreen} />
-              <Route path='/ranking' component={Ranking} />
-            </Switch>
+            <Route path='/app' component={Home} exact />
+            <Route path='/app/employeemoods' component={EmployeeMoodsScreen} />
+            <Route path='/app/ranking' component={Ranking} />
           </main>
         </div>
       </StyledThemeProvider>
