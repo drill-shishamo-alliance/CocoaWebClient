@@ -6,6 +6,7 @@ import { displayDateSaga } from './DisplayDate';
 import { causesSasa } from './Causes';
 import { departmentsSaga } from './Departments';
 import { listMoodOfDepartmentSaga } from './ListMoodOfDepartment';
+import userSagas from './User';
 
 export default function* rootSaga() {
   yield all([
@@ -16,5 +17,6 @@ export default function* rootSaga() {
     ...displayDateSaga,
     ...departmentsSaga,
     ...listMoodOfDepartmentSaga,
+    ...userSagas,
   ]);
 }

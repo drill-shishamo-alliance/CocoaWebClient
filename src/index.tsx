@@ -10,8 +10,8 @@ import rootReducer from './reducers';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'src/sagas';
-import DashBoard from './components/App/DashBoard';
 import { StylesProvider } from '@material-ui/styles';
+import App from './components/App/App';
 
 const composeEnhancers = composeWithDevTools({
   // Specify name here, actionsBlacklist, actionsCreators and other options if needed
@@ -27,7 +27,7 @@ ReactDOM.render(
   <Provider store={store}>
     <StylesProvider injectFirst>
       <BrowserRouter>
-        <DashBoard />
+        <App />
       </BrowserRouter>
     </StylesProvider>
   </Provider>,

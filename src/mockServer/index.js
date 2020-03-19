@@ -19,6 +19,7 @@ const feb10_14_moods = require('./mockPunchedMoodsProd/feb10_14_moods.json');
 const feb17_21_moods = require('./mockPunchedMoodsProd/feb17_21_moods.json');
 const feb24_28_moods = require('./mockPunchedMoodsProd/feb24_28_moods.json');
 const feb_moods = require('./mockPunchedMoodsProd/feb_moods.json');
+const user = require('./userProd.json')
 
 const app = express();
 const port_number = 8000;
@@ -31,6 +32,10 @@ app.use((_, res, next) => {
 });
 
 app.get('/', (_, res) => res.send('Cocoa mock server'));
+
+app.post('/login', (_, res) => {
+  res.status(200).json(user)
+})
 
 // このアプリにて使用する気分の情報を返す
 app.get('/moods', (_, res) => {
