@@ -81,7 +81,7 @@ const DrawerItem: React.FC<Props> = props => {
     );
   } else {
     return (
-      <ListItem button onClick={onClickDrawerItem(iconName, clickedDates)} className={classes.hoge}>
+      <ListItem button onClick={onClickDrawerItem(path, clickedDates)} className={classes.hoge}>
         <ListItemIcon>
           <div>
             {ComponentIcon && (
