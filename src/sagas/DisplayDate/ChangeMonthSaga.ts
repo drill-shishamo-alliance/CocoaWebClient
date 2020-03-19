@@ -17,8 +17,10 @@ export function* changeMonthSaga(action: ReturnType<typeof changeMonthButtonClic
   const begin_date = beginAndEndDate.beginDate;
   const end_date = beginAndEndDate.endDate;
   const newDisplaySpan = getMonthDates(displayMonday);
+  const employee_id = state.UserState.employeeId;
+  const department_id = state.UserState.departmentId;
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-  yield put(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+  yield put(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
   yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
 }

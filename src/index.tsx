@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'src/sagas';
-import DashBoard from './components/App/DashBoard';
 import { StylesProvider } from '@material-ui/styles';
+import App from './components/App/App';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const composeEnhancers = composeWithDevTools({
   // Specify name here, actionsBlacklist, actionsCreators and other options if needed
@@ -27,7 +28,7 @@ ReactDOM.render(
   <Provider store={store}>
     <StylesProvider injectFirst>
       <BrowserRouter>
-        <DashBoard />
+        <Route path='/' component={App} />
       </BrowserRouter>
     </StylesProvider>
   </Provider>,

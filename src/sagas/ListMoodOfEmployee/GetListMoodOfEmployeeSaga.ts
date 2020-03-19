@@ -15,7 +15,8 @@ export function* getListMoodOfEmployeeSaga(
   const response: PromiseGenericType<ReturnType<typeof getListMoodOfEmployeeOnAjax>> = yield call(
     getListMoodOfEmployeeOnAjax,
     {
-      employee_id: 'hoge',
+      employee_id: action.payload.employee_id,
+      department_id: action.payload.department_id,
       begin_date: action.payload.begin_date,
       end_date: action.payload.end_date,
     }

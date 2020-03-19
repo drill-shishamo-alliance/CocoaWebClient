@@ -18,7 +18,6 @@ export type Props = {
 
 const TableItem: React.FC<Props> = props => {
   const { employee } = props;
-  console.log(employee);
   const listMoodOfEmployee = useSelector<rootState, rootState['ListMoodOfEmployee']>(
     state => state.ListMoodOfEmployee
   );

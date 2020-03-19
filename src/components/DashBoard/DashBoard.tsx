@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { theme } from 'src/utilsUI/theme';
-import AppStyles from './AppStyles';
+import AppStyles from './DashBoardStyles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer } from '@material-ui/core';
@@ -10,7 +10,7 @@ import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import Ranking from '../RankingScreen/RankingScreen';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, BrowserRouter } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
@@ -22,48 +22,52 @@ import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDat
 import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
-let currentPath = '/';
+let currentPath = '/app';
 
 const DashBoard: React.FC = () => {
-  const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
-    state => state.displayDateState.displaySpan
-  );
+  const classes = AppStyles();
+  const [isOpenDrawer, setIsOpenDrower] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const isLoggedIn = useSelector<RootState, RootState['UserState']['isLoggedIn']>(
+    state => state.UserState.isLoggedIn
+  );
+  const employee_id = useSelector<RootState, RootState['UserState']['employeeId']>(
+    state => state.UserState.employeeId
+  );
+  const department_id = useSelector<RootState, RootState['UserState']['departmentId']>(
+    state => state.UserState.departmentId
+  );
 
   useEffect(() => {
-    const initialRequestBeginDate = convertDateToUnix(displaySpan[0]);
-    const initialRequestEndDate = convertDateToUnix(displaySpan[displaySpan.length - 1]);
+    if (!isLoggedIn) {
+      history.push('/login');
+    }
     dispatch(getMoods.request({}));
     dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
     dispatch(getDepartments.request({}));
-    dispatch(
-      getListMoodOfEmployee.request({
-        employee_id: 'hoge',
-        begin_date: initialRequestBeginDate,
-        end_date: initialRequestEndDate,
-      })
-    );
   }, []);
-
-  const classes = AppStyles();
-  const history = useHistory();
-
-  const [isOpenDrawer, setIsOpenDrower] = useState(false);
 
   const handleDrawerOpen = () => {
     setIsOpenDrower(!isOpenDrawer);
   };
 
   const onClickDrawerItem = (route: string, dates?: Date[]) => () => {
+    // if (route === '/app') {
+    //   currentPath = route
+    // } else {
+    //   currentPath = `/app${route}`
+    // }
+    console.log(`onClickRoute:${route}`);
     currentPath = route;
-    history.push(route);
+    history.push(currentPath);
     if (dates !== undefined) {
       dispatch(resetDate());
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ employee_id: 'hoge', begin_date, end_date }));
+      dispatch(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
       dispatch(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
     }
   };
@@ -106,11 +110,9 @@ const DashBoard: React.FC = () => {
           </Drawer>
           <main className={classNames(classes.content, isOpenDrawer && classes.contentShift)}>
             <div className={classes.appBarSpacer} />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/employeemoods' component={EmployeeMoodsScreen} />
-              <Route path='/ranking' component={Ranking} />
-            </Switch>
+            <Route path='/app' component={Home} exact />
+            <Route path='/app/employeemoods' component={EmployeeMoodsScreen} />
+            <Route path='/app/ranking' component={Ranking} />
           </main>
         </div>
       </StyledThemeProvider>

@@ -36,7 +36,7 @@ const DrawerList: React.FC<Props> = props => {
     <List>
       <DrawerItem
         iconName='ホーム'
-        path='/'
+        path='/app'
         Icon={HomeIcon}
         clickedDates={pastFiveDays}
         onClickDrawerItem={onClickDrawerItem}
@@ -45,7 +45,7 @@ const DrawerList: React.FC<Props> = props => {
       />
       <DrawerItem
         iconName='部下の気分'
-        path='/employeemoods'
+        path='/app/employeemoods'
         Icon={EmployeeMoodsIcon}
         clickedDates={initialEmployeeMoodsDisplaySpan}
         onClickDrawerItem={onClickDrawerItem}
@@ -54,7 +54,7 @@ const DrawerList: React.FC<Props> = props => {
       />
       <DrawerItem
         iconName='ランキング'
-        path='/ranking'
+        path='/app/ranking'
         Icon={RankingIcon}
         clickedDates={initialEmployeeMoodsDisplaySpan}
         onClickDrawerItem={onClickDrawerItem}
