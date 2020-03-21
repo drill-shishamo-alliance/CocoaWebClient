@@ -17,11 +17,11 @@ export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
     yield put(postLogin.success(response.data));
     const state: RootState = yield select();
     const displaySpan = state.displayDateState.displaySpan;
-    const employee_id = response.data.employee_id;
-    const department_id = response.data.department_id;
+    // const employee_id = response.data.employee_id;
+    // const department_id = response.data.department_id;
     const begin_date = convertDateToUnix(displaySpan[0]);
     const end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
-    yield put(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
+    yield put(getListMoodOfEmployee.request({ begin_date, end_date }));
   } else if (response.status === 400) {
     yield put(postLogin.failure());
   } else {

@@ -10,7 +10,7 @@ import DrawerList from './DrawerList';
 import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import Ranking from '../RankingScreen/RankingScreen';
-import { Switch, Route, useHistory, BrowserRouter } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
 import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
@@ -32,9 +32,9 @@ const DashBoard: React.FC = () => {
   const isLoggedIn = useSelector<RootState, RootState['UserState']['isLoggedIn']>(
     state => state.UserState.isLoggedIn
   );
-  const employee_id = useSelector<RootState, RootState['UserState']['employeeId']>(
-    state => state.UserState.employeeId
-  );
+  // const employee_id = useSelector<RootState, RootState['UserState']['employeeId']>(
+  //   state => state.UserState.employeeId
+  // );
   const department_id = useSelector<RootState, RootState['UserState']['departmentId']>(
     state => state.UserState.departmentId
   );
@@ -67,7 +67,7 @@ const DashBoard: React.FC = () => {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
+      dispatch(getListMoodOfEmployee.request({ begin_date, end_date }));
       dispatch(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
     }
   };

@@ -18,10 +18,10 @@ export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButt
   const newDisplaySpan = getWeekOfMonth(displayMonday, weekIndex);
   const begin_date = convertDateToUnix(newDisplaySpan[0]);
   const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
-  const employee_id = state.UserState.employeeId;
-  const department_id = state.UserState.departmentId;
+  // const employee_id = state.UserState.employeeId;
+  // const department_id = state.UserState.departmentId;
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-  yield put(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
+  yield put(getListMoodOfEmployee.request({ begin_date, end_date }));
   yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
 }
