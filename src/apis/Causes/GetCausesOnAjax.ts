@@ -2,7 +2,7 @@ import Axios from '../Axios';
 import Cause from './Model';
 
 export type getCausesParams = {
-  department_id?: string;
+  department_id?: number;
 };
 
 export type getCausesResponse = Cause[];

@@ -1,7 +1,7 @@
 // 部署の情報を表す型
 type Departments = {
-  [department_id: string]: {
-    id: string;
+  [department_id: number]: {
+    id: number;
     name: string;
   };
 };

@@ -11,7 +11,7 @@ export function* getListMoodOfDepartmentSaga(
   const response: PromiseGenericType<ReturnType<typeof getListMoodOfDepartmentOnAjax>> = yield call(
     getListMoodOfDepartmentOnAjax,
     {
-      department_id: 'hoge',
+      department_id: 0,
       begin_date: action.payload.begin_date,
       end_date: action.payload.end_date,
     }

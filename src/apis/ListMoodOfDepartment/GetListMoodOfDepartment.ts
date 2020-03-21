@@ -2,7 +2,7 @@ import Axios from '../Axios';
 import ListMoodOfDepartment from './Model';
 
 export type GetListMoodOfDepartmentParams = {
-  department_id: string;
+  department_id: number;
   begin_date: number;
   end_date: number;
 };

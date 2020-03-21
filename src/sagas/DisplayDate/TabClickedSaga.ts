@@ -29,7 +29,7 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
     yield put(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
-    yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
+    yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
   } else if (displayTab === tabName.month) {
     const beginAndEndDate = getBeginAndEndDateFromMonth(displayMonday);
     const begin_date = beginAndEndDate.beginDate;
@@ -38,6 +38,6 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
     yield put(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
-    yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
+    yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
   }
 }

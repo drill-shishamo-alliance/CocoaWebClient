@@ -11,6 +11,7 @@ export function* getMoodsSaga(action: ReturnType<typeof getMoods.request>) {
   );
 
   if (response.status === 200 && response.data) {
+    console.log(response.data);
     const moodsState: MoodsState = {};
     response.data.forEach(mood => {
       moodsState[mood.id] = {

@@ -19,7 +19,7 @@ export type WeeklyMoods = {
 export type WeeklyMoodsByMonthState = {
   [year: string]: {
     [month: string]: {
-      [employeeId: string]: WeeklyMoods;
+      [employeeId: number]: WeeklyMoods;
     };
   };
 };

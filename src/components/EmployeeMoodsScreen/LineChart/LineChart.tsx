@@ -50,8 +50,8 @@ const LineChart: React.FC<Props> = props => {
   const CustomTooltip = (props: any) => {
     const { active, payload } = props;
     if (active && payload !== null && payload.length) {
-      const moodId: string = payload[0].payload.moodId;
-      const causeIds: string[] = payload[0].payload.causeIds;
+      const moodId: number = payload[0].payload.moodId;
+      const causeIds: number[] = payload[0].payload.causeIds;
       return (
         <CustomContentOfToolTip>
           <p className='label'>{moods[moodId].name}</p>

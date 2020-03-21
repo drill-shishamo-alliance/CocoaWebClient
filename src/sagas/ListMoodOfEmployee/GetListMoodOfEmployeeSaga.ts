@@ -25,7 +25,7 @@ export function* getListMoodOfEmployeeSaga(
     // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
     const state: RootState = yield select();
     const moods = state.MoodsState;
-    const reorderParams: { employee_id: string; mood_weight_average: number }[] = [];
+    const reorderParams: { employee_id: number; mood_weight_average: number }[] = [];
     let convertDateData: listMoodOfEmployeeState = {};
     const dangerLine = 2.5;
 

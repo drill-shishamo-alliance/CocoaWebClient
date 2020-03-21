@@ -22,5 +22,5 @@ export function* changeMonthSaga(action: ReturnType<typeof changeMonthButtonClic
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
   yield put(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
-  yield put(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
+  yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
 }

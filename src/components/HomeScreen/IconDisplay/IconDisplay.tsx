@@ -6,8 +6,8 @@ import rootState from 'src/states/index';
 import IconToolTip from '../IconToolTip/IconToolTip';
 
 type Props = {
-  moodId: string;
-  causeIds: string[];
+  moodId: number;
+  causeIds: number[];
 };
 
 const IconDisplay: React.FC<Props> = props => {

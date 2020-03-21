@@ -1,21 +1,21 @@
 type CauseRatio = {
-  [cause_id: string]: {
-    id: string;
+  [cause_id: number]: {
+    id: number;
     ratio: number;
   };
 };
 
 type MoodsRatio = {
-  [mood_id: string]: {
-    id: string;
+  [mood_id: number]: {
+    id: number;
     ratio: number;
     causes_ratio: CauseRatio;
   };
 };
 
 type ListMoodOfDepartment = {
-  [department_id: string]: {
-    id: string;
+  [department_id: number]: {
+    id: number;
     moods_ratio: MoodsRatio;
   };
 };

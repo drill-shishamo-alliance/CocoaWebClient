@@ -1,11 +1,11 @@
 type PunchLog = {
-  mood_id: string;
-  cause_ids: string[];
+  mood_id: number;
+  cause_ids: number[];
   punched_at: number;
 };
 
 type MoodOfEmployee = {
-  employee_id: string;
+  employee_id: number;
   punch_logs: PunchLog[];
 };
 

@@ -68,7 +68,7 @@ const DashBoard: React.FC = () => {
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
       dispatch(getListMoodOfEmployee.request({ employee_id, department_id, begin_date, end_date }));
-      dispatch(getListMoodOfDepartment.request({ department_id: 'hoge', begin_date, end_date }));
+      dispatch(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
     }
   };
 
