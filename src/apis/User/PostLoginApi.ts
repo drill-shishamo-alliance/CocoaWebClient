@@ -1,5 +1,5 @@
 import UserModel from './Model';
-import Axios from '../Axios';
+import axios from './Axios';
 
 export type postLoginParams = {
   id: string;
@@ -8,9 +8,7 @@ export type postLoginParams = {
 
 export async function postLoginApi(params: postLoginParams) {
   try {
-    return await Axios.post<UserModel>('/login', {
-      params,
-    });
+    return await axios.post<UserModel>('/login', params);
   } catch (e) {
     throw new Error(e);
   }

@@ -12,7 +12,7 @@ export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
     action.payload
   );
 
-  if (response.status === 200 && response.data) {
+  if (response.status === 201 && response.data) {
     // ログインに成功した場合、そのデータを基に部下の気分のリクエストを発火する
     yield put(postLogin.success(response.data));
     const state: RootState = yield select();

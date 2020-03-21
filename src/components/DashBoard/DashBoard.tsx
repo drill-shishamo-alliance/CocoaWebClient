@@ -44,7 +44,7 @@ const DashBoard: React.FC = () => {
       history.push('/login');
     }
     dispatch(getMoods.request({ departmentId: department_id }));
-    dispatch(getCauses.request({}));
+    dispatch(getCauses.request({ departmentId: department_id }));
     dispatch(getEmployees.request({}));
     dispatch(getDepartments.request({}));
   }, []);
