@@ -1,19 +1,15 @@
 import Mood from './Model';
-import Axios from '../Axios';
+import Axios from './Axios';
 
 export type getMoodsParams = {
-  access_token?: string;
+  departmentId: number;
 };
 
 export type getMoodsResponse = Mood[];
 
-export async function getMoodsOnAjax({ access_token }: getMoodsParams) {
+export async function getMoodsOnAjax({ departmentId }: getMoodsParams) {
   try {
-    return await Axios.get<getMoodsResponse>('/moods', {
-      params: {
-        access_token,
-      },
-    });
+    return await Axios.get<getMoodsResponse>(`/moods/${departmentId}`);
   } catch (e) {
     throw new Error(e);
   }

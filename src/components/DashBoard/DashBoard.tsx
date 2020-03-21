@@ -43,7 +43,7 @@ const DashBoard: React.FC = () => {
     if (!isLoggedIn) {
       history.push('/login');
     }
-    dispatch(getMoods.request({}));
+    dispatch(getMoods.request({ departmentId: department_id }));
     dispatch(getCauses.request({}));
     dispatch(getEmployees.request({}));
     dispatch(getDepartments.request({}));
