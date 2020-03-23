@@ -14,9 +14,9 @@ export function* getEmployeesSaga(action: ReturnType<typeof getEmployees.request
     if (response.status === 200 && response.data) {
       const employeesState: EmployeesState = {};
       response.data.forEach(employee => {
-        employeesState[employee.id] = {
-          id: employee.id,
-          name: employee.name,
+        employeesState[employee.ID] = {
+          id: employee.ID,
+          name: employee.Name,
         };
       });
       yield put(getEmployees.success(employeesState));

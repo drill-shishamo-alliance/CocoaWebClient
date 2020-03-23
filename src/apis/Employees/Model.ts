@@ -1,7 +1,6 @@
 type Employee = {
-  id: number;
-  department_id: number;
-  name: string;
+  ID: number;
+  Name: string;
 };
 
 export default Employee;
