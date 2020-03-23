@@ -1,0 +1,227 @@
+{
+  "department_id1": {
+    "id": "department_id1",
+    "moods_ratio": {
+      "5e75d50abf2511a1389860eb": {
+        "id": "5e75d50abf2511a1389860eb",
+        "ratio": 20,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "4": {
+            "id": "4",
+            "ratio": 50
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ec": {
+        "id": "5e75d50abf2511a1389860ec",
+        "ratio": 20,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "4": {
+            "id": "4",
+            "ratio": 50
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ed": {
+        "id": "5e75d50abf2511a1389860ed",
+        "ratio": 50,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "4": {
+            "id": "4",
+            "ratio": 50
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ee": {
+        "id": "5e75d50abf2511a1389860ee",
+        "ratio": 0,
+        "causes_ratio": {}
+      },
+      "5e75d50abf2511a1389860ef": {
+        "id": "5e75d50abf2511a1389860ef",
+        "ratio": 10,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "4": {
+            "id": "4",
+            "ratio": 50
+          }
+        }
+      }
+    }
+  },
+  "department_id2": {
+    "id": "department_id2",
+    "moods_ratio": {
+      "5e75d50abf2511a1389860eb": {
+        "id": "5e75d50abf2511a1389860eb",
+        "ratio": 0,
+        "causes_ratio": {}
+      },
+      "5e75d50abf2511a1389860ec": {
+        "id": "5e75d50abf2511a1389860ec",
+        "ratio": 0,
+        "causes_ratio": {}
+      },
+      "5e75d50abf2511a1389860ed": {
+        "id": "5e75d50abf2511a1389860ed",
+        "ratio": 30,
+        "causes_ratio": {
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "3": {
+            "id": "3",
+            "ratio": 20
+          },
+          "4": {
+            "id": "4",
+            "ratio": 50
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ee": {
+        "id": "5e75d50abf2511a1389860ee",
+        "ratio": 30,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "3": {
+            "id": "3",
+            "ratio": 20
+          },
+          "4": {
+            "id": "4",
+            "ratio": 40
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ef": {
+        "id": "5e75d50abf2511a1389860ef",
+        "ratio": 40,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 50
+          },
+          "2": {
+            "id": "2",
+            "ratio": 50
+          }
+        }
+      }
+    }
+  },
+  "department_id3": {
+    "id": "department_id3",
+    "moods_ratio": {
+      "5e75d50abf2511a1389860eb": {
+        "id": "5e75d50abf2511a1389860eb",
+        "ratio": 10,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "3": {
+            "id": "3",
+            "ratio": 10
+          },
+          "4": {
+            "id": "4",
+            "ratio": 40
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ec": {
+        "id": "5e75d50abf2511a1389860ec",
+        "ratio": 0,
+        "causes_ratio": {}
+      },
+      "5e75d50abf2511a1389860ed": {
+        "id": "5e75d50abf2511a1389860ed",
+        "ratio": 30,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 100
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ee": {
+        "id": "5e75d50abf2511a1389860ee",
+        "ratio": 30,
+        "causes_ratio": {
+          "1": {
+            "id": "1",
+            "ratio": 20
+          },
+          "2": {
+            "id": "2",
+            "ratio": 30
+          },
+          "3": {
+            "id": "3",
+            "ratio": 50
+          }
+        }
+      },
+      "5e75d50abf2511a1389860ef": {
+        "id": "5e75d50abf2511a1389860ef",
+        "ratio": 30,
+        "causes_ratio": {
+          "3": {
+            "id": "3",
+            "ratio": 80
+          },
+          "4": {
+            "id": "4",
+            "ratio": 20
+          }
+        }
+      }
+    }
+  }
+}

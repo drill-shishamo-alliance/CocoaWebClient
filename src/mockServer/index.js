@@ -1,9 +1,9 @@
 const express = require('express');
-const jan6_10_department_moods = require('./mockDepartmentMoods/jan6_10_department_moods.json');
-const jan13_17_department_moods = require('./mockDepartmentMoods/jan13_17_department_moods.json');
-const jan20_24_department_moods = require('./mockDepartmentMoods/jan20_24_department_moods.json');
-const jan27_31_department_moods = require('./mockDepartmentMoods/jan27_31_department_moods.json');
-const jan_department_moods = require('./mockDepartmentMoods/jan_department_moods');
+const mar2_6_department_moods = require('./mockDepartmentMoods/mar2_6_department_moods.json');
+const mar9_13_department_moods = require('./mockDepartmentMoods/mar9_13_department_moods.json');
+const mar16_20_department_moods = require('./mockDepartmentMoods/mar16_20_department_moods.json');
+const mar23_27_department_moods = require('./mockDepartmentMoods/mar23_27_department_moods.json');
+const mar_department_moods = require('./mockDepartmentMoods/mar_department_moods');
 const departments = require('./departments.json');
 const moods = require('./moodsProd.json');
 const causes = require('./causesProd.json');
@@ -19,7 +19,7 @@ const feb10_14_moods = require('./mockPunchedMoodsProd/feb10_14_moods.json');
 const feb17_21_moods = require('./mockPunchedMoodsProd/feb17_21_moods.json');
 const feb24_28_moods = require('./mockPunchedMoodsProd/feb24_28_moods.json');
 const feb_moods = require('./mockPunchedMoodsProd/feb_moods.json');
-const user = require('./userProd.json')
+const user = require('./userProd.json');
 
 const app = express();
 const port_number = 8000;
@@ -34,8 +34,8 @@ app.use((_, res, next) => {
 app.get('/', (_, res) => res.send('Cocoa mock server'));
 
 app.post('/login', (_, res) => {
-  res.status(200).json(user)
-})
+  res.status(200).json(user);
+});
 
 // このアプリにて使用する気分の情報を返す
 app.get('/moods', (_, res) => {
@@ -91,16 +91,18 @@ app.get('/departments', (_, res) => {
 app.get('/listMoodOfDepartment', (req, res) => {
   const begin_date = req.query.begin_date;
   const end_date = req.query.end_date;
-  if (begin_date == 1578236400 && end_date == 1578668399) {
-    res.status(200).json(jan6_10_department_moods);
-  } else if (begin_date == 1578841200 && end_date == 1579273199) {
-    res.status(200).json(jan13_17_department_moods);
-  } else if (begin_date == 1579446000 && end_date == 1579877999) {
-    res.status(200).json(jan20_24_department_moods);
-  } else if (begin_date == 1580050800 && end_date == 1580482799) {
-    res.status(200).json(jan27_31_department_moods);
-  } else if (begin_date == 1577804400 && end_date == 1580482799) {
-    res.status(200).json(jan_department_moods);
+  console.log(begin_date);
+  console.log(end_date);
+  if (begin_date == 1583074800 && end_date == 583506799) {
+    res.status(200).json(mar2_6_department_moods);
+  } else if (begin_date == 1583679600 && end_date == 1584111599) {
+    res.status(200).json(mar9_13_department_moods);
+  } else if (begin_date == 1584284400 && end_date == 1584716399) {
+    res.status(200).json(mar16_20_department_moods);
+  } else if (begin_date == 1584889200 && end_date == 1585321199) {
+    res.status(200).json(mar23_27_department_moods);
+  } else if (begin_date == 1582988400 && end_date == 1585666799) {
+    res.status(200).json(mar_department_moods);
   } else {
     res.status(200).json({});
   }

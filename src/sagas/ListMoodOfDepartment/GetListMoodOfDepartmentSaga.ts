@@ -21,6 +21,7 @@ export function* getListMoodOfDepartmentSaga(
       const state: RootState = yield select();
       const moods = state.MoodsState;
       let res = { ...response.data }; // letにしないとreduceするときにエラー吐かれるためletに
+      console.log(res);
       // 各割合に気分の重みをかける処理
       const returnRatioSum = (moods_ratio: MoodsRatio): number => {
         let ratio_sum = 0;
