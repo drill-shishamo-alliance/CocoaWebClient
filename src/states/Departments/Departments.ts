@@ -1,11 +1,11 @@
 export type Department = {
-  id: number;
+  id: number | string;
   name: string;
 };
 
 //  部署の情報を表す型
 type DepartmentsState = {
-  [department_id: number]: Department;
+  [department_id: string]: Department;
 };
 
 export default DepartmentsState;

@@ -43,7 +43,6 @@ const DashBoard: React.FC = () => {
     dispatch(getMoods.request({ departmentId: department_id }));
     dispatch(getCauses.request({ departmentId: department_id }));
     dispatch(getEmployees.request({ departmentId: department_id }));
-    dispatch(getDepartments.request({}));
   }, []);
 
   const handleDrawerOpen = () => {
