@@ -6,6 +6,7 @@ import RootState from 'src/states';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
 import BarChartTickSvg from './BarChartTickSvg';
 import PieChart, { CausesRatio } from './PieChart/PieChart';
+import { MockMoods } from 'src/states/Moods/MockMoods';
 
 type Props = {
   moodsRatio: MoodsRatio;
@@ -14,7 +15,8 @@ type Props = {
 
 const BarChart: React.FC<Props> = props => {
   const { moodsRatio, tableItemIndex } = props;
-  const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
+  // const moods = useSelector<RootState, RootState['MoodsState']>(state => state.MoodsState);
+  const moods = MockMoods;
   const isFirstTableItem: boolean = tableItemIndex === 0 ? true : false;
 
   const data = Object.values(moodsRatio).map((moodRatio, index) => {
