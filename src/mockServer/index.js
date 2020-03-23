@@ -94,16 +94,22 @@ app.get('/listMoodOfDepartment', (req, res) => {
   console.log(begin_date);
   console.log(end_date);
   if (begin_date == 1583074800 && end_date == 1583506799) {
+    console.log('pass');
     res.status(200).json(mar2_6_department_moods);
   } else if (begin_date == 1583679600 && end_date == 1584111599) {
+    console.log('pass');
     res.status(200).json(mar9_13_department_moods);
   } else if (begin_date == 1584284400 && end_date == 1584716399) {
+    console.log('pass');
     res.status(200).json(mar16_20_department_moods);
   } else if (begin_date == 1584889200 && end_date == 1585321199) {
+    console.log('pass');
     res.status(200).json(mar23_27_department_moods);
   } else if (begin_date == 1582988400 && end_date == 1585666799) {
+    console.log('pass');
     res.status(200).json(mar_department_moods);
   } else {
+    console.log('pass empty')
     res.status(200).json({});
   }
 });
