@@ -1,4 +1,4 @@
-import Axios from '../Axios';
+import Axios from './Axios';
 import ListMoodOfDepartment from './Model';
 
 export type GetListMoodOfDepartmentParams = {
@@ -11,7 +11,7 @@ export type GetListMoodOfDepartmentResponse = ListMoodOfDepartment;
 
 export async function getListMoodOfDepartmentOnAjax(params: GetListMoodOfDepartmentParams) {
   try {
-    return await Axios.get<GetListMoodOfDepartmentResponse>('/listMoodOfDepartment', {
+    return await Axios.get<GetListMoodOfDepartmentResponse>('/departments', {
       params,
     });
   } catch (e) {
