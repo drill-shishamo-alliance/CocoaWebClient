@@ -14,7 +14,7 @@ export type MoodsRatio = {
 };
 
 type ListMoodOfDepartment = {
-  [department_id: number]: {
+  [department_id: string]: {
     id: number;
     moods_ratio: MoodsRatio;
   };
