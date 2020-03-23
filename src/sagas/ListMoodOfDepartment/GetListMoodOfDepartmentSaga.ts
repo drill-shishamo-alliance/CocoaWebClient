@@ -4,6 +4,7 @@ import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import { call, put, select } from 'redux-saga/effects';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
 import RootState from 'src/states';
+import { MockMoods } from 'src/states/Moods/MockMoods';
 
 export function* getListMoodOfDepartmentSaga(
   action: ReturnType<typeof getListMoodOfDepartment.request>
@@ -18,10 +19,10 @@ export function* getListMoodOfDepartmentSaga(
     });
 
     if (response.status === 200 && response.data) {
-      const state: RootState = yield select();
-      const moods = state.MoodsState;
+      // const state: RootState = yield select();
+      // const moods = state.MoodsState;
+      const moods = MockMoods;
       let res = { ...response.data }; // letにしないとreduceするときにエラー吐かれるためletに
-      console.log(res);
       // 各割合に気分の重みをかける処理
       const returnRatioSum = (moods_ratio: MoodsRatio): number => {
         let ratio_sum = 0;

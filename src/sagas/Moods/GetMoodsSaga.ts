@@ -12,11 +12,11 @@ export function* getMoodsSaga(action: ReturnType<typeof getMoods.request>) {
     );
 
     if (response.status === 200 && response.data) {
-      console.log(response.data);
       const moodsState: MoodsState = {};
       response.data.forEach(mood => {
         moodsState[mood.id] = {
           id: mood.id,
+          department_id: mood.department_id,
           name: mood.name,
           icon_name: mood.icon_name,
           weight: mood.weight,

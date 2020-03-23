@@ -2,6 +2,7 @@
 type MoodsState = {
   [mood_id: string]: {
     id: string; // idは気分の英語名。keyのmoodIdと同じ値
+    department_id: number;
     name: string; // nameは「絶好調！」などの今の気分を日本語で表したもの
     weight: number;
     icon_name: string;

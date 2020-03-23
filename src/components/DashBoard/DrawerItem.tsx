@@ -53,8 +53,6 @@ const DrawerItem: React.FC<Props> = props => {
 
   const SvgIcon = Icon.SvgIcon;
   const ComponentIcon = Icon.ComponentIcon;
-  console.log(`currentPath:${currentPath}`);
-  console.log(`path:${path}`);
 
   if (!isOpenDrawer) {
     return (
