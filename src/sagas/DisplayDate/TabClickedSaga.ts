@@ -18,8 +18,7 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
   const state: RootState = yield select();
   const displayTab = state.displayDateState.displayTab;
   const displayMonday = new Date(state.displayDateState.displayMonday);
-  // const employee_id = state.UserState.employeeId;
-  // const department_id = state.UserState.departmentId;
+  const department_id = state.UserState.departmentId;
 
   if (displayTab === tabName.week) {
     const weekIndex = state.displayDateState.weekIndex;
@@ -28,7 +27,7 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
     const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-    yield put(getListMoodOfEmployee.request({ begin_date, end_date }));
+    yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
     yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
   } else if (displayTab === tabName.month) {
     const beginAndEndDate = getBeginAndEndDateFromMonth(displayMonday);
@@ -37,7 +36,7 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
     const newDisplaySpan = getMonthDates(displayMonday);
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-    yield put(getListMoodOfEmployee.request({ begin_date, end_date }));
+    yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
     yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
   }
 }

@@ -17,7 +17,7 @@ const App: React.FC = () => {
     } else {
       history.push('/login');
     }
-  }, [isLoggedIn]);
+  }, [history, isLoggedIn]);
 
   return (
     <Switch>

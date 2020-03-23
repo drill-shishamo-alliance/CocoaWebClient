@@ -32,9 +32,6 @@ const DashBoard: React.FC = () => {
   const isLoggedIn = useSelector<RootState, RootState['UserState']['isLoggedIn']>(
     state => state.UserState.isLoggedIn
   );
-  // const employee_id = useSelector<RootState, RootState['UserState']['employeeId']>(
-  //   state => state.UserState.employeeId
-  // );
   const department_id = useSelector<RootState, RootState['UserState']['departmentId']>(
     state => state.UserState.departmentId
   );
@@ -54,12 +51,6 @@ const DashBoard: React.FC = () => {
   };
 
   const onClickDrawerItem = (route: string, dates?: Date[]) => () => {
-    // if (route === '/app') {
-    //   currentPath = route
-    // } else {
-    //   currentPath = `/app${route}`
-    // }
-    console.log(`onClickRoute:${route}`);
     currentPath = route;
     history.push(currentPath);
     if (dates !== undefined) {
@@ -67,7 +58,7 @@ const DashBoard: React.FC = () => {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ begin_date, end_date }));
+      dispatch(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
       dispatch(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
     }
   };
