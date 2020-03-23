@@ -10,7 +10,7 @@ const ListMoodOfEmployee = (
 ): listMoodOfEmployeeState => {
   switch (action.type) {
     case ListMoodOfEmployeeActionType.GET_LIST_MOOD_OF_EMPLOYEE_SUCCEEDED:
-      return { ...action.payload };
+      return { ...state, ...action.payload };
     case ListMoodOfEmployeeActionType.GET_LIST_MOOD_OF_EMPLOYEE_FAILED:
       return {};
     default:

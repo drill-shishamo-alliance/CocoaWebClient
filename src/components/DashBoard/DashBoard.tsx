@@ -13,7 +13,10 @@ import Ranking from '../RankingScreen/RankingScreen';
 import { Route, useHistory } from 'react-router-dom';
 import { getMoods } from 'src/actions/Moods/ActionCreator';
 import { getEmployees } from 'src/actions/Employees/ActionCreator';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import {
+  getListMoodOfEmployee,
+  resetListMoodOfEmployee,
+} from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
@@ -35,6 +38,7 @@ const DashBoard: React.FC = () => {
   const department_id = useSelector<RootState, RootState['UserState']['departmentId']>(
     state => state.UserState.departmentId
   );
+  const employees = useSelector<RootState, RootState['Employees']>(state => state.Employees);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -58,7 +62,10 @@ const DashBoard: React.FC = () => {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnix(new Date(dates[0]));
       const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+      dispatch(resetListMoodOfEmployee());
+      Object.values(employees).forEach(employee => {
+        dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+      });
       dispatch(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
     }
   };

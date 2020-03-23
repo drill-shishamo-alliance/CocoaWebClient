@@ -5,7 +5,10 @@ import {
 import { put, select } from 'redux-saga/effects';
 import RootState from 'src/states';
 import getBeginAndEndDateFromMonth from 'src/utilsLogic/Date/GetBeginAndEndDateFromMonth';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import {
+  getListMoodOfEmployee,
+  resetListMoodOfEmployee,
+} from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import getMonthDates from 'src/utilsLogic/Date/GetMonthDates';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
@@ -17,10 +20,12 @@ export function* changeMonthSaga(action: ReturnType<typeof changeMonthButtonClic
   const begin_date = beginAndEndDate.beginDate;
   const end_date = beginAndEndDate.endDate;
   const newDisplaySpan = getMonthDates(displayMonday);
-  // const employee_id = state.UserState.employeeId;
-  const department_id = state.UserState.departmentId;
+  const employees = state.Employees;
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-  yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+  yield put(resetListMoodOfEmployee());
+  Object.values(employees).forEach(function*(employee) {
+    yield put(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+  });
   yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
 }

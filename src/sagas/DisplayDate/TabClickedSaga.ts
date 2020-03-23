@@ -7,7 +7,10 @@ import { put, select } from 'redux-saga/effects';
 import RootState from 'src/states';
 import { tabName } from 'src/states/DisplayDate/DisplayDate';
 import getBeginAndEndDateFromMonth from 'src/utilsLogic/Date/GetBeginAndEndDateFromMonth';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import {
+  getListMoodOfEmployee,
+  resetListMoodOfEmployee,
+} from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import getMonthDates from 'src/utilsLogic/Date/GetMonthDates';
@@ -27,16 +30,20 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
     const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-    yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+
     yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
   } else if (displayTab === tabName.month) {
     const beginAndEndDate = getBeginAndEndDateFromMonth(displayMonday);
     const begin_date = beginAndEndDate.beginDate;
     const end_date = beginAndEndDate.endDate;
     const newDisplaySpan = getMonthDates(displayMonday);
+    const employees = state.Employees;
 
     yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-    yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+    yield put(resetListMoodOfEmployee());
+    Object.values(employees).forEach(function*(employee) {
+      yield put(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+    });
     yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
   }
 }

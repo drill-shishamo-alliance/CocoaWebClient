@@ -6,7 +6,10 @@ import { put, select } from 'redux-saga/effects';
 import RootState from 'src/states';
 import getWeekOfMonth from 'src/utilsLogic/Date/GetWeekOfMonth';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import {
+  getListMoodOfEmployee,
+  resetListMoodOfEmployee,
+} from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 
 export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButtonClicked>) {
@@ -18,9 +21,12 @@ export function* changeWeekSpanSaga(action: ReturnType<typeof changeWeekSpanButt
   const newDisplaySpan = getWeekOfMonth(displayMonday, weekIndex);
   const begin_date = convertDateToUnix(newDisplaySpan[0]);
   const end_date = convertDateToUnix(newDisplaySpan[newDisplaySpan.length - 1]);
-  const department_id = state.UserState.departmentId;
+  const employees = state.Employees;
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
-  yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+  yield put(resetListMoodOfEmployee());
+  Object.values(employees).forEach(function*(employee) {
+    yield put(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+  });
   yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
 }

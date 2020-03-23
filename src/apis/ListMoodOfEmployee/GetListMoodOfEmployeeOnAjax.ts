@@ -2,7 +2,7 @@ import Axios from './Axios';
 import MoodOfEmployee from './Model';
 
 export type getListMoodOfEmployeeParams = {
-  department_id: number;
+  employee_id: number;
   begin_date: number;
   end_date: number;
 };
@@ -10,12 +10,12 @@ export type getListMoodOfEmployeeParams = {
 export type getListMoodOfEmployeeResponse = MoodOfEmployee[];
 
 export async function getListMoodOfEmployeeOnAjax({
-  department_id,
+  employee_id,
   begin_date,
   end_date,
 }: getListMoodOfEmployeeParams) {
   try {
-    return await Axios.get<getListMoodOfEmployeeResponse>(`/punchlogs/${department_id}`, {
+    return await Axios.get<getListMoodOfEmployeeResponse>(`/punchlogs/${employee_id}`, {
       params: {
         begin_date,
         end_date,

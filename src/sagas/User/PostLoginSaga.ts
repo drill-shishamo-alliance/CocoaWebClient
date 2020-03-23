@@ -4,7 +4,10 @@ import { postLoginApi } from 'src/apis/User/PostLoginApi';
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
 import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import {
+  getListMoodOfEmployee,
+  resetListMoodOfEmployee,
+} from 'src/actions/ListMoodOfEmployee/ActionCreator';
 
 export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
   try {
@@ -18,10 +21,15 @@ export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
       yield put(postLogin.success(response.data));
       const state: RootState = yield select();
       const displaySpan = state.displayDateState.displaySpan;
-      const department_id = response.data.department_id;
       const begin_date = convertDateToUnix(displaySpan[0]);
       const end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
-      yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+      const employees = state.Employees;
+      yield put(resetListMoodOfEmployee());
+      Object.values(employees).forEach(function*(employee) {
+        yield put(
+          getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date })
+        );
+      });
     } else if (response.status === 400) {
       yield put(postLogin.failure());
     } else {
