@@ -63,12 +63,7 @@ const BarChart: React.FC<Props> = props => {
       <ChartPosition>
         <BarChartRecharts data={data}>
           <CartesianGrid strokeDasharray='3 3' />
-          <XAxis
-            dataKey='weight'
-            // tickLine={false}
-            ticks={[1, 2, 3, 4, 5]}
-            tick={<CustomizedTicks />}
-          />
+          <XAxis dataKey='weight' ticks={[1, 2, 3, 4, 5]} tick={<CustomizedTicks />} />
           <YAxis domain={[0, 100]} unit='%' />
           <Tooltip
             content={<CustomTooltip />}

@@ -4,12 +4,12 @@ import RootState from 'src/states';
 import { useSelector } from 'react-redux';
 
 type CauseRatio = {
-  id: string;
+  id: number;
   ratio: number;
 };
 
 export type CausesRatio = {
-  [causeId: string]: CauseRatio;
+  [causeId: number]: CauseRatio;
 };
 
 type Props = {

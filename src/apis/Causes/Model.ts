@@ -1,5 +1,5 @@
 type Cause = {
-  id: string;
+  id: number;
   department_id: number;
   name: string;
 };
