@@ -93,7 +93,7 @@ app.get('/listMoodOfDepartment', (req, res) => {
   const end_date = req.query.end_date;
   console.log(begin_date);
   console.log(end_date);
-  if (begin_date == 1583074800 && end_date == 583506799) {
+  if (begin_date == 1583074800 && end_date == 1583506799) {
     res.status(200).json(mar2_6_department_moods);
   } else if (begin_date == 1583679600 && end_date == 1584111599) {
     res.status(200).json(mar9_13_department_moods);
