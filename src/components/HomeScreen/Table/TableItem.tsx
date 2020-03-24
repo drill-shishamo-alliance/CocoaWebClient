@@ -22,7 +22,6 @@ const TableItem: React.FC<Props> = props => {
     state => state.ListMoodOfEmployee
   );
 
-  console.log(listMoodOfEmployee);
   const punchLogs =
     typeof listMoodOfEmployee[employee.id] === 'undefined'
       ? []
