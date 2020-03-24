@@ -13,6 +13,7 @@ export type Props = {
 
 const TableItem: React.FC<Props> = props => {
   const { employee } = props;
+
   const listMoodOfEmployee = useSelector<rootState, rootState['ListMoodOfEmployee']>(
     state => state.ListMoodOfEmployee
   );
@@ -23,7 +24,7 @@ const TableItem: React.FC<Props> = props => {
     typeof listMoodOfEmployee[employee.id] === 'undefined'
       ? []
       : listMoodOfEmployee[employee.id].punch_logs; // 今回描画する社員さんの気分情報
-  let displayPunchLogs: PunchLog[] = [];
+  const displayPunchLogs: PunchLog[] = [];
   punchLogs.forEach(punchLog => {
     displaySpan.forEach(displayDate => {
       if (
