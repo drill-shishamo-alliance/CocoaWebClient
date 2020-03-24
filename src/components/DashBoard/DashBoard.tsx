@@ -22,6 +22,7 @@ import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/Action
 import {
   convertDateToUnixForEnd,
   convertDateToUnixForBegin,
+  convertDateToUnix,
 } from 'src/utilsLogic/Date/ConvertDateToUnix';
 
 let currentPath = '/app';
@@ -43,6 +44,8 @@ const DashBoard: React.FC = () => {
   );
   const begin_date = convertDateToUnixForBegin(displaySpan[0]);
   const end_date = convertDateToUnixForEnd(displaySpan[displaySpan.length - 1]);
+  const mock_begin_date = convertDateToUnix(displaySpan[0]);
+  const mock_end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -50,11 +53,15 @@ const DashBoard: React.FC = () => {
     }
     dispatch(resetListMoodOfEmployee());
     Object.values(employees).forEach(employee => {
-      dispatch(
-        getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date: end_date })
-      );
+      dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
     });
-    dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date: end_date }));
+    dispatch(
+      getListMoodOfDepartment.request({
+        department_id,
+        begin_date: mock_begin_date,
+        end_date: mock_end_date,
+      })
+    );
   }, [employees]);
 
   const handleDrawerOpen = () => {
@@ -69,11 +76,19 @@ const DashBoard: React.FC = () => {
       dispatch(updateDisplaySpan({ displaySpan: dates }));
       const begin_date = convertDateToUnixForBegin(new Date(dates[0]));
       const end_date = convertDateToUnixForEnd(new Date(dates[dates.length - 1]));
+      const mock_begin_date = convertDateToUnix(displaySpan[0]);
+      const mock_end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
       dispatch(resetListMoodOfEmployee());
       Object.values(employees).forEach(employee => {
         dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
       });
-      dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date }));
+      dispatch(
+        getListMoodOfDepartment.request({
+          department_id,
+          begin_date: mock_begin_date,
+          end_date: mock_end_date,
+        })
+      );
     }
   };
 
