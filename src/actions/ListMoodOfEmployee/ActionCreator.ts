@@ -1,4 +1,4 @@
-import { createAsyncAction, createAction, createStandardAction } from 'typesafe-actions';
+import { createAsyncAction, createStandardAction } from 'typesafe-actions';
 import ListMoodOfEmployeeActionType from './ActionType';
 import { getListMoodOfEmployeeParams } from 'src/apis/ListMoodOfEmployee/GetListMoodOfEmployeeOnAjax';
 import listMoodOfEmployeeState from 'src/states/ListMoodOfEmployee/ListMoodOfEmployee';

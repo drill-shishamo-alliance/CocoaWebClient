@@ -11,8 +11,6 @@ import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import Ranking from '../RankingScreen/RankingScreen';
 import { Route, useHistory } from 'react-router-dom';
-import { getMoods } from 'src/actions/Moods/ActionCreator';
-import { getEmployees } from 'src/actions/Employees/ActionCreator';
 import {
   getListMoodOfEmployee,
   resetListMoodOfEmployee,
@@ -20,11 +18,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
 import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
-import { getCauses } from 'src/actions/Causes/ActionCreator';
 import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDateActionCreator';
-import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
-import { GetPastFiveDays } from '../HomeScreen/Table/utils/GetPastFiveDays';
 
 let currentPath = '/app';
 
@@ -40,15 +35,22 @@ const DashBoard: React.FC = () => {
     state => state.UserState.departmentId
   );
   const employees = useSelector<RootState, RootState['Employees']>(state => state.Employees);
+  const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
+    state => state.displayDateState.displaySpan
+  );
+  const begin_date = convertDateToUnix(displaySpan[0]);
+  const end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
 
   useEffect(() => {
     if (!isLoggedIn) {
       history.push('/login');
     }
-    // dispatch(getMoods.request({ departmentId: department_id }));
-    // dispatch(getCauses.request({ departmentId: department_id }));
-    // dispatch(getEmployees.request({ departmentId: department_id }));
-  }, []);
+    dispatch(resetListMoodOfEmployee());
+    Object.values(employees).forEach(employee => {
+      dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+    });
+    dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date }));
+  }, [employees]);
 
   const handleDrawerOpen = () => {
     setIsOpenDrower(!isOpenDrawer);

@@ -17,7 +17,6 @@ export function* getListMoodOfDepartmentSaga(
       end_date: action.payload.end_date,
     });
 
-    console.log(response.data);
     if (response.status === 200 && response.data) {
       // const state: RootState = yield select();
       // const moods = state.MoodsState;

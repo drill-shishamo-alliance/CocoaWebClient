@@ -21,7 +21,6 @@ export function* tabClickedSaga(action: ReturnType<typeof tabClicked>) {
   const state: RootState = yield select();
   const displayTab = state.displayDateState.displayTab;
   const displayMonday = new Date(state.displayDateState.displayMonday);
-  const department_id = state.UserState.departmentId;
 
   if (displayTab === tabName.week) {
     const weekIndex = state.displayDateState.weekIndex;

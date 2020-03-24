@@ -21,8 +21,6 @@ export function* getListMoodOfEmployeeSaga(
         end_date: action.payload.end_date,
       }
     );
-    console.log('aaaaaaaaaaaa');
-    console.log(response.data);
     if (response.status === 200 && response.data) {
       // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
       const state: RootState = yield select();
