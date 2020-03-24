@@ -11,16 +11,18 @@ import Home from '../HomeScreen/HomeScreen';
 import EmployeeMoodsScreen from '../EmployeeMoodsScreen/EmployeeMoodsScreen';
 import Ranking from '../RankingScreen/RankingScreen';
 import { Route, useHistory } from 'react-router-dom';
-import { getMoods } from 'src/actions/Moods/ActionCreator';
-import { getEmployees } from 'src/actions/Employees/ActionCreator';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import {
+  getListMoodOfEmployee,
+  resetListMoodOfEmployee,
+} from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
-import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
-import { getCauses } from 'src/actions/Causes/ActionCreator';
 import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDateActionCreator';
-import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
+import {
+  convertDateToUnixForEnd,
+  convertDateToUnixForBegin,
+} from 'src/utilsLogic/Date/ConvertDateToUnix';
 
 let currentPath = '/app';
 
@@ -35,15 +37,25 @@ const DashBoard: React.FC = () => {
   const department_id = useSelector<RootState, RootState['UserState']['departmentId']>(
     state => state.UserState.departmentId
   );
+  const employees = useSelector<RootState, RootState['Employees']>(state => state.Employees);
+  const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
+    state => state.displayDateState.displaySpan
+  );
+  const begin_date = convertDateToUnixForBegin(displaySpan[0]);
+  const end_date = convertDateToUnixForEnd(displaySpan[displaySpan.length - 1]);
 
   useEffect(() => {
     if (!isLoggedIn) {
       history.push('/login');
     }
-    dispatch(getMoods.request({ departmentId: department_id }));
-    dispatch(getCauses.request({ departmentId: department_id }));
-    dispatch(getEmployees.request({ departmentId: department_id }));
-  }, []);
+    dispatch(resetListMoodOfEmployee());
+    Object.values(employees).forEach(employee => {
+      dispatch(
+        getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date: end_date })
+      );
+    });
+    dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date: end_date }));
+  }, [employees]);
 
   const handleDrawerOpen = () => {
     setIsOpenDrower(!isOpenDrawer);
@@ -55,10 +67,13 @@ const DashBoard: React.FC = () => {
     if (dates !== undefined) {
       dispatch(resetDate());
       dispatch(updateDisplaySpan({ displaySpan: dates }));
-      const begin_date = convertDateToUnix(new Date(dates[0]));
-      const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
-      dispatch(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
-      dispatch(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
+      const begin_date = convertDateToUnixForBegin(new Date(dates[0]));
+      const end_date = convertDateToUnixForEnd(new Date(dates[dates.length - 1]));
+      dispatch(resetListMoodOfEmployee());
+      Object.values(employees).forEach(employee => {
+        dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+      });
+      dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date }));
     }
   };
 

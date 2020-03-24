@@ -1,6 +1,6 @@
 // 選択された気分の情報を管理する型
 export type PunchLog = {
-  mood_id: number; // どの気分かを表すid
+  mood_id: string; // どの気分かを表すid
   cause_ids: number[];
   punched_at: Date; // その気分が打刻された時間
 };

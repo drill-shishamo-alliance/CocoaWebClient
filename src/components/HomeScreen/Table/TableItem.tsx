@@ -21,6 +21,7 @@ const TableItem: React.FC<Props> = props => {
   const listMoodOfEmployee = useSelector<rootState, rootState['ListMoodOfEmployee']>(
     state => state.ListMoodOfEmployee
   );
+
   const punchLogs =
     typeof listMoodOfEmployee[employee.id] === 'undefined'
       ? []

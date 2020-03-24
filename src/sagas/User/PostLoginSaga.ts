@@ -1,10 +1,10 @@
-import { call, put, select } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { postLogin } from 'src/actions/User/ActionCreator';
 import { postLoginApi } from 'src/apis/User/PostLoginApi';
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
-import RootState from 'src/states';
-import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
-import { getListMoodOfEmployee } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import { getEmployees } from 'src/actions/Employees/ActionCreator';
+import { getMoods } from 'src/actions/Moods/ActionCreator';
+import { getCauses } from 'src/actions/Causes/ActionCreator';
 
 export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
   try {
@@ -14,14 +14,11 @@ export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
     );
 
     if (response.status === 201 && response.data) {
-      // ログインに成功した場合、そのデータを基に部下の気分のリクエストを発火する
       yield put(postLogin.success(response.data));
-      const state: RootState = yield select();
-      const displaySpan = state.displayDateState.displaySpan;
-      const department_id = response.data.department_id;
-      const begin_date = convertDateToUnix(displaySpan[0]);
-      const end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
-      yield put(getListMoodOfEmployee.request({ department_id, begin_date, end_date }));
+      const departmentId = response.data.department_id;
+      yield put(getEmployees.request({ departmentId }));
+      yield put(getMoods.request({ departmentId }));
+      yield put(getCauses.request({ departmentId }));
     } else if (response.status === 400) {
       yield put(postLogin.failure());
     } else {

@@ -1,8 +1,6 @@
 import React from 'react';
 import { ChartPosition, CustomContentOfToolTip, Border, ChartSize } from './BarChartStyles';
 import { BarChart as BarChartRecharts, Bar, YAxis, CartesianGrid, Tooltip, XAxis } from 'recharts';
-import { useSelector } from 'react-redux';
-import RootState from 'src/states';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
 import BarChartTickSvg from './BarChartTickSvg';
 import PieChart, { CausesRatio } from './PieChart/PieChart';

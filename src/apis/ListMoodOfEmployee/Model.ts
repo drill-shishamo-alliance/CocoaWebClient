@@ -1,12 +1,8 @@
-type PunchLog = {
-  mood_id: number;
+type PunchLogModel = {
+  employee_id: number;
+  mood_id: string;
   cause_ids: number[];
   punched_at: number;
 };
 
-type MoodOfEmployee = {
-  employee_id: number;
-  punch_logs: PunchLog[];
-};
-
-export default MoodOfEmployee;
+export default PunchLogModel;

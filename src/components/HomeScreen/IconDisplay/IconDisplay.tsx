@@ -6,7 +6,7 @@ import rootState from 'src/states/index';
 import IconToolTip from '../IconToolTip/IconToolTip';
 
 type Props = {
-  moodId: number;
+  moodId: string;
   causeIds: number[];
 };
 
