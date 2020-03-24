@@ -17,9 +17,12 @@ import {
 } from 'src/actions/ListMoodOfEmployee/ActionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import RootState from 'src/states';
-import convertDateToUnix from 'src/utilsLogic/Date/ConvertDateToUnix';
 import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
+import {
+  convertDateToUnixForEnd,
+  convertDateToUnixForBegin,
+} from 'src/utilsLogic/Date/ConvertDateToUnix';
 
 let currentPath = '/app';
 
@@ -38,8 +41,8 @@ const DashBoard: React.FC = () => {
   const displaySpan = useSelector<RootState, RootState['displayDateState']['displaySpan']>(
     state => state.displayDateState.displaySpan
   );
-  const begin_date = convertDateToUnix(displaySpan[0]);
-  const end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
+  const begin_date = convertDateToUnixForBegin(displaySpan[0]);
+  const end_date = convertDateToUnixForEnd(displaySpan[displaySpan.length - 1]);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -64,8 +67,8 @@ const DashBoard: React.FC = () => {
     if (dates !== undefined) {
       dispatch(resetDate());
       dispatch(updateDisplaySpan({ displaySpan: dates }));
-      const begin_date = convertDateToUnix(new Date(dates[0]));
-      const end_date = convertDateToUnix(new Date(dates[dates.length - 1]));
+      const begin_date = convertDateToUnixForBegin(new Date(dates[0]));
+      const end_date = convertDateToUnixForEnd(new Date(dates[dates.length - 1]));
       dispatch(resetListMoodOfEmployee());
       Object.values(employees).forEach(employee => {
         dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));

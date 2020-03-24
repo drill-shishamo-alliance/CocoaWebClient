@@ -1,4 +1,4 @@
-import convertDateToUnix from './ConvertDateToUnix';
+import { convertDateToUnixForBegin, convertDateToUnixForEnd } from './ConvertDateToUnix';
 
 type beginAndEndUnix = {
   beginDate: number;
@@ -13,7 +13,7 @@ export default function getBeginAndEndDateFromMonth(date: Date): beginAndEndUnix
   end.setMinutes(59);
   end.setSeconds(59);
 
-  const beginDate: number = convertDateToUnix(begin);
-  const endDate: number = convertDateToUnix(end);
+  const beginDate: number = convertDateToUnixForBegin(begin);
+  const endDate: number = convertDateToUnixForEnd(end);
   return { beginDate, endDate };
 }
