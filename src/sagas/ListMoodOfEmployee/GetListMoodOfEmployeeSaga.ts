@@ -21,6 +21,8 @@ export function* getListMoodOfEmployeeSaga(
         end_date: action.payload.end_date,
       }
     );
+    console.log('aaaaaaaaaaaa');
+    console.log(response.data);
     if (response.status === 200 && response.data) {
       // 受け取ったデータを 1.unixからDateに変換 2.気分がよくない人順に並べ替え 3.気分状態が危険かどうかを判定するフラグを追加 してからStoreに保存する
       const state: RootState = yield select();
@@ -28,43 +30,41 @@ export function* getListMoodOfEmployeeSaga(
       const reorderParams: { employee_id: number; mood_weight_average: number }[] = [];
       let convertDateData: listMoodOfEmployeeState = {};
       const dangerLine = 2.5;
+      let mood_weight_sum = 0;
+      let denominator = 0;
+      let punchedDates: PunchLog[] = [];
+      const employeeId = response.data[0].employee_id;
 
-      response.data.forEach(moodOfEmployee => {
+      response.data.forEach(punchlog => {
         // ここで 1.並べ替えのためのパラメータ作成 2.unixからDateに変換 を行う
-        let mood_weight_sum = 0;
-        let denominator = 0;
-        let punchedDates: PunchLog[] = [];
-        moodOfEmployee.punch_logs.forEach(punch_log => {
-          punchedDates.push({
-            mood_id: punch_log.mood_id,
-            cause_ids: punch_log.cause_ids,
-            punched_at: convertUnixToDate(punch_log.punched_at),
-          });
-          if (moods[punch_log.mood_id].name !== '未入力') {
-            // 未入力の場合は除外する
-            denominator += 1;
-            mood_weight_sum += moods[punch_log.mood_id].weight;
-          }
+        punchedDates.push({
+          mood_id: punchlog.mood_id,
+          cause_ids: punchlog.cause_ids,
+          punched_at: convertUnixToDate(punchlog.punched_at),
         });
-        convertDateData = {
-          ...convertDateData,
-          [moodOfEmployee.employee_id]: {
-            employee_id: moodOfEmployee.employee_id,
-            punch_logs: punchedDates,
-            is_danger: false,
-          },
-        };
-        reorderParams.push({
-          employee_id: moodOfEmployee.employee_id,
-          mood_weight_average: mood_weight_sum / denominator,
-        });
+        if (moods[punchlog.mood_id].name !== '未入力') {
+          // 未入力の場合は除外する
+          denominator += 1;
+          mood_weight_sum += moods[punchlog.mood_id].weight;
+        }
+      });
+      convertDateData = {
+        ...convertDateData,
+        [employeeId]: {
+          employee_id: employeeId,
+          punch_logs: [...punchedDates],
+          is_danger: false,
+        },
+      };
+      reorderParams.push({
+        employee_id: employeeId,
+        mood_weight_average: mood_weight_sum / denominator,
       });
       reorderParams.sort(function(prevParam, nextParam) {
         if (prevParam.mood_weight_average < nextParam.mood_weight_average) return -1;
         if (prevParam.mood_weight_average > nextParam.mood_weight_average) return 1;
         return 0;
       });
-
       let postDataToStore: listMoodOfEmployeeState = {};
       reorderParams.forEach(param => {
         // 3. 気分状態が危険かどうかのフラグを設定

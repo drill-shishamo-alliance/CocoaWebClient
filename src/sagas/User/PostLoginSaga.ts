@@ -8,6 +8,9 @@ import {
   getListMoodOfEmployee,
   resetListMoodOfEmployee,
 } from 'src/actions/ListMoodOfEmployee/ActionCreator';
+import { getEmployees } from 'src/actions/Employees/ActionCreator';
+import { getMoods } from 'src/actions/Moods/ActionCreator';
+import { getCauses } from 'src/actions/Causes/ActionCreator';
 
 export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
   try {
@@ -17,13 +20,16 @@ export function* postLoginSaga(action: ReturnType<typeof postLogin.request>) {
     );
 
     if (response.status === 201 && response.data) {
-      // ログインに成功した場合、そのデータを基に部下の気分のリクエストを発火する
       yield put(postLogin.success(response.data));
+      yield put(getEmployees.request({ departmentId: response.data.department_id }));
       const state: RootState = yield select();
       const displaySpan = state.displayDateState.displaySpan;
       const begin_date = convertDateToUnix(displaySpan[0]);
       const end_date = convertDateToUnix(displaySpan[displaySpan.length - 1]);
       const employees = state.Employees;
+      const departmentId = state.UserState.departmentId;
+      yield put(getMoods.request({ departmentId }));
+      yield put(getCauses.request({ departmentId }));
       yield put(resetListMoodOfEmployee());
       Object.values(employees).forEach(function*(employee) {
         yield put(

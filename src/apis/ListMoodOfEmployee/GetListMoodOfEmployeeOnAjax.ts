@@ -1,5 +1,5 @@
 import Axios from './Axios';
-import MoodOfEmployee from './Model';
+import PunchlogModel from './Model';
 
 export type getListMoodOfEmployeeParams = {
   employee_id: number;
@@ -7,7 +7,7 @@ export type getListMoodOfEmployeeParams = {
   end_date: number;
 };
 
-export type getListMoodOfEmployeeResponse = MoodOfEmployee[];
+export type getListMoodOfEmployeeResponse = PunchlogModel[];
 
 export async function getListMoodOfEmployeeOnAjax({
   employee_id,

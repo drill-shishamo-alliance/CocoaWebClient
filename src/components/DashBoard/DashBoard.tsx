@@ -24,6 +24,7 @@ import { getCauses } from 'src/actions/Causes/ActionCreator';
 import { updateDisplaySpan, resetDate } from 'src/actions/DisplayDate/DisplayDateActionCreator';
 import { getDepartments } from 'src/actions/Departments/ActionCreator';
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
+import { GetPastFiveDays } from '../HomeScreen/Table/utils/GetPastFiveDays';
 
 let currentPath = '/app';
 
@@ -44,9 +45,9 @@ const DashBoard: React.FC = () => {
     if (!isLoggedIn) {
       history.push('/login');
     }
-    dispatch(getMoods.request({ departmentId: department_id }));
-    dispatch(getCauses.request({ departmentId: department_id }));
-    dispatch(getEmployees.request({ departmentId: department_id }));
+    // dispatch(getMoods.request({ departmentId: department_id }));
+    // dispatch(getCauses.request({ departmentId: department_id }));
+    // dispatch(getEmployees.request({ departmentId: department_id }));
   }, []);
 
   const handleDrawerOpen = () => {
@@ -65,7 +66,7 @@ const DashBoard: React.FC = () => {
       Object.values(employees).forEach(employee => {
         dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
       });
-      dispatch(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
+      dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date }));
     }
   };
 

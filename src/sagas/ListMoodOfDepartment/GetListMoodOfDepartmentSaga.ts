@@ -1,9 +1,8 @@
 import { getListMoodOfDepartment } from 'src/actions/ListMoodOfDepartment/ActionCreator';
 import { getListMoodOfDepartmentOnAjax } from 'src/apis/ListMoodOfDepartment/GetListMoodOfDepartment';
 import { PromiseGenericType } from 'src/utilsLogic/types/TypeUtils';
-import { call, put, select } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { MoodsRatio } from 'src/states/ListMoodOfDepartment/ListMoodOfDepartment';
-import RootState from 'src/states';
 import { MockMoods } from 'src/states/Moods/MockMoods';
 
 export function* getListMoodOfDepartmentSaga(
@@ -13,7 +12,7 @@ export function* getListMoodOfDepartmentSaga(
     const response: PromiseGenericType<ReturnType<
       typeof getListMoodOfDepartmentOnAjax
     >> = yield call(getListMoodOfDepartmentOnAjax, {
-      department_id: 0,
+      department_id: action.payload.department_id,
       begin_date: action.payload.begin_date,
       end_date: action.payload.end_date,
     });
