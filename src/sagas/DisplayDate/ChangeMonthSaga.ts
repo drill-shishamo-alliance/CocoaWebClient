@@ -24,8 +24,10 @@ export function* changeMonthSaga(action: ReturnType<typeof changeMonthButtonClic
 
   yield put(updateDisplaySpan({ displaySpan: newDisplaySpan }));
   yield put(resetListMoodOfEmployee());
-  Object.values(employees).forEach(function*(employee) {
-    yield put(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+  Object.values(employees).map(function*(employee) {
+    return yield put(
+      getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date })
+    );
   });
   yield put(getListMoodOfDepartment.request({ department_id: 1, begin_date, end_date }));
 }

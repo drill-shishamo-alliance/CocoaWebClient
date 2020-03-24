@@ -47,9 +47,11 @@ const DashBoard: React.FC = () => {
     }
     dispatch(resetListMoodOfEmployee());
     Object.values(employees).forEach(employee => {
-      dispatch(getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date }));
+      dispatch(
+        getListMoodOfEmployee.request({ employee_id: employee.id, begin_date, end_date: end_date })
+      );
     });
-    dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date }));
+    dispatch(getListMoodOfDepartment.request({ department_id, begin_date, end_date: end_date }));
   }, [employees]);
 
   const handleDrawerOpen = () => {
